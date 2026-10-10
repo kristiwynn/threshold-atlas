@@ -15,7 +15,8 @@
    "url": "https://pubmed.ncbi.nlm.nih.gov/11755611/",
    "trigger": "Cardiac arrest",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "measured": true
   },
   {
    "id": "aware2014",
@@ -31,7 +32,9 @@
    "url": "https://pubmed.ncbi.nlm.nih.gov/25301715/",
    "trigger": "Cardiac arrest",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "no_walk": "This study counted how many people had an experience, not what was in it. Its sister study AWARE II describes the content.",
+   "walk_instead": "aware2023"
   },
   {
    "id": "aware2023",
@@ -47,7 +50,16 @@
    "url": "https://www.sciencedirect.com/science/article/abs/pii/S0300957223002162",
    "trigger": "Cardiac arrest",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "scene": {
+    "dead": 1,
+    "obe": 1,
+    "realm": 1,
+    "review": 1,
+    "return": 1,
+    "tunnel": 0
+   },
+   "scene_note": "AWARE II describes what survivors recalled as a separation from the body, observing events without pain or distress, travelling to a destination, and a meaningful evaluation of their own actions and relationships. The paper reports themes rather than percentages, so each stage plays at the same strength."
   },
   {
    "id": "greyson2003",
@@ -63,7 +75,9 @@
    "url": "https://pubmed.ncbi.nlm.nih.gov/12850659/",
    "trigger": "Cardiac arrest",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "no_walk": "A prevalence study: it measured how often an NDE happens in a cardiac unit, not what the experiences contained.",
+   "walk_instead": "lommel2001"
   },
   {
    "id": "parnia2001",
@@ -79,7 +93,9 @@
    "url": "https://pubmed.ncbi.nlm.nih.gov/11426476/",
    "trigger": "Cardiac arrest",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "no_walk": "A prevalence study in one hospital; the sample of experiencers was too small to publish feature rates.",
+   "walk_instead": "lommel2001"
   },
   {
    "id": "morse1986",
@@ -95,7 +111,9 @@
    "url": "https://pubmed.ncbi.nlm.nih.gov/3490146/",
    "trigger": "Critical illness",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "no_walk": "A comparison of critically ill children with a control group, reporting that NDE features occurred in one and not the other, without published rates per feature.",
+   "walk_instead": "lommel2001"
   },
   {
    "id": "gallup1982",
@@ -111,7 +129,9 @@
    "url": "https://digital.library.unt.edu/explore/collections/JNDS/",
    "trigger": "Mixed",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "no_walk": "A national poll of how many adults had ever had one. This atlas does not have verified figures for the individual elements it asked about.",
+   "walk_instead": "long2010"
   },
   {
    "id": "knoblauch2001",
@@ -127,7 +147,9 @@
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799348/",
    "trigger": "Mixed",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "no_walk": "A population survey measuring how many Germans had had one, and differences between East and West, rather than rates per feature.",
+   "walk_instead": "long2010"
   },
   {
    "id": "perera2005",
@@ -143,7 +165,9 @@
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799374/",
    "trigger": "Mixed",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "no_walk": "A telephone survey measuring how many Australians had had one.",
+   "walk_instead": "long2010"
   },
   {
    "id": "long2010",
@@ -159,7 +183,8 @@
    "url": "https://www.nderf.org/NDERF/EvidenceAfterlife/evidence/NDERF_Study_Methods.htm",
    "trigger": "Mixed",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "measured": true
   },
   {
    "id": "martial2017",
@@ -175,7 +200,8 @@
    "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2017.00311/full",
    "trigger": "Mixed",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "measured": true
   },
   {
    "id": "pasricha1986",
@@ -289,7 +315,8 @@
    "url": "https://www.nderf.org/NDERF/Articles/NDE%20Overview.htm",
    "trigger": "Mixed",
    "experience_type": "mixed",
-   "type_label": "Measured across many people"
+   "type_label": "Measured across many people",
+   "no_walk": "A reference page used as the source for what people report hearing, not a study of its own."
   },
   {
    "id": "bailey2001",
@@ -475,8 +502,16 @@
    "cite": "Zaleski C. Otherworld Journeys: Accounts of Near-Death Experience in Medieval and Modern Times. Oxford University Press, 1987.",
    "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
    "trigger": "Mixed",
-   "experience_type": "mixed",
-   "type_label": "Comparison across eras"
+   "experience_type": "guided",
+   "type_label": "What every era shares",
+   "scene": {
+    "obe": 1,
+    "beings": 1,
+    "realm": 1,
+    "border": 1,
+    "return": 1
+   },
+   "scene_note": "Zaleski's constants rendered as a walk: what medieval and modern accounts share is leaving the body, a guide or companion, another place, a barrier, and a return that changes the life. What they do not share, hell and judgment on one side, warmth and privacy on the other, is left out."
   },
   {
    "id": "tangshan1992",
@@ -512,7 +547,14 @@
    "trigger": "Illness",
    "finding": "A French military physician recorded an apothecary who, after heavy bleeding for a fever, lay unconscious and on waking described 'a light so pure and strong he thought he was in paradise', the most pleasant sensation of his life. The oldest known description by a doctor, rediscovered in 2014.",
    "cite": "du Monchaux PJ. Anecdotes de Medecine, 1740. Rediscovered by Charlier P, Resuscitation 2014;85:e155.",
-   "url": "https://www.researchgate.net/publication/263207147_Oldest_medical_description_of_a_near_death_experience_NDE_France_18th_century"
+   "url": "https://www.researchgate.net/publication/263207147_Oldest_medical_description_of_a_near_death_experience_NDE_France_18th_century",
+   "scene": {
+    "peace": 1,
+    "light": 1
+   },
+   "scene_note": "A single case, with no percentages: the patient described losing all sensation and then a light so pure and strong he thought he was in paradise. Only those two stages are shown, because only those two are in the account.",
+   "experience_type": "calm",
+   "type_label": "Calm and a light, without a journey"
   },
   {
    "id": "green1984",
@@ -602,8 +644,15 @@
    "finding": "A review of every non-Western NDE account published to 2005. Two features recur everywhere: travelling to another realm, and meeting the dead. The tunnel appears in none of the accounts from China, India, Guam, western New Britain, Native North America, Aboriginal Australia or Maori New Zealand. The life review is largely confined to societies with a dominant historic religion.",
    "cite": "Kellehear A. Census of non-Western near-death experiences to 2005: overview of the current data. Journal of Near-Death Studies 2008;26:249-65.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799184/",
-   "experience_type": "mixed",
-   "type_label": "Comparison across cultures"
+   "experience_type": "journey",
+   "type_label": "The cross-cultural core",
+   "scene": {
+    "realm": 1,
+    "beings": 1,
+    "tunnel": 0,
+    "review": 0
+   },
+   "scene_note": "This is the census's own conclusion rendered as a walk: across every non-Western account published to 2005, two things recur, travelling to another realm and meeting the dead. The tunnel and the life review are missing, because Kellehear found them in none of these accounts."
   },
   {
    "id": "negovsky1943",
@@ -619,7 +668,8 @@
    "cite": "Negovsky VA, work from 1943 onward; see Safar P, Vladimir A. Negovsky, the father of reanimatology. Resuscitation 2002;53:111-13.",
    "url": "https://pubmed.ncbi.nlm.nih.gov/12009211/",
    "experience_type": "mixed",
-   "type_label": "No experiences recorded"
+   "type_label": "No experiences recorded",
+   "no_walk": "Negovsky revived people but did not record what they experienced. Nothing here to walk, and inventing one would be a lie about his work."
   },
   {
    "id": "brazil_nupes",
@@ -635,7 +685,8 @@
    "cite": "Moreira-Almeida A, Costa MA, Coelho HS. Science of Life After Death. Springer, 2022.",
    "url": "https://psi-encyclopedia.spr.ac.uk/articles/psi-research-brazil/",
    "experience_type": "mixed",
-   "type_label": "Review, no figures published"
+   "type_label": "Review, no figures published",
+   "no_walk": "A research centre rather than a study. No Brazilian figures this atlas could cite have been published."
   },
   {
    "id": "gilgamesh",

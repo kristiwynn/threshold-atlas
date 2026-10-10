@@ -358,18 +358,32 @@ function sceneStages(st) {
 function openScene(id) {
   const st = studies.find(x => x.id === id); if (!st) return;
   const { stages, measured } = sceneStages(st);
-  if (!stages.length) { alert("This entry does not describe a sequence of its own; it is a study or a review."); return; }
   closeScene();
   const el = document.createElement("div"); el.className = "sceneModal"; el.id = "sceneModal";
-  el.innerHTML = `<div class="sheet">
-      <div class="shead"><div><b>${st.name}</b><span>${yearText(st.year)} · ${st.place}${st.type_label ? ` · ${st.type_label}` : ""}</span></div>
-        <button id="sceneNext" class="sbtn">Next stage</button><button id="sceneClose" class="sbtn" aria-label="Close">×</button></div>
-      <div class="sbox" id="sbox"><canvas id="scanvas"></canvas><div class="scap"><b id="scapT"></b><span id="scapS"></span></div></div>
-      <div class="sbody">
+  const alt = st.walk_instead && studies.find(x => x.id === st.walk_instead);
+  const head = `<div class="shead"><div><b>${st.name}</b><span>${yearText(st.year)} · ${st.place}${st.type_label ? ` · ${st.type_label}` : ""}</span></div>
+        ${stages.length ? `<button id="sceneNext" class="sbtn">Next stage</button>` : ""}<button id="sceneClose" class="sbtn" aria-label="Close">×</button></div>`;
+  const foot = `<div class="sbody">
         ${st.nature ? `<p class="sprov" style="color:#c98f5a">${st.nature}</p>` : ""}<p class="sfind">${st.finding}</p>
-        <p class="sprov">${measured ? "Each stage plays as strongly as the share of people in this study who reported it." : "This source describes which parts happened but publishes no percentages, so every stage it reports is shown at the same strength."}</p>
+        ${stages.length ? `<p class="sprov">${st.scene_note ? st.scene_note : measured ? "Each stage plays as strongly as the share of people in this study who reported it." : "This source describes which parts happened but publishes no percentages, so every stage it reports is shown at the same strength."}</p>` : ""}
         <p class="sprov">${st.cite} · <a href="${st.url}" target="_blank" rel="noopener">source</a> · <a href="world.html">the full world</a></p>
-      </div></div>`;
+      </div>`;
+  if (!stages.length) {
+    el.innerHTML = `<div class="sheet">${head}
+      <div class="sbody" style="padding:26px 22px 8px">
+        <h3 style="font-family:var(--display);font-size:24px;margin:0 0 8px">Nothing to walk here, and that is the honest answer</h3>
+        <p style="font-size:16px;line-height:1.55;color:var(--ink);max-width:60ch">${st.no_walk || "This entry does not describe a sequence of its own."}</p>
+        ${alt ? `<p style="margin-top:14px"><button class="sbtn" onclick="openScene('${alt.id}')">Walk ${alt.name} instead</button></p>` : ""}
+      </div>${foot}</div>`;
+    document.body.appendChild(el); document.body.style.overflow = "hidden";
+    $("sceneClose").addEventListener("click", closeScene);
+    el.addEventListener("click", e => { if (e.target === el) closeScene(); });
+    document.addEventListener("keydown", sceneKeys);
+    return;
+  }
+  el.innerHTML = `<div class="sheet">${head}
+      <div class="sbox" id="sbox"><canvas id="scanvas"></canvas><div class="scap"><b id="scapT"></b><span id="scapS"></span></div></div>
+      ${foot}</div>`;
   document.body.appendChild(el); document.body.style.overflow = "hidden";
   $("sceneClose").addEventListener("click", closeScene);
   el.addEventListener("click", e => { if (e.target === el) closeScene(); });
