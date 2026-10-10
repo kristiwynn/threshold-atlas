@@ -25,10 +25,18 @@
 document.getElementById("nav").innerHTML = TA.nav("stories.html");
 document.getElementById("footer").innerHTML = TA.footer();
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-fetch(TA.API + "/api/stories?limit=50").then(r => r.json()).then(({ stories }) => {
+Promise.all([fetch(TA.API + "/api/stories?limit=50").then(r => r.json()), TA.stats()]).then(([{ stories }, st]) => {
   const el = document.getElementById("list");
-  if (!stories.length) { el.innerHTML = `<p class="muted">No published stories yet. The first one that is shared and approved will appear here.</p>`; return; }
-  el.innerHTML = stories.map(s => `<article class="story"><div class="meta">${esc(s.country)} · ${esc(s.sex)}, ${esc(s.age_band)} at the time · ${esc(s.cause)} · ${esc(s.tone)} · Greyson score ${s.score}</div><p>${esc(s.story_public).replace(/\n+/g, "</p><p>")}</p></article>`).join("");
+  const waiting = st && st.stories ? st.stories.awaiting_review : 0;
+  const n = st ? st.n : 0;
+  if (!stories.length) {
+    el.innerHTML = waiting
+      ? `<div class="card"><h3>${waiting} account${waiting > 1 ? "s" : ""} waiting to be read</h3><p class="muted">Every story is read by a person before it appears here, so that names, places and anything else identifying can be taken out first. It usually takes a day or two.</p><p class="muted">${n} experience${n > 1 ? "s have" : " has"} been shared in total; the ones without a story still count towards the <a href="patterns.html#community">community figures</a>.</p></div>`
+      : `<div class="card"><h3>No stories yet</h3><p class="muted">${n ? `${n} experience${n > 1 ? "s have" : " has"} been shared so far, but without a written account, or without permission to publish it.` : "Nothing has been shared yet."} <a href="share.html">Add yours</a> and it will appear here once it has been read.</p></div>`;
+    return;
+  }
+  el.innerHTML = stories.map(s => `<article class="story"><div class="meta">${esc(s.country)} · ${esc(s.sex)}, ${esc(s.age_band)} at the time · ${esc(s.cause)} · ${esc(s.tone)} · Greyson score ${s.score}</div><p>${esc(s.story_public).replace(/\n+/g, "</p><p>")}</p></article>`).join("")
+    + (waiting ? `<p class="small muted" style="margin-top:24px">${waiting} more waiting to be read.</p>` : "");
 }).catch(() => { document.getElementById("list").innerHTML = `<p class="muted">Stories couldn't be loaded right now.</p>`; });
 </script>
 </body>

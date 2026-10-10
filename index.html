@@ -143,6 +143,11 @@ let studies = [], community = [], on = { prospective: 1, survey: 1, archive: 1, 
   const st = await TA.stats();
   if (st) {
     $("communityN").textContent = st.n;
+    if (st.map_hidden) {
+      const el = document.createElement("p"); el.className = "small muted"; el.style.marginTop = "10px";
+      el.innerHTML = `<b style="color:var(--c4)">${st.map_hidden} shared experience${st.map_hidden > 1 ? "s are" : " is"} not on the map yet.</b> A place only appears once ${st.k} or more experiences have come from it, so that nobody can be identified by where they are. ${st.stories && st.stories.awaiting_review ? `${st.stories.awaiting_review} written account${st.stories.awaiting_review > 1 ? "s are" : " is"} waiting to be read before publication.` : ""}`;
+      document.querySelector(".mapwrap").after(el);
+    }
     community = [];
     st.map.forEach(c => {
       const country = GEO.countries.find(x => x.name === c.country); if (!country) return;

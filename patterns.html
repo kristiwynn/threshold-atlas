@@ -118,7 +118,7 @@ document.getElementById("footer").innerHTML = TA.footer();
   const st = await TA.stats();
   const sub = document.getElementById("commSub"), charts = document.getElementById("commCharts");
   if (!st) { sub.textContent = "Community figures couldn't be loaded right now."; return; }
-  if (!st.overall) { sub.textContent = `${st.n} shared so far. Charts appear at 10.`; return; }
+  if (!st.overall) { const need = (st.min_for_charts || 10) - st.n; sub.innerHTML = `${st.n} experience${st.n === 1 ? " has" : "s have"} been shared so far. Charts appear once ${st.min_for_charts || 10} have been, ${need} more from here, because percentages from a handful of people are misleading. <a href="share.html">Add yours</a>.`; return; }
   document.getElementById("commSplit").hidden = false;
   const grey = n => n < 30;
   function render(split) {

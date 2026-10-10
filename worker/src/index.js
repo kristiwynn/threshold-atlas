@@ -147,8 +147,14 @@ async function stats(env) {
   const geo = {}; rows.forEach(r => { const ck = r.country; geo[ck] = geo[ck] || { country: ck, n: 0, regions: {} }; geo[ck].n++; if (r.region) geo[ck].regions[r.region] = (geo[ck].regions[r.region] || 0) + 1; });
   const map = Object.values(geo).filter(g => g.n >= K).map(g => ({ country: g.country, n: g.n, regions: Object.fromEntries(Object.entries(g.regions).filter(([, c]) => c >= K)) }));
   const scores = rows.map(r => r.score);
+  const pend = await env.DB.prepare("SELECT COUNT(*) AS c FROM submissions WHERE status='pending' AND consent_publish=1").first();
+  const pub = await env.DB.prepare("SELECT COUNT(*) AS c FROM submissions WHERE status='approved' AND consent_publish=1 AND story_public IS NOT NULL").first();
+  const places = {}; rows.forEach(r => { places[r.country] = (places[r.country] || 0) + 1; });
+  const hidden = Object.values(places).filter(c => c < K).reduce((a, c) => a + c, 0);
   return {
     n, k: K, generated: Date.now(),
+    stories: { published: pub?.c || 0, awaiting_review: pend?.c || 0 },
+    map_hidden: hidden, min_for_charts: 10,
     overall: n >= 10 ? { pct: pct(rows), mean_score: n ? Math.round(10 * scores.reduce((a, b) => a + b, 0) / n) / 10 : null, nde_share: n ? Math.round(1000 * scores.filter(s => s >= 7).length / n) / 10 : null, tone: Object.fromEntries(TONE.map(t => [t, Math.round(1000 * rows.filter(r => r.tone === t).length / n) / 10])) } : null,
     by: n >= 10 ? { age_band: group("age_band"), sex: group("sex"), cause: group("cause"), country: group("country"), religion: group("religion") } : {},
     after: n >= 10 ? Object.fromEntries(AFTER.map(a => [a, Math.round(1000 * rows.filter(r => r.after.includes(a)).length / n) / 10])) : null,
