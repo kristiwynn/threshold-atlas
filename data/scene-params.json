@@ -169,6 +169,35 @@
     "source": "pasricha1986",
     "note": "Every case ended in being sent back. No tunnel and no life review were reported in these cases."
    }
+  },
+  "tibet": {
+   "label": "Tibetan delok accounts (Bailey 2001)",
+   "script": "tibetan",
+   "tone": null,
+   "messengers": {
+    "value": null,
+    "n": 16,
+    "source": "bailey2001",
+    "note": "Guides or figures lead the person away; in some accounts a protective deity accompanies them."
+   },
+   "realm": {
+    "value": null,
+    "n": 16,
+    "source": "bailey2001",
+    "note": "A journey through Buddhist realms, including cold and hot hells, rather than a single garden or city."
+   },
+   "review": {
+    "value": null,
+    "n": 16,
+    "source": "bailey2001",
+    "note": "Deeds are weighed publicly: a mirror shows them, or a record is read aloud by others. Not the private, replayed life review of Western accounts."
+   },
+   "return": {
+    "value": null,
+    "n": 16,
+    "source": "bailey2001",
+    "note": "The delok is sent back specifically to carry a message to the living, usually to practise and to stop harming."
+   }
   }
  },
  "community_rule": "The community's own values replace a knob only when at least 100 submissions exist and the value is within 10 percentage points of a published study. Until then community values are shown as captions.",
@@ -231,6 +260,24 @@
    [
     "return",
     "Sent back"
+   ]
+  ],
+  "tibetan": [
+   [
+    "messengers",
+    "Taken by guides"
+   ],
+   [
+    "realm",
+    "Through the realms"
+   ],
+   [
+    "review",
+    "The mirror of deeds"
+   ],
+   [
+    "return",
+    "Sent back with a message"
    ]
   ]
  },

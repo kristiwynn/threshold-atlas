@@ -208,6 +208,19 @@
    "finding": "Lists hearing distinctive sounds among the recurring elements: 'pleasant, musical, buzzing or ringing'. No percentage given.",
    "cite": "Near-Death Experience Research Foundation. NDE Overview.",
    "url": "https://www.nderf.org/NDERF/Articles/NDE%20Overview.htm"
+  },
+  {
+   "id": "bailey2001",
+   "name": "Tibetan delok accounts",
+   "place": "Tibet",
+   "lat": 29.65,
+   "lng": 91.14,
+   "n": 16,
+   "kind": "cases",
+   "year": 2001,
+   "finding": "Deloks ('those who return from death') are people taken for dead who revive and describe a journey through Buddhist afterlife realms. Bailey compared these accounts with Western NDEs: no tunnel, and the judgment and life review appear as a mirror or a record read aloud by others, not as a private replay.",
+   "cite": "Bailey LW. A 'little death': the near-death experience and Tibetan delogs. Journal of Near-Death Studies 2001;19:139-59.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799135/"
   }
  ]
 }
