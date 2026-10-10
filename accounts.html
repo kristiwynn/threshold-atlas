@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accounts · The Threshold Atlas</title>
+<meta name="description" content="First-person accounts of near-death experiences from 380 BC to today, quoted where they are free to quote and cited where they are not.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.acct{border-top:1px solid var(--line);padding:30px 0}
+.acct:first-of-type{border-top:0}
+.ahead{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
+.ahead .yr{font-family:var(--display);font-size:34px;font-weight:600;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.ahead .pl{font-family:var(--display);font-size:28px;font-weight:600;color:var(--ink);line-height:1.1}
+.ahead .who{font:12px var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.tag{font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.tag.pd{border-color:var(--c2);color:var(--c2)}
+.tag.ex{border-color:var(--c1);color:var(--c1)}
+.tag.su{border-color:var(--c3);color:var(--c3)}
+blockquote{margin:16px 0 0;padding-left:20px;border-left:3px solid var(--accent);font-family:var(--display);font-size:21px;line-height:1.45;color:var(--ink);white-space:pre-line;max-width:60ch}
+.summary{margin:14px 0 0;font-size:17px;line-height:1.55;max-width:62ch;color:var(--ink)}
+.anote{margin-top:14px;font-size:15px;color:var(--muted);max-width:62ch}
+.asrc{margin-top:12px;font:12px var(--mono);color:var(--faint);line-height:1.5}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.arch{display:grid;gap:14px}
+.arch .card h3{margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div id="nav"></div>
+
+<section class="hero">
+  <div class="eyebrow">Accounts</div>
+  <h1>In their own words, across 2,400 years</h1>
+  <p class="lede">Every account here is one this site may lawfully reproduce. Where the text is out of copyright it is quoted at length. Where it is not, the account is described and the source is linked. Nothing on this page is invented, and nothing is copied from an archive that has not given permission.</p>
+</section>
+
+<section>
+  <div class="filters" id="filters"></div>
+  <div id="list"></div>
+</section>
+
+<section>
+  <div class="eyebrow">Where the rest are</div>
+  <h2>Archives this atlas links to rather than copies</h2>
+  <p>Tens of thousands of first-person accounts exist. Most are held by two organisations whose contributors gave permission for their story to appear in one place and no other. That permission is theirs to give, not ours to assume, so this atlas sends you to them instead.</p>
+  <div class="arch" id="archives"></div>
+</section>
+
+<section>
+  <div class="eyebrow">The gap</div>
+  <h2>Why there are not five from every country</h2>
+  <p>You are looking at eleven countries because those are the ones with an account that is free to quote or properly citable. Whole regions are missing, not because nothing happened there but because nobody published it in a form this site can use. There is no citable prevalence study from Brazil, Russia, most of Africa, or the Arab world.</p>
+  <p>Two things change that, and only two. Researchers publish more work outside the West, which is slow and not ours to hurry. Or people add their own, which is why <a href="share.html">the form</a> exists. Every account shared here is counted, kept separate from the research, and published with identifying details removed once a person has read it.</p>
+</section>
+
+<div id="footer"></div>
+</div>
+
+<script src="assets/common.js"></script>
+<script>
+document.getElementById("nav").innerHTML = TA.nav("accounts.html");
+document.getElementById("footer").innerHTML = TA.footer();
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const yearText = y => y < 0 ? `${-y} BC` : String(y);
+const KIND = { "public-domain": ["pd", "Quoted in full"], excerpt: ["ex", "Quoted in part"], summary: ["su", "Described, not quoted"] };
+let data = null, filter = "all";
+TA.data("accounts").then(j => { data = j; renderFilters(); render(); renderArchives(); });
+function renderFilters() {
+  const regions = [...new Set(data.accounts.map(a => a.country))].sort();
+  document.getElementById("filters").innerHTML = `<button class="chip" data-f="all" aria-pressed="true">All ${data.accounts.length}</button>`
+    + regions.map(r => `<button class="chip" data-f="${esc(r)}">${esc(r)}</button>`).join("");
+  document.getElementById("filters").addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    filter = b.dataset.f;
+    document.querySelectorAll("#filters .chip").forEach(x => x.setAttribute("aria-pressed", x === b));
+    render();
+  });
+}
+function render() {
+  const rows = data.accounts.filter(a => filter === "all" || a.country === filter).sort((a, b) => a.year - b.year);
+  document.getElementById("list").innerHTML = rows.map(a => {
+    const [cls, lbl] = KIND[a.kind] || ["su", "Described"];
+    const body = a.kind === "summary"
+      ? `<p class="summary">${esc(a.text)}</p>`
+      : `<blockquote>${esc(a.text)}</blockquote>`;
+    return `<article class="acct" id="${a.id}">
+      <div class="ahead"><span class="yr">${yearText(a.year)}</span><span class="pl">${esc(a.place)}</span><span class="tag ${cls}">${lbl}</span></div>
+      <div class="ahead"><span class="who">${esc(a.who)} · ${esc(a.trigger)}</span></div>
+      ${body}
+      <p class="anote">${esc(a.note)}</p>
+      <p class="asrc">${esc(a.source)} · <a href="${a.url}" target="_blank" rel="noopener">source</a></p>
+    </article>`;
+  }).join("");
+}
+function renderArchives() {
+  document.getElementById("archives").innerHTML = data.linked_archives.map(x => `<div class="card"><h3><a href="${x.url}" target="_blank" rel="noopener">${esc(x.name)}</a></h3><p class="small">${esc(x.what)}</p><p class="small muted"><b>Why it is not reproduced here:</b> ${esc(x.why_not_here)}</p></div>`).join("");
+}
+</script>
+</body>
+</html>

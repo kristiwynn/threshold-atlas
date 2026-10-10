@@ -22,7 +22,7 @@ window.TA = (() => {
     }).join("");
   }
   function nav(current) {
-    const links = [["index.html", "Map"], ["patterns.html", "Patterns"], ["stories.html", "Stories"], ["world.html", "World"], ["share.html", "Share yours"], ["sources.html", "Sources"]];
+    const links = [["index.html", "Map"], ["patterns.html", "Patterns"], ["accounts.html", "Accounts"], ["stories.html", "Shared here"], ["world.html", "World"], ["share.html", "Share yours"], ["sources.html", "Sources"]];
     return `<nav class="top"><a class="brand" href="index.html">The Threshold Atlas</a>${links.map(([h, t]) => `<a href="${h}" ${h === current ? 'aria-current="page"' : ""}>${t}</a>`).join("")}</nav>`;
   }
   function footer() {
