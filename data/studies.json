@@ -12,7 +12,8 @@
    "year": 2001,
    "finding": "344 consecutive cardiac-arrest survivors; 62 (18%) reported an NDE.",
    "cite": "van Lommel P, van Wees R, Meyers V, Elfferich I. Near-death experience in survivors of cardiac arrest: a prospective study in the Netherlands. The Lancet 2001;358:2039-45.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/11755611/"
+   "url": "https://pubmed.ncbi.nlm.nih.gov/11755611/",
+   "trigger": "Cardiac arrest"
   },
   {
    "id": "aware2014",
@@ -25,7 +26,8 @@
    "year": 2014,
    "finding": "2,060 cardiac arrests; 140 survivors interviewed; 9% met NDE criteria, 2% described explicit awareness.",
    "cite": "Parnia S et al. AWARE: AWAreness during REsuscitation, a prospective study. Resuscitation 2014;85:1799-1805.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/25301715/"
+   "url": "https://pubmed.ncbi.nlm.nih.gov/25301715/",
+   "trigger": "Cardiac arrest"
   },
   {
    "id": "aware2023",
@@ -38,7 +40,8 @@
    "year": 2023,
    "finding": "567 patients; EEG recorded during CPR; 28 survivors interviewed; 126 community accounts analysed for themes.",
    "cite": "Parnia S et al. AWAreness during REsuscitation II: a multi-center study of consciousness and awareness in cardiac arrest. Resuscitation 2023;191:109903.",
-   "url": "https://www.sciencedirect.com/science/article/abs/pii/S0300957223002162"
+   "url": "https://www.sciencedirect.com/science/article/abs/pii/S0300957223002162",
+   "trigger": "Cardiac arrest"
   },
   {
    "id": "greyson2003",
@@ -51,7 +54,8 @@
    "year": 2003,
    "finding": "1,595 cardiac patients; 10% of those who had a cardiac arrest reported an NDE.",
    "cite": "Greyson B. Incidence and correlates of near-death experiences in a cardiac care unit. General Hospital Psychiatry 2003;25:269-76.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/12850659/"
+   "url": "https://pubmed.ncbi.nlm.nih.gov/12850659/",
+   "trigger": "Cardiac arrest"
   },
   {
    "id": "parnia2001",
@@ -64,7 +68,8 @@
    "year": 2001,
    "finding": "63 cardiac-arrest survivors; 6.3% reported an NDE.",
    "cite": "Parnia S, Waller DG, Yeates R, Fenwick P. A qualitative and quantitative study of the incidence, features and aetiology of near death experiences in cardiac arrest survivors. Resuscitation 2001;48:149-56.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/11426476/"
+   "url": "https://pubmed.ncbi.nlm.nih.gov/11426476/",
+   "trigger": "Cardiac arrest"
   },
   {
    "id": "morse1986",
@@ -77,7 +82,8 @@
    "year": 1986,
    "finding": "NDE features reported by critically ill children; none among a seriously ill comparison group who had not come near death.",
    "cite": "Morse M, Castillo P, Venecia D, Milstein J, Tyler DC. Childhood near-death experiences. American Journal of Diseases of Children 1986;140:1110-14.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/3490146/"
+   "url": "https://pubmed.ncbi.nlm.nih.gov/3490146/",
+   "trigger": "Critical illness"
   },
   {
    "id": "gallup1982",
@@ -90,7 +96,8 @@
    "year": 1982,
    "finding": "About 5% of US adults, then roughly 8 million people, reported a near-death experience.",
    "cite": "Gallup G, Proctor W. Adventures in Immortality. McGraw-Hill, 1982.",
-   "url": "https://digital.library.unt.edu/explore/collections/JNDS/"
+   "url": "https://digital.library.unt.edu/explore/collections/JNDS/",
+   "trigger": "Mixed"
   },
   {
    "id": "knoblauch2001",
@@ -103,7 +110,8 @@
    "year": 2001,
    "finding": "2,044 adults; 4.3% reported an NDE; content differed between former East and West Germany.",
    "cite": "Knoblauch H, Schmied I, Schnettler B. Different kinds of near-death experience: a report on a survey in Germany. Journal of Near-Death Studies 2001;20:15-29.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799348/"
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799348/",
+   "trigger": "Mixed"
   },
   {
    "id": "perera2005",
@@ -116,7 +124,8 @@
    "year": 2005,
    "finding": "673 adults; 8.9% reported an NDE.",
    "cite": "Perera M, Padmasekara G, Belanti J. Prevalence of near-death experiences in Australia. Journal of Near-Death Studies 2005;24:109-16.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799374/"
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799374/",
+   "trigger": "Mixed"
   },
   {
    "id": "long2010",
@@ -129,7 +138,8 @@
    "year": 2010,
    "finding": "613 experiencers scoring 7 or more on the Greyson scale; feature rates and tone. Thousands more accounts archived at nderf.org.",
    "cite": "Long J, Perry P. Evidence of the Afterlife: The Science of Near-Death Experiences. HarperOne, 2010.",
-   "url": "https://www.nderf.org/NDERF/EvidenceAfterlife/evidence/NDERF_Study_Methods.htm"
+   "url": "https://www.nderf.org/NDERF/EvidenceAfterlife/evidence/NDERF_Study_Methods.htm",
+   "trigger": "Mixed"
   },
   {
    "id": "martial2017",
@@ -142,7 +152,8 @@
    "year": 2017,
    "finding": "154 written NDE narratives analysed for which features occur and in what order; no fixed sequence was found.",
    "cite": "Martial C et al. Temporality of features in near-death experience narratives. Frontiers in Human Neuroscience 2017;11:311.",
-   "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2017.00311/full"
+   "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2017.00311/full",
+   "trigger": "Mixed"
   },
   {
    "id": "pasricha1986",
@@ -155,7 +166,8 @@
    "year": 1986,
    "finding": "16 cases; messengers, a clerk with records, and being sent back as the wrong person; no tunnel.",
    "cite": "Pasricha S, Stevenson I. Near-death experiences in India: a preliminary report. Journal of Nervous and Mental Disease 1986;174:165-70.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/3950596/"
+   "url": "https://pubmed.ncbi.nlm.nih.gov/3950596/",
+   "trigger": "Illness"
   },
   {
    "id": "moody1975",
@@ -168,7 +180,8 @@
    "year": 1975,
    "finding": "About 150 interviews that named the phenomenon and listed its recurring elements.",
    "cite": "Moody R. Life After Life. Mockingbird Books, 1975.",
-   "url": "https://www.lifeafterlife.com/"
+   "url": "https://www.lifeafterlife.com/",
+   "trigger": "Mixed"
   },
   {
    "id": "ring1980",
@@ -181,7 +194,8 @@
    "year": 1980,
    "finding": "102 people who came close to death; the five-stage model (peace, body separation, darkness, light, entering the light).",
    "cite": "Ring K. Life at Death: A Scientific Investigation of the Near-Death Experience. Coward, McCann & Geoghegan, 1980.",
-   "url": "https://iands.org/"
+   "url": "https://iands.org/",
+   "trigger": "Mixed"
   },
   {
    "id": "cassol2019",
@@ -194,7 +208,8 @@
    "year": 2019,
    "finding": "Of 123 written narratives, 17 (14%) were distressing: 8 inverse, 8 hellish, 1 void.",
    "cite": "Cassol H, Martial C, Annen J, et al. A systematic analysis of distressing near-death experience accounts. Memory 2019;27:1122-29.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/31105066/"
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31105066/",
+   "trigger": "Mixed"
   },
   {
    "id": "nderf_sounds",
@@ -207,7 +222,8 @@
    "year": 2010,
    "finding": "Lists hearing distinctive sounds among the recurring elements: 'pleasant, musical, buzzing or ringing'. No percentage given.",
    "cite": "Near-Death Experience Research Foundation. NDE Overview.",
-   "url": "https://www.nderf.org/NDERF/Articles/NDE%20Overview.htm"
+   "url": "https://www.nderf.org/NDERF/Articles/NDE%20Overview.htm",
+   "trigger": "Mixed"
   },
   {
    "id": "bailey2001",
@@ -220,7 +236,107 @@
    "year": 2001,
    "finding": "Deloks ('those who return from death') are people taken for dead who revive and describe a journey through Buddhist afterlife realms. Bailey compared these accounts with Western NDEs: no tunnel, and the judgment and life review appear as a mirror or a record read aloud by others, not as a private replay.",
    "cite": "Bailey LW. A 'little death': the near-death experience and Tibetan delogs. Journal of Near-Death Studies 2001;19:139-59.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799135/"
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799135/",
+   "tradition_from": 1200,
+   "trigger": "Illness"
+  },
+  {
+   "id": "plato",
+   "name": "The Myth of Er",
+   "place": "Athens, Greece",
+   "lat": 37.98,
+   "lng": 23.73,
+   "n": 1,
+   "kind": "historical",
+   "year": -380,
+   "finding": "The oldest surviving Western account. Er, a soldier killed in battle, revives on his funeral pyre on the twelfth day and describes leaving the body, a journey to a place of judgment, souls choosing their next lives, and being sent back to tell what he saw.",
+   "cite": "Plato. Republic, Book X, c. 380 BC.",
+   "url": "https://www.gutenberg.org/files/1497/1497-h/1497-h.htm#link2H_4_0012",
+   "trigger": "Battle"
+  },
+  {
+   "id": "gregory",
+   "name": "Gregory the Great's Dialogues",
+   "place": "Rome, Italy",
+   "lat": 41.9,
+   "lng": 12.5,
+   "n": 3,
+   "kind": "historical",
+   "year": 593,
+   "finding": "Three accounts of ordinary people taken for dead who revived. In the best known, Stephen is told he was summoned by mistake, the wrong man of the same name, and is sent back: the same clerical-error motif found in Indian cases fourteen centuries later.",
+   "cite": "Gregory the Great. Dialogues, Book IV, c. 593. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
+   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
+   "trigger": "Illness"
+  },
+  {
+   "id": "drythelm",
+   "name": "The Vision of Drythelm",
+   "place": "Northumbria, England",
+   "lat": 55.01,
+   "lng": -1.44,
+   "n": 1,
+   "kind": "historical",
+   "year": 731,
+   "finding": "Bede records a Northumbrian man who died of illness, revived the next morning, and described being led by a guide in shining robes through places of punishment and of light, then sent back. He gave away his property and lived as a monk afterwards.",
+   "cite": "Bede. Ecclesiastical History of the English People, Book V, c. 731. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
+   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
+   "trigger": "Illness"
+  },
+  {
+   "id": "tundale",
+   "name": "The Vision of Tundale",
+   "place": "Cashel, Ireland",
+   "lat": 52.52,
+   "lng": -7.89,
+   "n": 1,
+   "kind": "historical",
+   "year": 1149,
+   "finding": "An Irish knight lies as dead for three days, is guided through the otherworld by his guardian angel, and returns changed. One of the most widely copied of the medieval otherworld journeys, translated into fifteen languages.",
+   "cite": "Marcus of Regensburg. Visio Tnugdali, 1149. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
+   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
+   "trigger": "Illness"
+  },
+  {
+   "id": "beaufort",
+   "name": "Beaufort's drowning",
+   "place": "Portsmouth, England",
+   "lat": 50.8,
+   "lng": -1.09,
+   "n": 1,
+   "kind": "historical",
+   "year": 1791,
+   "finding": "Francis Beaufort, then a midshipman of 17, fell into Portsmouth harbour and nearly drowned. His account, written in 1825 and published in 1847, describes no pain, calm, and 'every incident of my past life' passing before him: the first detailed first-person life review in English.",
+   "cite": "Beaufort F. Letter to Dr W. H. Wollaston, written 1825, published 1847.",
+   "url": "https://snr.org.uk/captain-beaufort-on-the-sensation-felt-by-drowning-man/",
+   "trigger": "Drowning"
+  },
+  {
+   "id": "heim1892",
+   "name": "Heim's falls",
+   "place": "Zurich, Switzerland",
+   "lat": 47.37,
+   "lng": 8.54,
+   "n": 30,
+   "kind": "historical",
+   "year": 1892,
+   "finding": "The first systematic collection. Albert Heim, a geologist, survived a fall in the Alps and spent 25 years gathering accounts from climbers, soldiers and workers who had fallen. He found about 95% felt no pain or fear, but calm, speeded thought and a review of their lives.",
+   "cite": "Heim A. Notizen uber den Tod durch Absturz. Jahrbuch des Schweizer Alpenclub 1892;27:327-37. Translated by Noyes R, Kletti R, Omega 1972;3:45-52.",
+   "url": "https://www.greenharbor.com/fffolder/ffreading.html",
+   "trigger": "Falls"
+  },
+  {
+   "id": "zaleski1987",
+   "name": "Otherworld Journeys",
+   "place": "Cambridge, Massachusetts, USA",
+   "lat": 42.37,
+   "lng": -71.11,
+   "n": 0,
+   "kind": "historical",
+   "year": 1987,
+   "finding": "The scholarly comparison of medieval and modern accounts. Zaleski found the constants (leaving the body, a guide, a barrier, a return with a changed life) and the differences: medieval journeys are guided tours with judgment and punishment, modern ones are private, warm and without hell.",
+   "cite": "Zaleski C. Otherworld Journeys: Accounts of Near-Death Experience in Medieval and Modern Times. Oxford University Press, 1987.",
+   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
+   "trigger": "Mixed"
   }
  ]
 }

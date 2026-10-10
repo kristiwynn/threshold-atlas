@@ -17,6 +17,11 @@
   <p class="lede">Every figure on this site is taken from one of these publications, as reported by its authors. Where a study reports a finding only in words, it is described in words here rather than plotted.</p>
 </section>
 <section>
+  <h2>Historical accounts</h2>
+  <p class="small muted">These are single accounts or early collections, not studies. They are on the map because they show how far back people have described this, and how the telling of it changes with the age it is told in.</p>
+  <ol class="sources" id="histList"></ol>
+</section>
+<section>
   <h2>Studies on the map</h2>
   <ol class="sources" id="studyList"></ol>
 </section>
@@ -50,8 +55,12 @@
 <script>
 document.getElementById("nav").innerHTML = TA.nav("sources.html");
 document.getElementById("footer").innerHTML = TA.footer();
+const yearText = y => y < 0 ? `${-y} BC` : String(y);
 TA.data("studies").then(({ studies }) => {
-  document.getElementById("studyList").innerHTML = studies.sort((a, b) => a.year - b.year).map(s => `<li id="${s.id}"><b>${s.cite}</b> ${s.finding} <a href="${s.url}" target="_blank" rel="noopener">Link</a></li>`).join("");
+  const sorted = studies.sort((a, b) => a.year - b.year);
+  const li = s => `<li id="${s.id}"><b>${s.cite}</b> ${s.finding} <a href="${s.url}" target="_blank" rel="noopener">Link</a></li>`;
+  document.getElementById("histList").innerHTML = sorted.filter(s => s.kind === "historical").map(li).join("");
+  document.getElementById("studyList").innerHTML = sorted.filter(s => s.kind !== "historical").map(li).join("");
 });
 </script>
 </body>
