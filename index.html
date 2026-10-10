@@ -188,7 +188,7 @@ const DECADE_MID = { "Before 1960": 1955, "1960s": 1965, "1970s": 1975, "1980s":
 const MIN_Y = -2100, MAX_Y = 2026;
 let studies = [], community = [], layer = "all", map, popup;
 let trigger = "all", etype = "all";
-const inLayer = s => layer === "all" || layer === GROUP[s.kind];
+const inLayer = s => !s.off_map && (layer === "all" || layer === GROUP[s.kind]);
 let PREV = [], FEAT = {}, FLABEL = {};
 
 (async () => {

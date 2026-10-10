@@ -1,23 +1,174 @@
 {
-  "_note": "Research tier. NDERF realm figure withheld: secondary sources disagree (40.6 vs 52.2); verify against Long & Perry 2010 before adding. Percent of EXPERIENCERS reporting each feature, as published. n = experiencers in that study. Absent key = not measured.",
-  "features": [
-    ["obe","Left the body (out-of-body)"],["peace","Peace or intense positive feeling"],["light","A bright light"],["tunnel","A tunnel or passage"],
-    ["beings","Met beings or deceased people"],["review","A life review"],["realm","An unearthly realm or landscape"],["knowledge","Sudden understanding or special knowledge"],
-    ["unity","Unity with the universe (Greyson item 7)"],["time","Time stopped or lost meaning"],["border","A border or point of no return"],["return","Chose or was sent back"],
-    ["senses","Senses sharper than normal"],["dead","Knew that you had died"],["sounds","Unusual sounds"],["future","Scenes from the future (Greyson item 11)"]
+ "_note": "Research tier. NDERF realm figure withheld: secondary sources disagree (40.6 vs 52.2); verify against Long & Perry 2010 before adding. Percent of EXPERIENCERS reporting each feature, as published. n = experiencers in that study. Absent key = not measured.",
+ "features": [
+  [
+   "obe",
+   "Left the body (out-of-body)"
   ],
-  "studies": {
-    "long2010":{"name":"NDERF survey","kind":"retrospective","n":613,"data":{"obe":75.4,"senses":74.4,"peace":76.2,"tunnel":33.8,"light":64.6,"beings":57.3,"time":60.5,"review":22.2,"knowledge":56.0,"border":31.0,"return":58.5},"tone":{"wonderful":62.5,"mixed":33.8,"frightening":3.8}},
-    "lommel2001":{"name":"Dutch cardiac arrests","kind":"prospective","n":62,"data":{"dead":50,"peace":56,"tunnel":31,"realm":29,"beings":32,"obe":24,"light":23,"review":13,"border":8}},
-    "martial2017":{"name":"Liège narratives","kind":"retrospective","n":154,"data":{"peace":80,"light":69,"beings":64,"obe":53}}
-  },
-  "prevalence": [
-    {"label":"Dutch cardiac-arrest survivors","study":"lommel2001","pct":18,"n":344,"setting":"hospital"},
-    {"label":"US cardiac-arrest patients","study":"greyson2003","pct":10,"n":116,"setting":"hospital"},
-    {"label":"AWARE survivors (UK/US/Austria)","study":"aware2014","pct":9,"n":140,"setting":"hospital"},
-    {"label":"Southampton cardiac arrests","study":"parnia2001","pct":6.3,"n":63,"setting":"hospital"},
-    {"label":"Australian adults","study":"perera2005","pct":8.9,"n":673,"setting":"population"},
-    {"label":"US adults (Gallup)","study":"gallup1982","pct":5,"n":1500,"setting":"population"},
-    {"label":"German adults","study":"knoblauch2001","pct":4.3,"n":2044,"setting":"population"}
+  [
+   "peace",
+   "Peace or intense positive feeling"
+  ],
+  [
+   "light",
+   "Saw a light"
+  ],
+  [
+   "tunnel",
+   "A tunnel or passage"
+  ],
+  [
+   "beings",
+   "Met or saw other beings"
+  ],
+  [
+   "review",
+   "A life review"
+  ],
+  [
+   "realm",
+   "Entered another, unearthly world"
+  ],
+  [
+   "knowledge",
+   "Sudden understanding or special knowledge"
+  ],
+  [
+   "unity",
+   "Unity with the universe (Greyson item 7)"
+  ],
+  [
+   "time",
+   "Altered sense of time or space"
+  ],
+  [
+   "border",
+   "A border or point of no return"
+  ],
+  [
+   "return",
+   "Aware of a decision about returning to the body"
+  ],
+  [
+   "senses",
+   "Consciousness and alertness above normal"
+  ],
+  [
+   "dead",
+   "Knew that you had died"
+  ],
+  [
+   "sounds",
+   "Unusual sounds"
+  ],
+  [
+   "future",
+   "Scenes from the future (Greyson item 11)"
   ]
+ ],
+ "studies": {
+  "long2010": {
+   "name": "NDERF survey",
+   "kind": "retrospective",
+   "n": 613,
+   "data": {
+    "obe": 75.4,
+    "senses": 74.4,
+    "peace": 76.2,
+    "tunnel": 33.8,
+    "light": 64.6,
+    "beings": 57.3,
+    "time": 60.5,
+    "review": 22.2,
+    "knowledge": 56.0,
+    "border": 31.0,
+    "return": 58.5,
+    "realm": 52.2
+   },
+   "tone": {
+    "wonderful": 62.5,
+    "mixed": 33.8,
+    "frightening": 3.8
+   },
+   "note": "Self-selected internet survey of people who went looking for an NDE website, retrospective, English only, no medical records. These are feature rates among self-identified experiencers, not among people who nearly died. Long's own comparison: about 45% out-of-body in the wider literature against 75.4% here. Life review is 22.2% in the book and 14% in Long's 2014 paper on a near-identical sample."
+  },
+  "lommel2001": {
+   "name": "Dutch cardiac arrests",
+   "kind": "prospective",
+   "n": 62,
+   "data": {
+    "dead": 50,
+    "peace": 56,
+    "tunnel": 31,
+    "realm": 29,
+    "beings": 32,
+    "obe": 24,
+    "light": 23,
+    "review": 13,
+    "border": 8
+   }
+  },
+  "martial2017": {
+   "name": "Liège narratives",
+   "kind": "retrospective",
+   "n": 154,
+   "data": {
+    "peace": 80,
+    "light": 69,
+    "beings": 64,
+    "obe": 53
+   }
+  }
+ },
+ "prevalence": [
+  {
+   "label": "Dutch cardiac-arrest survivors",
+   "study": "lommel2001",
+   "pct": 18,
+   "n": 344,
+   "setting": "hospital"
+  },
+  {
+   "label": "US cardiac-arrest patients",
+   "study": "greyson2003",
+   "pct": 10,
+   "n": 116,
+   "setting": "hospital"
+  },
+  {
+   "label": "AWARE survivors who completed interviews",
+   "study": "aware2014",
+   "pct": 9,
+   "n": 101,
+   "setting": "hospital"
+  },
+  {
+   "label": "Southampton cardiac arrests",
+   "study": "parnia2001",
+   "pct": 6.3,
+   "n": 63,
+   "setting": "hospital"
+  },
+  {
+   "label": "Australian adults",
+   "study": "perera2005",
+   "pct": 8.9,
+   "n": 673,
+   "setting": "population"
+  },
+  {
+   "label": "US adults (Gallup, ~1,500 asked)",
+   "study": "gallup1982",
+   "pct": 5,
+   "n": 1500,
+   "setting": "population"
+  },
+  {
+   "label": "German adults",
+   "study": "knoblauch2001",
+   "pct": 4.0,
+   "n": 2044,
+   "setting": "population"
+  }
+ ]
 }
