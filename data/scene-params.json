@@ -1,10 +1,199 @@
 {
-  "_note": "The 3D world reads ONLY this file. Each knob: value (percent of experiencers), n, source, tier. Prospective = interviewed in hospital soon after cardiac arrest; retrospective = self-selected accounts written later.",
-  "cohorts": {
-    "nderf":   {"label":"NDERF survey (retrospective)", "light":{"value":64.6,"n":613,"source":"long2010"},"tunnel":{"value":33.8,"n":613,"source":"long2010"},"beings":{"value":57.3,"n":613,"source":"long2010"},"peace":{"value":76.2,"n":613,"source":"long2010"},"border":{"value":31.0,"n":613,"source":"long2010"},"review":{"value":22.2,"n":613,"source":"long2010"}},
-    "lommel":  {"label":"Dutch cardiac arrests (prospective)", "light":{"value":23,"n":62,"source":"lommel2001"},"tunnel":{"value":31,"n":62,"source":"lommel2001"},"beings":{"value":32,"n":62,"source":"lommel2001"},"peace":{"value":56,"n":62,"source":"lommel2001"},"border":{"value":8,"n":62,"source":"lommel2001"},"review":{"value":13,"n":62,"source":"lommel2001"}},
-    "liege":   {"label":"Liège narratives (retrospective)", "light":{"value":69,"n":154,"source":"martial2017"},"tunnel":null,"beings":{"value":64,"n":154,"source":"martial2017"},"peace":{"value":80,"n":154,"source":"martial2017"},"border":null,"review":null},
-    "india":   {"label":"Indian cases (Pasricha & Stevenson)", "light":null,"tunnel":{"value":0,"n":16,"source":"pasricha1986","note":"No tunnel reported in these cases; messengers and a clerk with records instead."},"beings":{"value":100,"n":16,"source":"pasricha1986","note":"All cases involved beings (messengers)."},"peace":null,"border":null,"review":null}
+ "_note": "The 3D world reads ONLY this file. Each stage: value (percent of experiencers who reported it), n, source, optional note. Prospective = interviewed in hospital soon after cardiac arrest; retrospective = self-selected accounts written later. Stage order follows Ring (1980) and the Liège finding (Martial 2017) that leaving the body is most often first and returning last, with the middle varying.",
+ "cohorts": {
+  "nderf": {
+   "label": "NDERF survey (retrospective)",
+   "light": {
+    "value": 64.6,
+    "n": 613,
+    "source": "long2010"
+   },
+   "tunnel": {
+    "value": 33.8,
+    "n": 613,
+    "source": "long2010"
+   },
+   "beings": {
+    "value": 57.3,
+    "n": 613,
+    "source": "long2010"
+   },
+   "peace": {
+    "value": 76.2,
+    "n": 613,
+    "source": "long2010"
+   },
+   "border": {
+    "value": 31.0,
+    "n": 613,
+    "source": "long2010"
+   },
+   "review": {
+    "value": 22.2,
+    "n": 613,
+    "source": "long2010"
+   },
+   "obe": {
+    "value": 75.4,
+    "n": 613,
+    "source": "long2010"
+   },
+   "return": {
+    "value": 58.5,
+    "n": 613,
+    "source": "long2010"
+   },
+   "dead": null,
+   "realm": null
   },
-  "community_rule": "The community's own values replace a knob only when at least 100 submissions exist and the value is within 10 percentage points of a published study. Until then community values are shown as captions."
+  "lommel": {
+   "label": "Dutch cardiac arrests (prospective)",
+   "light": {
+    "value": 23,
+    "n": 62,
+    "source": "lommel2001"
+   },
+   "tunnel": {
+    "value": 31,
+    "n": 62,
+    "source": "lommel2001"
+   },
+   "beings": {
+    "value": 32,
+    "n": 62,
+    "source": "lommel2001"
+   },
+   "peace": {
+    "value": 56,
+    "n": 62,
+    "source": "lommel2001"
+   },
+   "border": {
+    "value": 8,
+    "n": 62,
+    "source": "lommel2001"
+   },
+   "review": {
+    "value": 13,
+    "n": 62,
+    "source": "lommel2001"
+   },
+   "obe": {
+    "value": 24,
+    "n": 62,
+    "source": "lommel2001"
+   },
+   "dead": {
+    "value": 50,
+    "n": 62,
+    "source": "lommel2001"
+   },
+   "realm": {
+    "value": 29,
+    "n": 62,
+    "source": "lommel2001"
+   },
+   "return": null
+  },
+  "liege": {
+   "label": "Liège narratives (retrospective)",
+   "light": {
+    "value": 69,
+    "n": 154,
+    "source": "martial2017"
+   },
+   "tunnel": null,
+   "beings": {
+    "value": 64,
+    "n": 154,
+    "source": "martial2017"
+   },
+   "peace": {
+    "value": 80,
+    "n": 154,
+    "source": "martial2017"
+   },
+   "border": null,
+   "review": null,
+   "obe": {
+    "value": 53,
+    "n": 154,
+    "source": "martial2017"
+   },
+   "dead": null,
+   "realm": null,
+   "return": null
+  },
+  "india": {
+   "label": "Indian cases (Pasricha & Stevenson 1986)",
+   "light": null,
+   "tunnel": {
+    "value": 0,
+    "n": 16,
+    "source": "pasricha1986",
+    "note": "No tunnel reported in these cases; messengers and a clerk with records instead."
+   },
+   "beings": {
+    "value": 100,
+    "n": 16,
+    "source": "pasricha1986",
+    "note": "All cases involved beings (messengers)."
+   },
+   "peace": null,
+   "border": null,
+   "review": null,
+   "obe": null,
+   "dead": null,
+   "realm": null,
+   "return": {
+    "value": 100,
+    "n": 16,
+    "source": "pasricha1986",
+    "note": "Every case ended in being sent back, usually because a clerk found the wrong person had been brought."
+   }
+  }
+ },
+ "community_rule": "The community's own values replace a knob only when at least 100 submissions exist and the value is within 10 percentage points of a published study. Until then community values are shown as captions.",
+ "stages": [
+  [
+   "dead",
+   "Knowing you have died"
+  ],
+  [
+   "obe",
+   "Leaving the body"
+  ],
+  [
+   "peace",
+   "Peace"
+  ],
+  [
+   "tunnel",
+   "The tunnel"
+  ],
+  [
+   "light",
+   "The light"
+  ],
+  [
+   "beings",
+   "Presences"
+  ],
+  [
+   "realm",
+   "Another world"
+  ],
+  [
+   "review",
+   "Life review"
+  ],
+  [
+   "border",
+   "The border"
+  ],
+  [
+   "return",
+   "The return"
+  ]
+ ]
 }

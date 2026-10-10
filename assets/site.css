@@ -8,6 +8,7 @@
   --mono:'IBM Plex Mono',Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{color-scheme:dark}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1100px;margin:0 auto;padding-block:0 80px;padding-inline:20px}
