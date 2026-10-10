@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World · The Threshold Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.tunnelbox{position:relative;background:#06050d;border-radius:10px;overflow:hidden;aspect-ratio:16/10;max-width:100%;border:1px solid var(--line)}
+.tunnelbox canvas{display:block;width:100%;height:100%;touch-action:none}
+.tunnelbox .overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:radial-gradient(ellipse at center,rgba(216,168,74,.25),rgba(6,5,13,.85) 70%);color:#efe9dc;text-align:center;padding:20px}
+.tunnelbox .overlay p{color:#c9c2b4;max-width:40ch}
+.tunnelbox .hud{position:absolute;left:12px;bottom:12px;font:12px var(--mono);color:#c9c2b4;background:rgba(6,5,13,.6);padding:6px 10px;border-radius:6px;max-width:min(92%,520px);line-height:1.5}
+button.primary{font:600 16px var(--body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:12px 20px;cursor:pointer}
+button.ghost{font:600 15px var(--body);background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 16px;cursor:pointer}
+button.ghost[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.sliders{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px 20px;margin-top:14px}
+.sliders label{display:grid;gap:4px;font-size:14px;color:var(--ink)}
+.sliders input[type=range]{width:100%;accent-color:var(--accent)}
+.prov{font-size:14px}
+.prov table{border-collapse:collapse;width:100%}
+.prov th,.prov td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.prov th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.prov td.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div id="nav"></div>
+
+<section class="hero">
+  <div class="eyebrow">Walk the threshold</div>
+  <h1>A world built from the numbers</h1>
+  <p class="lede">A passage shaped by the research: how bright the light, how strong the pull of the tunnel, how many presences you meet, how deep the peace. Each is set from the rate at which people in a study reported it. Choose a study to walk through its experience.</p>
+</section>
+
+<section>
+  <div class="row" id="cohorts"></div>
+  <div class="tunnelbox" id="tunnelbox">
+    <canvas id="tunnelCanvas"></canvas>
+    <div class="hud" id="hud" hidden></div>
+    <div class="overlay" id="overlay"><h3 style="font-size:30px;color:#efe9dc">Enter the passage</h3><p>You drift forward toward a light. Drag or swipe to look around. Nothing flashes; you can leave any time.</p><button class="primary" id="enterBtn">Begin</button></div>
+  </div>
+  <div class="sliders" id="sliders"></div>
+  <p class="small muted" style="margin-top:10px">Headset mode (WebXR) is planned for a later version. This runs in any phone or laptop browser.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Why does it look like this?</div>
+  <h2>Every knob has a source</h2>
+  <p>The scene reads one file, <a href="data/scene-params.json">scene-params.json</a>, and nothing else. This table is that file. When people share enough experiences here, their values will be allowed to replace a knob only under one rule: <span id="ruleText"></span></p>
+  <div class="card prov" id="prov"></div>
+</section>
+
+<div id="footer"></div>
+</div>
+
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="assets/common.js"></script>
+<script>
+document.getElementById("nav").innerHTML = TA.nav("world.html");
+document.getElementById("footer").innerHTML = TA.footer();
+const KNOBS = [["light", "Light"], ["tunnel", "Tunnel"], ["beings", "Presences"], ["peace", "Peace"], ["border", "Border"], ["review", "Life review"]];
+let P = null, cohort = "nderf", vals = {};
+(async () => {
+  P = await TA.data("scene-params");
+  const S = await TA.data("studies"); const byId = Object.fromEntries(S.studies.map(s => [s.id, s]));
+  document.getElementById("ruleText").textContent = P.community_rule;
+  const co = document.getElementById("cohorts");
+  co.innerHTML = Object.entries(P.cohorts).map(([k, c]) => `<button class="ghost" data-c="${k}">${c.label}</button>`).join("");
+  const sl = document.getElementById("sliders");
+  sl.innerHTML = KNOBS.map(([k, l]) => `<label>${l} <span class="muted" id="v_${k}"></span><input type="range" id="s_${k}" min="0" max="100" value="50"></label>`).join("");
+  function applyCohort(k) {
+    cohort = k; const c = P.cohorts[k];
+    KNOBS.forEach(([key]) => { const row = c[key]; const v = row ? row.value : null; vals[key] = v; const s = document.getElementById("s_" + key); s.disabled = v == null; s.value = v == null ? 0 : v; document.getElementById("v_" + key).textContent = v == null ? "not measured" : v + "%"; });
+    co.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === k));
+    document.getElementById("prov").innerHTML = `<table><thead><tr><th>Knob</th><th>Value</th><th>n</th><th>Source</th></tr></thead><tbody>` + KNOBS.map(([key, l]) => { const r = c[key]; if (!r) return `<tr><td>${l}</td><td class="num muted" colspan="3">not measured in this study; the scene uses a neutral default</td></tr>`; const st = byId[r.source]; const [lo, hi] = TA.wilson(r.value / 100, r.n); return `<tr><td>${l}</td><td class="num">${r.value}% <span class="muted">(${Math.round(lo)}–${Math.round(hi)})</span></td><td class="num">${r.n}</td><td><a href="${st.url}" target="_blank" rel="noopener">${st.cite.split(".")[0]} ${st.year}</a>${r.note ? `<div class="muted">${r.note}</div>` : ""}</td></tr>`; }).join("") + `</tbody></table>`;
+    document.getElementById("hud").textContent = `${c.label}: light ${vals.light ?? "–"}% · tunnel ${vals.tunnel ?? "–"}% · presences ${vals.beings ?? "–"}% · peace ${vals.peace ?? "–"}%`;
+  }
+  co.addEventListener("click", e => { const b = e.target.closest("button"); if (b) applyCohort(b.dataset.c); });
+  sl.addEventListener("input", e => { const k = e.target.id.replace("s_", ""); vals[k] = +e.target.value; document.getElementById("v_" + k).textContent = e.target.value + "%"; });
+  applyCohort("nderf");
+})();
+const knob = (k, d) => (vals[k] == null ? d : vals[k]) / 100;
+let started = false;
+document.getElementById("enterBtn").addEventListener("click", () => { document.getElementById("overlay").hidden = true; document.getElementById("hud").hidden = false; if (!started) start(); started = true; });
+function start() {
+  const canvas = document.getElementById("tunnelCanvas"), box = document.getElementById("tunnelbox");
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene(); scene.fog = new THREE.FogExp2(0x06050d, 0.05);
+  const cam = new THREE.PerspectiveCamera(70, 16 / 10, 0.1, 200);
+  const N = 2600, pos = new Float32Array(N * 3), col = new Float32Array(N * 3), seed = new Float32Array(N);
+  for (let i = 0; i < N; i++) { pos[3 * i + 2] = -Math.random() * 120; seed[i] = Math.random(); }
+  const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3)); geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
+  scene.add(new THREE.Points(geo, new THREE.PointsMaterial({ size: 0.12, vertexColors: true, transparent: true, opacity: 0.9, depthWrite: false, blending: THREE.AdditiveBlending })));
+  const tex = (() => { const c = document.createElement("canvas"); c.width = c.height = 128; const x = c.getContext("2d"); const g = x.createRadialGradient(64, 64, 0, 64, 64, 64); g.addColorStop(0, "rgba(255,245,220,1)"); g.addColorStop(.3, "rgba(255,230,170,.8)"); g.addColorStop(1, "rgba(255,220,150,0)"); x.fillStyle = g; x.fillRect(0, 0, 128, 128); return new THREE.CanvasTexture(c); })();
+  const light = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending })); light.position.z = -60; scene.add(light);
+  const beings = []; const bm = new THREE.SpriteMaterial({ map: tex, color: 0xbfd8ff, transparent: true, opacity: .6, depthWrite: false, blending: THREE.AdditiveBlending });
+  for (let i = 0; i < 24; i++) { const s = new THREE.Sprite(bm); s.scale.set(.6, 1.6, 1); s.position.set((Math.random() - .5) * 6, (Math.random() - .5) * 3, -20 - Math.random() * 60); s.userData.phase = Math.random() * 6; beings.push(s); scene.add(s); }
+  // border: a faint ring you approach but never pass
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.05, 8, 64), new THREE.MeshBasicMaterial({ color: 0xd8a84a, transparent: true, opacity: .5 })); ring.position.z = -30; scene.add(ring);
+  // life review: drifting pale frames
+  const frames = []; const fm = new THREE.MeshBasicMaterial({ color: 0xefe9dc, transparent: true, opacity: .18, side: THREE.DoubleSide });
+  for (let i = 0; i < 12; i++) { const f = new THREE.Mesh(new THREE.PlaneGeometry(1.2, .8), fm); f.position.set((Math.random() - .5) * 8, (Math.random() - .5) * 5, -10 - Math.random() * 70); f.rotation.y = Math.random(); frames.push(f); scene.add(f); }
+  let yaw = 0, pitch = 0, drag = false, lx = 0, ly = 0;
+  const pt = e => e.touches ? e.touches[0] : e;
+  canvas.addEventListener("pointerdown", e => { drag = true; lx = e.clientX; ly = e.clientY; });
+  canvas.addEventListener("pointermove", e => { if (!drag) return; yaw -= (e.clientX - lx) * .004; pitch = Math.max(-1, Math.min(1, pitch - (e.clientY - ly) * .004)); lx = e.clientX; ly = e.clientY; });
+  addEventListener("pointerup", () => drag = false);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches; let t = 0;
+  function resize() { const w = box.clientWidth, h = box.clientHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
+  addEventListener("resize", resize); resize();
+  (function frame() {
+    requestAnimationFrame(frame);
+    const L = knob("light", .5), T = knob("tunnel", .3), B = knob("beings", .5), Pc = knob("peace", .6), Bo = knob("border", .2), R = knob("review", .2);
+    t += reduce ? .004 : .016; const speed = 6 + 10 * T;
+    const p = geo.attributes.position.array, c = geo.attributes.color.array;
+    for (let i = 0; i < N; i++) {
+      p[3 * i + 2] += speed * .016; if (p[3 * i + 2] > 2) p[3 * i + 2] -= 120;
+      const rr = 4 + (1 - T) * 6 + seed[i] * 3, a = seed[i] * 6.283 + t * .15 * (.5 + T);
+      p[3 * i] = Math.cos(a) * rr; p[3 * i + 1] = Math.sin(a) * rr;
+      const warm = .5 + .5 * Pc; c[3 * i] = .55 + .45 * warm; c[3 * i + 1] = .45 + .4 * warm * L; c[3 * i + 2] = .7 - .3 * warm + .2 * L;
+    }
+    geo.attributes.position.needsUpdate = true; geo.attributes.color.needsUpdate = true;
+    light.scale.set(8 + 40 * L, 8 + 40 * L, 1); light.material.opacity = .35 + .65 * L;
+    scene.fog.density = .02 + .05 * T - .015 * L;
+    beings.forEach((s, i) => { const on = i < Math.round(B * 24); s.visible = on; if (on) { s.position.z += speed * .004; if (s.position.z > 1) s.position.z = -80; s.material.opacity = .25 + .35 * Math.sin(t + s.userData.phase) ** 2; } });
+    ring.material.opacity = .15 + .6 * Bo; ring.scale.setScalar(1 + .1 * Math.sin(t));
+    frames.forEach((f, i) => { f.visible = i < Math.round(R * 12); f.position.z += speed * .003; if (f.position.z > 1) f.position.z = -80; f.rotation.y += .003; });
+    cam.rotation.set(pitch * .5, yaw * .5, 0, "YXZ");
+    cam.position.x = Math.sin(t * .4) * .3 * (1 - Pc); cam.position.y = Math.cos(t * .3) * .2 * (1 - Pc);
+    renderer.render(scene, cam);
+  })();
+}
+</script>
+</body>
+</html>

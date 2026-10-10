@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources · The Threshold Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<div id="nav"></div>
+<section class="hero">
+  <div class="eyebrow">Sources</div>
+  <h1>Where the numbers come from</h1>
+  <p class="lede">Every figure on this site is taken from one of these publications, as reported by its authors. Where a study reports a finding only in words, it is described in words here rather than plotted.</p>
+</section>
+<section>
+  <h2>Studies on the map</h2>
+  <ol class="sources" id="studyList"></ol>
+</section>
+<section>
+  <h2>Further reading used for the breakdowns</h2>
+  <ol class="sources">
+    <li><b>Greyson B.</b> The Near-Death Experience Scale: construction, reliability, and validity. <i>Journal of Nervous and Mental Disease</i> 1983;171:369-75. The 16-item scale and its 7-point threshold.</li>
+    <li><b>Lange R, Greyson B, Houran J.</b> A Rasch scaling validation of a "core" near-death experience. <i>British Journal of Psychology</i> 2004;95:161-77. Shows the scale measures one underlying dimension, with depth not tied to sex or age.</li>
+    <li><b>Cassol H, Pétré B, Degrange S, et al.</b> Qualitative thematic analysis of the phenomenology of near-death experiences. <i>PLoS ONE</i> 2018;13:e0193001. Open access. Themes in 34 narratives, the basis for text-coding approaches.</li>
+    <li><b>Kellehear A.</b> <i>Experiences Near Death: Beyond Medicine and Religion.</i> Oxford University Press, 1996. Cross-cultural review; the tunnel as a largely Western motif.</li>
+    <li><b>Journal of Near-Death Studies</b>, 1982-2025, free at the <a href="https://digital.library.unt.edu/explore/collections/JNDS/">UNT Digital Library</a>. The field's own journal, 1,081 items.</li>
+    <li><b>Near-Death Experience Research Foundation</b>, <a href="https://www.nderf.org/">nderf.org</a>. The largest public archive of first-person accounts. This site links to it and does not copy from it.</li>
+    <li><b>International Association for Near-Death Studies</b>, <a href="https://iands.org/">iands.org</a>. Research, support groups and an experience registry.</li>
+  </ol>
+</section>
+<section>
+  <h2>Rules this site follows</h2>
+  <ul class="small" style="color:var(--muted);padding-left:18px">
+    <li>Three kinds of data are kept apart and never averaged together: published research, external archives (linked only), and experiences people share here.</li>
+    <li>Every proportion carries its sample size and a 95% confidence interval.</li>
+    <li>Community figures are hidden below 10 submissions and greyed below 30; comparisons between groups need 30 or more in each.</li>
+    <li>A pattern is called significant only when it survives multiple-comparison correction, differs by at least 10 percentage points, and does not contradict published research.</li>
+    <li>The 3D world reads only a parameter file in which every value is cited.</li>
+  </ul>
+</section>
+<div id="footer"></div>
+</div>
+<script src="assets/common.js"></script>
+<script>
+document.getElementById("nav").innerHTML = TA.nav("sources.html");
+document.getElementById("footer").innerHTML = TA.footer();
+TA.data("studies").then(({ studies }) => {
+  document.getElementById("studyList").innerHTML = studies.sort((a, b) => a.year - b.year).map(s => `<li id="${s.id}"><b>${s.cite}</b> ${s.finding} <a href="${s.url}" target="_blank" rel="noopener">Link</a></li>`).join("");
+});
+</script>
+</body>
+</html>

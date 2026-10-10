@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Threshold Atlas</title>
+<meta name="description" content="A map, metrics and a 3D world of near-death experiences, built only from published research, with room for people to add their own.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<div id="nav"></div>
+
+<section class="hero">
+  <div class="eyebrow">An atlas of near-death experiences</div>
+  <h1>The Threshold Atlas</h1>
+  <p class="lede">Where people have come back from the edge of death, what they say they saw, and how often each part of the story recurs, drawn from the published research. Soon, from accounts people add here too.</p>
+  <div class="stats">
+    <div class="stat"><b>18%</b><span>of cardiac-arrest survivors reported an NDE in the Dutch prospective study</span><i>van Lommel, Lancet 2001 · 344 patients</i></div>
+    <div class="stat"><b>9%</b><span>of interviewed survivors met NDE criteria in the UK/US/Austria AWARE study</span><i>Parnia, Resuscitation 2014 · 2,060 arrests</i></div>
+    <div class="stat"><b>75%</b><span>of experiencers describe leaving their body, the most common single feature</span><i>Long, NDERF survey · 613 experiencers</i></div>
+    <div class="stat"><b>16</b><span>items on the Greyson NDE Scale, the checklist researchers use to count features</span><i>Greyson 1983 · score 7+ counts as an NDE</i></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Map</div>
+  <h2>Where it has been studied</h2>
+  <p>Gold circles are landmark studies, sized by how many people they covered. Tap one for what it found. When people start adding their own experiences, they will appear here as clusters by country and region, never at an exact address.</p>
+  <div class="row">
+    <span class="legend"><span style="--sw:var(--c1)">Prospective hospital study</span><span style="--sw:var(--c2)">Population survey</span><span style="--sw:var(--c3)">Case collection or archive</span></span>
+  </div>
+  <div id="map" role="region" aria-label="Map of near-death experience studies"></div>
+  <p class="small muted" style="margin-top:10px">Basemap: OpenFreeMap (OpenStreetMap data). Study locations are the lead hospital or institution; AWARE and NDERF spanned many countries and are placed at their coordinating centre.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Prevalence</div>
+  <h2>How many people have one</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Share of people who had an NDE, by who was asked</h3>
+      <p class="small muted">Bars show the published figure; the thin brackets show the 95% confidence interval for that sample size.</p>
+      <div class="bars" id="prevBars"></div>
+    </div>
+    <div>
+      <div class="fact"><b>Two different questions</b>Hospital studies ask survivors of cardiac arrest within days, so they count how often an NDE happens when someone actually comes close to death. Population surveys ask all adults whether they ever had one, so they count lifetime experiences across whatever brought people close.</div>
+      <div class="fact"><b>Why hospital numbers vary</b>Six to eighteen percent is a wide range for the same event. Study design matters: how soon people were asked, whether sedation got in the way, and whether a strict scale was used to decide what counts.</div>
+      <p><a href="patterns.html">See what the experiences contain →</a></p>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="assets/common.js"></script>
+<script>
+document.getElementById("nav").innerHTML = TA.nav("index.html");
+document.getElementById("footer").innerHTML = TA.footer();
+const KIND_COLOR = { prospective: "#d8a84a", survey: "#4fb3a9", retrospective: "#8a7fd6", cases: "#8a7fd6" };
+const KIND_LABEL = { prospective: "Prospective hospital study", survey: "Population survey", retrospective: "Archive / survey of experiencers", cases: "Case collection" };
+
+(async () => {
+  const { prevalence } = await TA.data("features");
+  const { studies } = await TA.data("studies");
+  const byId = Object.fromEntries(studies.map(s => [s.id, s]));
+  TA.bars(document.getElementById("prevBars"), prevalence.map(p => [`${p.label} <span class="muted small">(${byId[p.study].year})</span>`, p.pct, { n: p.n, color: p.setting === "hospital" ? "c1" : "c2" }]));
+
+  const map = new maplibregl.Map({
+    container: "map",
+    style: "https://tiles.openfreemap.org/styles/liberty",
+    center: [-10, 35], zoom: 1.6, minZoom: 1, attributionControl: true, cooperativeGestures: true
+  });
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+  map.on("load", () => {
+    const geo = { type: "FeatureCollection", features: studies.map(s => ({ type: "Feature", geometry: { type: "Point", coordinates: [s.lng, s.lat] }, properties: { ...s, color: KIND_COLOR[s.kind], radius: 5 + 2.4 * Math.sqrt(Math.sqrt(s.n)) } })) };
+    map.addSource("studies", { type: "geojson", data: geo });
+    map.addLayer({ id: "study-halo", type: "circle", source: "studies", paint: { "circle-radius": ["*", ["get", "radius"], 1.9], "circle-color": ["get", "color"], "circle-opacity": 0.18 } });
+    map.addLayer({ id: "study-dot", type: "circle", source: "studies", paint: { "circle-radius": ["get", "radius"], "circle-color": ["get", "color"], "circle-opacity": 0.85, "circle-stroke-color": "#0c0b16", "circle-stroke-width": 1.5 } });
+    const popup = new maplibregl.Popup({ closeButton: true, maxWidth: "300px" });
+    const show = (e) => {
+      const p = e.features[0].properties;
+      popup.setLngLat(e.features[0].geometry.coordinates.slice())
+        .setHTML(`<b>${p.name} <span style="color:#a79f91;font-weight:400">${p.year}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${KIND_LABEL[p.kind]} · n=${Number(p.n).toLocaleString()}</div>${p.finding}<div style="margin-top:8px"><a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`)
+        .addTo(map);
+    };
+    map.on("click", "study-dot", show); map.on("click", "study-halo", show);
+    map.on("mouseenter", "study-dot", () => map.getCanvas().style.cursor = "pointer");
+    map.on("mouseleave", "study-dot", () => map.getCanvas().style.cursor = "");
+  });
+})();
+</script>
+</body>
+</html>
