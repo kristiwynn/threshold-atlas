@@ -270,7 +270,8 @@ function refresh() {
   [...$("layer").options].forEach(o => { o.textContent = o.textContent.replace(/ · \d+$/, "") + " · " + (counts[o.value] ?? 0); });
   const here = shown.filter(inLayer);
   const people = here.reduce((t, s) => t + s.n, 0);
-  $("mapcount").textContent = lens === "size" ? `${here.length} studies · ${people.toLocaleString()} people studied`
+  $("mapcount").textContent = layer === "community" ? `${comm} experience${comm === 1 ? "" : "s"} shared here`
+    : lens === "size" ? `${here.length} studies · ${people.toLocaleString()} people studied`
     : `${here.filter(s => lensValue(s) !== undefined && lensValue(s) !== null).length} of ${here.length} studies measured this`;
 }
 function showPopup(e) {
