@@ -31,6 +31,30 @@
 .maplegend{position:absolute;left:16px;bottom:14px;z-index:2;display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:#c9c2b4;background:rgba(7,6,15,.72);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
 .maplegend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle;background:var(--sw);box-shadow:0 0 8px var(--sw)}
 .mapcount{position:absolute;right:16px;bottom:14px;z-index:2;font:12px var(--mono);color:#c9c2b4;background:rgba(7,6,15,.72);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.lens{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.lens select{font:600 12px var(--body);color:var(--ink);background:rgba(22,20,42,.85);border:1px solid var(--line);border-radius:999px;padding:6px 12px;backdrop-filter:blur(6px)}
+.playbtn{font:600 12px var(--body);color:var(--accent-ink);background:var(--accent);border:0;border-radius:999px;padding:7px 15px;cursor:pointer}
+.reel{position:fixed;inset:0;z-index:50;background:#06050d;display:flex;flex-direction:column;color:#efe9dc}
+.reel .bars{display:flex;gap:4px;padding:14px 14px 0;flex-shrink:0}
+.reel .bars i{flex:1;height:3px;background:rgba(255,255,255,.22);border-radius:2px;overflow:hidden}
+.reel .bars i b{display:block;height:100%;width:0;background:#fff;border-radius:2px}
+.reel .top{display:flex;align-items:center;gap:12px;padding:12px 16px;flex-shrink:0}
+.reel .top .who{font:600 13px var(--body);color:#efe9dc}
+.reel .top .who span{display:block;font:11px var(--mono);color:#9a927f;letter-spacing:.08em;text-transform:uppercase}
+.reel .top button{margin-left:auto;background:none;border:0;color:#efe9dc;font-size:26px;line-height:1;cursor:pointer;padding:0 6px}
+.reel .stage{flex:1;position:relative;overflow:hidden}
+.reel #reelMap{position:absolute;inset:0}
+.reel .veil{position:absolute;inset:0;background:linear-gradient(transparent 20%,rgba(6,5,13,.55) 55%,rgba(6,5,13,.95));pointer-events:none}
+.reel .card{position:absolute;left:0;right:0;bottom:0;padding:0 22px 34px;pointer-events:none}
+.reel .kicker{font:11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#d8a84a;margin-bottom:10px}
+.reel .big{font-family:var(--display);font-weight:600;font-size:clamp(54px,13vw,110px);line-height:.95;color:#fff;letter-spacing:-.02em}
+.reel .h{font-family:var(--display);font-weight:600;font-size:clamp(24px,5vw,38px);line-height:1.1;margin:6px 0 10px;color:#fff;max-width:22ch}
+.reel .p{font-size:16px;line-height:1.5;color:#d6cfc2;max-width:46ch}
+.reel .meta{font:11px var(--mono);color:#9a927f;margin-top:14px;letter-spacing:.04em}
+.reel .meta a{color:#d8a84a;pointer-events:auto}
+.reel .tapL,.reel .tapR{position:absolute;top:0;bottom:0;width:32%;z-index:3;cursor:pointer}
+.reel .tapL{left:0}.reel .tapR{right:0}
+.reel .hint{position:absolute;right:16px;top:14px;z-index:4;font:11px var(--mono);color:#6f6a7e}
 @media (max-width:640px){#map{height:58vh}.maplegend{position:static;margin-top:10px;border-radius:10px;background:var(--surface)}.mapcount{display:none}}
 </style>
 </head>
@@ -53,7 +77,7 @@
 <section>
   <div class="eyebrow">Map</div>
   <h2>Where it has been studied, and where people say it happened</h2>
-  <p>Drag the handles to move through time. Gold and teal bubbles are studies, sized by how many people they covered; rose bubbles are experiences shared here, grouped by country and US state once a place has five or more. Tap any bubble.</p>
+  <p>Drag the handles to move through time, or press <b>Play the atlas</b> to tap through it like a reel. Change the lens to size the bubbles by a single feature and watch which studies found it and which did not. Gold and teal bubbles are studies, sized by how many people they covered; rose bubbles are experiences shared here, grouped by country and US state once a place has five or more. Tap any bubble.</p>
   <div class="mapwrap">
     <div id="map" role="region" aria-label="Map of near-death experience studies and shared experiences"></div>
     <div class="maptop">
@@ -71,6 +95,20 @@
         <button data-layer="survey" aria-pressed="true">Population surveys<b id="n-survey"></b></button>
         <button data-layer="archive" aria-pressed="true">Case collections<b id="n-archive"></b></button>
         <button data-layer="community" aria-pressed="true">Shared here<b id="n-community"></b></button>
+      </div>
+      <div class="lens">
+        <select id="lens" aria-label="Colour and size the bubbles by">
+          <option value="size">Bubbles by study size</option>
+          <option value="prev">How many had an NDE</option>
+          <option value="obe">Feature: left the body</option>
+          <option value="light">Feature: a brilliant light</option>
+          <option value="tunnel">Feature: a tunnel</option>
+          <option value="peace">Feature: peace</option>
+          <option value="beings">Feature: met beings</option>
+          <option value="review">Feature: a life review</option>
+          <option value="border">Feature: a border</option>
+        </select>
+        <button class="playbtn" id="playBtn">▶ Play the atlas</button>
       </div>
     </div>
     <div class="maplegend"><span style="--sw:#d8a84a">Hospital study</span><span style="--sw:#4fb3a9">Population survey</span><span style="--sw:#8a7fd6">Case collection</span><span style="--sw:#e07a9a">Shared here</span></div>
@@ -112,9 +150,11 @@ const LABEL = { prospective: "Prospective hospital study", survey: "Population s
 const DECADE_MID = { "Before 1960": 1955, "1960s": 1965, "1970s": 1975, "1980s": 1985, "1990s": 1995, "2000s": 2005, "2010s": 2015, "2020s": 2025 };
 const MIN_Y = 1960, MAX_Y = 2026;
 let studies = [], community = [], on = { prospective: 1, survey: 1, archive: 1, community: 1 }, map, popup;
+let PREV = [], FEAT = {}, FLABEL = {};
 
 (async () => {
   const F = await TA.data("features"), S = await TA.data("studies");
+  PREV = F.prevalence; FEAT = F.studies; FLABEL = Object.fromEntries(F.features);
   studies = S.studies; const byId = Object.fromEntries(studies.map(s => [s.id, s]));
   TA.bars($("prevBars"), F.prevalence.map(p => [`${p.label} <span class="muted small">(${byId[p.study].year})</span>`, p.pct, { n: p.n, color: p.setting === "hospital" ? "c1" : "c2" }]));
 
@@ -162,7 +202,7 @@ let studies = [], community = [], on = { prospective: 1, survey: 1, archive: 1, 
 function fcStudies() {
   return { type: "FeatureCollection", features: studies.filter(inYears).filter(s => on[GROUP[s.kind]]).map(s => ({
     type: "Feature", geometry: { type: "Point", coordinates: [s.lng, s.lat] },
-    properties: { ...s, group: GROUP[s.kind], color: COLOR[GROUP[s.kind]], r: 7 + 3.1 * Math.sqrt(Math.sqrt(s.n)), badge: "" }
+    properties: (() => { const v = lensValue(s); return { ...s, group: GROUP[s.kind], color: lens === "size" ? COLOR[GROUP[s.kind]] : lensColor(v), r: lens === "size" ? 7 + 3.1 * Math.sqrt(Math.sqrt(s.n)) : (v === undefined || v === null ? 5 : 7 + 0.34 * v), badge: lens === "size" || v === undefined || v === null ? "" : Math.round(v) + "%", lensv: v === undefined ? "" : v }; })()
   })) };
 }
 function fcCommunity() {
@@ -186,15 +226,84 @@ function refresh() {
   ["prospective", "survey", "archive"].forEach(g => $("n-" + g).textContent = shown.filter(s => GROUP[s.kind] === g).length);
   $("n-community").textContent = community.reduce((t, c) => t + c.n, 0) || 0;
   const people = shown.filter(s => on[GROUP[s.kind]]).reduce((t, s) => t + s.n, 0);
-  $("mapcount").textContent = `${shown.filter(s => on[GROUP[s.kind]]).length} studies · ${people.toLocaleString()} people studied`;
+  $("mapcount").textContent = lens === "size" ? `${shown.filter(s => on[GROUP[s.kind]]).length} studies · ${people.toLocaleString()} people studied`
+    : `${shown.filter(s => on[GROUP[s.kind]] && lensValue(s) !== undefined && lensValue(s) !== null).length} of ${shown.filter(s => on[GROUP[s.kind]]).length} studies measured this`;
 }
 function showPopup(e) {
   const p = e.features[0].properties, co = e.features[0].geometry.coordinates.slice();
   const html = p.community
     ? `<b>${p.n} experience${p.n > 1 ? "s" : ""} shared</b><div style="color:#a79f91">${p.label}</div><div style="margin-top:6px"><a href="patterns.html#community">See the community patterns</a></div>`
-    : `<b>${p.name} <span style="color:#a79f91;font-weight:400">${p.year}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]} · n=${Number(p.n).toLocaleString()}</div>${p.finding}<div style="margin-top:8px"><a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
+    : `<b>${p.name} <span style="color:#a79f91;font-weight:400">${p.year}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]} · n=${Number(p.n).toLocaleString()}</div>${p.finding}${lens !== "size" ? `<div style="margin-top:6px;color:#d8a84a">${p.lensv === "" ? "Not measured in this study" : `${p.lensv}% · ${$("lens").selectedOptions[0].text.replace(/^Feature: /, "")}`}</div>` : ""}<div style="margin-top:8px"><a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
   popup.setLngLat(co).setHTML(html).addTo(map);
 }
+// ---------------------------------------------------- lens: resize and recolour by a measure
+let lens = "size";
+function lensValue(s) {
+  if (lens === "size") return null;
+  if (lens === "prev") { const p = PREV.find(x => x.study === s.id); return p ? p.pct : undefined; }
+  const f = FEAT[s.id]; if (!f) return undefined;
+  return f.data[lens] !== undefined ? f.data[lens] : undefined;
+}
+const RAMP = ["#4a3f6b", "#7a5fa8", "#b06ba0", "#d8884a", "#f0c85a"];
+function lensColor(v) { if (v === undefined || v === null) return "#3a3650"; return RAMP[Math.min(4, Math.floor(v / 20))]; }
+$("lens").addEventListener("change", e => { lens = e.target.value; refresh(); });
+
+// ---------------------------------------------------- the reel: tap through the atlas
+let reelI = 0, reelTimer = null, reelMap = null, reelHeld = false, reelStart = 0, reelLeft = 0;
+const REEL_MS = 7000;
+function reelItems() { return studies.filter(inYears).filter(s => on[GROUP[s.kind]]).sort((a, b) => a.year - b.year); }
+function openReel(startId) {
+  const items = reelItems(); if (!items.length) return;
+  reelI = Math.max(0, items.findIndex(s => s.id === startId));
+  const el = document.createElement("div"); el.className = "reel"; el.id = "reel";
+  el.innerHTML = `<div class="bars" id="reelBars">${items.map(() => "<i><b></b></i>").join("")}</div>
+    <div class="top"><div class="who">The Threshold Atlas<span id="reelKind"></span></div><button id="reelClose" aria-label="Close">×</button></div>
+    <div class="stage"><div id="reelMap"></div><div class="veil"></div>
+      <div class="tapL" id="tapL"></div><div class="tapR" id="tapR"></div>
+      <div class="hint">tap right to go on · hold to pause</div>
+      <div class="card" id="reelCard"></div></div>`;
+  document.body.appendChild(el); document.body.style.overflow = "hidden";
+  reelMap = new maplibregl.Map({ container: "reelMap", style: "https://tiles.openfreemap.org/styles/dark", center: [items[reelI].lng, items[reelI].lat], zoom: 3.4, interactive: false, attributionControl: false });
+  reelMap.on("load", () => {
+    reelMap.addSource("r", { type: "geojson", data: { type: "FeatureCollection", features: items.map(s => ({ type: "Feature", geometry: { type: "Point", coordinates: [s.lng, s.lat] }, properties: { color: COLOR[GROUP[s.kind]], r: 7 + 3.1 * Math.sqrt(Math.sqrt(s.n)) } })) } });
+    reelMap.addLayer({ id: "rg", type: "circle", source: "r", paint: { "circle-radius": ["*", ["get", "r"], 2.6], "circle-color": ["get", "color"], "circle-opacity": 0.16, "circle-blur": 1 } });
+    reelMap.addLayer({ id: "rd", type: "circle", source: "r", paint: { "circle-radius": ["get", "r"], "circle-color": ["get", "color"], "circle-opacity": 0.85, "circle-stroke-color": "#06050d", "circle-stroke-width": 1.5 } });
+    showReel();
+  });
+  $("reelClose").addEventListener("click", closeReel);
+  $("tapR").addEventListener("click", () => stepReel(1));
+  $("tapL").addEventListener("click", () => stepReel(-1));
+  ["pointerdown", "pointerup", "pointercancel"].forEach(ev => el.addEventListener(ev, e => {
+    if (e.target.id === "reelClose") return;
+    reelHeld = ev === "pointerdown";
+    if (reelHeld) { reelLeft = REEL_MS - (performance.now() - reelStart); clearTimeout(reelTimer); }
+    else { reelStart = performance.now() - (REEL_MS - reelLeft); reelTimer = setTimeout(() => stepReel(1), Math.max(300, reelLeft)); }
+  }));
+  document.addEventListener("keydown", reelKeys);
+}
+function reelKeys(e) { if (e.key === "Escape") closeReel(); if (e.key === "ArrowRight") stepReel(1); if (e.key === "ArrowLeft") stepReel(-1); }
+function closeReel() { clearTimeout(reelTimer); document.removeEventListener("keydown", reelKeys); document.getElementById("reel")?.remove(); document.body.style.overflow = ""; reelMap = null; }
+function stepReel(d) { const items = reelItems(); const n = reelI + d; if (n < 0) return; if (n >= items.length) return closeReel(); reelI = n; showReel(); }
+function showReel() {
+  const items = reelItems(), s = items[reelI]; if (!s) return closeReel();
+  const bars = $("reelBars").children;
+  [...bars].forEach((b, i) => { const f = b.firstElementChild; f.style.transition = "none"; f.style.width = i < reelI ? "100%" : "0"; });
+  const cur = bars[reelI].firstElementChild;
+  requestAnimationFrame(() => { cur.style.transition = `width ${REEL_MS}ms linear`; cur.style.width = "100%"; });
+  clearTimeout(reelTimer); reelStart = performance.now(); reelTimer = setTimeout(() => stepReel(1), REEL_MS);
+  $("reelKind").textContent = `${reelI + 1} of ${items.length} · ${LABEL[GROUP[s.kind]]}`;
+  const prev = PREV.find(x => x.study === s.id), f = FEAT[s.id];
+  const headline = prev ? `${prev.pct}%` : f ? `${f.n}` : `${s.n.toLocaleString()}`;
+  const under = prev ? `of people in this study had a near-death experience` : f ? `experiencers described what it contained` : `people studied`;
+  const extras = f ? Object.entries(f.data).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([k, v]) => `${FLABEL[k] || k} ${v}%`).join(" · ") : "";
+  $("reelCard").innerHTML = `<div class="kicker">${s.year} · ${s.place}</div><div class="big">${headline}</div>
+    <div class="h">${s.name}</div><div class="p">${s.finding}</div>
+    ${extras ? `<div class="meta" style="color:#d6cfc2">${extras}</div>` : ""}
+    <div class="meta">${s.cite.split(".")[0]} ${s.year} · <a href="${s.url}" target="_blank" rel="noopener">read the study</a></div>`;
+  reelMap?.easeTo({ center: [s.lng, s.lat], zoom: 3.2 + Math.random() * 0.6, duration: 1600, essential: true });
+}
+$("playBtn").addEventListener("click", () => openReel());
+
 $("ticks").innerHTML = [1960, 1970, 1980, 1990, 2000, 2010, 2020].map(y => `<i style="left:${(y - MIN_Y) / (MAX_Y - MIN_Y) * 100}%"></i>`).join("");
 ["y0", "y1"].forEach(id => $(id).addEventListener("input", refresh));
 $("resetYears").addEventListener("click", () => { $("y0").value = MIN_Y; $("y1").value = MAX_Y; refresh(); });
