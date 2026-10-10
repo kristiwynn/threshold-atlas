@@ -50,6 +50,7 @@ button.ghost[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)
 
 <section>
   <div class="row" id="cohorts"></div>
+  <div class="row"><span class="small muted">Mode</span><button class="chip" data-mode="typical" aria-pressed="true">The typical path</button><button class="chip" data-mode="sample">One person's walk, by the odds</button><span class="small muted" id="modeNote">Every stage plays, each as strong as its share of people.</span></div>
   <div class="tunnelbox" id="tunnelbox">
     <canvas id="tunnelCanvas"></canvas>
     <div class="prog"><span id="prog"></span></div>
@@ -58,7 +59,7 @@ button.ghost[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)
     <div class="overlay" id="overlay"><h3 style="font-size:30px;color:#efe9dc">Enter the passage</h3><p>About three minutes. You move forward through ten stages toward a light and back. Drag or swipe to look around. Nothing flashes; you can pause or leave at any time.</p><button class="primary" id="enterBtn">Begin</button></div>
   </div>
   <div class="stages" id="stages"></div>
-  <p class="small muted" style="margin-top:12px">A stage reported by fewer people appears fainter and passes sooner; a stage a study did not measure is shown dimly at a neutral level and says so. "Pass through" plays in any phone or laptop browser; headset mode (WebXR) is planned.</p>
+  <p class="small muted" style="margin-top:12px">In the typical path, a stage reported by fewer people appears fainter and passes sooner. In one person's walk, each stage is included or skipped at random by its share of people, so every walk is different and, over many walks, the stages appear as often as the study found them. A share of walks is distressing, by the study's own rate. Plays in any phone or laptop browser; headset mode (WebXR) is planned.</p>
   <p class="small muted" id="commCaption"></p>
 </section>
 
@@ -88,13 +89,28 @@ const DESC = {
   review: "Scenes from one's own life, sometimes all at once, sometimes felt from others' points of view.",
   border: "A line, gate, river or threshold, with a sense that crossing it would mean not returning.",
   return: "Being sent back, choosing to go back, or being pulled back into the body, often abruptly.",
+  messengers: "Two or more messengers arrive to take the person away. They are matter-of-fact, sometimes rough.",
+  ledger: "The person is brought before a man at a desk or in a hall, with a book of records.",
+  error: "The book is checked. The wrong person has been brought: same name, another village, a different time.",
 };
-let P, byId, cohort = "nderf", vals = {}, stageList = [];
+const DARK = {
+  dead: "Realising you have died, with dread rather than calm.",
+  obe: "Watching your body from above, unable to get back to it.",
+  peace: "No peace comes. Instead, a cold and a sense of being very alone.",
+  tunnel: "A darkness that pulls, with nothing at the end of it.",
+  light: "No welcoming light; a glare, or nothing at all. In 'void' accounts this is where the experience stays.",
+  beings: "Presences that keep their distance, or that threaten. In 'hellish' accounts this is the centre of it.",
+  realm: "A barren or hostile place rather than a garden.",
+  review: "Scenes from life felt as judgment rather than understanding.",
+  border: "A drop rather than a gate.",
+  return: "Being pulled back, usually with relief.",
+};
+let P, byId, cohort = "nderf", vals = {}, stageList = [], mode = "typical", plan = null, distressing = false;
 (async () => {
   P = await TA.data("scene-params");
   const S = await TA.data("studies"); byId = Object.fromEntries(S.studies.map(s => [s.id, s]));
-  stageList = P.stages;
   document.getElementById("ruleText").textContent = P.community_rule;
+  document.querySelectorAll("[data-mode]").forEach(b => b.addEventListener("click", () => { mode = b.dataset.mode; document.querySelectorAll("[data-mode]").forEach(x => x.setAttribute("aria-pressed", x === b)); document.getElementById("modeNote").textContent = mode === "typical" ? "Every stage plays, each as strong as its share of people." : "Stages are drawn by the odds; walk again for a different one."; if (started) restart(); }));
   const co = document.getElementById("cohorts");
   co.innerHTML = Object.entries(P.cohorts).map(([k, c]) => `<button class="ghost" data-c="${k}">${c.label}</button>`).join("");
   co.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { applyCohort(b.dataset.c); if (started) restart(); } });
@@ -105,10 +121,15 @@ let P, byId, cohort = "nderf", vals = {}, stageList = [];
 })();
 function applyCohort(k) {
   cohort = k; const c = P.cohorts[k];
+  stageList = P.scripts[c.script];
   stageList.forEach(([key]) => { vals[key] = c[key] ? c[key].value : null; });
   document.querySelectorAll("#cohorts button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === k));
-  document.getElementById("stages").innerHTML = stageList.map(([key, label], i) => { const r = c[key]; return `<div class="stage ${r ? "" : "off"}" data-i="${i}" role="button" tabindex="0"><b>${i + 1}. ${label}</b><span class="v">${r ? `<em>${r.value}%</em> reported it · n=${r.n}` : "not measured"}</span></div>`; }).join("");
-  document.getElementById("prov").innerHTML = `<table><thead><tr><th>Stage</th><th>Reported by</th><th>n</th><th>Source</th></tr></thead><tbody>` + stageList.map(([key, l]) => { const r = c[key]; if (!r) return `<tr><td>${l}</td><td class="num muted" colspan="3">not measured in this study; shown dimly at a neutral level</td></tr>`; const s = byId[r.source]; const [lo, hi] = TA.wilson(r.value / 100, r.n); return `<tr><td>${l}</td><td class="num">${r.value}% <span class="muted">(${Math.round(lo)}–${Math.round(hi)})</span></td><td class="num">${r.n}</td><td><a href="${s.url}" target="_blank" rel="noopener">${s.cite.split(".")[0]} ${s.year}</a>${r.note ? `<div class="muted">${r.note}</div>` : ""}</td></tr>`; }).join("") + `</tbody></table>`;
+  document.getElementById("stages").innerHTML = stageList.map(([key, label], i) => { const r = c[key]; return `<div class="stage ${r ? "" : "off"}" data-i="${i}" role="button" tabindex="0"><b>${i + 1}. ${label}</b><span class="v">${r && r.value != null ? `<em>${r.value}%</em> reported it · n=${r.n}` : r ? `reported in these ${r.n} cases` : "not measured"}</span></div>`; }).join("")
+    + (c.tone && c.tone.frightening != null ? `<div class="stage"><b>Distressing</b><span class="v"><em>${c.tone.frightening}%</em> of experiences · n=${c.tone.n}</span></div>` : "");
+  const row = (l, r) => { if (!r) return `<tr><td>${l}</td><td class="num muted" colspan="3">not measured in this study; shown dimly at a neutral level</td></tr>`; const s = byId[r.source]; const v = r.value == null ? `<span class="muted">reported, no percentage published</span>` : (() => { const [lo, hi] = TA.wilson(r.value / 100, r.n); return `${r.value}% <span class="muted">(${Math.round(lo)}–${Math.round(hi)})</span>`; })(); return `<tr><td>${l}</td><td class="num">${v}</td><td class="num">${r.n}</td><td><a href="${s.url}" target="_blank" rel="noopener">${s.cite.split(".")[0]} ${s.year}</a>${r.note ? `<div class="muted">${r.note}</div>` : ""}</td></tr>`; };
+  document.getElementById("prov").innerHTML = `<table><thead><tr><th>Stage</th><th>Reported by</th><th>n</th><th>Source</th></tr></thead><tbody>` + stageList.map(([key, l]) => row(l, c[key])).join("")
+    + (c.tone ? row("Distressing experiences", { value: c.tone.frightening, n: c.tone.n, source: c.tone.source, note: c.tone.note || (c.tone.mixed != null ? `A further ${c.tone.mixed}% were described as mixed.` : "") }) : `<tr><td>Distressing experiences</td><td class="num muted" colspan="3">not measured in this study</td></tr>`)
+    + `</tbody></table>`;
 }
 // ------------------------------------------------------------ the scene
 let started = false, paused = false, stageIdx = 0, stageT = 0, three = null;
@@ -117,17 +138,32 @@ document.getElementById("enterBtn").addEventListener("click", () => { document.g
 document.getElementById("pauseBtn").addEventListener("click", e => { paused = !paused; e.target.textContent = paused ? "Resume" : "Pause"; });
 document.getElementById("skipBtn").addEventListener("click", () => jumpTo(stageIdx + 1));
 document.getElementById("fsBtn").addEventListener("click", () => { const b = document.getElementById("tunnelbox"); document.fullscreenElement ? document.exitFullscreen() : b.requestFullscreen?.(); });
-function restart() { jumpTo(0); }
+function restart() {
+  const c = P.cohorts[cohort];
+  if (mode === "sample") {
+    plan = stageList.map(([key]) => c[key] ? (c[key].value == null ? true : Math.random() * 100 < c[key].value) : Math.random() < 0.35);
+    if (!plan.includes(true)) plan[plan.length - 1] = true;
+    distressing = !!(c.tone && c.tone.frightening != null && Math.random() * 100 < c.tone.frightening);
+  } else { plan = null; distressing = false; }
+  document.querySelectorAll(".stage").forEach((s, i) => { if (i < stageList.length) s.classList.toggle("off", plan ? !plan[i] : !c[stageList[i][0]]); });
+  jumpTo(0);
+}
 function jumpTo(i) {
-  if (i >= stageList.length) { document.getElementById("overlay").hidden = false; document.getElementById("overlay").querySelector("h3").textContent = "You came back"; document.getElementById("overlay").querySelector("p").textContent = "That is the shape of the experience as this group of people reported it. Choose another study above, or walk it again."; document.getElementById("enterBtn").textContent = "Walk again"; stageIdx = 0; stageT = 0; return; }
+  while (plan && i < stageList.length && !plan[i]) i++;
+  if (i >= stageList.length) {
+    const ov = document.getElementById("overlay"); ov.hidden = false; ov.querySelector("h3").textContent = "You came back";
+    const kept = plan ? plan.filter(Boolean).length : stageList.length;
+    ov.querySelector("p").textContent = plan ? `This walk included ${kept} of ${stageList.length} stages${distressing ? ", and it was one of the distressing ones" : ""}. Walk again and the odds will deal a different one; over many walks each stage appears as often as the study found it.` : "That is the shape of the experience as this group of people reported it, every stage at its average strength. Try one person's walk to see how much a single experience can differ from the average.";
+    document.getElementById("enterBtn").textContent = "Walk again"; stageIdx = 0; stageT = 0; return;
+  }
   stageIdx = i; stageT = 0;
   const [key, label] = stageList[i]; const c = P.cohorts[cohort][key];
-  document.getElementById("capT").textContent = `${i + 1}. ${label}`;
-  document.getElementById("capS").textContent = DESC[key] + (c && c.note ? " " + c.note : "");
-  document.getElementById("capI").textContent = c ? `${c.value}% of ${c.n} experiencers reported this · ${byId[c.source].cite.split(".")[0]} ${byId[c.source].year}` : "Not measured in this study";
+  document.getElementById("capT").textContent = `${i + 1}. ${label}${distressing ? " (distressing)" : ""}`;
+  document.getElementById("capS").textContent = (distressing && DARK[key] ? DARK[key] : DESC[key]) + (c && c.note && !distressing ? " " + c.note : "");
+  document.getElementById("capI").textContent = c ? (c.value == null ? `Reported in these ${c.n} cases` : `${c.value}% of ${c.n} experiencers reported this`) + ` · ${byId[c.source].cite.split(".")[0]} ${byId[c.source].year}` + (plan ? " · included in this walk by the odds" : "") : "Not measured in this study";
   document.querySelectorAll(".stage").forEach((s, j) => j === i ? s.setAttribute("aria-current", "step") : s.removeAttribute("aria-current"));
 }
-const S = (k) => vals[k] == null ? 0.35 : vals[k] / 100; // strength of a stage, neutral 0.35 when unmeasured
+const S = (k) => plan ? 1 : (vals[k] == null ? 0.35 : vals[k] / 100); // typical: strength = share; one person's walk: full strength when included
 function build() {
   const canvas = document.getElementById("tunnelCanvas"), box = document.getElementById("tunnelbox");
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -183,12 +219,15 @@ function build() {
       t += dt;
     }
     // targets: the active stage dominates; earlier stages linger faintly
-    const idx = Object.fromEntries(stageList.map(([k], i) => [k, i]));
-    const tgt = k => { const i = idx[k]; if (i === undefined) return 0; const d = stageIdx - i; return d === 0 ? S(k) : d > 0 && d <= 2 ? S(k) * 0.35 : 0; };
+    // map the active script's stages onto the scene's channels (indian script reuses beings, realm, review, return)
+    const ALIAS = { messengers: "beings", ledger: "realm", error: "review" };
+    const idx = {}; stageList.forEach(([k], i) => { idx[ALIAS[k] || k] = i; });
+    const tgt = k => { const i = idx[k]; if (i === undefined) return 0; const d = stageIdx - i; const key = stageList[i][0]; return d === 0 ? S(key) : d > 0 && d <= 2 ? S(key) * 0.35 : 0; };
+    const cold = distressing ? 1 : 0;
     const kk = 1 - Math.pow(0.001, dt);
-    cur.dead = lerp(cur.dead, tgt("dead"), kk); cur.obe = lerp(cur.obe, tgt("obe"), kk); cur.peace = lerp(cur.peace, Math.max(tgt("peace"), stageIdx > idx.peace ? S("peace") * 0.5 : 0), kk);
+    cur.dead = lerp(cur.dead, tgt("dead"), kk); cur.obe = lerp(cur.obe, tgt("obe"), kk); cur.peace = lerp(cur.peace, cold ? 0 : Math.max(tgt("peace"), idx.peace !== undefined && stageIdx > idx.peace ? S("peace") * 0.5 : 0), kk);
     cur.tunnel = lerp(cur.tunnel, Math.max(tgt("tunnel"), stageIdx >= idx.tunnel && stageIdx <= idx.light ? S("tunnel") : 0), kk);
-    cur.light = lerp(cur.light, Math.max(tgt("light"), stageIdx > idx.light && stageIdx < idx.return ? S("light") * 0.6 : 0, stageIdx === idx.tunnel ? S("light") * 0.3 : 0), kk);
+    cur.light = lerp(cur.light, (cold ? 0.15 : 1) * Math.max(tgt("light"), idx.light !== undefined && stageIdx > idx.light && stageIdx < idx.return ? S("light") * 0.6 : 0, stageIdx === idx.tunnel ? S("light") * 0.3 : 0), kk);
     cur.beings = lerp(cur.beings, tgt("beings"), kk); cur.realm = lerp(cur.realm, tgt("realm"), kk); cur.review = lerp(cur.review, tgt("review"), kk); cur.border = lerp(cur.border, tgt("border"), kk); cur.ret = lerp(cur.ret, tgt("return"), kk);
     // motion: forward speed rises with the tunnel, reverses on return
     const speed = (3 + 10 * cur.tunnel) * (1 - 1.8 * cur.ret);
@@ -197,7 +236,7 @@ function build() {
       p[3 * i + 2] += speed * dt; if (p[3 * i + 2] > 2) p[3 * i + 2] -= 140; if (p[3 * i + 2] < -140) p[3 * i + 2] += 140;
       const rr = 3 + (1 - cur.tunnel) * 9 + seed[i] * 3, a = seed[i] * 6.283 + t * .12 * (.5 + cur.tunnel);
       p[3 * i] = Math.cos(a) * rr; p[3 * i + 1] = Math.sin(a) * rr;
-      const warm = .35 + .65 * cur.peace; c[3 * i] = .4 + .6 * warm; c[3 * i + 1] = .35 + .45 * warm * (0.5 + cur.light); c[3 * i + 2] = .75 - .35 * warm + .25 * cur.light;
+      const warm = cold ? 0.05 : .35 + .65 * cur.peace; c[3 * i] = (cold ? .25 : .4) + .6 * warm; c[3 * i + 1] = (cold ? .3 : .35) + .45 * warm * (0.5 + cur.light); c[3 * i + 2] = (cold ? .55 : .75) - .35 * warm + .25 * cur.light;
     }
     geo.attributes.position.needsUpdate = true; geo.attributes.color.needsUpdate = true;
     dustMat.opacity = 0.35 + 0.6 * Math.max(cur.tunnel, cur.light, cur.dead * 0.5);
@@ -206,9 +245,10 @@ function build() {
     // out of body: the room fades in below and the camera rises
     [floor, bed, body].forEach(m => m.material.opacity = cur.obe * 0.9); figures.forEach((f, i) => f.material.opacity = cur.obe * (0.5 + 0.2 * Math.sin(t + i)));
     const rise = cur.obe * 3.2;
-    beings.forEach((s, i) => { const on = i < Math.round(cur.beings * 24 + 0.49); s.visible = on; if (on) { s.position.z += speed * dt * 0.3; if (s.position.z > 1) s.position.z = -60; s.material.opacity = cur.beings * (0.3 + 0.4 * Math.sin(t + s.userData.phase) ** 2); } });
+    beings.forEach((s, i) => { const on = i < Math.round(cur.beings * 24 + 0.49); s.visible = on; if (on) { s.position.z += speed * dt * (cold ? 0.08 : 0.3); if (s.position.z > (cold ? -6 : 1)) s.position.z = -60; s.material.opacity = cur.beings * (0.3 + 0.4 * Math.sin(t + s.userData.phase) ** 2); s.material.color.setHex(cold ? 0x6b7390 : 0xbfd8ff); } });
     ground.material.opacity = cur.realm * 0.35; ground.position.z = ((t * 2) % 3);
     frames.forEach((f, i) => { f.visible = cur.review > 0.02; f.material.opacity = cur.review * (0.12 + 0.12 * Math.sin(t * 0.7 + i)); f.position.z += speed * dt * 0.4; if (f.position.z > 1) f.position.z = -58; f.rotation.y += 0.002; });
+    ring.material.color.setHex(cold ? 0x4a5478 : 0xd8a84a); gate.material.color.setHex(cold ? 0x4a5478 : 0xd8a84a);
     ring.material.opacity = cur.border * 0.8; ring.scale.setScalar(1 + .08 * Math.sin(t * 1.5)); gate.material.opacity = cur.border * 0.6;
     cam.rotation.set(pitch * .5 - rise * 0.18, yaw * .5, 0, "YXZ");
     cam.position.set(Math.sin(t * .4) * .25 * (1 - cur.peace), rise + Math.cos(t * .3) * .15 * (1 - cur.peace), 0);

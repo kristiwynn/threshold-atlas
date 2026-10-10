@@ -1,5 +1,5 @@
 {
- "_note": "The 3D world reads ONLY this file. Each stage: value (percent of experiencers who reported it), n, source, optional note. Prospective = interviewed in hospital soon after cardiac arrest; retrospective = self-selected accounts written later. Stage order follows Ring (1980) and the Liège finding (Martial 2017) that leaving the body is most often first and returning last, with the middle varying.",
+ "_note": "The 3D world reads ONLY this file. Each stage: value (percent of experiencers who reported it), n, source, optional note. 'script' names which sequence of stages a cohort follows (western or indian). 'tone' gives the share of frightening and mixed experiences for the distressing branch. In 'one person's walk' mode each stage is included at random with probability = value/100, and the walk is distressing with probability = tone.frightening/100.",
  "cohorts": {
   "nderf": {
    "label": "NDERF survey (retrospective)",
@@ -44,7 +44,14 @@
     "source": "long2010"
    },
    "dead": null,
-   "realm": null
+   "realm": null,
+   "script": "western",
+   "tone": {
+    "frightening": 3.8,
+    "mixed": 33.8,
+    "n": 613,
+    "source": "long2010"
+   }
   },
   "lommel": {
    "label": "Dutch cardiac arrests (prospective)",
@@ -93,7 +100,9 @@
     "n": 62,
     "source": "lommel2001"
    },
-   "return": null
+   "return": null,
+   "script": "western",
+   "tone": null
   },
   "liege": {
    "label": "Liège narratives (retrospective)",
@@ -122,78 +131,111 @@
    },
    "dead": null,
    "realm": null,
-   "return": null
+   "return": null,
+   "script": "western",
+   "tone": {
+    "frightening": 14,
+    "mixed": null,
+    "n": 123,
+    "source": "cassol2019",
+    "note": "17 of 123 Liège narratives were distressing (inverse, hellish or void)."
+   }
   },
   "india": {
    "label": "Indian cases (Pasricha & Stevenson 1986)",
-   "light": null,
-   "tunnel": {
-    "value": 0,
+   "script": "indian",
+   "tone": null,
+   "messengers": {
+    "value": null,
     "n": 16,
     "source": "pasricha1986",
-    "note": "No tunnel reported in these cases; messengers and a clerk with records instead."
+    "note": "Reported in most of the 16 cases: messengers (yamdoots) come to take the person away. Exact counts per feature were not published as percentages."
    },
-   "beings": {
-    "value": 100,
+   "ledger": {
+    "value": null,
     "n": 16,
     "source": "pasricha1986",
-    "note": "All cases involved beings (messengers)."
+    "note": "The person is brought before a man, often with a book or ledger of records."
    },
-   "peace": null,
-   "border": null,
-   "review": null,
-   "obe": null,
-   "dead": null,
-   "realm": null,
+   "error": {
+    "value": null,
+    "n": 16,
+    "source": "pasricha1986",
+    "note": "The record is consulted and a clerical mistake is found: the wrong person was brought."
+   },
    "return": {
     "value": 100,
     "n": 16,
     "source": "pasricha1986",
-    "note": "Every case ended in being sent back, usually because a clerk found the wrong person had been brought."
+    "note": "Every case ended in being sent back. No tunnel and no life review were reported in these cases."
    }
   }
  },
  "community_rule": "The community's own values replace a knob only when at least 100 submissions exist and the value is within 10 percentage points of a published study. Until then community values are shown as captions.",
- "stages": [
-  [
-   "dead",
-   "Knowing you have died"
+ "scripts": {
+  "western": [
+   [
+    "dead",
+    "Knowing you have died"
+   ],
+   [
+    "obe",
+    "Leaving the body"
+   ],
+   [
+    "peace",
+    "Peace"
+   ],
+   [
+    "tunnel",
+    "The tunnel"
+   ],
+   [
+    "light",
+    "The light"
+   ],
+   [
+    "beings",
+    "Presences"
+   ],
+   [
+    "realm",
+    "Another world"
+   ],
+   [
+    "review",
+    "Life review"
+   ],
+   [
+    "border",
+    "The border"
+   ],
+   [
+    "return",
+    "The return"
+   ]
   ],
-  [
-   "obe",
-   "Leaving the body"
-  ],
-  [
-   "peace",
-   "Peace"
-  ],
-  [
-   "tunnel",
-   "The tunnel"
-  ],
-  [
-   "light",
-   "The light"
-  ],
-  [
-   "beings",
-   "Presences"
-  ],
-  [
-   "realm",
-   "Another world"
-  ],
-  [
-   "review",
-   "Life review"
-  ],
-  [
-   "border",
-   "The border"
-  ],
-  [
-   "return",
-   "The return"
+  "indian": [
+   [
+    "messengers",
+    "Taken by messengers"
+   ],
+   [
+    "ledger",
+    "Brought before the man with the book"
+   ],
+   [
+    "error",
+    "The record is checked: a mistake"
+   ],
+   [
+    "return",
+    "Sent back"
+   ]
   ]
- ]
+ },
+ "distressing": {
+  "note": "When a walk is distressing, the same stages play cold and isolating: no warmth, the light is absent or harsh, presences keep their distance, and the border is a drop. Based on the three types in Cassol 2019: inverse (the usual features felt as threatening), hellish, and void.",
+  "source": "cassol2019"
+ }
 }
