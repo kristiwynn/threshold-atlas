@@ -248,7 +248,9 @@ function build() {
   for (let i = 0; i < 3; i++) { const f = new THREE.Sprite(figMat.clone()); f.scale.set(0.9, 2.2, 1); f.position.set(-2.2 + i * 2.2, -0.6, -6.5 - (i % 2)); figures.push(f); room.add(f); }
   scene.add(room);
   // the light
-  const light = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending })); light.position.z = -70; scene.add(light);
+  const light = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, fog: false, blending: THREE.AdditiveBlending })); light.position.z = -70; scene.add(light);
+  const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, color: 0xfff0cf, transparent: true, depthWrite: false, fog: false, blending: THREE.AdditiveBlending })); halo.position.z = -70; scene.add(halo);
+  const core = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, color: 0xffffff, transparent: true, depthWrite: false, fog: false, blending: THREE.AdditiveBlending })); core.position.z = -70; scene.add(core);
   // presences
   const beings = []; const bm = new THREE.SpriteMaterial({ map: tex, color: 0xbfd8ff, transparent: true, opacity: .6, depthWrite: false, blending: THREE.AdditiveBlending });
   for (let i = 0; i < 24; i++) { const s = new THREE.Sprite(bm.clone()); s.scale.set(.6, 1.6, 1); s.position.set((Math.random() - .5) * 7, (Math.random() - .5) * 3, -15 - Math.random() * 40); s.userData.phase = Math.random() * 6; beings.push(s); scene.add(s); }
@@ -276,7 +278,7 @@ function build() {
     requestAnimationFrame(frame);
     const dt = Math.min(0.05, (now - last) / 1000); last = now;
     if (!paused && stageList.length) {
-      const key = stageList[stageIdx][0]; const len = STAGE_LEN * (0.45 + 0.55 * S(key)) * (reduce ? 1.5 : 1);
+      const key = stageList[stageIdx][0]; const len = STAGE_LEN * (0.55 + 0.45 * S(key)) * (reduce ? 1.5 : 1);
       stageT += dt; document.getElementById("prog").style.width = (100 * (stageIdx + Math.min(1, stageT / len)) / stageList.length) + "%";
       if (stageT >= len) jumpTo(stageIdx + 1);
       t += dt;
@@ -299,12 +301,23 @@ function build() {
       p[3 * i + 2] += speed * dt; if (p[3 * i + 2] > 2) p[3 * i + 2] -= 140; if (p[3 * i + 2] < -140) p[3 * i + 2] += 140;
       const rr = 3 + (1 - cur.tunnel) * 9 + seed[i] * 3, a = seed[i] * 6.283 + t * .12 * (.5 + cur.tunnel);
       p[3 * i] = Math.cos(a) * rr; p[3 * i + 1] = Math.sin(a) * rr;
-      const warm = cold ? 0.05 : .35 + .65 * cur.peace; c[3 * i] = (cold ? .25 : .4) + .6 * warm; c[3 * i + 1] = (cold ? .3 : .35) + .45 * warm * (0.5 + cur.light); c[3 * i + 2] = (cold ? .55 : .75) - .35 * warm + .25 * cur.light;
+      const warm = cold ? 0.05 : .35 + .65 * cur.peace, lit = cold ? 0 : cur.light;
+      const near2 = Math.max(0, 1 + p[3 * i + 2] / 70) * lit;   // dust nearer the light glows
+      c[3 * i] = Math.min(1, (cold ? .25 : .4) + .6 * warm + .5 * near2);
+      c[3 * i + 1] = Math.min(1, (cold ? .3 : .35) + .45 * warm * (0.5 + lit) + .45 * near2);
+      c[3 * i + 2] = Math.min(1, (cold ? .55 : .75) - .35 * warm + .25 * lit + .3 * near2);
     }
     geo.attributes.position.needsUpdate = true; geo.attributes.color.needsUpdate = true;
-    dustMat.opacity = 0.35 + 0.6 * Math.max(cur.tunnel, cur.light, cur.dead * 0.5);
-    light.scale.set(6 + 60 * cur.light, 6 + 60 * cur.light, 1); light.material.opacity = 0.1 + 0.9 * cur.light; light.position.z = -70 + 40 * cur.light;
-    scene.fog.density = 0.015 + 0.05 * cur.tunnel - 0.012 * cur.light + 0.03 * cur.dead;
+    dustMat.opacity = 0.4 + 0.6 * Math.max(cur.tunnel, cur.light, cur.dead * 0.5);
+    dustMat.size = 0.12 + 0.1 * cur.light;
+    // The light is always visible once its stage begins; how often people reported it sets how
+    // big, bright and close it comes. A low rate reads as a small, distant light, never as nothing.
+    const L = cur.light, near = -58 + 40 * L;
+    [light, halo, core].forEach(sp => sp.position.z = near);
+    halo.scale.setScalar((14 + 70 * L) * (1 + 0.04 * Math.sin(t * 0.8))); halo.material.opacity = 0.18 + 0.5 * L;
+    light.scale.setScalar(7 + 34 * L); light.material.opacity = 0.35 + 0.65 * L;
+    core.scale.setScalar(2.2 + 11 * L); core.material.opacity = 0.5 + 0.5 * L;
+    scene.fog.density = 0.012 + 0.045 * cur.tunnel - 0.008 * L + 0.03 * cur.dead;
     // out of body: the room fades in below and the camera rises
     [floor, bed, body].forEach(m => m.material.opacity = cur.obe * 0.9); figures.forEach((f, i) => f.material.opacity = cur.obe * (0.5 + 0.2 * Math.sin(t + i)));
     const rise = cur.obe * 3.2;
