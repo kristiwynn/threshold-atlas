@@ -54,13 +54,21 @@ button.ghost[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)
   <div class="tunnelbox" id="tunnelbox">
     <canvas id="tunnelCanvas"></canvas>
     <div class="prog"><span id="prog"></span></div>
-    <div class="ctrl" id="ctrl" hidden><button id="pauseBtn">Pause</button><button id="skipBtn">Next stage</button><button id="fsBtn">Full screen</button></div>
+    <div class="ctrl" id="ctrl" hidden><button id="soundBtn" aria-pressed="false">Sound on</button><button id="pauseBtn">Pause</button><button id="skipBtn">Next stage</button><button id="fsBtn">Full screen</button></div>
     <div class="cap" id="cap" hidden><b id="capT"></b><span id="capS"></span><i id="capI"></i></div>
-    <div class="overlay" id="overlay"><h3 style="font-size:30px;color:#efe9dc">Enter the passage</h3><p>About three minutes. You move forward through ten stages toward a light and back. Drag or swipe to look around. Nothing flashes; you can pause or leave at any time.</p><button class="primary" id="enterBtn">Begin</button></div>
+    <div class="overlay" id="overlay"><h3 style="font-size:30px;color:#efe9dc">Enter the passage</h3><p>About three minutes. You move forward through the stages toward a light and back. Drag or swipe to look around. Sound is off until you turn it on, nothing flashes, and you can pause or leave at any time.</p><button class="primary" id="enterBtn">Begin</button></div>
   </div>
   <div class="stages" id="stages"></div>
   <p class="small muted" style="margin-top:12px">In the typical path, a stage reported by fewer people appears fainter and passes sooner. In one person's walk, each stage is included or skipped at random by its share of people, so every walk is different and, over many walks, the stages appear as often as the study found them. A share of walks is distressing, by the study's own rate. Plays in any phone or laptop browser; headset mode (WebXR) is planned.</p>
   <p class="small muted" id="commCaption"></p>
+</section>
+
+<section>
+  <div class="eyebrow">Sound</div>
+  <h2>What people say they heard</h2>
+  <p>Turn sound on inside the scene and each stage carries what experiencers describe. Nothing here is a recording; every sound is built live in the browser from the descriptions below. Headphones help.</p>
+  <div class="card prov" id="soundTable"></div>
+  <p class="small muted" style="margin-top:12px" id="soundNote"></p>
 </section>
 
 <section>
@@ -115,6 +123,11 @@ let P, byId, cohort = "nderf", vals = {}, stageList = [], mode = "typical", plan
   co.innerHTML = Object.entries(P.cohorts).map(([k, c]) => `<button class="ghost" data-c="${k}">${c.label}</button>`).join("");
   co.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { applyCohort(b.dataset.c); if (started) restart(); } });
   document.getElementById("stages").addEventListener("click", e => { const s = e.target.closest(".stage"); if (s && started) jumpTo(+s.dataset.i); });
+  const snd = P.sound;
+  document.getElementById("soundTable").innerHTML = `<table><thead><tr><th>Stage</th><th>What people describe</th><th>Source</th></tr></thead><tbody>` +
+    Object.entries(snd.stages).map(([k, v]) => { const lbl = (P.scripts.western.concat(P.scripts.indian)).find(x => x[0] === k); const src = v.source && byId[v.source]; return `<tr><td>${lbl ? lbl[1] : k}</td><td>${v.desc}${v.cite ? `<div class="muted" style="margin-top:4px">${v.cite}</div>` : ""}</td><td>${src ? `<a href="${src.url}" target="_blank" rel="noopener">${src.cite.split(".")[0]} ${src.year}</a>` : `<span class="muted">no published source for this one; built from the descriptions above</span>`}</td></tr>`; }).join("") +
+    `<tr><td>A distressing walk</td><td>${snd.distressing.desc}</td><td><a href="https://pubmed.ncbi.nlm.nih.gov/31105066/" target="_blank" rel="noopener">Cassol 2019</a></td></tr></tbody></table>`;
+  document.getElementById("soundNote").textContent = snd.note;
   applyCohort("nderf");
   const st = await TA.stats();
   if (st && st.overall) { const o = st.overall.pct; document.getElementById("commCaption").textContent = `Community so far (n=${st.n}, captions only until ${P.community_rule.split(".")[0].toLowerCase()}): out of body ${o.obe}% · peace ${o.peace}% · light ${o.light}% · presences ${o.beings}% · life review ${o.review}% · border ${o.border}%.`; }
@@ -163,6 +176,56 @@ function jumpTo(i) {
   document.getElementById("capI").textContent = c ? (c.value == null ? `Reported in these ${c.n} cases` : `${c.value}% of ${c.n} experiencers reported this`) + ` · ${byId[c.source].cite.split(".")[0]} ${byId[c.source].year}` + (plan ? " · included in this walk by the odds" : "") : "Not measured in this study";
   document.querySelectorAll(".stage").forEach((s, j) => j === i ? s.setAttribute("aria-current", "step") : s.removeAttribute("aria-current"));
 }
+// ------------------------------------------------------------ sound
+// Everything is synthesised with oscillators and filtered noise: no recordings, nothing to load.
+const AUDIO = { on: false, ctx: null, nodes: null };
+function noiseBuffer(ctx, secs = 2) {
+  const b = ctx.createBuffer(1, ctx.sampleRate * secs, ctx.sampleRate), d = b.getChannelData(0);
+  for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  return b;
+}
+function initAudio() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
+  const mk = (type, freq, gain = 0) => { const o = ctx.createOscillator(); o.type = type; o.frequency.value = freq; const g = ctx.createGain(); g.gain.value = gain; o.connect(g); g.connect(master); o.start(); return { o, g }; };
+  // the noise: ringing and rushing through the passage
+  const src = ctx.createBufferSource(); src.buffer = noiseBuffer(ctx); src.loop = true;
+  const nf = ctx.createBiquadFilter(); nf.type = "bandpass"; nf.frequency.value = 900; nf.Q.value = 1.1;
+  const ng = ctx.createGain(); ng.gain.value = 0; src.connect(nf); nf.connect(ng); ng.connect(master); src.start();
+  const ring = mk("sine", 2100, 0);                       // the high ringing Moody describes
+  const warm = mk("sine", 55, 0);                          // the low warmth of peace
+  // the music: a slow, consonant chord that does not resolve anywhere
+  const chord = [220, 277.18, 329.63, 440, 659.25].map((f, i) => mk(i > 2 ? "sine" : "triangle", f, 0));
+  const voices = [196, 294, 392].map(f => mk("sine", f, 0)); // wordless voices
+  const air = (() => { const s2 = ctx.createBufferSource(); s2.buffer = noiseBuffer(ctx); s2.loop = true; const f = ctx.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = 500; const g = ctx.createGain(); g.gain.value = 0; s2.connect(f); f.connect(g); g.connect(master); s2.start(); return { g, f }; })();
+  const shimmer = mk("triangle", 1320, 0);
+  const border = mk("sine", 146.83, 0);
+  const muffle = ctx.createBiquadFilter(); muffle.type = "lowpass"; muffle.frequency.value = 20000;
+  return { ctx, master, ng, nf, ring, warm, chord, voices, air, shimmer, border };
+}
+function updateAudio(cur, cold, dt) {
+  const A = AUDIO.nodes; if (!A) return;
+  const t = A.ctx.currentTime, to = (param, v, s = 0.4) => param.setTargetAtTime(v, t, s);
+  to(A.master.gain, AUDIO.on ? 0.5 : 0, 0.3);
+  // the noise rises with the tunnel; harsher and never resolving when distressing
+  to(A.ng.gain, 0.05 + 0.16 * cur.tunnel + (cold ? 0.08 : 0), 0.5);
+  A.nf.frequency.setTargetAtTime(cold ? 2400 : 700 + 1400 * cur.tunnel, t, 0.6);
+  to(A.ring.g.gain, (cold ? 0.05 : 0.025) * (0.3 + cur.tunnel), 0.5);
+  to(A.warm.g.gain, cold ? 0 : 0.09 * cur.peace, 0.8);
+  // music only where people describe it: at and after the light, and never in a distressing walk
+  const music = cold ? 0 : cur.light;
+  A.chord.forEach((n, i) => to(n.g.gain, music * [0.05, 0.04, 0.035, 0.03, 0.02][i] * (i < 3 ? 1 : 0.6 + 0.4 * Math.sin(t * 0.17 + i)), 1.2));
+  A.voices.forEach((n, i) => to(n.g.gain, (cold ? 0.004 : 0.016) * cur.beings * (0.6 + 0.4 * Math.sin(t * 0.3 + i)), 1.0));
+  to(A.air.g.gain, 0.05 * cur.realm, 0.9); A.air.f.frequency.setTargetAtTime(cold ? 220 : 700, t, 1);
+  to(A.shimmer.g.gain, 0.012 * cur.review * (0.5 + 0.5 * Math.sin(t * 2.3)), 0.3);
+  to(A.border.g.gain, 0.05 * cur.border, 0.6);
+}
+document.getElementById("soundBtn").addEventListener("click", e => {
+  if (!AUDIO.ctx) { AUDIO.nodes = initAudio(); AUDIO.ctx = AUDIO.nodes.ctx; }
+  AUDIO.ctx.resume();
+  AUDIO.on = !AUDIO.on;
+  e.target.setAttribute("aria-pressed", AUDIO.on); e.target.textContent = AUDIO.on ? "Sound off" : "Sound on";
+});
 const S = (k) => plan ? 1 : (vals[k] == null ? 0.35 : vals[k] / 100); // typical: strength = share; one person's walk: full strength when included
 function build() {
   const canvas = document.getElementById("tunnelCanvas"), box = document.getElementById("tunnelbox");
@@ -252,6 +315,7 @@ function build() {
     ring.material.opacity = cur.border * 0.8; ring.scale.setScalar(1 + .08 * Math.sin(t * 1.5)); gate.material.opacity = cur.border * 0.6;
     cam.rotation.set(pitch * .5 - rise * 0.18, yaw * .5, 0, "YXZ");
     cam.position.set(Math.sin(t * .4) * .25 * (1 - cur.peace), rise + Math.cos(t * .3) * .15 * (1 - cur.peace), 0);
+    updateAudio(cur, cold, dt);
     renderer.render(scene, cam);
   })(performance.now());
 }

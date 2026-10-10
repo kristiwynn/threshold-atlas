@@ -237,5 +237,70 @@
  "distressing": {
   "note": "When a walk is distressing, the same stages play cold and isolating: no warmth, the light is absent or harsh, presences keep their distance, and the border is a drop. Based on the three types in Cassol 2019: inverse (the usual features felt as threatening), hellish, and void.",
   "source": "cassol2019"
+ },
+ "sound": {
+  "note": "What people report hearing. The scene synthesises these live; no recordings are used. Moody (1975) listed 'the noise', a loud ringing or buzzing, as element 2 of his 15, occurring as the person moves through the dark passage; he did not publish a percentage. NDERF describes the sounds its contributors report as 'pleasant, musical, buzzing or ringing'. A figure of about 50% hearing music during an NDE is attributed to Joel Funk (Plymouth State College) and circulates widely in secondary sources; we have not verified it against a primary publication and label it as such on the page.",
+  "stages": {
+   "dead": {
+    "kind": "muffled",
+    "desc": "Ordinary sound goes distant and muffled, as if heard underwater."
+   },
+   "obe": {
+    "kind": "room",
+    "desc": "Voices and equipment in the room, heard clearly but from the wrong place.",
+    "source": "moody1975"
+   },
+   "peace": {
+    "kind": "drone_warm",
+    "desc": "A low, steady warmth underneath everything."
+   },
+   "tunnel": {
+    "kind": "noise",
+    "desc": "A loud ringing, buzzing or rushing, the sound Moody called 'the noise'.",
+    "source": "moody1975",
+    "cite": "Moody listed it as the second of fifteen recurring elements, occurring as the person moves through the dark passage. No percentage was published."
+   },
+   "light": {
+    "kind": "music",
+    "desc": "Music, almost always described as beautiful beyond anything worldly: a floating, sustained sound.",
+    "source": "nderf_sounds",
+    "cite": "Described by NDERF as 'pleasant, musical'. A commonly cited figure of about 50% hearing music is attributed to Joel Funk and is unverified against a primary source."
+   },
+   "beings": {
+    "kind": "voices",
+    "desc": "Voices without words, or communication felt rather than heard."
+   },
+   "realm": {
+    "kind": "air",
+    "desc": "Open, airy space with no edges."
+   },
+   "review": {
+    "kind": "shimmer",
+    "desc": "Faint overlapping fragments, like many moments at once."
+   },
+   "border": {
+    "kind": "tone",
+    "desc": "A single sustained tone that does not resolve."
+   },
+   "return": {
+    "kind": "snap",
+    "desc": "An abrupt return to ordinary, muffled sound."
+   },
+   "messengers": {
+    "kind": "room",
+    "desc": "Spoken instruction, matter-of-fact."
+   },
+   "ledger": {
+    "kind": "air",
+    "desc": "A hall, with the sense of others waiting."
+   },
+   "error": {
+    "kind": "shimmer",
+    "desc": "Pages, checking, a correction being made."
+   }
+  },
+  "distressing": {
+   "desc": "No music comes. The ringing stays harsh, the space sounds hard and empty, and voices stay at a distance."
+  }
  }
 }

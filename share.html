@@ -8,118 +8,153 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <style>
-form{display:grid;gap:22px}
-fieldset{border:1px solid var(--line);border-radius:10px;padding:16px 18px 18px;margin:0;background:var(--surface)}
-legend{font-family:var(--display);font-size:22px;font-weight:600;padding:0 6px}
+.steps{display:flex;gap:4px;margin:0 0 26px}
+.steps div{flex:1;height:3px;background:var(--line);border-radius:2px;transition:background .3s}
+.steps div.done{background:var(--accent)}
+.step{display:none}
+.step.on{display:block;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.step.on{animation:none}}
+.stepnum{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.q{font-family:var(--display);font-size:clamp(26px,4vw,38px);font-weight:600;line-height:1.15;margin:0 0 8px;text-wrap:balance}
+.sub{color:var(--muted);margin-bottom:22px;max-width:56ch}
 .f2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
 label{display:grid;gap:5px;font-size:14px;color:var(--muted)}
-input,select,textarea{font:16px var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px 12px;width:100%}
-textarea{min-height:140px;resize:vertical}
-.item{display:grid;grid-template-columns:1fr;gap:6px;padding:10px 0;border-top:1px solid var(--line)}
-.item:first-of-type{border-top:0}
-.item .q{color:var(--ink);font-size:15px}
+input,select,textarea{font:16px var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;width:100%}
+textarea{min-height:200px;resize:vertical;font-size:17px;line-height:1.55}
+.pick{display:flex;flex-wrap:wrap;gap:8px}
+.pick button{font:600 15px var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 16px;cursor:pointer;text-align:left}
+.pick button[aria-pressed="true"]{border-color:var(--accent);background:rgba(216,168,74,.14);color:var(--ink)}
+.item{padding:16px 0;border-top:1px solid var(--line)}
+.item:first-child{border-top:0}
+.item .t{font-size:17px;color:var(--ink);margin-bottom:9px}
+.item .t span{color:var(--faint);font-family:var(--mono);font-size:12px;margin-right:8px}
 .opts{display:flex;flex-wrap:wrap;gap:6px}
-.opts label{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink);font-size:14px;background:var(--bg)}
-.opts label:has(input:checked){border-color:var(--accent);background:rgba(216,168,74,.12)}
+.opts label{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;color:var(--ink);font-size:14px;background:var(--surface)}
+.opts label:has(input:checked){border-color:var(--accent);background:rgba(216,168,74,.14)}
 .opts input{width:16px;height:16px;margin:0;accent-color:var(--accent)}
-.check{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;color:var(--ink);font-size:15px;cursor:pointer}
+.ev{font-size:13px;color:var(--c2);margin-top:8px;padding-left:12px;border-left:2px solid var(--c2)}
+.ev b{color:var(--ink);font-weight:600}
+.check{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;color:var(--ink);font-size:15px;cursor:pointer;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.check:has(input:checked){border-color:var(--accent)}
 .check input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent)}
-.crisis{border-left:3px solid var(--c4);padding:10px 14px;background:rgba(224,122,154,.08);border-radius:0 8px 8px 0;font-size:15px}
-button.primary{font:600 16px var(--body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:12px 20px;cursor:pointer}
-button.primary:disabled{opacity:.5;cursor:default}
-.status{font-size:15px;min-height:22px}
-.result{background:var(--surface);border:1px solid var(--accent);border-radius:10px;padding:20px}
-.result code{font:600 20px var(--mono);letter-spacing:.08em;color:var(--accent)}
+.crisis{border-left:3px solid var(--c4);padding:12px 16px;background:rgba(224,122,154,.08);border-radius:0 8px 8px 0;font-size:15px;margin:20px 0}
+button.primary{font:600 16px var(--body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:13px 22px;cursor:pointer}
+button.primary:disabled{opacity:.45;cursor:default}
+button.ghost{font:600 15px var(--body);background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:12px 18px;cursor:pointer}
+.nav{display:flex;gap:10px;align-items:center;margin-top:28px;flex-wrap:wrap}
+.status{font-size:15px;color:var(--muted)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.scorebox{text-align:center;padding:26px 20px}
+.scorebox .n{font-family:var(--display);font-size:72px;font-weight:600;line-height:1;color:var(--accent)}
+.scale{position:relative;height:42px;margin:22px 0 8px;border-radius:6px;background:linear-gradient(90deg,var(--line),rgba(216,168,74,.35))}
+.scale .thr{position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--ink);opacity:.5;left:21.875%}
+.scale .you{position:absolute;top:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.scale .lab{position:absolute;top:46px;font:11px var(--mono);color:var(--muted);transform:translateX(-50%)}
+code.del{font:600 22px var(--mono);letter-spacing:.1em;color:var(--accent);display:block;margin:10px 0}
+.thinking{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <div id="nav"></div>
 
-<section class="hero">
+<section class="hero" style="padding-block:46px 20px">
   <div class="eyebrow">Share yours</div>
-  <h1>Add your experience to the atlas</h1>
-  <p class="lede">Anonymous. No account, no email, no name. Your answers join the community figures, and if you choose, a redacted version of your story is published after a person reads it.</p>
+  <h1 style="font-size:clamp(36px,6vw,64px)">Add your experience</h1>
+  <p class="lede">Anonymous. No account, no email, no name. Six short steps, about five minutes.</p>
 </section>
 
-<section>
-  <div class="grid2" style="grid-template-columns:minmax(0,2fr) minmax(260px,1fr)">
-    <form id="f" novalidate>
-      <fieldset>
-        <legend>First</legend>
-        <label class="check"><input type="checkbox" id="adult" required><span>I am 18 or older. (If the experience happened in childhood, that's fine: you'll say how old you were.)</span></label>
-      </fieldset>
+<section style="border-top:0;padding-top:10px">
+<div class="steps" id="steps"></div>
+<form id="f" novalidate>
 
-      <fieldset>
-        <legend>About the experience</legend>
-        <div class="f2">
-          <label>How old were you at the time<select id="age_band" required><option value="">Choose</option><option>Under 18</option><option>18-29</option><option>30-44</option><option>45-59</option><option>60-74</option><option>75+</option></select></label>
-          <label>Sex<select id="sex" required><option value="">Choose</option><option>Female</option><option>Male</option><option>Other or prefer not to say</option></select></label>
-          <label>Country where it happened<select id="country" required><option value="">Choose</option></select></label>
-          <label id="regionWrap" hidden>State<select id="region"><option value="">Prefer not to say</option></select></label>
-          <label>Roughly when<select id="decade"><option value="">Prefer not to say</option><option>2020s</option><option>2010s</option><option>2000s</option><option>1990s</option><option>1980s</option><option>1970s</option><option>1960s</option><option>Before 1960</option></select></label>
-          <label>Religion or belief at the time<select id="religion"><option>Prefer not to say</option><option>Christian</option><option>Jewish</option><option>Muslim</option><option>Hindu</option><option>Buddhist</option><option>Spiritual, not religious</option><option>No religion</option><option>Other</option></select></label>
-        </div>
-        <div class="crisis" style="margin-top:14px">If you are thinking about harming yourself now, please reach out first. In the US, call or text <b>988</b>. Elsewhere, <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> lists free lines. This page will still be here.</div>
-        <label style="margin-top:14px">What brought you close to death<select id="cause" required><option value="">Choose</option><option>Cardiac arrest</option><option>Accident or trauma</option><option>Drowning</option><option>Surgery or anaesthesia</option><option>Illness</option><option>Childbirth</option><option>Overdose or poisoning</option><option>Suicide attempt</option><option>Other</option></select></label>
-      </fieldset>
-
-      <fieldset>
-        <legend>The Greyson scale</legend>
-        <p class="small muted">Sixteen questions researchers use to describe an experience. Answer as you remember it. Scores: 0, 1 or 2.</p>
-        <div id="items"></div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Afterwards</legend>
-        <div class="f2">
-          <label>Overall, it felt<select id="tone"><option>Wonderful</option><option>Mixed</option><option>Frightening</option></select></label>
-        </div>
-        <p class="small muted" style="margin:12px 0 6px">Since then (tick any that apply)</p>
-        <div class="opts" id="after"></div>
-      </fieldset>
-
-      <fieldset>
-        <legend>In your words (optional)</legend>
-        <label>What happened, as you remember it. Please leave out names, places and anything that could identify you or others.<textarea id="story" maxlength="2000"></textarea></label>
-        <p class="small muted"><span id="count">0</span>/2000 characters</p>
-      </fieldset>
-
-      <fieldset>
-        <legend>Permissions</legend>
-        <div style="display:grid;gap:12px">
-          <label class="check"><input type="checkbox" id="consent_count" required><span><b>Count my answers</b> in the atlas's community statistics, shown only in groups of five or more people.</span></label>
-          <label class="check"><input type="checkbox" id="consent_publish"><span><b>Publish my story</b> on this site, in a version with identifying details removed, after a person has read it. (Leave unticked to be counted only.)</span></label>
-          <label class="check"><input type="checkbox" id="consent_research"><span><b>Share with researchers</b> in the future, without my story's text, and only under a written agreement. Nothing is shared until then.</span></label>
-        </div>
-        <p class="small muted" style="margin-top:12px">We don't store your IP address or any contact details. You'll get a deletion code; keep it, it's the only way to remove your entry later.</p>
-      </fieldset>
-
-      <label class="hp" aria-hidden="true">Leave this empty<input type="text" id="website" tabindex="-1" autocomplete="off"></label>
-      <div class="row"><button class="primary" type="submit" id="send">Add my experience</button><span class="status" id="status"></span></div>
-    </form>
-
-    <div>
-      <div class="result" id="result" hidden>
-        <h3>Thank you</h3>
-        <p id="resultText"></p>
-        <p>Your deletion code:<br><code id="code"></code></p>
-        <p class="small muted">Write it down. There's no other way to remove your entry, because we keep nothing that identifies you.</p>
-      </div>
-      <div class="card">
-        <h3>How this is used</h3>
-        <ul class="small" style="padding-left:18px;color:var(--muted)">
-          <li>Your answers are stored with your country and, for the US, your state. Never a city or address.</li>
-          <li>Charts show groups of five or more people only.</li>
-          <li>Stories are read by a person before they appear, and only if you chose to publish.</li>
-          <li>Community figures are always shown separately from the published research.</li>
-        </ul>
-        <h3 style="margin-top:18px">Remove an entry</h3>
-        <form id="delForm" style="margin-top:8px"><label>Deletion code<input id="delCode" placeholder="XXXXX-XXXXX"></label><div class="row"><button class="primary" type="submit" style="padding:9px 14px;font-size:14px">Delete</button><span class="status small" id="delStatus"></span></div></form>
-      </div>
-    </div>
+  <div class="step on" data-step="0">
+    <div class="stepnum">Step 1 of 6</div>
+    <h2 class="q">Tell it in your own words</h2>
+    <p class="sub">Whatever you remember, in whatever order it comes. This is optional, but it is the part people find most worth reading, and it can fill in the questionnaire for you. Please leave out names and places.</p>
+    <textarea id="story" maxlength="2000" placeholder="I remember…"></textarea>
+    <p class="small muted"><span id="count">0</span>/2000 characters</p>
+    <div class="nav"><button type="button" class="primary" data-go="1">Continue</button><span class="status" id="s0"></span></div>
   </div>
+
+  <div class="step" data-step="1">
+    <div class="stepnum">Step 2 of 6</div>
+    <h2 class="q">When and where</h2>
+    <p class="sub">Country and, in the US, state. Never a city or an address, and nothing that could identify you.</p>
+    <div class="f2">
+      <label>How old were you at the time<select id="age_band" required><option value="">Choose</option><option>Under 18</option><option>18-29</option><option>30-44</option><option>45-59</option><option>60-74</option><option>75+</option></select></label>
+      <label>Sex<select id="sex" required><option value="">Choose</option><option>Female</option><option>Male</option><option>Other or prefer not to say</option></select></label>
+      <label>Country<select id="country" required><option value="">Choose</option></select></label>
+      <label id="regionWrap" hidden>State<select id="region"><option value="">Prefer not to say</option></select></label>
+      <label>Roughly when<select id="decade"><option value="">Prefer not to say</option><option>2020s</option><option>2010s</option><option>2000s</option><option>1990s</option><option>1980s</option><option>1970s</option><option>1960s</option><option>Before 1960</option></select></label>
+      <label>Religion or belief at the time<select id="religion"><option>Prefer not to say</option><option>Christian</option><option>Jewish</option><option>Muslim</option><option>Hindu</option><option>Buddhist</option><option>Spiritual, not religious</option><option>No religion</option><option>Other</option></select></label>
+    </div>
+    <div class="nav"><button type="button" class="ghost" data-go="0">Back</button><button type="button" class="primary" data-go="2">Continue</button><span class="status" id="s1"></span></div>
+  </div>
+
+  <div class="step" data-step="2">
+    <div class="stepnum">Step 3 of 6</div>
+    <h2 class="q">What brought you close to death</h2>
+    <p class="sub">Researchers find that once an experience happens, its cause does not seem to change what is in it. We ask so the atlas can show that too.</p>
+    <div class="pick" id="causePick"></div>
+    <div class="crisis">If you are thinking about harming yourself now, please reach out first. In the US, call or text <b>988</b>. Elsewhere, <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a> lists free lines. This page will still be here.</div>
+    <div class="nav"><button type="button" class="ghost" data-go="1">Back</button><button type="button" class="primary" data-go="3">Continue</button><span class="status" id="s2"></span></div>
+  </div>
+
+  <div class="step" data-step="3">
+    <div class="stepnum">Step 4 of 6</div>
+    <h2 class="q">The sixteen questions</h2>
+    <p class="sub">The Greyson NDE Scale, the checklist researchers have used since 1983. Answering these is what lets your experience be compared with the studies.</p>
+    <div class="row" id="suggestRow"></div>
+    <div id="items"></div>
+    <div class="nav"><button type="button" class="ghost" data-go="2">Back</button><button type="button" class="primary" data-go="4">Continue</button><span class="status" id="s3"></span></div>
+  </div>
+
+  <div class="step" data-step="4">
+    <div class="stepnum">Step 5 of 6</div>
+    <h2 class="q">Afterwards</h2>
+    <p class="sub">What the experience felt like, and what changed since.</p>
+    <p class="small muted" style="margin-bottom:8px">Overall it felt</p>
+    <div class="pick" id="tonePick"></div>
+    <p class="small muted" style="margin:22px 0 8px">Since then (tick any that apply)</p>
+    <div class="opts" id="after"></div>
+    <div class="nav"><button type="button" class="ghost" data-go="3">Back</button><button type="button" class="primary" data-go="5">Continue</button><span class="status" id="s4"></span></div>
+  </div>
+
+  <div class="step" data-step="5">
+    <div class="stepnum">Step 6 of 6</div>
+    <h2 class="q">What may we do with it</h2>
+    <p class="sub">Your choice on each, separately. We store no IP address and no contact details.</p>
+    <div style="display:grid;gap:10px">
+      <label class="check"><input type="checkbox" id="adult" required><span>I am 18 or older.</span></label>
+      <label class="check"><input type="checkbox" id="consent_count" required><span><b>Count my answers</b> in the community statistics, shown only in groups of five or more people.</span></label>
+      <label class="check"><input type="checkbox" id="consent_publish"><span><b>Publish my story</b> on this site, with identifying details removed, after a person has read it.</span></label>
+      <label class="check"><input type="checkbox" id="consent_research"><span><b>Share with researchers</b> one day, without the text of my story, and only under a written agreement.</span></label>
+    </div>
+    <label class="hp" aria-hidden="true">Leave this empty<input type="text" id="website" tabindex="-1" autocomplete="off"></label>
+    <div class="nav"><button type="button" class="ghost" data-go="4">Back</button><button class="primary" type="submit" id="send">Add my experience</button><span class="status" id="s5"></span></div>
+  </div>
+
+</form>
+
+<div id="done" hidden>
+  <div class="card scorebox">
+    <div class="stepnum">Thank you</div>
+    <div class="n" id="scoreN">0</div>
+    <p class="muted" style="margin:6px auto 0;max-width:46ch">Your Greyson score, out of 32. <span id="scoreMsg"></span></p>
+    <div class="scale"><div class="thr"></div><div class="you" id="youDot"></div><div class="lab" style="left:0">0</div><div class="lab" style="left:21.875%">7 · NDE threshold</div><div class="lab" style="left:100%">32</div></div>
+    <p class="small muted" style="margin-top:34px" id="pendingMsg"></p>
+    <p style="margin-top:20px">Your deletion code<code class="del" id="code"></code><span class="small muted">Write it down. It is the only way to remove your entry, because we keep nothing that identifies you.</span></p>
+    <div class="nav" style="justify-content:center"><a class="primary" href="patterns.html#community" style="text-decoration:none">See the community patterns</a><a class="ghost" href="world.html" style="text-decoration:none">Walk the world</a></div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:26px">
+  <h3>Remove an entry</h3>
+  <form id="delForm" style="margin-top:10px;max-width:340px"><label>Deletion code<input id="delCode" placeholder="XXXXX-XXXXX"></label><div class="nav" style="margin-top:12px"><button class="primary" type="submit" style="padding:10px 16px;font-size:15px">Delete</button><span class="status small" id="delStatus"></span></div></form>
+</div>
 </section>
 
 <div id="footer"></div>
@@ -130,9 +165,9 @@ button.primary:disabled{opacity:.5;cursor:default}
 <script>
 document.getElementById("nav").innerHTML = TA.nav("share.html");
 document.getElementById("footer").innerHTML = TA.footer();
-const API = TA.API;
+const API = TA.API, $ = id => document.getElementById(id);
 const ITEMS = [
-  ["time", "Did time seem to speed up or slow down?", ["No", "Time seemed to go faster or slower than usual", "Everything seemed to be happening at once, or time stopped"]],
+  ["time", "Did time seem to speed up or slow down?", ["No", "Time seemed to go faster or slower than usual", "Everything seemed to happen at once, or time stopped"]],
   ["thoughts", "Were your thoughts speeded up?", ["No", "Faster than usual", "Incredibly fast"]],
   ["review", "Did scenes from your past come back to you?", ["No", "I remembered many past events", "My past flashed before me, out of my control"]],
   ["understanding", "Did you seem to understand everything?", ["No", "About myself or others", "About the universe"]],
@@ -141,45 +176,97 @@ const ITEMS = [
   ["unity", "Did you feel a sense of harmony or unity with the universe?", ["No", "I felt no longer in conflict with nature", "I felt united or one with the world"]],
   ["light", "Did you see, or feel surrounded by, a brilliant light?", ["No", "An unusually bright light", "A light clearly of mystical or other-worldly origin"]],
   ["senses", "Were your senses more vivid than usual?", ["No", "More vivid than usual", "Incredibly more vivid"]],
-  ["aware", "Did you seem to be aware of things going on elsewhere, as if by extrasensory perception?", ["No", "Yes, but the facts have not been checked out", "Yes, and the facts have been checked out"]],
+  ["aware", "Did you seem to be aware of things going on elsewhere, as if by extrasensory perception?", ["No", "Yes, but the facts have not been checked", "Yes, and the facts have been checked"]],
   ["future", "Did scenes from the future come to you?", ["No", "Scenes from my personal future", "Scenes from the world's future"]],
   ["obe", "Did you feel separated from your body?", ["No", "I lost awareness of my body", "I clearly left my body and existed outside it"]],
   ["world", "Did you seem to enter some other, unearthly world?", ["No", "Some unfamiliar and strange place", "A clearly mystical or unearthly realm"]],
-  ["presence", "Did you seem to encounter a mystical being or presence, or hear an unidentifiable voice?", ["No", "I heard a voice I could not identify", "I encountered a definite being, or a voice clearly of mystical or unearthly origin"]],
+  ["presence", "Did you seem to encounter a mystical being or presence, or hear an unidentifiable voice?", ["No", "I heard a voice I could not identify", "I encountered a definite being, or a voice clearly of mystical origin"]],
   ["beings", "Did you see deceased or religious spirits?", ["No", "I sensed their presence", "I actually saw them"]],
-  ["border", "Did you come to a border or point of no return?", ["No", "I came to a definite conscious decision to return to life", "I came to a barrier that I was not permitted to cross, or was sent back against my will"]],
+  ["border", "Did you come to a border or point of no return?", ["No", "I came to a conscious decision to return to life", "I came to a barrier I was not permitted to cross, or was sent back against my will"]],
 ];
+const CAUSES = ["Cardiac arrest", "Accident or trauma", "Drowning", "Surgery or anaesthesia", "Illness", "Childbirth", "Overdose or poisoning", "Suicide attempt", "Other"];
+const TONES = ["Wonderful", "Mixed", "Frightening"];
 const AFTER = [["less_fear", "Less afraid of death"], ["more_fear", "More afraid of death"], ["more_spiritual", "More spiritual"], ["less_religious", "Less religious"], ["values_changed", "My values changed"], ["relationships_changed", "My relationships changed"], ["sensitivity", "More sensitive to light, sound or feelings"], ["none", "No lasting change"]];
-document.getElementById("items").innerHTML = ITEMS.map(([k, q, o], i) => `<div class="item"><div class="q">${i + 1}. ${q}</div><div class="opts">${o.map((t, v) => `<label><input type="radio" name="i_${k}" value="${v}" ${v === 0 ? "checked" : ""}>${t}</label>`).join("")}</div></div>`).join("");
-document.getElementById("after").innerHTML = AFTER.map(([k, l]) => `<label><input type="checkbox" name="after" value="${k}">${l}</label>`).join("");
-const cs = document.getElementById("country"); cs.innerHTML += GEO.countries.map(c => `<option>${c.name}</option>`).join("");
-const rs = document.getElementById("region");
-cs.addEventListener("change", () => { const us = cs.value === "United States"; document.getElementById("regionWrap").hidden = !us; if (us) rs.innerHTML = `<option value="">Prefer not to say</option>` + GEO.us_states.map(s => `<option>${s.name}</option>`).join(""); });
-document.getElementById("story").addEventListener("input", e => document.getElementById("count").textContent = e.target.value.length);
+const N_STEPS = 6;
+let step = 0, cause = "", tone = "Wonderful";
+
+$("steps").innerHTML = Array.from({ length: N_STEPS }, (_, i) => `<div class="${i === 0 ? "done" : ""}"></div>`).join("");
+$("items").innerHTML = ITEMS.map(([k, q, o], i) => `<div class="item" id="it_${k}"><div class="t"><span>${i + 1}</span>${q}</div><div class="opts">${o.map((t, v) => `<label><input type="radio" name="i_${k}" value="${v}" ${v === 0 ? "checked" : ""}>${t}</label>`).join("")}</div><div class="ev" id="ev_${k}" hidden></div></div>`).join("");
+$("causePick").innerHTML = CAUSES.map(c => `<button type="button" data-cause="${c}">${c}</button>`).join("");
+$("tonePick").innerHTML = TONES.map(c => `<button type="button" data-tone="${c}" aria-pressed="${c === "Wonderful"}">${c}</button>`).join("");
+$("after").innerHTML = AFTER.map(([k, l]) => `<label><input type="checkbox" name="after" value="${k}">${l}</label>`).join("");
+$("country").innerHTML += GEO.countries.map(c => `<option>${c.name}</option>`).join("");
+$("country").addEventListener("change", () => { const us = $("country").value === "United States"; $("regionWrap").hidden = !us; if (us) $("region").innerHTML = `<option value="">Prefer not to say</option>` + GEO.us_states.map(s => `<option>${s.name}</option>`).join(""); });
+$("story").addEventListener("input", e => { $("count").textContent = e.target.value.length; renderSuggest(); });
+$("causePick").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; cause = b.dataset.cause; $("causePick").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); });
+$("tonePick").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; tone = b.dataset.tone; $("tonePick").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); });
+
+function go(n) {
+  const err = { 1: () => $("age_band").value && $("sex").value && $("country").value ? "" : "Please answer the age, sex and country questions.", 2: () => cause ? "" : "Please choose what brought you close to death." };
+  if (n > step && err[step]) { const m = err[step](); if (m) { $("s" + step).textContent = m; return; } }
+  $("s" + step).textContent = "";
+  step = n;
+  document.querySelectorAll(".step").forEach(s => s.classList.toggle("on", +s.dataset.step === n));
+  $("steps").querySelectorAll("div").forEach((d, i) => d.classList.toggle("done", i <= n));
+  document.querySelector(".step.on").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+document.addEventListener("click", e => { const b = e.target.closest("[data-go]"); if (b) go(+b.dataset.go); });
+
+// --- suggest answers from the written account
+function renderSuggest() {
+  const len = $("story").value.trim().length;
+  $("suggestRow").innerHTML = len >= 40
+    ? `<button type="button" class="primary" id="suggestBtn" style="padding:11px 18px;font-size:15px">Suggest my answers from what I wrote</button><span class="status" id="sg"></span>`
+    : `<span class="small muted">Write something in step 1 and we can suggest answers here for you to check.</span>`;
+}
+renderSuggest();
+$("suggestRow").addEventListener("click", async e => {
+  if (!e.target.closest("#suggestBtn")) return;
+  const btn = $("suggestBtn"), sg = $("sg");
+  btn.disabled = true; sg.innerHTML = `<span class="thinking"></span>Reading what you wrote…`;
+  try {
+    const r = await fetch(API + "/api/suggest", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ story: $("story").value.trim() }) });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.error || "Please answer the questions yourself.");
+    let n = 0;
+    ITEMS.forEach(([k]) => {
+      const v = j.items[k] ?? 0;
+      document.querySelector(`input[name="i_${k}"][value="${v}"]`).checked = true;
+      const ev = $("ev_" + k);
+      if (v > 0) { n++; ev.hidden = false; ev.innerHTML = j.evidence[k] ? `<b>Suggested from your words:</b> “${j.evidence[k]}”` : `<b>Suggested from your account.</b> Change it if that is not right.`; }
+      else { ev.hidden = true; }
+    });
+    if (j.tone && TONES.includes(j.tone)) { tone = j.tone; $("tonePick").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x.dataset.tone === j.tone)); }
+    sg.textContent = `Suggested ${n} of 16. Please read each one and correct anything that is not right.`;
+  } catch (err) { sg.textContent = err.message; }
+  btn.disabled = false;
+});
+
 const t0 = Date.now();
-document.getElementById("f").addEventListener("submit", async e => {
+$("f").addEventListener("submit", async e => {
   e.preventDefault();
-  const st = document.getElementById("status"), btn = document.getElementById("send");
-  const g = id => document.getElementById(id);
-  if (!g("adult").checked) return st.textContent = "Please confirm you are 18 or older.";
-  if (!g("age_band").value || !g("sex").value || !g("country").value || !g("cause").value) return st.textContent = "Please answer the age, sex, country and cause questions.";
-  if (!g("consent_count").checked) return st.textContent = "Please tick the box that lets us count your answers.";
+  const st = $("s5"), btn = $("send");
+  if (!$("adult").checked) return st.textContent = "Please confirm you are 18 or older.";
+  if (!$("consent_count").checked) return st.textContent = "Please tick the box that lets us count your answers.";
   const items = {}; ITEMS.forEach(([k]) => items[k] = +document.querySelector(`input[name="i_${k}"]:checked`).value);
-  const body = { adult: true, age_band: g("age_band").value, sex: g("sex").value, country: g("country").value, region: g("region").value, decade: g("decade").value, religion: g("religion").value, cause: g("cause").value, tone: g("tone").value, items, after: [...document.querySelectorAll('input[name="after"]:checked')].map(i => i.value), story: g("story").value.trim(), consent_count: true, consent_publish: g("consent_publish").checked, consent_research: g("consent_research").checked, website: g("website").value, elapsed: Date.now() - t0 };
-  btn.disabled = true; st.textContent = "Sending…";
+  const body = { adult: true, age_band: $("age_band").value, sex: $("sex").value, country: $("country").value, region: $("region").value, decade: $("decade").value, religion: $("religion").value, cause, tone, items, after: [...document.querySelectorAll('input[name="after"]:checked')].map(i => i.value), story: $("story").value.trim(), consent_count: true, consent_publish: $("consent_publish").checked, consent_research: $("consent_research").checked, website: $("website").value, elapsed: Date.now() - t0 };
+  btn.disabled = true; st.innerHTML = `<span class="thinking"></span>Sending…`;
   try {
     const r = await fetch(API + "/api/submit", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
     const j = await r.json();
     if (!r.ok) throw new Error(j.error || "Please try again.");
-    g("code").textContent = j.delete_code;
-    g("resultText").innerHTML = `Your Greyson score is <b>${j.score} of 32</b>${j.score >= 7 ? ", above the usual threshold researchers use for an NDE." : ", below the usual NDE threshold of 7, which is fine: it's still counted."}${j.pending_story ? " Your story will appear on the Stories page once a person has read it." : ""}`;
-    g("result").hidden = false; g("result").scrollIntoView({ behavior: "smooth" }); st.textContent = "Added. Thank you.";
-    e.target.reset();
+    $("f").hidden = true; $("steps").hidden = true; $("done").hidden = false;
+    $("scoreN").textContent = j.score;
+    $("youDot").style.left = Math.min(100, 100 * j.score / 32) + "%";
+    $("scoreMsg").textContent = j.score >= 7 ? "That is above the threshold of 7 that researchers use to call an experience an NDE." : "That is below the threshold of 7 that researchers use, which is fine: it is counted either way.";
+    $("pendingMsg").textContent = j.pending_story ? "Your story will appear on the Stories page once a person has read it." : "";
+    $("code").textContent = j.delete_code;
+    $("done").scrollIntoView({ behavior: "smooth" });
   } catch (err) { st.textContent = err.message; btn.disabled = false; }
 });
-document.getElementById("delForm").addEventListener("submit", async e => {
-  e.preventDefault(); const s = document.getElementById("delStatus"); s.textContent = "…";
-  const r = await fetch(API + "/api/delete", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ code: document.getElementById("delCode").value }) }).then(r => r.json()).catch(() => ({}));
+$("delForm").addEventListener("submit", async e => {
+  e.preventDefault(); const s = $("delStatus"); s.textContent = "…";
+  const r = await fetch(API + "/api/delete", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ code: $("delCode").value }) }).then(r => r.json()).catch(() => ({}));
   s.textContent = r.deleted ? "Deleted." : "No entry matched that code.";
 });
 </script>

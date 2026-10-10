@@ -29,6 +29,7 @@ export default {
     if (req.method === "OPTIONS") return new Response(null, { headers: { "access-control-allow-origin": origin, "access-control-allow-methods": "GET,POST,OPTIONS", "access-control-allow-headers": "content-type" } });
     try {
       if (url.pathname === "/api/submit" && req.method === "POST") return await submit(req, env, origin);
+      if (url.pathname === "/api/suggest" && req.method === "POST") return await suggest(req, env, origin);
       if (url.pathname === "/api/stats") return json(await stats(env), 200, origin);
       if (url.pathname === "/api/stories") return json(await stories(env, url), 200, origin);
       if (url.pathname === "/api/delete" && req.method === "POST") return await del(req, env, origin);
@@ -63,6 +64,75 @@ async function submit(req, env, origin) {
     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`)
     .bind(id, Date.now(), story ? "pending" : "approved", age, sex, country, region, cause, decade, tone, religion, JSON.stringify(items), score, JSON.stringify(after), story || null, story ? redact(story) : null, consent_publish, consent_research, delete_hash).run();
   return json({ ok: true, id, delete_code: c, score, pending_story: !!story }, 200, origin);
+}
+
+// Read a written account and propose a score for each Greyson item, with the words that
+// prompted it. Nothing is saved here; the person reviews and corrects every answer first.
+const ITEM_Q = {
+  time: "time seemed to speed up or slow down",
+  thoughts: "thoughts were speeded up",
+  review: "scenes from their past came back (a life review)",
+  understanding: "a sudden sense of understanding everything",
+  peace: "a feeling of peace, calm or relief",
+  joy: "a feeling of joy or happiness",
+  unity: "a sense of harmony or unity with the universe",
+  light: "a brilliant or unearthly light",
+  senses: "senses more vivid than usual",
+  aware: "awareness of things happening elsewhere, as if by ESP",
+  future: "scenes from the future",
+  obe: "separation from the body, or watching from outside it",
+  world: "entering another, unearthly world or place",
+  presence: "a mystical being, presence, or an unidentifiable voice",
+  beings: "deceased people or religious figures",
+  border: "a border, barrier or point of no return"
+};
+async function suggest(req, env, origin) {
+  const b = await req.json().catch(() => ({}));
+  const story = String(b.story || "").slice(0, 3000).trim();
+  if (story.length < 40) return json({ error: "Write a little more first, then we can suggest answers." }, 400, origin);
+  if (!env.AI) return json({ error: "Suggestions are not available right now. Please answer the questions yourself." }, 503, origin);
+  const list = Object.entries(ITEM_Q).map(([k, q]) => `${k}: ${q}`).join("\n");
+  const prompt = `You are helping someone fill in the Greyson Near-Death Experience Scale from an account they wrote about their own experience. For each item, score ONLY what the account actually says.
+
+Scoring: 2 = clearly and strongly described; 1 = mentioned, partly, or mildly; 0 = not mentioned.
+Never infer from what is typical of near-death experiences. If the account does not mention something, it is 0. Do not invent quotes.
+
+Items:
+${list}
+
+Account:
+"""${story}"""
+
+Reply with ONLY a JSON object, no other text, in this shape:
+{"items":{"time":0,"thoughts":0,"review":0,"understanding":0,"peace":0,"joy":0,"unity":0,"light":0,"senses":0,"aware":0,"future":0,"obe":0,"world":0,"presence":0,"beings":0,"border":0},"evidence":{"peace":"the exact words from the account that support this"},"tone":"Wonderful|Mixed|Frightening"}
+Include an evidence entry only for items you scored 1 or 2, quoting the account word for word.`;
+  let out;
+  try {
+    out = await env.AI.run("@cf/meta/llama-3.3-70b-instruct-fp8-fast", { messages: [{ role: "user", content: prompt }], max_tokens: 1200, temperature: 0 });
+  } catch (e) {
+    return json({ error: "Suggestions are busy right now. Please answer the questions yourself.", detail: String(e && e.message || e).slice(0, 200) }, 503, origin);
+  }
+  // the reply arrives as a string, as {response: ...}, or in OpenAI shape; response may already be an object
+  const r = out?.response ?? out?.choices?.[0]?.message?.content ?? out;
+  let parsed = null;
+  if (r && typeof r === "object" && r.items) parsed = r;
+  else {
+    const m = String(typeof r === "string" ? r : JSON.stringify(r)).match(/\{[\s\S]*\}/);
+    if (m) { try { parsed = JSON.parse(m[0]); } catch { parsed = null; } }
+  }
+  if (!parsed || !parsed.items) return json({ error: "We couldn't read that as answers. Please fill the questions in yourself." }, 502, origin);
+  const items = {}, evidence = {};
+  const low = story.toLowerCase();
+  for (const k of ITEMS) {
+    const v = parsed.items?.[k];
+    items[k] = [0, 1, 2].includes(v) ? v : 0;
+    const q = typeof parsed.evidence?.[k] === "string" ? parsed.evidence[k].trim().slice(0, 240) : "";
+    // keep a quote only if it really appears in what they wrote
+    if (q && low.includes(q.toLowerCase().replace(/^["']|["']$/g, "").slice(0, 40))) evidence[k] = q.replace(/^["']|["']$/g, "");
+    else if (items[k] > 0) evidence[k] = "";
+  }
+  const tone = ["Wonderful", "Mixed", "Frightening"].includes(parsed.tone) ? parsed.tone : null;
+  return json({ ok: true, items, evidence, tone, score: Object.values(items).reduce((a, c) => a + c, 0) }, 200, origin);
 }
 
 // Aggregates with k-anonymity: any cell with fewer than K people is dropped.

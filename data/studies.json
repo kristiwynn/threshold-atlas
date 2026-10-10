@@ -195,6 +195,19 @@
    "finding": "Of 123 written narratives, 17 (14%) were distressing: 8 inverse, 8 hellish, 1 void.",
    "cite": "Cassol H, Martial C, Annen J, et al. A systematic analysis of distressing near-death experience accounts. Memory 2019;27:1122-29.",
    "url": "https://pubmed.ncbi.nlm.nih.gov/31105066/"
+  },
+  {
+   "id": "nderf_sounds",
+   "name": "NDERF overview of elements",
+   "place": "Online, worldwide",
+   "lat": 47.25,
+   "lng": -122.44,
+   "n": 0,
+   "kind": "retrospective",
+   "year": 2010,
+   "finding": "Lists hearing distinctive sounds among the recurring elements: 'pleasant, musical, buzzing or ringing'. No percentage given.",
+   "cite": "Near-Death Experience Research Foundation. NDE Overview.",
+   "url": "https://www.nderf.org/NDERF/Articles/NDE%20Overview.htm"
   }
  ]
 }
