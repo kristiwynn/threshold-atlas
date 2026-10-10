@@ -92,12 +92,12 @@
 <section>
   <div class="eyebrow">Map</div>
   <h2>Where it has been studied, and where people say it happened</h2>
-  <p>Click any bubble and choose <b>Walk this experience</b> to see what that source describes. The timeline runs from Plato in 380 BC to the studies of the 2020s, stretched so the crowded last century stays readable. Drag the handles, filter by what brought people close to death, or press <b>Play the atlas</b> to tap through all of it like a reel. Change the lens to size the bubbles by a single feature and watch which studies found it and which did not. Gold and teal bubbles are studies, sized by how many people they covered; rose bubbles are experiences shared here, grouped by country and US state once a place has five or more. Tap any bubble.</p>
+  <p>Click any bubble and choose <b>Walk this experience</b> to see what that source describes. The timeline runs from Gilgamesh, around 2100 BC, to the studies of the 2020s, stretched so the crowded last century stays readable. Drag the handles, filter by what brought people close to death, or press <b>Play the atlas</b> to tap through all of it like a reel. Change the lens to size the bubbles by a single feature and watch which studies found it and which did not. Gold and teal bubbles are studies, sized by how many people they covered; rose bubbles are experiences shared here, grouped by country and US state once a place has five or more. Tap any bubble.</p>
   <div class="mapwrap">
     <div id="map" role="region" aria-label="Map of near-death experience studies and shared experiences"></div>
     <div class="maptop">
       <div class="tl">
-        <span class="years" id="yearsLabel">380 BC – 2026</span>
+        <span class="years" id="yearsLabel">2100 BC – 2026</span>
         <div class="slider" id="slider">
           <div class="rail"></div><div class="sel" id="sel"></div><div class="ticks" id="ticks"></div>
           <input type="range" id="y0" min="0" max="1000" step="1" value="0" aria-label="Earliest year">
@@ -117,7 +117,7 @@
           <option value="all">Any kind of experience</option>
           <option value="tunnel">Tunnel and light</option>
           <option value="guided">A guided tour of the realms</option>
-          <option value="summoned">Summoned, and sent back by error</option>
+          <option value="summoned">Summoned, and sent back</option>
           <option value="journey">A journey across a landscape</option>
           <option value="calm">Calm and a life review, no journey</option>
           <option value="distressing">Distressing</option>
@@ -181,12 +181,12 @@ const COLOR = { historical: "#c98f5a", prospective: "#d8a84a", survey: "#4fb3a9"
 const LABEL = { historical: "Historical account", prospective: "Prospective hospital study", survey: "Population survey", archive: "Case collection or archive" };
 // The timeline covers 2,400 years, so it is stretched where the accounts are: the deep past is
 // compressed and the last century takes half the bar. Breakpoints are [year, position 0-1].
-const ERAS = [[-400, 0], [1500, 0.26], [1900, 0.52], [1975, 0.70], [2026, 1]];
+const ERAS = [[-2200, 0], [-500, 0.14], [1000, 0.28], [1700, 0.42], [1900, 0.56], [1975, 0.74], [2026, 1]];
 function pos2year(p) { for (let i = 1; i < ERAS.length; i++) { const [y0, p0] = ERAS[i - 1], [y1, p1] = ERAS[i]; if (p <= p1 || i === ERAS.length - 1) return Math.round(y0 + (y1 - y0) * (p - p0) / (p1 - p0)); } }
 function year2pos(y) { for (let i = 1; i < ERAS.length; i++) { const [y0, p0] = ERAS[i - 1], [y1, p1] = ERAS[i]; if (y <= y1 || i === ERAS.length - 1) return p0 + (p1 - p0) * (y - y0) / (y1 - y0); } }
 const yearText = y => y < 0 ? `${-y} BC` : String(y);
 const DECADE_MID = { "Before 1960": 1955, "1960s": 1965, "1970s": 1975, "1980s": 1985, "1990s": 1995, "2000s": 2005, "2010s": 2015, "2020s": 2025 };
-const MIN_Y = -400, MAX_Y = 2026;
+const MIN_Y = -2100, MAX_Y = 2026;
 let studies = [], community = [], on = { historical: 1, prospective: 1, survey: 1, archive: 1, community: 1 }, map, popup;
 let trigger = "all", etype = "all";
 let PREV = [], FEAT = {}, FLABEL = {};
@@ -273,7 +273,7 @@ function showPopup(e) {
   const p = e.features[0].properties, co = e.features[0].geometry.coordinates.slice();
   const html = p.community
     ? `<b>${p.n} experience${p.n > 1 ? "s" : ""} shared</b><div style="color:#a79f91">${p.label}</div><div style="margin-top:6px"><a href="patterns.html#community">See the community patterns</a></div>`
-    : `<b>${p.name} <span style="color:#a79f91;font-weight:400">${yearText(p.year)}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]}${Number(p.n) ? ` · n=${Number(p.n).toLocaleString()}` : ""} · ${p.trigger}${p.type_label ? ` · ${p.type_label}` : ""}</div>${p.finding}${lens !== "size" ? `<div style="margin-top:6px;color:#d8a84a">${p.lensv === "" ? "Not measured in this study" : `${p.lensv}% · ${$("lens").selectedOptions[0].text.replace(/^Feature: /, "")}`}</div>` : ""}<div style="margin-top:8px"><a href="#" onclick="openScene('${p.id}');return false"><b>Walk this experience</b></a> · <a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
+    : `<b>${p.name} <span style="color:#a79f91;font-weight:400">${yearText(p.year)}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]}${Number(p.n) ? ` · n=${Number(p.n).toLocaleString()}` : ""} · ${p.trigger}${p.type_label ? ` · ${p.type_label}` : ""}</div>${p.nature ? `<div style="color:#c98f5a;font-size:12px;margin-bottom:6px">${p.nature}</div>` : ""}${p.finding}${lens !== "size" ? `<div style="margin-top:6px;color:#d8a84a">${p.lensv === "" ? "Not measured in this study" : `${p.lensv}% · ${$("lens").selectedOptions[0].text.replace(/^Feature: /, "")}`}</div>` : ""}<div style="margin-top:8px"><a href="#" onclick="openScene('${p.id}');return false"><b>Walk this experience</b></a> · <a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
   popup.setLngLat(co).setHTML(html).addTo(map);
 }
 // ---------------------------------------------------- lens: resize and recolour by a measure
@@ -366,7 +366,7 @@ function openScene(id) {
         <button id="sceneNext" class="sbtn">Next stage</button><button id="sceneClose" class="sbtn" aria-label="Close">×</button></div>
       <div class="sbox" id="sbox"><canvas id="scanvas"></canvas><div class="scap"><b id="scapT"></b><span id="scapS"></span></div></div>
       <div class="sbody">
-        <p class="sfind">${st.finding}</p>
+        ${st.nature ? `<p class="sprov" style="color:#c98f5a">${st.nature}</p>` : ""}<p class="sfind">${st.finding}</p>
         <p class="sprov">${measured ? "Each stage plays as strongly as the share of people in this study who reported it." : "This source describes which parts happened but publishes no percentages, so every stage it reports is shown at the same strength."}</p>
         <p class="sprov">${st.cite} · <a href="${st.url}" target="_blank" rel="noopener">source</a> · <a href="world.html">the full world</a></p>
       </div></div>`;
@@ -386,7 +386,7 @@ function openScene(id) {
 function sceneKeys(e) { if (e.key === "Escape") closeScene(); }
 function closeScene() { sceneObj?.destroy(); sceneObj = null; document.getElementById("sceneModal")?.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", sceneKeys); }
 
-$("ticks").innerHTML = [-400, 0, 500, 1000, 1500, 1800, 1900, 1950, 1975, 2000, 2025].map(y => `<i style="left:${year2pos(y) * 100}%"></i>`).join("");
+$("ticks").innerHTML = [-2000, -1500, -1000, -500, 0, 500, 1000, 1500, 1800, 1900, 1950, 2000, 2025].map(y => `<i style="left:${year2pos(y) * 100}%"></i>`).join("");
 $("trigger").addEventListener("change", e => { trigger = e.target.value; refresh(); });
 $("etype").addEventListener("change", e => { etype = e.target.value; refresh(); });
 ["y0", "y1"].forEach(id => $(id).addEventListener("input", refresh));
