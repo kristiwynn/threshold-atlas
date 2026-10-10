@@ -1,0 +1,13 @@
+name = "threshold-atlas-api"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "threshold-atlas"
+database_id = "d6a3159c-0707-4eeb-8c11-b241a855f447"
+
+[vars]
+ALLOWED_ORIGIN = "https://kristiwynn.github.io"
+SITE_URL = "https://kristiwynn.github.io/threshold-atlas/"

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stories · The Threshold Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>.story{border-top:1px solid var(--line);padding:22px 0}.story .meta{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted);margin-bottom:8px}.story p{font-family:var(--display);font-size:21px;line-height:1.4;max-width:60ch}</style>
+</head>
+<body>
+<div class="wrap">
+<div id="nav"></div>
+<section class="hero">
+  <div class="eyebrow">Stories</div>
+  <h1>In their own words</h1>
+  <p class="lede">Accounts people have shared here, with identifying details removed and read by a person before they appear. They are not a sample of anything; they are what visitors chose to tell. <a href="share.html">Add yours.</a></p>
+</section>
+<section id="list"><p class="muted">Loading…</p></section>
+<div id="footer"></div>
+</div>
+<script src="assets/common.js"></script>
+<script>
+document.getElementById("nav").innerHTML = TA.nav("stories.html");
+document.getElementById("footer").innerHTML = TA.footer();
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+fetch(TA.API + "/api/stories?limit=50").then(r => r.json()).then(({ stories }) => {
+  const el = document.getElementById("list");
+  if (!stories.length) { el.innerHTML = `<p class="muted">No published stories yet. The first one that is shared and approved will appear here.</p>`; return; }
+  el.innerHTML = stories.map(s => `<article class="story"><div class="meta">${esc(s.country)} · ${esc(s.sex)}, ${esc(s.age_band)} at the time · ${esc(s.cause)} · ${esc(s.tone)} · Greyson score ${s.score}</div><p>${esc(s.story_public).replace(/\n+/g, "</p><p>")}</p></article>`).join("");
+}).catch(() => { document.getElementById("list").innerHTML = `<p class="muted">Stories couldn't be loaded right now.</p>`; });
+</script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 // Shared helpers: data loading, Wilson confidence intervals, bar charts.
 window.TA = (() => {
+  const API = "https://threshold-atlas-api.thresholdatlas.workers.dev";
   const cache = {};
   async function data(name) {
     if (!cache[name]) cache[name] = fetch(`data/${name}.json`).then(r => r.json());
@@ -21,11 +22,12 @@ window.TA = (() => {
     }).join("");
   }
   function nav(current) {
-    const links = [["index.html", "Map"], ["patterns.html", "Patterns"], ["world.html", "World"], ["sources.html", "Sources"]];
+    const links = [["index.html", "Map"], ["patterns.html", "Patterns"], ["stories.html", "Stories"], ["world.html", "World"], ["share.html", "Share yours"], ["sources.html", "Sources"]];
     return `<nav class="top"><a class="brand" href="index.html">The Threshold Atlas</a>${links.map(([h, t]) => `<a href="${h}" ${h === current ? 'aria-current="page"' : ""}>${t}</a>`).join("")}</nav>`;
   }
   function footer() {
     return `<footer>Every number on this site is taken from a published study and cited on the <a href="sources.html">Sources</a> page. Community accounts, when they arrive, are shown separately and never mixed into the research figures. <a href="https://github.com/kristiwynn/threshold-atlas">Source code</a>.</footer>`;
   }
-  return { data, wilson, bars, nav, footer };
+  async function stats() { try { const r = await fetch(API + "/api/stats"); return r.ok ? await r.json() : null; } catch (e) { return null; } }
+  return { data, wilson, bars, nav, footer, stats, API };
 })();

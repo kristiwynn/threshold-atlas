@@ -1,6 +1,6 @@
 # The Threshold Atlas
 
-A map, metrics and a 3D world of near-death experiences, built only from published research, with room for people to add their own (coming next).
+A map, metrics and a 3D world of near-death experiences, built only from published research, plus anonymous experiences people add themselves, kept strictly separate.
 
 Live site: https://kristiwynn.github.io/threshold-atlas/
 
@@ -11,7 +11,10 @@ Plain HTML, CSS and JavaScript. No build step: edit a file, push, and GitHub Pag
 - `index.html` – home and the realistic map (MapLibre GL + OpenFreeMap tiles)
 - `patterns.html` – feature frequencies, comparisons, breakdowns
 - `world.html` – the 3D passage (three.js), driven only by `data/scene-params.json`
+- `share.html` – anonymous submission form (Greyson scale, consent, deletion code)
+- `stories.html` – approved, redacted community stories
 - `sources.html` – citations, generated from `data/studies.json`
+- `worker/` – the Cloudflare Worker API and D1 schema (submissions, suppressed stats, moderation)
 - `data/` – the research tier: every number with its source
 - `assets/` – shared styles and helpers (Wilson intervals, charts, nav)
 
@@ -25,6 +28,6 @@ Plain HTML, CSS and JavaScript. No build step: edit a file, push, and GitHub Pag
 ## Roadmap
 
 1. Research site (this): map, patterns, world, sources.
-2. Collect: anonymous submissions (Supabase), consent, moderation, deletion codes, k=5 suppression.
-3. Community layer on the map and patterns, significance badges, community toggle in the world.
+2. DONE: anonymous submissions (Cloudflare Worker + D1), consent, moderation, deletion codes, k=5 suppression; community layer on the map, patterns and world captions.
+3. Significance badges, story coding, community toggle in the world once n>=100.
 4. Headset mode (WebXR) for the world.

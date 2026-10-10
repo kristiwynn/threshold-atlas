@@ -45,6 +45,7 @@ button.ghost[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)
   </div>
   <div class="sliders" id="sliders"></div>
   <p class="small muted" style="margin-top:10px">Headset mode (WebXR) is planned for a later version. This runs in any phone or laptop browser.</p>
+  <p class="small muted" id="commCaption"></p>
 </section>
 
 <section>
@@ -82,6 +83,8 @@ let P = null, cohort = "nderf", vals = {};
   co.addEventListener("click", e => { const b = e.target.closest("button"); if (b) applyCohort(b.dataset.c); });
   sl.addEventListener("input", e => { const k = e.target.id.replace("s_", ""); vals[k] = +e.target.value; document.getElementById("v_" + k).textContent = e.target.value + "%"; });
   applyCohort("nderf");
+  const st = await TA.stats();
+  if (st && st.overall) { const o = st.overall.pct; document.getElementById("commCaption").textContent = `Community so far (n=${st.n}, captions only until ${P.community_rule.split(".")[0].toLowerCase()}): light ${o.light}% · life review ${o.review}% · presences ${o.beings}% · peace ${o.peace}% · border ${o.border}%.`; }
 })();
 const knob = (k, d) => (vals[k] == null ? d : vals[k]) / 100;
 let started = false;

@@ -22,16 +22,16 @@
     <div class="stat"><b>18%</b><span>of cardiac-arrest survivors reported an NDE in the Dutch prospective study</span><i>van Lommel, Lancet 2001 · 344 patients</i></div>
     <div class="stat"><b>9%</b><span>of interviewed survivors met NDE criteria in the UK/US/Austria AWARE study</span><i>Parnia, Resuscitation 2014 · 2,060 arrests</i></div>
     <div class="stat"><b>75%</b><span>of experiencers describe leaving their body, the most common single feature</span><i>Long, NDERF survey · 613 experiencers</i></div>
-    <div class="stat"><b>16</b><span>items on the Greyson NDE Scale, the checklist researchers use to count features</span><i>Greyson 1983 · score 7+ counts as an NDE</i></div>
+    <div class="stat"><b id="communityN">0</b><span>experiences shared on this atlas so far</span><i>community · anonymous · <a href="share.html">add yours</a></i></div>
   </div>
 </section>
 
 <section>
   <div class="eyebrow">Map</div>
   <h2>Where it has been studied</h2>
-  <p>Gold circles are landmark studies, sized by how many people they covered. Tap one for what it found. When people start adding their own experiences, they will appear here as clusters by country and region, never at an exact address.</p>
+  <p>Gold circles are landmark studies, sized by how many people they covered. Tap one for what it found. Experiences people share here appear as rose circles by country (and by US state), once a place has five or more, never at an exact address.</p>
   <div class="row">
-    <span class="legend"><span style="--sw:var(--c1)">Prospective hospital study</span><span style="--sw:var(--c2)">Population survey</span><span style="--sw:var(--c3)">Case collection or archive</span></span>
+    <span class="legend"><span style="--sw:var(--c1)">Prospective hospital study</span><span style="--sw:var(--c2)">Population survey</span><span style="--sw:var(--c3)">Case collection or archive</span><span style="--sw:var(--c4)">Shared here (5 or more per place)</span></span>
   </div>
   <div id="map" role="region" aria-label="Map of near-death experience studies"></div>
   <p class="small muted" style="margin-top:10px">Basemap: OpenFreeMap (OpenStreetMap data). Study locations are the lead hospital or institution; AWARE and NDERF spanned many countries and are placed at their coordinating centre.</p>
@@ -59,6 +59,7 @@
 
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="assets/common.js"></script>
+<script src="assets/geo.js"></script>
 <script>
 document.getElementById("nav").innerHTML = TA.nav("index.html");
 document.getElementById("footer").innerHTML = TA.footer();
@@ -92,6 +93,24 @@ const KIND_LABEL = { prospective: "Prospective hospital study", survey: "Populat
     map.on("click", "study-dot", show); map.on("click", "study-halo", show);
     map.on("mouseenter", "study-dot", () => map.getCanvas().style.cursor = "pointer");
     map.on("mouseleave", "study-dot", () => map.getCanvas().style.cursor = "");
+    TA.stats().then(st => {
+      if (!st) return;
+      document.getElementById("communityN").textContent = st.n;
+      const cFeat = [];
+      st.map.forEach(c => {
+        const country = GEO.countries.find(x => x.name === c.country); if (!country) return;
+        const regions = Object.entries(c.regions);
+        const inRegions = regions.reduce((a, [, n]) => a + n, 0);
+        regions.forEach(([name, n]) => { const r = GEO.us_states.find(x => x.name === name); if (r) cFeat.push({ type: "Feature", geometry: { type: "Point", coordinates: [r.lng, r.lat] }, properties: { label: `${name}, ${c.country}`, n } }); });
+        if (c.n - inRegions >= st.k || !regions.length) cFeat.push({ type: "Feature", geometry: { type: "Point", coordinates: [country.lng, country.lat] }, properties: { label: c.country, n: c.n - inRegions || c.n } });
+      });
+      map.addSource("community", { type: "geojson", data: { type: "FeatureCollection", features: cFeat } });
+      map.addLayer({ id: "community-dot", type: "circle", source: "community", paint: { "circle-radius": ["+", 6, ["*", 3, ["sqrt", ["get", "n"]]]], "circle-color": "#e07a9a", "circle-opacity": 0.75, "circle-stroke-color": "#0c0b16", "circle-stroke-width": 1.5 } });
+      map.addLayer({ id: "community-label", type: "symbol", source: "community", layout: { "text-field": ["to-string", ["get", "n"]], "text-size": 11, "text-font": ["Noto Sans Bold"] }, paint: { "text-color": "#0c0b16" } });
+      map.on("click", "community-dot", e => { const p = e.features[0].properties; popup.setLngLat(e.features[0].geometry.coordinates.slice()).setHTML(`<b>${p.n} experiences shared</b><div style="color:#a79f91">${p.label}</div><div style="margin-top:6px"><a href="patterns.html#community">See the community patterns</a></div>`).addTo(map); });
+      map.on("mouseenter", "community-dot", () => map.getCanvas().style.cursor = "pointer");
+      map.on("mouseleave", "community-dot", () => map.getCanvas().style.cursor = "");
+    });
   });
 })();
 </script>

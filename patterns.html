@@ -61,9 +61,21 @@
         </ul>
         <p class="small muted">"Unity with the universe" and "scenes from the future" are already items 7 and 11, so this atlas tracks them with the standard scale rather than as extra questions.</p>
       </div>
-      <div class="note" style="margin-top:18px">Community data will appear on this page once at least 10 people have shared an experience, with bars greyed until 30 and comparisons between groups only at 30 or more per group. A pattern is called significant here only when both groups have 30 or more, the difference survives multiple-comparison correction, is at least 10 percentage points, and agrees in direction with published research where it exists.</div>
+      <div class="note" style="margin-top:18px">Community data appears below once at least 10 people have shared an experience, with bars greyed until 30 and comparisons between groups only at 30 or more per group. A pattern is called significant here only when both groups have 30 or more, the difference survives multiple-comparison correction, is at least 10 percentage points, and agrees in direction with published research where it exists.</div>
     </div>
   </div>
+</section>
+
+<section id="community">
+  <div class="eyebrow">Shared here</div>
+  <h2>What people who visited this site report</h2>
+  <p class="small muted" id="commSub">Loading…</p>
+  <div class="row" id="commSplit" hidden>
+    <span class="small muted">Split by</span>
+    <button class="chip" data-split="all" aria-pressed="true">Everyone</button><button class="chip" data-split="sex">Sex</button><button class="chip" data-split="age_band">Age</button><button class="chip" data-split="cause">Cause</button><button class="chip" data-split="country">Country</button><button class="chip" data-split="religion">Religion</button>
+  </div>
+  <div class="grid2" id="commCharts"></div>
+  <p class="note" style="margin-top:18px">Self-reported, self-selected and anonymous. These show what visitors describe, not a rate in any population. Cells with fewer than 5 people are never shown; the research figures above are the ones to cite.</p>
 </section>
 
 <div id="footer"></div>
@@ -101,6 +113,33 @@ document.getElementById("footer").innerHTML = TA.footer();
   }
   pick.addEventListener("change", renderCompare);
   renderThemes(); renderCompare();
+
+  const CL = { time: "Time changed", thoughts: "Thoughts sped up", review: "Life review", understanding: "Sudden understanding", peace: "Peace", joy: "Joy", unity: "Unity with the universe", light: "Brilliant light", senses: "Vivid senses", aware: "Aware of distant events", future: "Scenes from the future", obe: "Out of body", world: "Another world", presence: "Mystical presence or voice", beings: "Deceased or religious beings", border: "A border or point of no return" };
+  const st = await TA.stats();
+  const sub = document.getElementById("commSub"), charts = document.getElementById("commCharts");
+  if (!st) { sub.textContent = "Community figures couldn't be loaded right now."; return; }
+  if (!st.overall) { sub.textContent = `${st.n} shared so far. Charts appear at 10.`; return; }
+  document.getElementById("commSplit").hidden = false;
+  const grey = n => n < 30;
+  function render(split) {
+    sub.textContent = `${st.n} experiences shared. ${st.overall.nde_share}% score 7 or more on the Greyson scale (mean ${st.overall.mean_score} of 32).` + (split === "all" ? "" : " Groups with fewer than 5 people are hidden; bars are greyed below 30.");
+    if (split === "all") {
+      const rows = st.items.map(k => [CL[k], st.overall.pct[k], { n: st.n, color: grey(st.n) ? "faint" : "c4" }]).sort((a, b) => b[1] - a[1]);
+      charts.innerHTML = `<div class="card"><h3>Features reported</h3><div class="bars" id="cb1"></div></div><div class="card"><h3>Since then</h3><div class="bars" id="cb2"></div><h3 style="margin-top:18px">Tone</h3><div class="bars" id="cb3"></div></div>`;
+      TA.bars(document.getElementById("cb1"), rows);
+      const AL = { less_fear: "Less afraid of death", more_fear: "More afraid of death", more_spiritual: "More spiritual", less_religious: "Less religious", values_changed: "Values changed", relationships_changed: "Relationships changed", sensitivity: "More sensitive", none: "No lasting change" };
+      TA.bars(document.getElementById("cb2"), Object.entries(st.after).map(([k, v]) => [AL[k], v, { n: st.n, color: "c4" }]).sort((a, b) => b[1] - a[1]));
+      TA.bars(document.getElementById("cb3"), Object.entries(st.overall.tone).map(([k, v]) => [k, v, { n: st.n, color: "c4" }]));
+    } else {
+      const groups = Object.entries(st.by[split] || {});
+      if (!groups.length) { charts.innerHTML = `<p class="muted">No group has 5 people yet.</p>`; return; }
+      const cols = ["c1", "c2", "c3", "c4"];
+      charts.innerHTML = groups.map(([g, d], i) => `<div class="card"><h3>${g} <span class="muted small">n=${d.n}${grey(d.n) ? ", small sample" : ""}</span></h3><div class="bars" id="g${i}"></div></div>`).join("");
+      groups.forEach(([g, d], i) => TA.bars(document.getElementById("g" + i), st.items.map(k => [CL[k], d.pct[k], { n: d.n, color: grey(d.n) ? "faint" : cols[i % 4] }]).sort((a, b) => b[1] - a[1]).slice(0, 8)));
+    }
+  }
+  document.getElementById("commSplit").addEventListener("click", e => { const c = e.target.closest(".chip"); if (!c) return; document.querySelectorAll("#commSplit .chip").forEach(x => x.setAttribute("aria-pressed", x === c)); render(c.dataset.split); });
+  render("all");
 })();
 </script>
 </body>
