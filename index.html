@@ -52,6 +52,21 @@
 .reel .p{font-size:16px;line-height:1.5;color:#d6cfc2;max-width:46ch}
 .reel .meta{font:11px var(--mono);color:#9a927f;margin-top:14px;letter-spacing:.04em}
 .reel .meta a{color:#d8a84a;pointer-events:auto}
+.sceneModal{position:fixed;inset:0;z-index:60;background:rgba(6,5,13,.86);display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
+.sceneModal .sheet{background:var(--surface);border:1px solid var(--line);border-radius:14px;width:min(860px,100%);max-height:92vh;overflow:auto}
+.sceneModal .shead{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.sceneModal .shead b{font-family:var(--display);font-size:21px;font-weight:600;display:block}
+.sceneModal .shead span{font:11px var(--mono);color:var(--muted);letter-spacing:.05em}
+.sceneModal .shead div:first-child{margin-right:auto}
+.sbtn{font:600 13px var(--body);background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 12px;cursor:pointer}
+.sceneModal .sbox{position:relative;aspect-ratio:16/10;background:#06050d;overflow:hidden}
+.sceneModal .sbox canvas{display:block;width:100%;height:100%;touch-action:none}
+.sceneModal .scap{position:absolute;left:0;right:0;bottom:0;padding:14px 18px 16px;background:linear-gradient(transparent,rgba(6,5,13,.9) 55%);color:#efe9dc;pointer-events:none}
+.sceneModal .scap b{display:block;font-family:var(--display);font-size:26px;font-weight:600;line-height:1.1}
+.sceneModal .scap span{display:block;font-size:13px;color:#c9c2b4;margin-top:4px;max-width:68ch}
+.sceneModal .sbody{padding:18px 20px 22px}
+.sceneModal .sfind{font-size:16px;line-height:1.55;color:var(--ink);margin:0 0 10px}
+.sceneModal .sprov{font:12px var(--mono);color:var(--faint);line-height:1.6;margin:0 0 6px}
 .reel .tapL,.reel .tapR{position:absolute;top:0;bottom:0;width:32%;z-index:3;cursor:pointer}
 .reel .tapL{left:0}.reel .tapR{right:0}
 .reel .hint{position:absolute;right:16px;top:14px;z-index:4;font:11px var(--mono);color:#6f6a7e}
@@ -77,7 +92,7 @@
 <section>
   <div class="eyebrow">Map</div>
   <h2>Where it has been studied, and where people say it happened</h2>
-  <p>The timeline runs from Plato in 380 BC to the studies of the 2020s, stretched so the crowded last century stays readable. Drag the handles, filter by what brought people close to death, or press <b>Play the atlas</b> to tap through all of it like a reel. Change the lens to size the bubbles by a single feature and watch which studies found it and which did not. Gold and teal bubbles are studies, sized by how many people they covered; rose bubbles are experiences shared here, grouped by country and US state once a place has five or more. Tap any bubble.</p>
+  <p>Click any bubble and choose <b>Walk this experience</b> to see what that source describes. The timeline runs from Plato in 380 BC to the studies of the 2020s, stretched so the crowded last century stays readable. Drag the handles, filter by what brought people close to death, or press <b>Play the atlas</b> to tap through all of it like a reel. Change the lens to size the bubbles by a single feature and watch which studies found it and which did not. Gold and teal bubbles are studies, sized by how many people they covered; rose bubbles are experiences shared here, grouped by country and US state once a place has five or more. Tap any bubble.</p>
   <div class="mapwrap">
     <div id="map" role="region" aria-label="Map of near-death experience studies and shared experiences"></div>
     <div class="maptop">
@@ -98,6 +113,16 @@
         <button data-layer="community" aria-pressed="true">Shared here<b id="n-community"></b></button>
       </div>
       <div class="lens">
+        <select id="etype" aria-label="Kind of experience described">
+          <option value="all">Any kind of experience</option>
+          <option value="tunnel">Tunnel and light</option>
+          <option value="guided">A guided tour of the realms</option>
+          <option value="summoned">Summoned, and sent back by error</option>
+          <option value="journey">A journey across a landscape</option>
+          <option value="calm">Calm and a life review, no journey</option>
+          <option value="distressing">Distressing</option>
+          <option value="mixed">Measured across many people</option>
+        </select>
         <select id="trigger" aria-label="What brought people close to death">
           <option value="all">Any cause</option>
           <option>Cardiac arrest</option><option>Illness</option><option>Critical illness</option><option>Falls</option><option>Drowning</option><option>Battle</option><option>Earthquake</option><option>Mixed</option>
@@ -143,6 +168,8 @@
 </div>
 
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="assets/scene.js"></script>
 <script src="assets/common.js"></script>
 <script src="assets/geo.js"></script>
 <script>
@@ -161,7 +188,7 @@ const yearText = y => y < 0 ? `${-y} BC` : String(y);
 const DECADE_MID = { "Before 1960": 1955, "1960s": 1965, "1970s": 1975, "1980s": 1985, "1990s": 1995, "2000s": 2005, "2010s": 2015, "2020s": 2025 };
 const MIN_Y = -400, MAX_Y = 2026;
 let studies = [], community = [], on = { historical: 1, prospective: 1, survey: 1, archive: 1, community: 1 }, map, popup;
-let trigger = "all";
+let trigger = "all", etype = "all";
 let PREV = [], FEAT = {}, FLABEL = {};
 
 (async () => {
@@ -225,7 +252,7 @@ function fcCommunity() {
   }) };
 }
 function inYears(s) { const [a, b] = years(); return s.year >= a && s.year <= b; }
-function inTrigger(s) { return trigger === "all" || s.trigger === trigger; }
+function inTrigger(s) { return (trigger === "all" || s.trigger === trigger) && (etype === "all" || s.experience_type === etype); }
 function years() { return [pos2year(Math.min(+$("y0").value, +$("y1").value) / 1000), pos2year(Math.max(+$("y0").value, +$("y1").value) / 1000)]; }
 function refresh() {
   if (!map || !map.getSource("studies")) return;
@@ -246,7 +273,7 @@ function showPopup(e) {
   const p = e.features[0].properties, co = e.features[0].geometry.coordinates.slice();
   const html = p.community
     ? `<b>${p.n} experience${p.n > 1 ? "s" : ""} shared</b><div style="color:#a79f91">${p.label}</div><div style="margin-top:6px"><a href="patterns.html#community">See the community patterns</a></div>`
-    : `<b>${p.name} <span style="color:#a79f91;font-weight:400">${yearText(p.year)}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]}${Number(p.n) ? ` · n=${Number(p.n).toLocaleString()}` : ""} · ${p.trigger}</div>${p.finding}${lens !== "size" ? `<div style="margin-top:6px;color:#d8a84a">${p.lensv === "" ? "Not measured in this study" : `${p.lensv}% · ${$("lens").selectedOptions[0].text.replace(/^Feature: /, "")}`}</div>` : ""}<div style="margin-top:8px"><a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
+    : `<b>${p.name} <span style="color:#a79f91;font-weight:400">${yearText(p.year)}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]}${Number(p.n) ? ` · n=${Number(p.n).toLocaleString()}` : ""} · ${p.trigger}${p.type_label ? ` · ${p.type_label}` : ""}</div>${p.finding}${lens !== "size" ? `<div style="margin-top:6px;color:#d8a84a">${p.lensv === "" ? "Not measured in this study" : `${p.lensv}% · ${$("lens").selectedOptions[0].text.replace(/^Feature: /, "")}`}</div>` : ""}<div style="margin-top:8px"><a href="#" onclick="openScene('${p.id}');return false"><b>Walk this experience</b></a> · <a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
   popup.setLngLat(co).setHTML(html).addTo(map);
 }
 // ---------------------------------------------------- lens: resize and recolour by a measure
@@ -317,10 +344,53 @@ function showReel() {
 }
 $("playBtn").addEventListener("click", () => openReel());
 
+// ------------------------------------------------- walk one entry's experience, in a pop-up
+let sceneObj = null;
+function sceneStages(st) {
+  // Measured feature rates where the study published them; otherwise the presence or absence
+  // the source itself reports, shown at a fixed strength and labelled as not measured.
+  const ORDER = ["dead", "obe", "peace", "tunnel", "light", "beings", "realm", "review", "border", "return"];
+  const f = FEAT[st.id];
+  if (f) return { stages: ORDER.filter(k => f.data[k] !== undefined).map(k => [k, f.data[k] / 100]), measured: true };
+  if (st.scene) return { stages: ORDER.filter(k => st.scene[k] === 1).map(k => [k, 0.75]), measured: false };
+  return { stages: [], measured: false };
+}
+function openScene(id) {
+  const st = studies.find(x => x.id === id); if (!st) return;
+  const { stages, measured } = sceneStages(st);
+  if (!stages.length) { alert("This entry does not describe a sequence of its own; it is a study or a review."); return; }
+  closeScene();
+  const el = document.createElement("div"); el.className = "sceneModal"; el.id = "sceneModal";
+  el.innerHTML = `<div class="sheet">
+      <div class="shead"><div><b>${st.name}</b><span>${yearText(st.year)} · ${st.place}${st.type_label ? ` · ${st.type_label}` : ""}</span></div>
+        <button id="sceneNext" class="sbtn">Next stage</button><button id="sceneClose" class="sbtn" aria-label="Close">×</button></div>
+      <div class="sbox" id="sbox"><canvas id="scanvas"></canvas><div class="scap"><b id="scapT"></b><span id="scapS"></span></div></div>
+      <div class="sbody">
+        <p class="sfind">${st.finding}</p>
+        <p class="sprov">${measured ? "Each stage plays as strongly as the share of people in this study who reported it." : "This source describes which parts happened but publishes no percentages, so every stage it reports is shown at the same strength."}</p>
+        <p class="sprov">${st.cite} · <a href="${st.url}" target="_blank" rel="noopener">source</a> · <a href="world.html">the full world</a></p>
+      </div></div>`;
+  document.body.appendChild(el); document.body.style.overflow = "hidden";
+  $("sceneClose").addEventListener("click", closeScene);
+  el.addEventListener("click", e => { if (e.target === el) closeScene(); });
+  document.addEventListener("keydown", sceneKeys);
+  sceneObj = TAScene.create({
+    canvas: $("scanvas"), box: $("sbox"), stages, cold: st.experience_type === "distressing", stageMs: 8000,
+    onStage: (i, key, strength, label, desc) => {
+      $("scapT").textContent = `${i + 1}. ${label}`;
+      $("scapS").textContent = desc + (measured ? ` · ${Math.round(strength * 100)}% of ${FEAT[st.id].n} reported this` : " · reported in this source; no percentage published");
+    }
+  });
+  $("sceneNext").addEventListener("click", () => sceneObj && sceneObj.next());
+}
+function sceneKeys(e) { if (e.key === "Escape") closeScene(); }
+function closeScene() { sceneObj?.destroy(); sceneObj = null; document.getElementById("sceneModal")?.remove(); document.body.style.overflow = ""; document.removeEventListener("keydown", sceneKeys); }
+
 $("ticks").innerHTML = [-400, 0, 500, 1000, 1500, 1800, 1900, 1950, 1975, 2000, 2025].map(y => `<i style="left:${year2pos(y) * 100}%"></i>`).join("");
 $("trigger").addEventListener("change", e => { trigger = e.target.value; refresh(); });
+$("etype").addEventListener("change", e => { etype = e.target.value; refresh(); });
 ["y0", "y1"].forEach(id => $(id).addEventListener("input", refresh));
-$("resetYears").addEventListener("click", () => { $("y0").value = 0; $("y1").value = 1000; $("trigger").value = "all"; trigger = "all"; refresh(); });
+$("resetYears").addEventListener("click", () => { $("y0").value = 0; $("y1").value = 1000; $("trigger").value = "all"; trigger = "all"; $("etype").value = "all"; etype = "all"; refresh(); });
 $("mapchips").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; const k = b.dataset.layer; on[k] = !on[k]; b.setAttribute("aria-pressed", on[k]); refresh(); });
 </script>
 </body>
