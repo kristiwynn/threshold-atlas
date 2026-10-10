@@ -206,15 +206,15 @@
   {
    "id": "pasricha1986",
    "name": "Indian cases",
-   "place": "Bangalore, India",
-   "lat": 12.97,
-   "lng": 77.59,
+   "place": "Northern India",
+   "lat": 26.85,
+   "lng": 80.95,
    "n": 16,
    "kind": "cases",
    "year": 1986,
-   "finding": "16 cases; messengers, a clerk with records, and being sent back as the wrong person; no tunnel.",
+   "finding": "16 cases investigated in north India: messengers called yamdoots, a clerk with a book of records, and being sent back because the wrong person was brought. Beings of light were reported here, unlike in Pasricha's later south Indian series. A quarter woke with residual marks on the body from being branded in the other realm. No tunnel and no life review in any case.",
    "cite": "Pasricha S, Stevenson I. Near-death experiences in India: a preliminary report. Journal of Nervous and Mental Disease 1986;174:165-70.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/3950596/",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/3950600/",
    "trigger": "Illness",
    "experience_type": "summoned",
    "type_label": "Summoned by mistake and sent back",
@@ -224,7 +224,7 @@
     "return": 1,
     "tunnel": 0,
     "review": 0,
-    "light": 0,
+    "light": 1,
     "obe": 0
    }
   },
@@ -321,14 +321,14 @@
   {
    "id": "bailey2001",
    "name": "Tibetan delok accounts",
-   "place": "Tibet",
+   "place": "Tibetan cultural world (texts at Dharamsala; interviews in Bhutan and Nepal)",
    "lat": 29.65,
    "lng": 91.14,
    "n": 16,
    "kind": "cases",
    "year": 2001,
-   "finding": "Deloks ('those who return from death') are people taken for dead who revive and describe a journey through Buddhist afterlife realms. Bailey compared these accounts with Western NDEs: no tunnel, and the judgment and life review appear as a mirror or a record read aloud by others, not as a private replay.",
-   "cite": "Bailey LW. A 'little death': the near-death experience and Tibetan delogs. Journal of Near-Death Studies 2001;19:139-59.",
+   "finding": "Deloks ('those who return from the hereafter') are people taken for dead who revive and describe a journey through the Buddhist realms. Bailey compared these accounts with Western NDEs: no tunnel, and the reckoning is public rather than private, a bridge, a scale with black pebbles for sinful deeds against white, and the mirror of existence. They come back carrying a message for the living.",
+   "cite": "Bailey LW. A 'little death': the near-death experience and Tibetan delogs. Journal of Near-Death Studies 2001;19:139-59. The count of 16 accounts (12 texts from the Library of Tibetan Works and Archives, 4 interviews by Francoise Pommaret) is Kellehear's tally, not Bailey's.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799135/",
    "tradition_from": 1200,
    "trigger": "Illness",
@@ -340,23 +340,24 @@
     "review": 1,
     "return": 1,
     "tunnel": 0
-   }
+   },
+   "nature": "Kellehear includes the deloks only 'for the sake of completeness': some had dyings on fasting days, the 10th, 15th and 30th of each month, and local observers took them for epileptics. Bailey's own named case is Sangs Rgyas Chos 'dzom, a twelve-year-old girl in Bhutan shortly after 1650."
   },
   {
    "id": "plato",
    "name": "The Myth of Er",
-   "place": "Athens, Greece",
-   "lat": 37.98,
-   "lng": 23.73,
+   "place": "Pamphylia, Anatolia (now Turkey)",
+   "lat": 36.95,
+   "lng": 30.85,
    "n": 1,
    "kind": "historical",
    "year": -380,
-   "finding": "The oldest surviving Western account. Er, a soldier killed in battle, revives on his funeral pyre on the twelfth day and describes leaving the body, a journey to a place of judgment, souls choosing their next lives, and being sent back to tell what he saw.",
-   "cite": "Plato. Republic, Book X, c. 380 BC.",
+   "finding": "The oldest surviving Western narrative of this shape. Er, a soldier killed in battle, revives on his funeral pyre on the twelfth day and describes leaving the body, a journey to a place of judgment, a pillar of light 'straight as a column, extending right through the whole heaven and through the earth', souls choosing their next lives, and being appointed to carry the report back. He could not say how he returned to the body.",
+   "cite": "Plato. Republic, Book X, c. 380 BC. Benjamin Jowett translation.",
    "url": "https://www.gutenberg.org/files/1497/1497-h/1497-h.htm#link2H_4_0012",
    "trigger": "Battle",
    "experience_type": "summoned",
-   "type_label": "Judged and sent back as a messenger",
+   "type_label": "Appointed a witness and sent back",
    "scene": {
     "obe": 1,
     "realm": 1,
@@ -365,8 +366,9 @@
     "return": 1,
     "tunnel": 0,
     "review": 0,
-    "light": 0
-   }
+    "light": 1
+   },
+   "nature": "Plato tells this as a tale, not a case report: 'this too is a tale of a hero, Er the son of Armenius, a Pamphylian by birth.' Pinned in Pamphylia because that is where Plato puts Er; the Republic was written in Athens."
   },
   {
    "id": "gregory",
@@ -374,11 +376,11 @@
    "place": "Rome, Italy",
    "lat": 41.9,
    "lng": 12.5,
-   "n": 3,
+   "n": 4,
    "kind": "historical",
    "year": 593,
-   "finding": "Three accounts of ordinary people taken for dead who revived. In the best known, Stephen is told he was summoned by mistake, the wrong man of the same name, and is sent back: the same clerical-error motif found in Indian cases fourteen centuries later.",
-   "cite": "Gregory the Great. Dialogues, Book IV, c. 593. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
+   "finding": "Four accounts in Book IV of people taken for dead who revived. In the best known, Stephen is told he was summoned by mistake, the wrong man of the same name, and is sent back: the same clerical-error motif found in Indian cases fourteen centuries later. Gregory is blunt that it did Stephen no good, 'he did never perfectly amend his former wicked life', and he died again in the Roman plague of 590.",
+   "cite": "Gregory the Great. Dialogues, Book IV, chapters 32 and 37, c. 593. Gardner edition, 1911. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
    "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
    "trigger": "Illness",
    "experience_type": "summoned",
@@ -389,20 +391,23 @@
     "border": 1,
     "return": 1,
     "tunnel": 0,
-    "review": 0
-   }
+    "review": 0,
+    "obe": 1,
+    "light": 1
+   },
+   "scene_note": "Pinned at Rome, where Gregory wrote. The four accounts are set in three places: the desert of Evasa, Constantinople, and Rome."
   },
   {
    "id": "drythelm",
    "name": "The Vision of Drythelm",
-   "place": "Northumbria, England",
-   "lat": 55.01,
-   "lng": -1.44,
+   "place": "Melrose, Scotland (from Incuneningum, Northumbria)",
+   "lat": 55.5986,
+   "lng": -2.7139,
    "n": 1,
    "kind": "historical",
-   "year": 731,
-   "finding": "Bede records a Northumbrian man who died of illness, revived the next morning, and described being led by a guide in shining robes through places of punishment and of light, then sent back. He gave away his property and lived as a monk afterwards.",
-   "cite": "Bede. Ecclesiastical History of the English People, Book V, c. 731. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
+   "year": 696,
+   "finding": "A Northumbrian householder died of illness, revived at dawn, and described leaving the body and being led by a guide 'with a countenance full of light, and shining raiment' through places of punishment and of light, then sent back. He divided his property in three and lived as a monk at Melrose afterwards. Bede wrote it down about 731, thirty-five years later, from Haemgils, who had questioned him at Melrose.",
+   "cite": "Bede. Ecclesiastical History of the English People, Book V, Chapter XII; event dated c. 696, written c. 731. Revised A. M. Sellar translation, 1907. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
    "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
    "trigger": "Illness",
    "experience_type": "guided",
@@ -414,22 +419,24 @@
     "border": 1,
     "return": 1,
     "tunnel": 0,
-    "review": 0
-   }
+    "review": 0,
+    "obe": 1
+   },
+   "nature": "Pinned at Melrose, the one place in the account that is certainly identified. Bede's 'Incuneningum' has never been agreed on: Cunninghame in Ayrshire, Tyninghame in East Lothian and Chester-le-Street have all been proposed."
   },
   {
    "id": "tundale",
    "name": "The Vision of Tundale",
-   "place": "Cashel, Ireland",
-   "lat": 52.52,
-   "lng": -7.89,
+   "place": "Cork, Ireland",
+   "lat": 51.8985,
+   "lng": -8.4756,
    "n": 1,
    "kind": "historical",
-   "year": 1149,
-   "finding": "An Irish knight lies as dead for three days, is guided through the otherworld by his guardian angel, and returns changed. One of the most widely copied of the medieval otherworld journeys, translated into fifteen languages.",
-   "cite": "Marcus of Regensburg. Visio Tnugdali, 1149. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
+   "year": 1148,
+   "finding": "An Irish knight from Cashel collapses at table in Cork, 'struck by I know not what sudden cause', and lies as dead from the tenth hour of Wednesday to the tenth hour of Saturday. Demons set on his soul before his guardian angel reaches him, and he is led through the otherworld undergoing the torments himself rather than only watching. Written down by Marcus, an Irish monk at Regensburg; one of the most widely copied of the medieval otherworld journeys, translated forty-three times into fifteen languages by the fifteenth century.",
+   "cite": "Marcus of Regensburg. Visio Tnugdali, vision dated 1148, composed shortly after. Wagner critical edition, 1882. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
    "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
-   "trigger": "Illness",
+   "trigger": "Sudden collapse",
    "experience_type": "guided",
    "type_label": "A guided tour of the realms",
    "scene": {
@@ -439,8 +446,10 @@
     "border": 1,
     "return": 1,
     "tunnel": 0,
-    "review": 0
-   }
+    "review": 0,
+    "obe": 1
+   },
+   "nature": "Every surviving manuscript reads 1149, which Wagner shows is an old copying error: the text's own synchronisms, including the death of St Malachy at Clairvaux, fix the vision in 1148."
   },
   {
    "id": "beaufort",
@@ -523,7 +532,7 @@
    "kind": "retrospective",
    "year": 1992,
    "trigger": "Earthquake",
-   "finding": "81 survivors of the 1976 earthquake that killed about 240,000 people were interviewed; 32 (40%) reported an NDE on the Greyson scale. The content differed from American and Indian accounts: mostly cognitive and transcendental features, and no tunnel.",
+   "finding": "81 survivors of the 1976 earthquake that killed about 240,000 people were interviewed eleven years after it; 32 (40%) scored 7 or more on the Greyson scale. Most were cognitive or transcendental in type. Item by item, a life review was the second commonest feature at 51%, leaving the body 43%, a tunnel-like dark region 16% and an unnaturally brilliant light 15%.",
    "cite": "Feng Z, Liu J. Near-death experiences among survivors of the 1976 Tangshan earthquake. Journal of Near-Death Studies 1992;11:39-48.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799015/",
    "experience_type": "mixed",
@@ -532,8 +541,10 @@
     "obe": 1,
     "peace": 1,
     "beings": 1,
-    "tunnel": 0
-   }
+    "tunnel": 1,
+    "review": 1
+   },
+   "scene_note": "Stage strengths here are the published item rates, so the tunnel and the light play faintly and the life review strongly. Kellehear cautions that the tunnel item was offered to respondents as a category rather than volunteered, so its 16% may be an overcount."
   },
   {
    "id": "monchaux1740",
@@ -566,8 +577,8 @@
    "kind": "cases",
    "year": 1984,
    "trigger": "Illness",
-   "finding": "Four Chamorro accounts from Guam. No tunnel, no life review. People travel to another place and meet the dead, often along a path or across water, in a landscape that is recognisably their own island world.",
-   "cite": "Green JT. Near-death experiences in a Chammorro culture. Vital Signs 1984;4:6-7. Reviewed in Kellehear A, Experiences Near Death, Oxford University Press, 1996.",
+   "finding": "Four Chamorro accounts from Guam, two interviewed by Green himself. No tunnel, no life review. People report leaving the body, flying 'through the clouds' or walking on a road, invisible visits to living relatives in America, and arriving at a gardenlike paradise where they are met by the dead, some of them relatives.",
+   "cite": "Green JT. Near-death experiences in a Chammorro culture. Vital Signs 1984;4(1-2):6-7. Not digitised; every detail here is as summarised in Kellehear A, Census of non-Western near-death experiences to 2005. Journal of Near-Death Studies 2008;26:249-65.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799184/",
    "experience_type": "journey",
    "type_label": "A journey across a familiar landscape",
@@ -579,7 +590,8 @@
     "tunnel": 0,
     "review": 0,
     "light": 0
-   }
+   },
+   "nature": "Green's original newsletter article is not available anywhere online; this entry rests entirely on Kellehear's summaries of it."
   },
   {
    "id": "king1985",
@@ -591,8 +603,8 @@
    "kind": "cases",
    "year": 1985,
    "trigger": "Illness",
-   "finding": "A Maori woman's account recorded by Michael King: she leaves her body, travels along a path to the north, meets relatives who turn her back, and returns. No tunnel. The route follows the traditional path the dead take to Cape Reinga.",
-   "cite": "King M. Being Pakeha, 1985. Discussed in Kellehear A, An Hawaiian near-death experience. Journal of Near-Death Studies 2001;20:31-35.",
+   "finding": "A Maori woman's account recorded by Michael King. She hovers over her own head, leaves the room and flies north over the Waikato, the Manukau and the lands of Ngati Whatua, Ngapuhi, Te Rarawa and Te Aupouri to Te Rerenga Wairua, 'the leaping off place of spirits' at Cape Reinga. A voice stops her there, telling her her time had not come, and she wakes to her living relatives at the bedside. No tunnel, no life review.",
+   "cite": "King M. Being Pakeha: An Encounter with New Zealand and the Maori Renaissance, 1985, pp. 92-94. Quoted in Kellehear A, An Hawaiian near-death experience. Journal of Near-Death Studies 2001;20:31-35.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799181/",
    "experience_type": "journey",
    "type_label": "A journey across a familiar landscape",
@@ -609,14 +621,14 @@
   {
    "id": "kellehear2001hawaii",
    "name": "A Hawaiian account",
-   "place": "Hawaii, USA",
-   "lat": 19.9,
-   "lng": -155.58,
+   "place": "Kona, Hawaii, USA",
+   "lat": 19.64,
+   "lng": -155.99,
    "n": 1,
    "kind": "cases",
    "year": 2001,
    "trigger": "Illness",
-   "finding": "An account from the early 1900s: the spirit leaves the body, travels, is met and sent back. Like the Maori and Chamorro cases, it has a journey and deceased relatives but no tunnel and no life review.",
+   "finding": "Kalima, a woman in Kona, in an account from the early 1900s found in a 1907 collection of Hawaiian folk tales: the spirit leaves the body, travels, is met and sent back. Like the Maori and Chamorro cases it has a journey and deceased relatives but no tunnel and no life review, and no mention of light or darkness at all.",
    "cite": "Kellehear A. An Hawaiian near-death experience. Journal of Near-Death Studies 2001;20:31-35.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799181/",
    "experience_type": "journey",
@@ -641,7 +653,7 @@
    "kind": "retrospective",
    "year": 2008,
    "trigger": "Mixed",
-   "finding": "A review of every non-Western NDE account published to 2005. Two features recur everywhere: travelling to another realm, and meeting the dead. The tunnel appears in none of the accounts from China, India, Guam, western New Britain, Native North America, Aboriginal Australia or Maori New Zealand. The life review is largely confined to societies with a dominant historic religion.",
+   "finding": "A review of every non-Western NDE account published to 2005, restricted to experiences associated with illness. Two features recur everywhere: travelling to another realm, and meeting the dead. The tunnel is absent from the Indian, Tibetan, Chamorro, Native North American and Aboriginal Australian accounts and questionable elsewhere; Kellehear's conclusion is that 'there is no actual tunnel in near-death experiences', only darkness described differently by different cultures. The life review is largely confined to societies with a dominant historic religion.",
    "cite": "Kellehear A. Census of non-Western near-death experiences to 2005: overview of the current data. Journal of Near-Death Studies 2008;26:249-65.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799184/",
    "experience_type": "journey",
@@ -652,7 +664,7 @@
     "tunnel": 0,
     "review": 0
    },
-   "scene_note": "This is the census's own conclusion rendered as a walk: across every non-Western account published to 2005, two things recur, travelling to another realm and meeting the dead. The tunnel and the life review are missing, because Kellehear found them in none of these accounts."
+   "scene_note": "This is the census's own conclusion rendered as a walk: across every non-Western account published to 2005, two things recur, travelling to another realm and meeting the dead. The tunnel and the life review are left out because neither is cross-cultural, not because no account has them."
   },
   {
    "id": "negovsky1943",
@@ -673,20 +685,21 @@
   },
   {
    "id": "brazil_nupes",
-   "name": "Brazilian research centre",
-   "place": "Juiz de Fora, Brazil",
+   "name": "Brazilian research",
+   "place": "Juiz de Fora and Sao Paulo, Brazil",
    "lat": -21.76,
    "lng": -43.35,
    "n": 0,
    "kind": "retrospective",
    "year": 2010,
    "trigger": "Mixed",
-   "finding": "Brazil has the largest Spiritist population in the world and a long research tradition into mediumship, out-of-body and near-death experiences. The university research centre NUPES, led by Alexander Moreira-Almeida, reviews the evidence for consciousness surviving death. No Brazilian prevalence study is included here because none has been published with figures this atlas could cite.",
-   "cite": "Moreira-Almeida A, Costa MA, Coelho HS. Science of Life After Death. Springer, 2022.",
-   "url": "https://psi-encyclopedia.spr.ac.uk/articles/psi-research-brazil/",
+   "finding": "Brazil has the largest Spiritist population in the world and a long research tradition into mediumship, out-of-body and near-death experiences, centred on NUPES at the Federal University of Juiz de Fora. The largest relevant survey, Monteiro de Barros and colleagues, asked 1,053 Brazilians about sixteen spiritual and religious experiences including near-death ones: 92% reported at least one in their lifetime and half had felt the presence of a dead person. The paper is paywalled and its near-death figure is not in the abstract, so this atlas has no Brazilian near-death rate to show. A single Brazilian case scored on the Greyson scale is published in open access.",
+   "cite": "Monteiro de Barros MC et al. Prevalence of spiritual and religious experiences in the general population: a Brazilian nationwide study. Transcultural Psychiatry 2025;62:422-36. Case report: Braghetta CC et al. Trends in Psychiatry and Psychotherapy 2013;35:81-4.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35382640/",
    "experience_type": "mixed",
    "type_label": "Review, no figures published",
-   "no_walk": "A research centre rather than a study. No Brazilian figures this atlas could cite have been published."
+   "no_walk": "A survey of spiritual and religious experiences rather than a near-death study, and the near-death figure inside it is behind a paywall. Nothing to walk until a Brazilian rate is published openly.",
+   "nature": "An online convenience sample of 1,053 people, so 'nationwide' in reach but not a population prevalence the way a household survey would be."
   },
   {
    "id": "gilgamesh",

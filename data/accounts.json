@@ -3,10 +3,10 @@
  "accounts": [
   {
    "id": "er",
-   "place": "Greece",
-   "country": "Greece",
-   "lat": 37.98,
-   "lng": 23.73,
+   "place": "Pamphylia, Anatolia",
+   "country": "Turkey",
+   "lat": 36.95,
+   "lng": 30.85,
    "year": -380,
    "who": "Er, a soldier",
    "kind": "public-domain",
@@ -14,37 +14,37 @@
    "source": "Plato, Republic, Book X, c. 380 BC. Benjamin Jowett translation, Project Gutenberg.",
    "url": "https://www.gutenberg.org/cache/epub/1497/pg1497.txt",
    "text": "He was slain in battle, and ten days afterwards, when the bodies of the dead were taken up already in a state of corruption, his body was found unaffected by decay, and carried away home to be buried. And on the twelfth day, as he was lying on the funeral pile, he returned to life and told them what he had seen in the other world. He said that when his soul left the body he went on a journey with a great company, and that they came to a mysterious place at which there were two openings in the earth; they were near together, and over against them were two other openings in the heaven above. In the intermediate space there were judges seated… He drew near, and they told him that he was to be the messenger who would carry the report of the other world to men, and they bade him hear and see all that was to be heard and seen in that place.",
-   "note": "The oldest surviving Western account. Leaving the body, a journey with others, a place of judgment, and being sent back specifically to tell what he saw."
+   "note": "The oldest surviving Western narrative of this shape: leaving the body, a journey with others, a place of judgment, a pillar of light, and being appointed to go back and tell what he saw. Plato frames it as a tale rather than a report, and Er is a Pamphylian, not an Athenian."
   },
   {
    "id": "drythelm",
-   "place": "Northumbria, England",
+   "place": "Melrose, Scotland",
    "country": "United Kingdom",
-   "lat": 55.01,
-   "lng": -1.44,
-   "year": 731,
-   "who": "A householder of Cunningham",
+   "lat": 55.5986,
+   "lng": -2.7139,
+   "year": 696,
+   "who": "A householder of Incuneningum, Northumbria",
    "kind": "public-domain",
    "trigger": "Illness",
-   "source": "Bede, Ecclesiastical History of the English People, Book V, Chapter XII, c. 731. A. M. Sellar translation, Project Gutenberg.",
+   "source": "Bede, Ecclesiastical History of the English People, Book V, Chapter XII; event c. 696, written c. 731. Revised A. M. Sellar translation (1907), after Giles and Stevens. Project Gutenberg.",
    "url": "https://www.gutenberg.org/cache/epub/38326/pg38326.txt",
-   "text": "This man fell sick, and his sickness daily increasing, he was brought to extremity, and died in the beginning of the night; but at dawn he came to life again, and suddenly sat up, whereat all those that sat about the body weeping fled away in great terror, only his wife, who loved him better, though trembling and greatly afraid, remained with him. And he comforting her, said, “Fear not, for I am now in very deed risen from death whereof I was holden, and permitted again to live among men; nevertheless, hereafter I must not live as I was wont, but after a very different manner.”\n\n“He that led me had a countenance full of light, and shining raiment, and we went in silence, as it seemed to me, towards the rising of the summer sun. And as we walked we came to a broad and deep valley of infinite length; it lay on our left, and one side of it was exceeding terrible with raging flames, the other no less intolerable for violent hail and cold snows… I began to think that peradventure this might be Hell, of whose intolerable torments I had often heard men talk. My guide, who went before me, answered to my thought, saying, ‘Think not so, for this is not the Hell you believe it to be.’”",
-   "note": "A guide of light, a journey, a boundary, and a life changed completely on return: he gave away everything he owned and became a monk. The guide answering his unspoken thought is a detail modern accounts still report."
+   "text": "This man fell sick, and his sickness daily increasing, he was brought to extremity, and died in the beginning of the night; but at dawn he came to life again, and suddenly sat up, whereat all those that sat about the body weeping fled away in great terror, only his wife, who loved him better, though trembling and greatly afraid, remained with him. And he comforting her, said, “Fear not, for I am now in very deed risen from death whereof I was holden, and permitted again to live among men; nevertheless, hereafter I must not live as I was wont, but after a very different manner.”\n\n[He divided his property, moved to Melrose and took the tonsure. Then:]\n\n“He that led me had a countenance full of light, and shining raiment, and we went in silence, as it seemed to me, towards the rising of the summer sun. And as we walked we came to a broad and deep valley of infinite length; it lay on our left, and one side of it was exceeding terrible with raging flames, the other no less intolerable for violent hail and cold snows… I began to think that peradventure this might be Hell, of whose intolerable torments I had often heard men talk. My guide, who went before me, answered to my thought, saying, ‘Think not so, for this is not the Hell you believe it to be.’”",
+   "note": "A guide of light, a journey, a boundary, and a life changed completely on return: he gave away everything he owned and became a monk. The guide answering his unspoken thought is a detail modern accounts still report. Bede also has darkness thickening and then 'the brightness of a star shining amidst the darkness' coming rapidly towards him, which is as close as the account comes to a tunnel."
   },
   {
    "id": "stephen",
-   "place": "Rome, Italy",
-   "country": "Italy",
-   "lat": 41.9,
-   "lng": 12.5,
+   "place": "Constantinople (now Istanbul)",
+   "country": "Turkey",
+   "lat": 41.0082,
+   "lng": 28.9784,
    "year": 593,
    "who": "Stephen, a businessman",
    "kind": "summary",
    "trigger": "Illness",
    "source": "Gregory the Great, Dialogues, Book IV, c. 593. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
    "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
-   "text": "Stephen dies in Constantinople and is brought before a judge, who refuses him: the wrong man has been summoned, another Stephen of the same name. He is sent back and revives, and the other Stephen is found to have died at that moment. In another of Gregory's accounts a man crossing a bridge over a dark river is seized at the hips by spirits below and lifted by the arms by spirits above, the two pulling against each other.",
-   "note": "The clerical error, the wrong person summoned by name, turns up again fourteen centuries later in Indian accounts collected by Pasricha and Stevenson. Nobody has explained why."
+   "text": "Stephen dies in Constantinople and is brought before a judge, who refuses him: the wrong man has been summoned, another Stephen of the same name. He is sent back and revives, and the other Stephen is found to have died at that moment. A soldier in the same book sees Stephen again, on a bridge over a dark and smoky river, 'drawn by the legs downward' by terrible men rising out of the water and 'by the arms pulled upward' by white and beautiful persons, the two pulling against each other. Gregory reads the legs and the arms as the man's almsgiving and his unresisted sins of the flesh.",
+   "note": "The clerical error, the wrong person summoned by name, turns up again fourteen centuries later in Indian accounts collected by Pasricha and Stevenson. Nobody has explained why. Gregory himself draws no happy ending from it: Stephen never amended his life, and died in the plague a few years later, 'leaving us in doubt whether he were saved or damned'."
   },
   {
    "id": "monchaux",
@@ -102,8 +102,8 @@
    "kind": "summary",
    "trigger": "Illness",
    "source": "Pasricha S, Stevenson I. Near-death experiences in India: a preliminary report. Journal of Nervous and Mental Disease 1986;174:165-70.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/3950596/",
-   "text": "Messengers, called yamdoots, come and take the person away, sometimes roughly. They are brought before a man with a book of records. The book is checked and a mistake is found: the wrong person has been brought, usually someone of the same name from another village. The person is sent back, often against their wish, and sometimes wakes with a mark on the body where they were pushed.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/3950600/",
+   "text": "Messengers, called yamdoots, come and take the person away, sometimes roughly. They are brought before a man with a book of records. The book is checked and a mistake is found: the wrong person has been brought, usually someone of the same name from another village. The person is sent back, often against their wish, and a quarter of them wake with residual marks on the body where they were branded in the other realm.",
    "note": "No tunnel appears in any of these cases, and no life review. What the West calls a life review appears here as a record read by someone else."
   },
   {
@@ -118,8 +118,8 @@
    "trigger": "Earthquake",
    "source": "Feng Z, Liu J. Near-death experiences among survivors of the 1976 Tangshan earthquake. Journal of Near-Death Studies 1992;11:39-48.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799015/",
-   "text": "Survivors of the earthquake that killed about 240,000 people were traced and interviewed. Forty per cent met the criteria for an NDE. They described time slowing, thought speeding up, a sense of leaving the body and of unusual clarity, and meeting people. The researchers noted the content differed from both American and Indian accounts, and that no one described a tunnel.",
-   "note": "The largest study of an NDE caused by a single disaster, and one of the strongest pieces of evidence that content follows culture."
+   "text": "Survivors of the earthquake that killed about 240,000 people were traced and interviewed eleven years later. Forty per cent met the criteria for an NDE. They described time slowing, thought speeding up, a sense of leaving the body and of unusual clarity, and meeting people. A life review was reported by half of them, and a tunnel-like dark region by one in six.",
+   "note": "Feng and Liu read their results as culturally distinct from American and Indian accounts. Kellehear, reviewing the same table, read it the other way: out-of-body sensations, tunnel sensations, peace, life reviews, deceased beings and another realm were all reported, so 'the Chinese NDE may be very similar to the Anglo-European NDE'. Both readings are of the same 81 interviews."
   },
   {
    "id": "guam",
@@ -131,10 +131,10 @@
    "who": "Four Chamorro people",
    "kind": "summary",
    "trigger": "Illness",
-   "source": "Green JT. Near-death experiences in a Chammorro culture. Vital Signs 1984;4:6-7. Reviewed in Kellehear A, Experiences Near Death, Oxford University Press, 1996.",
+   "source": "Green JT. Near-death experiences in a Chammorro culture. Vital Signs 1984;4(1-2):6-7, as summarised in Kellehear A, Census of non-Western near-death experiences to 2005. Journal of Near-Death Studies 2008;26:249-65.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799184/",
-   "text": "The dead are met along a path, or across water, in a landscape recognisably that of the island. Relatives turn the person back. There is no tunnel, no light of the Western kind, and no review of the life.",
-   "note": "One of the clearest cases of the journey taking the shape of the land the person actually lives in."
+   "text": "People report leaving the body and flying through the clouds, or finding themselves walking on a road. Some make invisible visits to living relatives in America. They arrive at a gardenlike, paradisiacal place and are met by the dead, some of them relatives. There is no tunnel and no review of the life.",
+   "note": "One of the small set of non-Western accounts in which an out-of-body sensation is clearly reported. Green's original article in the IANDS newsletter has never been digitised, so every detail here comes through Kellehear."
   },
   {
    "id": "maori",
@@ -146,10 +146,10 @@
    "who": "A Māori woman",
    "kind": "summary",
    "trigger": "Illness",
-   "source": "King M, Being Pakeha, 1985. Discussed in Kellehear A, An Hawaiian near-death experience. Journal of Near-Death Studies 2001;20:31-35.",
+   "source": "King M, Being Pakeha: An Encounter with New Zealand and the Maori Renaissance, 1985, pp. 92-94. Quoted in Kellehear A, An Hawaiian near-death experience. Journal of Near-Death Studies 2001;20:31-35.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799181/",
-   "text": "She leaves her body and travels north along a path, the route the dead are said to take to Cape Reinga, where spirits leave for the homeland. Relatives meet her and send her back.",
-   "note": "The journey follows an actual geography that the culture already holds, rather than a tunnel."
+   "text": "She hovers over her own head, leaves the room and flies north, over the Waikato River and the Manukau and across Ngati Whatua, Ngapuhi, Te Rarawa and Te Aupouri, until she reaches Te Rerenga Wairua, the leaping off place of spirits at Cape Reinga. She performs ablutions and dances before the entrance. A voice stops her, saying her time has not come and she must return until called again. She wakes to her anxious living relatives around her.",
+   "note": "The journey follows an actual geography the culture already holds, named river by river, rather than a tunnel. What turns her back is a voice, not the dead."
   },
   {
    "id": "tibet",
@@ -163,8 +163,8 @@
    "trigger": "Illness",
    "source": "Bailey LW. A 'little death': the near-death experience and Tibetan delogs. Journal of Near-Death Studies 2001;19:139-59.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799135/",
-   "text": "A person is taken for dead, sometimes for days. Guides lead them through the Buddhist realms, hot and cold. Their deeds are weighed in public: shown in a mirror, or read aloud from a record by others, not replayed privately. They are sent back with a message for the living, usually to practise and to stop causing harm, and they often spend the rest of their lives delivering it.",
-   "note": "A tradition centuries old, with named deloks such as Lingza Chokyi and Dawa Drolma. No tunnel; the life review is a public reckoning rather than a private film."
+   "text": "A person is taken for dead, sometimes for days. Guides lead them through the Buddhist realms, hot and cold. Their deeds are weighed in public: a demon holds black pebbles for the sinful deeds, a white deity holds white pebbles to weigh against them, and there is a bridge, a scale, and the mirror of existence. They are sent back with a message for the living, usually to practise and to stop causing harm.",
+   "note": "A tradition centuries old. Bailey's named cases are Sangs Rgyas Chos 'dzom, a twelve-year-old Bhutanese girl writing shortly after 1650, and Dawa Drolma (c. 1900-1941). No tunnel; the life review is a public reckoning rather than a private film."
   },
   {
    "id": "liege",

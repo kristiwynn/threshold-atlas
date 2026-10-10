@@ -24,11 +24,7 @@
 .slider input::-moz-range-thumb{pointer-events:auto;width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid #07060f;cursor:grab}
 .slider .ticks{position:absolute;top:22px;left:0;right:0;height:8px}
 .slider .ticks i{position:absolute;width:1px;height:5px;background:rgba(255,255,255,.22)}
-.mapchips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.mapchips button{font:600 12px var(--body);color:var(--ink);background:rgba(22,20,42,.8);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;backdrop-filter:blur(6px)}
-.mapchips button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
-.mapchips button b{font-family:var(--mono);font-weight:500;opacity:.65;margin-left:5px}
-.maplegend{position:absolute;left:16px;bottom:14px;z-index:2;display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:#c9c2b4;background:rgba(7,6,15,.72);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.maplegend{position:absolute;left:16px;bottom:14px;z-index:2;max-width:min(520px,calc(100% - 32px));display:flex;flex-wrap:wrap;gap:6px 12px;border-radius:12px;font-size:12px;color:#c9c2b4;background:rgba(7,6,15,.72);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
 .maplegend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle;background:var(--sw);box-shadow:0 0 8px var(--sw)}
 .mapcount{position:absolute;right:16px;bottom:14px;z-index:2;font:12px var(--mono);color:#c9c2b4;background:rgba(7,6,15,.72);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
 .lens{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
@@ -70,7 +66,7 @@
 .reel .tapL,.reel .tapR{position:absolute;top:0;bottom:0;width:32%;z-index:3;cursor:pointer}
 .reel .tapL{left:0}.reel .tapR{right:0}
 .reel .hint{position:absolute;right:16px;top:14px;z-index:4;font:11px var(--mono);color:#6f6a7e}
-@media (max-width:640px){#map{height:58vh}.maplegend{position:static;margin-top:10px;border-radius:10px;background:var(--surface)}.mapcount{display:none}}
+@media (max-width:640px){#map{height:58vh}.maplegend{position:static;max-width:none;margin-top:10px;border-radius:10px;background:var(--surface)}.mapcount{display:none}}
 </style>
 </head>
 <body>
@@ -105,14 +101,15 @@
         </div>
         <button class="chip" id="resetYears" style="padding:6px 12px;font-size:12px">All years</button>
       </div>
-      <div class="mapchips" id="mapchips">
-        <button data-layer="historical" aria-pressed="true">Historical<b id="n-historical"></b></button>
-        <button data-layer="prospective" aria-pressed="true">Hospital studies<b id="n-prospective"></b></button>
-        <button data-layer="survey" aria-pressed="true">Population surveys<b id="n-survey"></b></button>
-        <button data-layer="archive" aria-pressed="true">Case collections<b id="n-archive"></b></button>
-        <button data-layer="community" aria-pressed="true">Shared here<b id="n-community"></b></button>
-      </div>
       <div class="lens">
+        <select id="layer" aria-label="Kind of source">
+          <option value="all">Every kind of source</option>
+          <option value="historical">Historical accounts</option>
+          <option value="prospective">Hospital studies</option>
+          <option value="survey">Population surveys</option>
+          <option value="archive">Case collections</option>
+          <option value="community">Shared here</option>
+        </select>
         <select id="etype" aria-label="Kind of experience described">
           <option value="all">Any kind of experience</option>
           <option value="tunnel">Tunnel and light</option>
@@ -125,7 +122,7 @@
         </select>
         <select id="trigger" aria-label="What brought people close to death">
           <option value="all">Any cause</option>
-          <option>Cardiac arrest</option><option>Illness</option><option>Critical illness</option><option>Falls</option><option>Drowning</option><option>Battle</option><option>Earthquake</option><option>Mixed</option>
+          <option>Cardiac arrest</option><option>Illness</option><option>Critical illness</option><option>Falls</option><option>Drowning</option><option>Battle</option><option>Sudden collapse</option><option>Earthquake</option><option>Mixed</option>
         </select>
         <select id="lens" aria-label="Colour and size the bubbles by">
           <option value="size">Bubbles by study size</option>
@@ -141,7 +138,7 @@
         <button class="playbtn" id="playBtn">▶ Play the atlas</button>
       </div>
     </div>
-    <div class="maplegend"><span style="--sw:#c98f5a">Historical</span><span style="--sw:#d8a84a">Hospital study</span><span style="--sw:#4fb3a9">Population survey</span><span style="--sw:#8a7fd6">Case collection</span><span style="--sw:#e07a9a">Shared here</span></div>
+    <div class="maplegend"><span style="--sw:#d8a84a">Tunnel and light</span><span style="--sw:#8a7fd6">Guided tour</span><span style="--sw:#e07a9a">Summoned</span><span style="--sw:#4fb3a9">A journey</span><span style="--sw:#8fb8e0">Calm, no journey</span><span style="--sw:#c0504a">Distressing</span><span style="--sw:#9a9280">Measured across many</span><span style="--sw:#efe9dc">Shared here</span></div>
     <div class="mapcount" id="mapcount"></div>
   </div>
   <p class="small muted" style="margin-top:10px">Basemap © OpenFreeMap, data © OpenStreetMap contributors. Studies are placed at the lead hospital or institution; AWARE and NDERF spanned many countries and sit at their coordinating centre. Shared experiences are never placed more precisely than a country or US state, and are nudged apart so they can be told apart.</p>
@@ -177,7 +174,9 @@ document.getElementById("nav").innerHTML = TA.nav("index.html");
 document.getElementById("footer").innerHTML = TA.footer();
 const $ = id => document.getElementById(id);
 const GROUP = { prospective: "prospective", survey: "survey", retrospective: "archive", cases: "archive", historical: "historical" };
-const COLOR = { historical: "#c98f5a", prospective: "#d8a84a", survey: "#4fb3a9", archive: "#8a7fd6", community: "#e07a9a" };
+// Bubbles are coloured by the kind of experience described. The kind of source is a filter, not a colour.
+const ETCOLOR = { tunnel: "#d8a84a", guided: "#8a7fd6", summoned: "#e07a9a", journey: "#4fb3a9", calm: "#8fb8e0", distressing: "#c0504a", mixed: "#9a9280", community: "#efe9dc" };
+const etColor = s => ETCOLOR[s.experience_type] || ETCOLOR.mixed;
 const LABEL = { historical: "Historical account", prospective: "Prospective hospital study", survey: "Population survey", archive: "Case collection or archive" };
 // The timeline covers 2,400 years, so it is stretched where the accounts are: the deep past is
 // compressed and the last century takes half the bar. Breakpoints are [year, position 0-1].
@@ -187,8 +186,9 @@ function year2pos(y) { for (let i = 1; i < ERAS.length; i++) { const [y0, p0] = 
 const yearText = y => y < 0 ? `${-y} BC` : String(y);
 const DECADE_MID = { "Before 1960": 1955, "1960s": 1965, "1970s": 1975, "1980s": 1985, "1990s": 1995, "2000s": 2005, "2010s": 2015, "2020s": 2025 };
 const MIN_Y = -2100, MAX_Y = 2026;
-let studies = [], community = [], on = { historical: 1, prospective: 1, survey: 1, archive: 1, community: 1 }, map, popup;
+let studies = [], community = [], layer = "all", map, popup;
 let trigger = "all", etype = "all";
+const inLayer = s => layer === "all" || layer === GROUP[s.kind];
 let PREV = [], FEAT = {}, FLABEL = {};
 
 (async () => {
@@ -239,16 +239,17 @@ let PREV = [], FEAT = {}, FLABEL = {};
 })();
 
 function fcStudies() {
-  return { type: "FeatureCollection", features: studies.filter(inYears).filter(inTrigger).filter(s => on[GROUP[s.kind]]).map(s => ({
+  if (layer === "community") return { type: "FeatureCollection", features: [] };
+  return { type: "FeatureCollection", features: studies.filter(inYears).filter(inTrigger).filter(inLayer).map(s => ({
     type: "Feature", geometry: { type: "Point", coordinates: [s.lng, s.lat] },
-    properties: (() => { const v = lensValue(s); return { ...s, group: GROUP[s.kind], color: lens === "size" ? COLOR[GROUP[s.kind]] : lensColor(v), r: lens === "size" ? 7 + 3.1 * Math.sqrt(Math.sqrt(s.n)) : (v === undefined || v === null ? 5 : 7 + 0.34 * v), badge: lens === "size" || v === undefined || v === null ? "" : Math.round(v) + "%", lensv: v === undefined ? "" : v }; })()
+    properties: (() => { const v = lensValue(s); return { ...s, group: GROUP[s.kind], color: etColor(s), r: lens === "size" ? 7 + 3.1 * Math.sqrt(Math.sqrt(s.n)) : (v === undefined || v === null ? 5 : 7 + 0.34 * v), badge: lens === "size" || v === undefined || v === null ? "" : Math.round(v) + "%", lensv: v === undefined ? "" : v }; })()
   })) };
 }
 function fcCommunity() {
-  if (!on.community) return { type: "FeatureCollection", features: [] };
+  if (layer !== "all" && layer !== "community") return { type: "FeatureCollection", features: [] };
   return { type: "FeatureCollection", features: community.map((c, i) => {
     const a = i * 2.39996, d = 1.1 * Math.sqrt(i); // nudge overlapping places apart
-    return { type: "Feature", geometry: { type: "Point", coordinates: [c.lng + d * Math.cos(a), c.lat + d * Math.sin(a) * 0.7] }, properties: { ...c, color: COLOR.community, r: 8 + 3.4 * Math.sqrt(c.n), badge: String(c.n), community: true } };
+    return { type: "Feature", geometry: { type: "Point", coordinates: [c.lng + d * Math.cos(a), c.lat + d * Math.sin(a) * 0.7] }, properties: { ...c, color: ETCOLOR.community, r: 8 + 3.4 * Math.sqrt(c.n), badge: String(c.n), community: true } };
   }) };
 }
 function inYears(s) { const [a, b] = years(); return s.year >= a && s.year <= b; }
@@ -263,11 +264,14 @@ function refresh() {
   map.getSource("studies").setData(fcStudies());
   map.getSource("community").setData(fcCommunity());
   const shown = studies.filter(inYears).filter(inTrigger);
-  ["historical", "prospective", "survey", "archive"].forEach(g => $("n-" + g).textContent = shown.filter(s => GROUP[s.kind] === g).length);
-  $("n-community").textContent = community.reduce((t, c) => t + c.n, 0) || 0;
-  const people = shown.filter(s => on[GROUP[s.kind]]).reduce((t, s) => t + s.n, 0);
-  $("mapcount").textContent = lens === "size" ? `${shown.filter(s => on[GROUP[s.kind]]).length} studies · ${people.toLocaleString()} people studied`
-    : `${shown.filter(s => on[GROUP[s.kind]] && lensValue(s) !== undefined && lensValue(s) !== null).length} of ${shown.filter(s => on[GROUP[s.kind]]).length} studies measured this`;
+  const comm = community.reduce((t, c) => t + c.n, 0) || 0;
+  const counts = { all: shown.length + comm, community: comm };
+  ["historical", "prospective", "survey", "archive"].forEach(g => counts[g] = shown.filter(s => GROUP[s.kind] === g).length);
+  [...$("layer").options].forEach(o => { o.textContent = o.textContent.replace(/ · \d+$/, "") + " · " + (counts[o.value] ?? 0); });
+  const here = shown.filter(inLayer);
+  const people = here.reduce((t, s) => t + s.n, 0);
+  $("mapcount").textContent = lens === "size" ? `${here.length} studies · ${people.toLocaleString()} people studied`
+    : `${here.filter(s => lensValue(s) !== undefined && lensValue(s) !== null).length} of ${here.length} studies measured this`;
 }
 function showPopup(e) {
   const p = e.features[0].properties, co = e.features[0].geometry.coordinates.slice();
@@ -291,7 +295,7 @@ $("lens").addEventListener("change", e => { lens = e.target.value; refresh(); })
 // ---------------------------------------------------- the reel: tap through the atlas
 let reelI = 0, reelTimer = null, reelMap = null, reelHeld = false, reelStart = 0, reelLeft = 0;
 const REEL_MS = 7000;
-function reelItems() { return studies.filter(inYears).filter(inTrigger).filter(s => on[GROUP[s.kind]]).sort((a, b) => a.year - b.year); }
+function reelItems() { return studies.filter(inYears).filter(inTrigger).filter(inLayer).sort((a, b) => a.year - b.year); }
 function openReel(startId) {
   const items = reelItems(); if (!items.length) return;
   reelI = Math.max(0, items.findIndex(s => s.id === startId));
@@ -305,7 +309,7 @@ function openReel(startId) {
   document.body.appendChild(el); document.body.style.overflow = "hidden";
   reelMap = new maplibregl.Map({ container: "reelMap", style: "https://tiles.openfreemap.org/styles/dark", center: [items[reelI].lng, items[reelI].lat], zoom: 3.4, interactive: false, attributionControl: false });
   reelMap.on("load", () => {
-    reelMap.addSource("r", { type: "geojson", data: { type: "FeatureCollection", features: items.map(s => ({ type: "Feature", geometry: { type: "Point", coordinates: [s.lng, s.lat] }, properties: { color: COLOR[GROUP[s.kind]], r: 7 + 3.1 * Math.sqrt(Math.sqrt(s.n)) } })) } });
+    reelMap.addSource("r", { type: "geojson", data: { type: "FeatureCollection", features: items.map(s => ({ type: "Feature", geometry: { type: "Point", coordinates: [s.lng, s.lat] }, properties: { color: etColor(s), r: 7 + 3.1 * Math.sqrt(Math.sqrt(s.n)) } })) } });
     reelMap.addLayer({ id: "rg", type: "circle", source: "r", paint: { "circle-radius": ["*", ["get", "r"], 2.6], "circle-color": ["get", "color"], "circle-opacity": 0.16, "circle-blur": 1 } });
     reelMap.addLayer({ id: "rd", type: "circle", source: "r", paint: { "circle-radius": ["get", "r"], "circle-color": ["get", "color"], "circle-opacity": 0.85, "circle-stroke-color": "#06050d", "circle-stroke-width": 1.5 } });
     showReel();
@@ -404,8 +408,8 @@ $("ticks").innerHTML = [-2000, -1500, -1000, -500, 0, 500, 1000, 1500, 1800, 190
 $("trigger").addEventListener("change", e => { trigger = e.target.value; refresh(); });
 $("etype").addEventListener("change", e => { etype = e.target.value; refresh(); });
 ["y0", "y1"].forEach(id => $(id).addEventListener("input", refresh));
-$("resetYears").addEventListener("click", () => { $("y0").value = 0; $("y1").value = 1000; $("trigger").value = "all"; trigger = "all"; $("etype").value = "all"; etype = "all"; refresh(); });
-$("mapchips").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; const k = b.dataset.layer; on[k] = !on[k]; b.setAttribute("aria-pressed", on[k]); refresh(); });
+$("resetYears").addEventListener("click", () => { $("y0").value = 0; $("y1").value = 1000; $("trigger").value = "all"; trigger = "all"; $("etype").value = "all"; etype = "all"; $("layer").value = "all"; layer = "all"; refresh(); });
+$("layer").addEventListener("change", e => { layer = e.target.value; refresh(); });
 </script>
 </body>
 </html>
