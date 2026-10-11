@@ -4,27 +4,58 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accounts · The Threshold Atlas</title>
-<meta name="description" content="First-person accounts of near-death experiences from 380 BC to today, quoted where they are free to quote and cited where they are not.">
+<meta name="description" content="First-person accounts of near-death experiences from 380 BC to today, shelved by region, quoted where they are free to quote and cited where they are not.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <style>
-.acct{border-top:1px solid var(--line);padding:30px 0}
-.acct:first-of-type{border-top:0}
-.ahead{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
-.ahead .yr{font-family:var(--display);font-size:34px;font-weight:600;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
-.ahead .pl{font-family:var(--display);font-size:28px;font-weight:600;color:var(--ink);line-height:1.1}
-.ahead .who{font:12px var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
-.tag{font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.region{margin:0 0 30px}
+.rhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.rhead h3{font-family:var(--display);font-size:23px;font-weight:600;margin:0}
+.rhead span{font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* A shelf of spines. Each book is a button; one card above the shelf is its peek. */
+.shelf{position:relative;display:flex;align-items:flex-end;gap:5px;flex-wrap:wrap;
+  padding:116px 14px 0;border-bottom:3px solid var(--line);border-radius:2px}
+.book{position:relative;width:42px;border:0;border-radius:3px 3px 0 0;cursor:pointer;padding:12px 0 10px;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  background:var(--bk,#5a5068);box-shadow:inset -3px 0 0 rgba(0,0,0,.22),inset 3px 0 0 rgba(255,255,255,.07);
+  transition:transform .14s ease,box-shadow .14s ease}
+.book .t{writing-mode:vertical-rl;text-orientation:mixed;font-family:var(--display);font-weight:600;
+  font-size:14px;line-height:1;color:#f4efe3;max-height:206px;overflow:hidden;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.book .y{font:10px var(--mono);color:rgba(244,239,227,.78);margin-top:8px;writing-mode:horizontal-tb}
+.book:hover,.book:focus-visible{transform:translateY(-10px);outline:none;
+  box-shadow:inset -3px 0 0 rgba(0,0,0,.22),inset 3px 0 0 rgba(255,255,255,.07),0 10px 18px rgba(0,0,0,.35)}
+.book[aria-pressed="true"]{transform:translateY(-14px)}
+.book[aria-pressed="true"]::after{content:"";position:absolute;left:50%;bottom:-3px;transform:translateX(-50%);width:26px;height:3px;background:var(--accent)}
+
+.peek{position:absolute;left:14px;right:14px;top:0;height:104px;pointer-events:none;
+  border:1px solid var(--line);border-radius:9px;background:var(--surface);padding:11px 14px;
+  opacity:0;transition:opacity .14s ease;overflow:hidden}
+.shelf.peeking .peek{opacity:1}
+.peek b{display:block;font-family:var(--display);font-size:19px;font-weight:600;line-height:1.15;color:var(--ink)}
+.peek .meta{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:3px 0 5px}
+.peek p{margin:0;font-size:13.5px;line-height:1.45;color:var(--muted);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+@media (max-width:640px){.shelf{padding-top:130px}.peek{height:118px}}
+
+.tag{font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
 .tag.pd{border-color:var(--c2);color:var(--c2)}
 .tag.ex{border-color:var(--c1);color:var(--c1)}
 .tag.su{border-color:var(--c3);color:var(--c3)}
-blockquote{margin:16px 0 0;padding-left:20px;border-left:3px solid var(--accent);font-family:var(--display);font-size:21px;line-height:1.45;color:var(--ink);white-space:pre-line;max-width:60ch}
-.summary{margin:14px 0 0;font-size:17px;line-height:1.55;max-width:62ch;color:var(--ink)}
-.anote{margin-top:14px;font-size:15px;color:var(--muted);max-width:62ch}
-.asrc{margin-top:12px;font:12px var(--mono);color:var(--faint);line-height:1.5}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
-.arch{display:grid;gap:14px}
+
+.opened{border:1px solid var(--accent);border-radius:10px;background:var(--surface);padding:22px;margin-top:16px}
+.opened .ohead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:2px}
+.opened .yr{font-family:var(--display);font-size:32px;font-weight:600;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.opened .pl{font-family:var(--display);font-size:25px;font-weight:600;color:var(--ink);line-height:1.1}
+.opened .who{font:11px var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.opened blockquote{margin:14px 0 0;padding-left:18px;border-left:3px solid var(--accent);font-family:var(--display);
+  font-size:20px;line-height:1.45;color:var(--ink);white-space:pre-line;max-width:60ch}
+.opened .summary{margin:14px 0 0;font-size:16.5px;line-height:1.55;max-width:62ch;color:var(--ink)}
+.opened .anote{margin-top:13px;font-size:14.5px;color:var(--muted);max-width:62ch}
+.opened .asrc{margin-top:11px;font:11.5px var(--mono);color:var(--faint);line-height:1.5}
+.opened .close{float:right;font:600 12px var(--body);background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:7px;padding:5px 10px;cursor:pointer}
+.arch{display:grid;gap:12px}
 .arch .card h3{margin-bottom:4px}
 </style>
 </head>
@@ -35,13 +66,10 @@ blockquote{margin:16px 0 0;padding-left:20px;border-left:3px solid var(--accent)
 <section class="hero">
   <div class="eyebrow">Accounts</div>
   <h1>In their own words, across 2,400 years</h1>
-  <p class="lede">Quoted at length where the text is out of copyright, described and linked where it is not. Nothing here is invented, and nothing is copied from an archive that has not given permission.</p>
+  <p class="lede">Sixteen accounts, shelved by region. Hover a spine to see what it is; click to read it.</p>
 </section>
 
-<section>
-  <div class="filters" id="filters"></div>
-  <div id="list"></div>
-</section>
+<section id="shelves"></section>
 
 <section>
   <div class="eyebrow">Where the rest are</div>
@@ -53,8 +81,11 @@ blockquote{margin:16px 0 0;padding-left:20px;border-left:3px solid var(--accent)
 <section>
   <div class="eyebrow">The gap</div>
   <h2>Why there are not five from every country</h2>
-  <p>Ten places, because those are the ones with an account free to quote. Whole regions are missing, not because nothing happened there but because nobody published it in a usable form.</p>
-  <p>Two things change it: more research published outside the West, or people adding their own. That is why <a href="share.html">the form</a> exists. Shared accounts are counted, kept separate from the research, and read by a person before publication.</p>
+  <p>Six shelves, because those are the regions with an account free to quote or properly citable. Whole regions are missing, not because nothing happened there but because nobody published it in a usable form.</p>
+  <details class="more"><summary>What is missing, and what would change it</summary>
+    <p>There is no account here from the Islamic world, from Jewish tradition, from Africa or from the Americas. Both Islamic and Jewish teaching about what comes next is on <a href="beyond.html">the Beyond page</a>; what is missing is a first-person account from either.</p>
+    <p>Two things change it: more research published outside the West, or people adding their own. That is why <a href="share.html">the form</a> exists. Shared accounts are counted, kept separate from the research, and read by a person before publication.</p>
+  </details>
 </section>
 
 <div id="footer"></div>
@@ -64,40 +95,98 @@ blockquote{margin:16px 0 0;padding-left:20px;border-left:3px solid var(--accent)
 <script>
 document.getElementById("nav").innerHTML = TA.nav("accounts.html");
 document.getElementById("footer").innerHTML = TA.footer();
+const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const yearText = y => y < 0 ? `${-y} BC` : String(y);
 const KIND = { "public-domain": ["pd", "Quoted in full"], excerpt: ["ex", "Quoted in part"], summary: ["su", "Described, not quoted"] };
-let data = null, filter = "all";
-TA.data("accounts").then(j => { data = j; renderFilters(); render(); renderArchives(); });
-function renderFilters() {
-  const regions = [...new Set(data.accounts.map(a => a.country))].sort();
-  document.getElementById("filters").innerHTML = `<button class="chip" data-f="all" aria-pressed="true">All ${data.accounts.length}</button>`
-    + regions.map(r => `<button class="chip" data-f="${esc(r)}">${esc(r)}</button>`).join("");
-  document.getElementById("filters").addEventListener("click", e => {
-    const b = e.target.closest(".chip"); if (!b) return;
-    filter = b.dataset.f;
-    document.querySelectorAll("#filters .chip").forEach(x => x.setAttribute("aria-pressed", x === b));
-    render();
-  });
+// Regions run roughly west to east, so the shelves read in that order.
+const ORDER = ["Britain and Ireland", "Continental Europe", "Anatolia and the eastern Mediterranean",
+  "South Asia", "East and Inner Asia", "The Pacific"];
+const HUE = {
+  "Britain and Ireland": "#4a5c74", "Continental Europe": "#5c4a6b",
+  "Anatolia and the eastern Mediterranean": "#7a5240", "South Asia": "#6b5230",
+  "East and Inner Asia": "#3f5c52", "The Pacific": "#2f5668",
+};
+// A deterministic height and shade per account, so the shelf looks like a shelf
+// without the books rearranging themselves between visits.
+const hash = s => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) % 9973, 7);
+function shade(hex, step) {
+  const n = parseInt((hex || "#5a5068").slice(1), 16), k = 1 + (step - 2) * 0.09;
+  return "rgb(" + [(n >> 16) & 255, (n >> 8) & 255, n & 255]
+    .map(v => Math.max(0, Math.min(255, Math.round(v * k)))).join(",") + ")";
 }
+let data = null, open = null;
+const find = id => data.accounts.find(a => a.id === id);
+
+TA.data("accounts").then(j => { data = j; render(); renderArchives(); });
+
 function render() {
-  const rows = data.accounts.filter(a => filter === "all" || a.country === filter).sort((a, b) => a.year - b.year);
-  document.getElementById("list").innerHTML = rows.map(a => {
+  const byRegion = {};
+  data.accounts.forEach(a => (byRegion[a.region] = byRegion[a.region] || []).push(a));
+  const regions = ORDER.filter(r => byRegion[r]).concat(Object.keys(byRegion).filter(r => !ORDER.includes(r)));
+  $("shelves").innerHTML = regions.map(r => {
+    const rows = byRegion[r].sort((a, b) => a.year - b.year);
+    return `<div class="region" data-region="${esc(r)}">
+      <div class="rhead"><h3>${esc(r)}</h3><span>${rows.length === 1 ? "1 account" : rows.length + " accounts"} · ${esc(yearText(rows[0].year))}–${esc(yearText(rows[rows.length - 1].year))}</span></div>
+      <div class="shelf">
+        <div class="peek" aria-hidden="true"></div>
+        ${rows.map(a => `<button class="book" data-id="${esc(a.id)}" aria-pressed="false"
+            style="height:${150 + (hash(a.id) % 62)}px;--bk:${shade(HUE[r], hash(a.id) % 5)}">
+            <span class="t">${esc(a.spine || a.place)}</span><span class="y">${esc(yearText(a.year))}</span></button>`).join("")}
+      </div>
+      <div class="slot"></div>
+    </div>`;
+  }).join("");
+
+  const showPeek = b => {
+    const shelf = b.closest(".shelf"), a = find(b.dataset.id); if (!a) return;
     const [cls, lbl] = KIND[a.kind] || ["su", "Described"];
-    const body = a.kind === "summary"
-      ? `<p class="summary">${esc(a.text)}</p>`
-      : `<blockquote>${esc(a.text)}</blockquote>`;
-    return `<article class="acct" id="${a.id}">
-      <div class="ahead"><span class="yr">${yearText(a.year)}</span><span class="pl">${esc(a.place)}</span><span class="tag ${cls}">${lbl}</span></div>
-      <div class="ahead"><span class="who">${esc(a.who)} · ${esc(a.trigger)}</span></div>
+    shelf.querySelector(".peek").innerHTML =
+      `<b>${esc(a.place)}, ${esc(yearText(a.year))}</b>
+       <div class="meta">${esc(a.who)} · ${esc(a.trigger)} &nbsp;<span class="tag ${cls}">${lbl}</span></div>
+       <p>${esc(a.note)}</p>`;
+    shelf.classList.add("peeking");
+  };
+  const host = $("shelves");
+  host.addEventListener("pointerover", e => { const b = e.target.closest(".book"); if (b) showPeek(b); });
+  host.addEventListener("focusin", e => { const b = e.target.closest(".book"); if (b) showPeek(b); });
+  host.addEventListener("pointerout", e => {
+    const b = e.target.closest(".book"); if (!b) return;
+    const shelf = b.closest(".shelf");
+    if (!shelf.contains(e.relatedTarget)) shelf.classList.remove("peeking");
+  });
+  host.addEventListener("click", e => { const b = e.target.closest(".book"); if (b) pick(b.dataset.id); });
+}
+
+function pick(id) {
+  const a = find(id); if (!a) return;
+  const wasOpen = open === id;
+  document.querySelectorAll(".slot").forEach(s => s.innerHTML = "");
+  document.querySelectorAll(".book").forEach(b => b.setAttribute("aria-pressed", !wasOpen && b.dataset.id === id));
+  if (wasOpen) { open = null; return; }
+  open = id;
+  const [cls, lbl] = KIND[a.kind] || ["su", "Described"];
+  const body = a.kind === "summary" ? `<p class="summary">${esc(a.text)}</p>` : `<blockquote>${esc(a.text)}</blockquote>`;
+  const region = [...document.querySelectorAll(".region")].find(el => el.dataset.region === a.region);
+  if (!region) return;
+  const slot = region.querySelector(".slot");
+  slot.innerHTML = `<article class="opened" id="${esc(a.id)}">
+      <button class="close" data-close="1">Close</button>
+      <div class="ohead"><span class="yr">${esc(yearText(a.year))}</span><span class="pl">${esc(a.place)}</span><span class="tag ${cls}">${lbl}</span></div>
+      <div class="who">${esc(a.who)} · ${esc(a.trigger)}</div>
       ${body}
       <p class="anote">${esc(a.note)}</p>
-      <p class="asrc">${esc(a.source)} · <a href="${a.url}" target="_blank" rel="noopener">source</a></p>
+      <p class="asrc">${esc(a.source)} · <a href="${esc(a.url)}" target="_blank" rel="noopener">source</a></p>
     </article>`;
-  }).join("");
+  slot.querySelector("[data-close]").addEventListener("click", () => pick(id));
+  slot.firstElementChild.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
+
 function renderArchives() {
-  document.getElementById("archives").innerHTML = data.linked_archives.map(x => `<div class="card"><h3><a href="${x.url}" target="_blank" rel="noopener">${esc(x.name)}</a></h3><p class="small">${esc(x.what)}</p><p class="small muted"><b>Why it is not reproduced here:</b> ${esc(x.why_not_here)}</p></div>`).join("");
+  $("archives").innerHTML = data.linked_archives.map(x =>
+    `<div class="card"><h3><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a></h3>
+      <p class="small">${esc(x.what)}</p>
+      <p class="small muted"><b>Why it is not reproduced here:</b> ${esc(x.why_not_here)}</p></div>`).join("");
 }
 </script>
 </body>

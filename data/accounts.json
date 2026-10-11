@@ -14,22 +14,8 @@
    "source": "Plato, Republic, Book X, c. 380 BC. Benjamin Jowett translation, Project Gutenberg.",
    "url": "https://www.gutenberg.org/cache/epub/1497/pg1497.txt",
    "text": "He was slain in battle, and ten days afterwards, when the bodies of the dead were taken up already in a state of corruption, his body was found unaffected by decay, and carried away home to be buried. And on the twelfth day, as he was lying on the funeral pile, he returned to life and told them what he had seen in the other world. He said that when his soul left the body he went on a journey with a great company, and that they came to a mysterious place at which there were two openings in the earth; they were near together, and over against them were two other openings in the heaven above. In the intermediate space there were judges seated… He drew near, and they told him that he was to be the messenger who would carry the report of the other world to men, and they bade him hear and see all that was to be heard and seen in that place.",
-   "note": "The oldest surviving Western narrative of this shape: leaving the body, a journey with others, a place of judgment, a pillar of light, and being appointed to go back and tell what he saw. Plato frames it as a tale rather than a report, and Er is a Pamphylian, not an Athenian."
-  },
-  {
-   "id": "drythelm",
-   "place": "Melrose, Scotland",
-   "country": "United Kingdom",
-   "lat": 55.5986,
-   "lng": -2.7139,
-   "year": 696,
-   "who": "A householder of Incuneningum, Northumbria",
-   "kind": "public-domain",
-   "trigger": "Illness",
-   "source": "Bede, Ecclesiastical History of the English People, Book V, Chapter XII; event c. 696, written c. 731. Revised A. M. Sellar translation (1907), after Giles and Stevens. Project Gutenberg.",
-   "url": "https://www.gutenberg.org/cache/epub/38326/pg38326.txt",
-   "text": "This man fell sick, and his sickness daily increasing, he was brought to extremity, and died in the beginning of the night; but at dawn he came to life again, and suddenly sat up, whereat all those that sat about the body weeping fled away in great terror, only his wife, who loved him better, though trembling and greatly afraid, remained with him. And he comforting her, said, “Fear not, for I am now in very deed risen from death whereof I was holden, and permitted again to live among men; nevertheless, hereafter I must not live as I was wont, but after a very different manner.”\n\n[He divided his property, moved to Melrose and took the tonsure. Then:]\n\n“He that led me had a countenance full of light, and shining raiment, and we went in silence, as it seemed to me, towards the rising of the summer sun. And as we walked we came to a broad and deep valley of infinite length; it lay on our left, and one side of it was exceeding terrible with raging flames, the other no less intolerable for violent hail and cold snows… I began to think that peradventure this might be Hell, of whose intolerable torments I had often heard men talk. My guide, who went before me, answered to my thought, saying, ‘Think not so, for this is not the Hell you believe it to be.’”",
-   "note": "A guide of light, a journey, a boundary, and a life changed completely on return: he gave away everything he owned and became a monk. The guide answering his unspoken thought is a detail modern accounts still report. Bede also has darkness thickening and then 'the brightness of a star shining amidst the darkness' coming rapidly towards him, which is as close as the account comes to a tunnel."
+   "note": "The oldest surviving Western narrative of this shape: leaving the body, a journey with others, a place of judgment, a pillar of light, and being appointed to go back and tell what he saw. Plato frames it as a tale rather than a report, and Er is a Pamphylian, not an Athenian.",
+   "region": "Anatolia and the eastern Mediterranean"
   },
   {
    "id": "stephen",
@@ -44,7 +30,77 @@
    "source": "Gregory the Great, Dialogues, Book IV, c. 593. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
    "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
    "text": "Stephen dies in Constantinople and is brought before a judge, who refuses him: the wrong man has been summoned, another Stephen of the same name. He is sent back and revives, and the other Stephen is found to have died at that moment. A soldier in the same book sees Stephen again, on a bridge over a dark and smoky river, 'drawn by the legs downward' by terrible men rising out of the water and 'by the arms pulled upward' by white and beautiful persons, the two pulling against each other. Gregory reads the legs and the arms as the man's almsgiving and his unresisted sins of the flesh.",
-   "note": "The clerical error, the wrong person summoned by name, turns up again fourteen centuries later in Indian accounts collected by Pasricha and Stevenson. Nobody has explained why. Gregory himself draws no happy ending from it: Stephen never amended his life, and died in the plague a few years later, 'leaving us in doubt whether he were saved or damned'."
+   "note": "The clerical error, the wrong person summoned by name, turns up again fourteen centuries later in Indian accounts collected by Pasricha and Stevenson. Nobody has explained why. Gregory himself draws no happy ending from it: Stephen never amended his life, and died in the plague a few years later, 'leaving us in doubt whether he were saved or damned'.",
+   "region": "Anatolia and the eastern Mediterranean",
+   "spine": "Constantinople"
+  },
+  {
+   "id": "fursa",
+   "place": "Cnobheresburg, East Anglia",
+   "country": "United Kingdom",
+   "region": "Britain and Ireland",
+   "lat": 52.583,
+   "lng": 1.651,
+   "year": 633,
+   "who": "Fursa, an Irish preacher",
+   "kind": "public-domain",
+   "trigger": "Illness",
+   "source": "Bede, Ecclesiastical History of the English People, Book III, Chapter XIX. Revised A. M. Sellar translation (1907), after Giles and Stevens. Project Gutenberg.",
+   "url": "https://www.gutenberg.org/cache/epub/38326/pg38326.txt",
+   "text": "Here he fell into some infirmity of body, and was thought worthy to see a vision of angels; in which he was admonished diligently to persevere in the ministry of the Word which he had undertaken…\n\nWhen he had been taken up on high, he was bidden by the angels that conducted him to look back upon the world. Upon which, casting his eyes downward, he saw, as it were, a dark valley in the depths underneath him. He also saw four fires in the air, not far distant from each other. Then asking the angels, what fires those were, he was told, they were the fires which would kindle and consume the world. One of them was of falsehood, when we do not fulfil that which we promised in Baptism, to renounce the Devil and all his works. The next was of covetousness, when we prefer the riches of the world to the love of heavenly things.",
+   "note": "He recovers, which makes this a return rather than a deathbed vision. The monastery he then built is the reason this account can be pinned exactly: Bede says it stood in the woods near the sea, inside a fort called Cnobheresburg.",
+   "spine": "Cnobheresburg"
+  },
+  {
+   "id": "drythelm",
+   "place": "Melrose, Scotland",
+   "country": "United Kingdom",
+   "lat": 55.5986,
+   "lng": -2.7139,
+   "year": 696,
+   "who": "A householder of Incuneningum, Northumbria",
+   "kind": "public-domain",
+   "trigger": "Illness",
+   "source": "Bede, Ecclesiastical History of the English People, Book V, Chapter XII; event c. 696, written c. 731. Revised A. M. Sellar translation (1907), after Giles and Stevens. Project Gutenberg.",
+   "url": "https://www.gutenberg.org/cache/epub/38326/pg38326.txt",
+   "text": "This man fell sick, and his sickness daily increasing, he was brought to extremity, and died in the beginning of the night; but at dawn he came to life again, and suddenly sat up, whereat all those that sat about the body weeping fled away in great terror, only his wife, who loved him better, though trembling and greatly afraid, remained with him. And he comforting her, said, “Fear not, for I am now in very deed risen from death whereof I was holden, and permitted again to live among men; nevertheless, hereafter I must not live as I was wont, but after a very different manner.”\n\n[He divided his property, moved to Melrose and took the tonsure. Then:]\n\n“He that led me had a countenance full of light, and shining raiment, and we went in silence, as it seemed to me, towards the rising of the summer sun. And as we walked we came to a broad and deep valley of infinite length; it lay on our left, and one side of it was exceeding terrible with raging flames, the other no less intolerable for violent hail and cold snows… I began to think that peradventure this might be Hell, of whose intolerable torments I had often heard men talk. My guide, who went before me, answered to my thought, saying, ‘Think not so, for this is not the Hell you believe it to be.’”",
+   "note": "A guide of light, a journey, a boundary, and a life changed completely on return: he gave away everything he owned and became a monk. The guide answering his unspoken thought is a detail modern accounts still report. Bede also has darkness thickening and then 'the brightness of a star shining amidst the darkness' coming rapidly towards him, which is as close as the account comes to a tunnel.",
+   "region": "Britain and Ireland",
+   "spine": "Melrose"
+  },
+  {
+   "id": "mercian_thegn",
+   "place": "Mercia",
+   "country": "United Kingdom",
+   "region": "Britain and Ireland",
+   "lat": 52.633,
+   "lng": -1.695,
+   "year": 707,
+   "who": "A king's thegn under Coenred",
+   "kind": "public-domain",
+   "trigger": "Illness",
+   "source": "Bede, Ecclesiastical History of the English People, Book V, Chapter XIII. Revised A. M. Sellar translation (1907), after Giles and Stevens. Project Gutenberg.",
+   "url": "https://www.gutenberg.org/cache/epub/38326/pg38326.txt",
+   "text": "“Not long since,” said he, “there came into this room two fair youths, and sat down by me, the one at my head, and the other at my feet. One of them drew forth a book most beautiful, but very small, and gave it me to read; looking into it, I there found all the good actions I had ever done in my life written down, and they were very few and inconsiderable. They took back the book and said nothing to me.\n\nThen, on a sudden, appeared an army of evil spirits of hideous countenance, and they beset this house without, and sitting down filled the greater part of it within. Then he, who by the blackness of his gloomy face, and his sitting above the rest, seemed to be the chief of them, taking out a book terrible to behold, of a monstrous size, and of almost insupportable weight, commanded one of his followers to bring it to me to read. Having read it, I found therein most plainly written in hideous characters, all the crimes I ever committed, not only in word and deed, but even in the least thought.”",
+   "note": "Not a return: he died soon after saying this. The two books are the same motif as Chitragupta's ledger in the Indian cases and Thoth's palette in the Egyptian judgment, and Bede gives it in more detail than either. Bede's own gloss is that the white book was small and the black one great because his few good actions were obscured by the evil of his youth.",
+   "spine": "Mercia"
+  },
+  {
+   "id": "bede_craftsman",
+   "place": "A monastery in Northumbria, unnamed",
+   "country": "United Kingdom",
+   "region": "Britain and Ireland",
+   "lat": 54.98,
+   "lng": -1.472,
+   "year": 731,
+   "who": "A craftsman Bede knew",
+   "kind": "public-domain",
+   "trigger": "Illness",
+   "source": "Bede, Ecclesiastical History of the English People, Book V, Chapter XIV. Revised A. M. Sellar translation (1907), after Giles and Stevens. Project Gutenberg.",
+   "url": "https://www.gutenberg.org/cache/epub/38326/pg38326.txt",
+   "text": "For he falling sick, and being brought to extremity, called the brethren, and with much lamentation, like one damned, began to tell them, that he saw Hell opened, and Satan sunk in the depths thereof; and Caiaphas, with the others that slew our Lord, hard by him, delivered up to avenging flames. “In whose neighbourhood,” said he, “I see a place of eternal perdition prepared for me, miserable wretch that I am.”\n\nThe brothers, hearing these words, began diligently to exhort him, that he should repent even then, whilst he was still in the flesh. He answered in despair, “There is no time for me now to change my course of life, when I have myself seen my judgement passed.”",
+   "note": "The bleakest account here, and not a return. Bede knew the man and names neither him nor the monastery. He records it as a warning and says plainly that he died in despair, without the viaticum.",
+   "spine": "Northumbria"
   },
   {
    "id": "monchaux",
@@ -59,7 +115,8 @@
    "source": "du Monchaux PJ, Anecdotes de Médecine, 1740. Rediscovered and reported by Charlier P, Resuscitation 2014;85:e155.",
    "url": "https://www.researchgate.net/publication/263207147_Oldest_medical_description_of_a_near_death_experience_NDE_France_18th_century",
    "text": "After losing all external sensations, he saw a light so pure and strong that he thought he was in paradise. He perfectly remembered this sensation, and said it was the most pleasant and beautiful he had ever felt in his life.",
-   "note": "The oldest known description by a doctor. Bled repeatedly for a fever, the patient lay unconscious long enough to alarm his physicians. Du Monchaux guessed the cause was blood leaving the skin and flooding the brain; today the suspicion runs the other way, towards too little blood and oxygen."
+   "note": "The oldest known description by a doctor. Bled repeatedly for a fever, the patient lay unconscious long enough to alarm his physicians. Du Monchaux guessed the cause was blood leaving the skin and flooding the brain; today the suspicion runs the other way, towards too little blood and oxygen.",
+   "region": "Continental Europe"
   },
   {
    "id": "beaufort",
@@ -74,7 +131,8 @@
    "source": "Beaufort F, letter to Dr W. H. Wollaston, written 1825, published 1847.",
    "url": "https://www.irishtimes.com/news/panoramic-visions-of-a-drowning-man-1.1118881",
    "text": "Beaufort fell into Portsmouth harbour and could not swim. He described the struggle ending in a strange calm, without pain or fear, and then his whole past life appearing to him, not in outline but in detail, every incident in its right place, running backwards and taking, he thought, no time at all. He was pulled out and revived.",
-   "note": "The first detailed first-person life review in English, by the man the Beaufort wind scale is named after. He wrote it down 34 years later and it was not published until after his colleague's death."
+   "note": "The first detailed first-person life review in English, by the man the Beaufort wind scale is named after. He wrote it down 34 years later and it was not published until after his colleague's death.",
+   "region": "Britain and Ireland"
   },
   {
    "id": "heim",
@@ -89,37 +147,8 @@
    "source": "Heim A, Notizen über den Tod durch Absturz. Jahrbuch des Schweizer Alpenclub 1892;27:327-37. Translated by Noyes R and Kletti R, Omega 1972;3:45-52.",
    "url": "https://www.greenharbor.com/fffolder/ffreading.html",
    "text": "Heim fell while climbing and survived. He spent 25 years collecting accounts from others who had fallen: climbers, soldiers, workers, a fisherman swept off rocks. He found that about 95% felt no pain and no terror. Instead, thought raced, time stretched, people reviewed their lives, heard music, and felt calm. Several described seeing the whole of their past 'as if on a distant stage'.",
-   "note": "The first systematic collection of near-death accounts, made by a geologist, 83 years before Moody's book. It is also the first demonstration that the experience does not depend on the heart stopping."
-  },
-  {
-   "id": "india",
-   "place": "Northern India",
-   "country": "India",
-   "lat": 26.85,
-   "lng": 80.95,
-   "year": 1986,
-   "who": "16 people",
-   "kind": "summary",
-   "trigger": "Illness",
-   "source": "Pasricha S, Stevenson I. Near-death experiences in India: a preliminary report. Journal of Nervous and Mental Disease 1986;174:165-70.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/3950600/",
-   "text": "Messengers, called yamdoots, come and take the person away, sometimes roughly. They are brought before a man with a book of records. The book is checked and a mistake is found: the wrong person has been brought, usually someone of the same name from another village. The person is sent back, often against their wish, and a quarter of them wake with residual marks on the body where they were branded in the other realm.",
-   "note": "No tunnel appears in any of these cases, and no life review. What the West calls a life review appears here as a record read by someone else."
-  },
-  {
-   "id": "tangshan",
-   "place": "Tangshan, China",
-   "country": "China",
-   "lat": 39.63,
-   "lng": 118.18,
-   "year": 1992,
-   "who": "32 of 81 earthquake survivors",
-   "kind": "summary",
-   "trigger": "Earthquake",
-   "source": "Feng Z, Liu J. Near-death experiences among survivors of the 1976 Tangshan earthquake. Journal of Near-Death Studies 1992;11:39-48.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799015/",
-   "text": "Survivors of the earthquake that killed about 240,000 people were traced and interviewed eleven years later. Forty per cent met the criteria for an NDE. They described time slowing, thought speeding up, a sense of leaving the body and of unusual clarity, and meeting people. A life review was reported by half of them, and a tunnel-like dark region by one in six.",
-   "note": "Feng and Liu read their results as culturally distinct from American and Indian accounts. Kellehear, reviewing the same table, read it the other way: out-of-body sensations, tunnel sensations, peace, life reviews, deceased beings and another realm were all reported, so 'the Chinese NDE may be very similar to the Anglo-European NDE'. Both readings are of the same 81 interviews."
+   "note": "The first systematic collection of near-death accounts, made by a geologist, 83 years before Moody's book. It is also the first demonstration that the experience does not depend on the heart stopping.",
+   "region": "Continental Europe"
   },
   {
    "id": "guam",
@@ -134,7 +163,8 @@
    "source": "Green JT. Near-death experiences in a Chammorro culture. Vital Signs 1984;4(1-2):6-7, as summarised in Kellehear A, Census of non-Western near-death experiences to 2005. Journal of Near-Death Studies 2008;26:249-65.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799184/",
    "text": "People report leaving the body and flying through the clouds, or finding themselves walking on a road. Some make invisible visits to living relatives in America. They arrive at a gardenlike, paradisiacal place and are met by the dead, some of them relatives. There is no tunnel and no review of the life.",
-   "note": "One of the small set of non-Western accounts in which an out-of-body sensation is clearly reported. Green's original article in the IANDS newsletter has never been digitised, so every detail here comes through Kellehear."
+   "note": "One of the small set of non-Western accounts in which an out-of-body sensation is clearly reported. Green's original article in the IANDS newsletter has never been digitised, so every detail here comes through Kellehear.",
+   "region": "The Pacific"
   },
   {
    "id": "maori",
@@ -149,7 +179,41 @@
    "source": "King M, Being Pakeha: An Encounter with New Zealand and the Maori Renaissance, 1985, pp. 92-94. Quoted in Kellehear A, An Hawaiian near-death experience. Journal of Near-Death Studies 2001;20:31-35.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799181/",
    "text": "She hovers over her own head, leaves the room and flies north, over the Waikato River and the Manukau and across Ngati Whatua, Ngapuhi, Te Rarawa and Te Aupouri, until she reaches Te Rerenga Wairua, the leaping off place of spirits at Cape Reinga. She performs ablutions and dances before the entrance. A voice stops her, saying her time has not come and she must return until called again. She wakes to her anxious living relatives around her.",
-   "note": "The journey follows an actual geography the culture already holds, named river by river, rather than a tunnel. What turns her back is a voice, not the dead."
+   "note": "The journey follows an actual geography the culture already holds, named river by river, rather than a tunnel. What turns her back is a voice, not the dead.",
+   "region": "The Pacific",
+   "spine": "Aotearoa"
+  },
+  {
+   "id": "india",
+   "place": "Northern India",
+   "country": "India",
+   "lat": 26.85,
+   "lng": 80.95,
+   "year": 1986,
+   "who": "16 people",
+   "kind": "summary",
+   "trigger": "Illness",
+   "source": "Pasricha S, Stevenson I. Near-death experiences in India: a preliminary report. Journal of Nervous and Mental Disease 1986;174:165-70.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/3950600/",
+   "text": "Messengers, called yamdoots, come and take the person away, sometimes roughly. They are brought before a man with a book of records. The book is checked and a mistake is found: the wrong person has been brought, usually someone of the same name from another village. The person is sent back, often against their wish, and a quarter of them wake with residual marks on the body where they were branded in the other realm.",
+   "note": "No tunnel appears in any of these cases, and no life review. What the West calls a life review appears here as a record read by someone else.",
+   "region": "South Asia"
+  },
+  {
+   "id": "tangshan",
+   "place": "Tangshan, China",
+   "country": "China",
+   "lat": 39.63,
+   "lng": 118.18,
+   "year": 1992,
+   "who": "32 of 81 earthquake survivors",
+   "kind": "summary",
+   "trigger": "Earthquake",
+   "source": "Feng Z, Liu J. Near-death experiences among survivors of the 1976 Tangshan earthquake. Journal of Near-Death Studies 1992;11:39-48.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799015/",
+   "text": "Survivors of the earthquake that killed about 240,000 people were traced and interviewed eleven years later. Forty per cent met the criteria for an NDE. They described time slowing, thought speeding up, a sense of leaving the body and of unusual clarity, and meeting people. A life review was reported by half of them, and a tunnel-like dark region by one in six.",
+   "note": "Feng and Liu read their results as culturally distinct from American and Indian accounts. Kellehear, reviewing the same table, read it the other way: out-of-body sensations, tunnel sensations, peace, life reviews, deceased beings and another realm were all reported, so 'the Chinese NDE may be very similar to the Anglo-European NDE'. Both readings are of the same 81 interviews.",
+   "region": "East and Inner Asia"
   },
   {
    "id": "tibet",
@@ -164,7 +228,8 @@
    "source": "Bailey LW. A 'little death': the near-death experience and Tibetan delogs. Journal of Near-Death Studies 2001;19:139-59.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799135/",
    "text": "A person is taken for dead, sometimes for days. Guides lead them through the Buddhist realms, hot and cold. Their deeds are weighed in public: a demon holds black pebbles for the sinful deeds, a white deity holds white pebbles to weigh against them, and there is a bridge, a scale, and the mirror of existence. They are sent back with a message for the living, usually to practise and to stop causing harm.",
-   "note": "A tradition centuries old. Bailey's named cases are Sangs Rgyas Chos 'dzom, a twelve-year-old Bhutanese girl writing shortly after 1650, and Dawa Drolma (c. 1900-1941). No tunnel; the life review is a public reckoning rather than a private film."
+   "note": "A tradition centuries old. Bailey's named cases are Sangs Rgyas Chos 'dzom, a twelve-year-old Bhutanese girl writing shortly after 1650, and Dawa Drolma (c. 1900-1941). No tunnel; the life review is a public reckoning rather than a private film.",
+   "region": "East and Inner Asia"
   },
   {
    "id": "liege",
@@ -179,7 +244,8 @@
    "source": "Martial C et al. Temporality of features in near-death experience narratives. Frontiers in Human Neuroscience 2017;11:311. Open access (CC BY).",
    "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2017.00311/full",
    "text": "People wrote down what happened in their own words; the researchers coded each account for which features it contained and in what order. Peace was reported by 80%, a bright light by 69%, meeting beings by 64%, leaving the body by 53%. Leaving the body was most often the first thing to happen and returning the last, but the middle varied from person to person. The familiar sequence of out-of-body, tunnel, light, peace appeared in only 6 of the 27 accounts that contained all four.",
-   "note": "The study that undid the idea of a fixed script."
+   "note": "The study that undid the idea of a fixed script.",
+   "region": "Continental Europe"
   },
   {
    "id": "distressing",
@@ -194,7 +260,8 @@
    "source": "Cassol H et al. Qualitative thematic analysis of the phenomenology of near-death experiences. Memory 2019;27:1122-29.",
    "url": "https://pubmed.ncbi.nlm.nih.gov/31189413/",
    "text": "Of 123 accounts collected in Liege, 17 were distressing: 8 inverse, where the usual features arrive but feel wrong or hostile; 8 hellish, with a place of torment; and 1 void, an endless empty blackness with no one in it. Six of the 17 begin with peace or joy before turning. What separates them from the other 106 is not their content but their feeling: the transcendental features score the same, the affective ones collapse.",
-   "note": "Distressing accounts are reported less often and studied less. Nothing is known about how people live with them afterwards: the paper says so in as many words. Suicide survivors are over-represented among them, and the memories are as detailed as those of peaceful experiences."
+   "note": "Distressing accounts are reported less often and studied less. Nothing is known about how people live with them afterwards: the paper says so in as many words. Suicide survivors are over-represented among them, and the memories are as detailed as those of peaceful experiences.",
+   "region": "Continental Europe"
   }
  ],
  "linked_archives": [
