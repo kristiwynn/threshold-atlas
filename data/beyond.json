@@ -1,13 +1,13 @@
 {
  "_note": "Everything in this file is OUTSIDE the atlas's evidence. The walks report what sources describe. These are the answers people have proposed to the question the accounts stop at, and each one is named, attributed and labelled by what kind of claim it is. Nothing here is a finding and nothing here is presented as one.",
  "heading": "The account stops here",
- "lede": "Every one of these people came back, or the text that carries them stops. What happens if you do not come back is not something any account can report, and this atlas has no evidence about it at all. Past this point you are reading proposals: what traditions teach, what a dying brain would explain, and what a handful of physicists and philosophers have suggested. They are labelled so you always know which you are looking at.",
+ "lede": "Past this point the atlas stops reporting. What follows is what people have proposed, labelled so you always know which kind of claim you are reading.",
  "back_label": "Go back",
- "back_note": "What this source says happened next, which is the only part of this that is reported.",
+ "back_note": "What this source says happened next.",
  "on_label": "Go on",
- "on_note": "Leave the evidence behind and see what has been proposed. Nothing after this point is a finding.",
+ "on_note": "Twelve proposals, from religion, science and elsewhere.",
  "root": "What happens if you do not come back?",
- "root_note": "No account answers this, because everyone who could report has come back. Everything below the root is a proposal. It is drawn as a tree because the proposals are not twelve unrelated guesses: they descend from a few places, and they borrow from each other across the branches.",
+ "root_note": "No account answers this: everyone who could report has come back. Everything below the root is a proposal, not a finding.",
  "domains": [
   {
    "id": "religion",
@@ -15,14 +15,14 @@
    "note": "Teaching about what is the case, held on authority rather than offered as evidence. Four of these traditions never met and still agree on a surprising amount, which is the reason to draw them side by side."
   },
   {
-   "id": "philosophy",
-   "name": "Philosophy",
-   "note": "Argument rather than revelation, though in the ancient world the line between the two is not where a modern reader expects it. Plato's myth is told by a philosopher and framed as a tale he does not vouch for."
-  },
-  {
    "id": "science",
    "name": "Science",
    "note": "Two very different things sit under this word here. One branch has laboratory evidence for its mechanism and predicts that nothing continues. The other starts from well-tested physics and then takes a step the physics does not take. Keeping them on separate limbs is the point."
+  },
+  {
+   "id": "other",
+   "name": "Other",
+   "note": "Proposals that are neither revealed nor measured. Right now that is one limb, Greek philosophy; it is where anything else would go."
   }
  ],
  "families": [
@@ -57,13 +57,6 @@
    "short": "Indigenous"
   },
   {
-   "id": "greek",
-   "domain": "philosophy",
-   "name": "Greek",
-   "kind": "belief",
-   "note": "Rebirth argued rather than revealed, with the choice of the next life placed squarely on the chooser. Plato has the interpreter say it outright: virtue is not assigned."
-  },
-  {
    "id": "neuro",
    "domain": "science",
    "name": "Neuroscience",
@@ -76,6 +69,14 @@
    "name": "Physics",
    "kind": "hypothesis",
    "note": "Each of these begins in established physics and ends in a claim the physics does not make. None of the physicists cited said their result was evidence that a person survives, and the cards say where the step happens."
+  },
+  {
+   "id": "greek",
+   "domain": "other",
+   "name": "Greek philosophy",
+   "kind": "belief",
+   "note": "Rebirth argued rather than revealed, with the choice of the next life placed squarely on the chooser. Plato has the interpreter say it outright: virtue is not assigned.",
+   "short": "Greek"
   }
  ],
  "paths": [
@@ -466,7 +467,7 @@
     "city",
     "barzakh"
    ],
-   "note": "Both name exactly four, and three of the four substances are the same. The city of Christ has honey, milk, oil and wine; Sura 47 has water, milk, wine and clarified honey."
+   "note": "Both name exactly four, and three of the four match. Honey, milk, oil and wine in the city of Christ; water, milk, wine and honey in Sura 47."
   },
   {
    "id": "balance",
@@ -480,7 +481,7 @@
     "ardaviraf",
     "bailey2001"
    ],
-   "note": "A literal pair of scales, in four traditions that did not borrow it from each other: Ani's heart against the feather of law, the balances heavy or light, Rashn's yellow golden balance at the Chinvat bridge, and the Tibetan demon's black pebbles weighed against a white deity's white ones."
+   "note": "A literal pair of scales, in four traditions that did not borrow it from each other: Ani's heart against the feather, the balances heavy or light, Rashn's golden balance, and black pebbles weighed against white."
   },
   {
    "id": "crossing",
@@ -493,7 +494,7 @@
     "tundale",
     "ardaviraf"
    ],
-   "note": "The strongest convergence on this site, and it reaches back into the accounts rather than staying among the proposals: Gregory's bridge over the black smoky river, where the unjust slip in and the just pass over; the Chinvat bridge that widens to nine javelin-lengths for the righteous; Tundale's two planks, the second set with iron nails; and as-Sirat, which is not in the Qur'an but in the commentary on it."
+   "note": "The strongest convergence here, and it reaches back into the accounts themselves: Gregory's bridge over the black river, the Chinvat bridge, Tundale's two nailed planks, and as-Sirat."
   },
   {
    "id": "rebirth",
@@ -503,7 +504,7 @@
     "bardo",
     "choose_again"
    ],
-   "note": "Three limbs, one shape: death is not a destination but a turn in a cycle. Plato's version is the odd one, because the soul picks its own next life and is told the responsibility is its own."
+   "note": "Three limbs, one shape: death as a turn in a cycle rather than a destination. In Plato's version the soul picks its own next life."
   },
   {
    "id": "garden",
@@ -513,7 +514,7 @@
     "sekhet",
     "garothman"
    ],
-   "note": "Where the Christian branch builds architecture, these three plant ground: two gardens with two fountains each, a homestead with wheat and barley, and a tank of blue water at Garothman."
+   "note": "Where the Christian branch builds architecture, these three plant ground: two gardens, a homestead with wheat and barley, a tank of blue water."
   },
   {
    "id": "conserved",
@@ -522,7 +523,7 @@
     "holographic",
     "block"
    ],
-   "note": "The two physics branches arrive at the same consolation by different routes, and neither delivers a survivor. One says the information is still written on the boundary; the other says the moment still exists. Nobody is in either of them experiencing anything."
+   "note": "Both reach the same consolation by different routes, and neither delivers a survivor. Nobody is in either of them experiencing anything."
   }
  ]
 }

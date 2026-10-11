@@ -51,7 +51,7 @@ button.ghost[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)
 <section class="hero">
   <div class="eyebrow">Walk the threshold</div>
   <h1>A world built from the numbers</h1>
-  <p class="lede">Every account and study on this atlas that describes what happened can be walked here, stage by stage, from Gilgamesh in 2100 BC to the cardiac wards of the 2020s. Nothing is invented: each stage appears only because its source reports it.</p>
+  <p class="lede">Stage by stage, from 2100 BC to the cardiac wards of the 2020s. Each stage appears only because its source reports it.</p>
 </section>
 
 <section>
@@ -72,11 +72,12 @@ button.ghost[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)
     <canvas id="tunnelCanvas"></canvas>
     <div class="ctrl" id="ctrl" hidden><button id="soundBtn" aria-pressed="false">Sound on</button><button id="pauseBtn">Pause</button><button id="skipBtn">Next stage</button><button id="fsBtn">Full screen</button></div>
     <div class="cap" id="cap" hidden><b id="capT"></b><span id="capS"></span><i id="capI"></i></div>
-    <div class="overlay" id="overlay"><h3 style="font-size:30px;color:#efe9dc">Enter the passage</h3><p>You move through the stages this source describes. Drag or swipe to look around. Sound is off until you turn it on, nothing flashes, and you can pause or leave at any time.</p><button class="primary" id="enterBtn">Begin</button></div>
+    <div class="overlay" id="overlay"><h3 style="font-size:30px;color:#efe9dc">Enter the passage</h3><p>Drag to look around. Sound is off until you turn it on, nothing flashes, and you can pause at any time.</p><button class="primary" id="enterBtn">Begin</button></div>
   </div>
   <p class="small" id="distressNote" hidden style="color:var(--c4)">This is a distressing walk: no peace, no welcoming light, presences that keep their distance. Between 4% and 14% of accounts are described this way.</p>
   <div class="stages" id="stages"></div>
   <div id="wpath"></div>
+  <p class="small muted" style="margin-top:12px">At the end of a walk you can go back, with what the source reports, or on into <a href="beyond.html">the proposals</a>.</p>
   <p class="small muted" style="margin-top:12px" id="howNote"></p>
   <p class="small muted" id="commCaption"></p>
 </section>
@@ -198,7 +199,7 @@ function restart() {
       const last = reported ? stages[stages.length - 1].text : null;
       TA.fork($("tunnelbox"), sceneObj, last || cur.finding, (path, group) => {
         $("wpath").innerHTML = `<div class="pathnote"><b class="k">${group.kind === "belief" ? "Religious teaching, not evidence" : group.kind === "null" ? "The scientific default" : "A hypothesis, not a finding"}</b>
-          <p><b>${path.name}</b> &middot; ${path.who}</p><p>${path.claim}</p>${path.note ? `<p style="color:var(--c4)">${path.note}</p>` : ""}<p class="src">${path.cite} ${path.url ? `&middot; <a href="${path.url}" target="_blank" rel="noopener">source</a>` : ""}</p></div>`;
+          <p><b>${path.name}</b> &middot; ${path.who}</p><p>${path.claim}</p>${path.note ? `<p style="color:var(--c4)">${path.note}</p>` : ""}<p class="src">${path.cite} ${path.url ? `&middot; <a href="${path.url}" target="_blank" rel="noopener">source</a>` : ""} &middot; <a href="beyond.html#${path.id}">where this sits in the tree</a></p></div>`;
       });
     },
     onStage: (i, key, strength, label, desc, place) => {

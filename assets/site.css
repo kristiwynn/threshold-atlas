@@ -89,3 +89,16 @@ ol.sources{padding-left:20px}ol.sources li{margin-bottom:10px;color:var(--muted)
 .pathnote .src{font:12px var(--mono);color:var(--faint);line-height:1.5;margin:0}
 .fgfam{margin:0 0 9px}
 .fgsub{font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#9a927f;margin:0 0 4px}
+
+/* Progressive disclosure: the caveats stay on the page but stop filling it. */
+details.more{border-top:1px solid var(--line);margin-top:10px;font-size:14.5px}
+details.more>summary{cursor:pointer;list-style:none;padding:8px 0;font:600 13px var(--body);color:var(--accent)}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::before{content:"+ ";font-family:var(--mono)}
+details.more[open]>summary::before{content:"– "}
+details.more>summary:hover{text-decoration:underline}
+details.more p{margin:0 0 9px;line-height:1.55;color:var(--muted);max-width:66ch}
+details.more p:last-child{margin-bottom:10px}
+.keyline{display:grid;gap:4px;margin:10px 0 0}
+.keyline b{font-family:var(--display);font-size:19px;font-weight:600;color:var(--ink)}
+.keyline span{font-size:14.5px;color:var(--muted);line-height:1.5}
