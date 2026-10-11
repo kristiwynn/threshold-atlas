@@ -102,7 +102,7 @@ function layout(b) {
   let y = TOP;
   b.families.forEach(f => {
     const kids = b.paths.filter(p => p.family === f.id);
-    kids.forEach(p => add({ id: p.id, lvl: 3, t: p.short || p.name, s: p.who_short || p.who, y: (y += PITCH) - PITCH, leaf: true, path: p, parent: f.id }));
+    kids.forEach(p => add({ id: p.id, lvl: 3, t: p.tag || p.name, s: p.short || p.name, y: (y += PITCH) - PITCH, leaf: true, path: p, parent: f.id }));
     const ys = kids.map(p => byId[p.id].y);
     add({ id: f.id, lvl: 2, t: f.short || f.name, s: kids.length + (kids.length === 1 ? " proposal" : " proposals"), y: (ys[0] + ys[ys.length - 1]) / 2, fam: f, parent: f.domain });
   });
@@ -166,10 +166,11 @@ function pick(id) {
   picked = id; draw();
   const f = B.families.find(x => x.id === p.family), d = B.domains.find(x => x.id === f.domain);
   const [kc, kl] = KIND[f.kind] || KIND.belief;
-  $("dTitle").textContent = p.name;
+  $("dTitle").textContent = (p.tag ? p.tag + ": " : "") + p.name;
   $("detail").innerHTML = `<div class="detail">
-      <h3>${esc(p.name)} <span class="kindtag ${kc}">${esc(kl)}</span></h3>
-      <div class="who">${esc(d.name)} &rarr; ${esc(f.name)} &rarr; ${esc(p.who)}</div>
+      <h3>${esc(p.tag || p.name)} <span class="kindtag ${kc}">${esc(kl)}</span></h3>
+      <p style="font-family:var(--display);font-size:20px;margin:2px 0 0;color:var(--accent)">${esc(p.name)}</p>
+      <div class="who">${esc(d.name)} &rarr; ${esc(f.name)} &rarr; ${esc(p.tag || "")} &middot; ${esc(p.who)}</div>
       <p style="font-size:17px;line-height:1.5;margin:12px 0 0">${esc(p.claim)}</p>
       ${p.note ? `<p class="warn">${esc(p.note)}</p>` : ""}
       <p class="small muted" style="margin:10px 0 0"><b>${esc(f.name)}:</b> ${esc(f.note)}</p>

@@ -76,7 +76,7 @@ window.TA = (() => {
             <p class="fgnote">${esc(d.note)}</p>
             ${b.families.filter(f => f.domain === d.id).map(f => `<div class="fgfam"><div class="fgsub">${esc(f.name)}</div>
               <div class="fgrow">${b.paths.filter(p => p.family === f.id).map(p =>
-                `<button data-path="${esc(p.id)}"><b>${esc(p.short || p.name)}</b><span>${esc(p.who_short || p.who)}</span></button>`).join("")}</div></div>`).join("")}
+                `<button data-path="${esc(p.id)}"><b>${esc(p.tag || p.name)}</b><span>${esc(p.short || p.name)}</span></button>`).join("")}</div></div>`).join("")}
             </div>`).join("")}
           <p class="forkfine">These twelve are not twelve unrelated guesses, and four of them share motifs across branches that never met. <a href="beyond.html" style="color:var(--accent)">See the whole tree</a>.</p>
           <div class="forkbtns"><button class="ghostb" data-go="again">Walk the account again instead</button></div>`;
