@@ -94,53 +94,37 @@
         <button class="chip" id="resetYears" style="padding:6px 12px;font-size:12px">All years</button>
       </div>
       <div class="lens">
-        <select id="layer" aria-label="Kind of source">
-          <option value="all">Every kind of source</option>
-          <option value="historical">Historical accounts</option>
-          <option value="prospective">Hospital studies</option>
-          <option value="survey">Population surveys</option>
-          <option value="archive">Case collections</option>
-          <option value="community">Shared here</option>
-        </select>
-        <select id="etype" aria-label="Kind of experience described">
-          <option value="all">Every bubble</option>
-          <option value="one">Only single experiences</option>
+        <select id="etype" aria-label="Kind of experience">
+          <option value="all">Every kind of experience</option>
           <option value="tunnel">Tunnel and light</option>
           <option value="guided">A guided tour of the realms</option>
           <option value="summoned">Summoned, and sent back</option>
           <option value="journey">A journey across a landscape</option>
           <option value="calm">Calm and a life review, no journey</option>
           <option value="distressing">Distressing</option>
-          <option value="mixed">Not one experience: a study or a count</option>
         </select>
-        <select id="trigger" aria-label="What brought people close to death">
+        <select id="layer" aria-label="Where the account comes from">
+          <option value="all">Any source</option>
+          <option value="historical">A single historical account</option>
+          <option value="archive">A collection of accounts</option>
+        </select>
+        <select id="trigger" aria-label="What brought the person close to death">
           <option value="all">Any cause</option>
-        </select>
-        <select id="lens" aria-label="Colour and size the bubbles by">
-          <option value="size">Bubbles by study size</option>
-          <option value="prev">How many had an NDE</option>
-          <option value="obe">Feature: left the body</option>
-          <option value="light">Feature: a brilliant light</option>
-          <option value="tunnel">Feature: a tunnel</option>
-          <option value="peace">Feature: peace</option>
-          <option value="beings">Feature: met beings</option>
-          <option value="review">Feature: a life review</option>
-          <option value="border">Feature: a border</option>
         </select>
         <button class="playbtn" id="playBtn">▶ Play the atlas</button>
       </div>
     </div>
-    <div class="maplegend"><span style="--sw:#d8a84a">Tunnel and light</span><span style="--sw:#8a7fd6">Guided tour</span><span style="--sw:#e07a9a">Summoned</span><span style="--sw:#4fb3a9">A journey</span><span style="--sw:#8fb8e0">Calm, no journey</span><span style="--sw:#c0504a">Distressing</span><span style="--sw:#76737f">Not one experience: a study or a count</span></div>
+    <div class="maplegend"><span style="--sw:#d8a84a">Tunnel and light</span><span style="--sw:#8a7fd6">Guided tour</span><span style="--sw:#e07a9a">Summoned</span><span style="--sw:#4fb3a9">A journey</span><span style="--sw:#8fb8e0">Calm, no journey</span><span style="--sw:#c0504a">Distressing</span></div>
     <div class="mapcount" id="mapcount"></div>
   </div>
-  <p class="small muted" style="margin-top:10px">Basemap © OpenFreeMap, data © OpenStreetMap contributors. Studies are placed at the lead hospital or institution; AWARE and NDERF spanned many countries and sit at their coordinating centre. Shared experiences are never placed more precisely than a country or US state, and are nudged apart so they can be told apart.</p>
+  <p class="small muted" style="margin-top:10px">Basemap © OpenFreeMap, data © OpenStreetMap contributors. Each bubble is pinned where the experience happened, or as near as the source allows: Er in Pamphylia rather than Athens where Plato wrote, Drythelm at Melrose rather than the disputed Incuneningum, Tundale at Cork where he collapsed rather than Cashel where he was from. Where a source gives only a culture, the pin says so.</p>
 </section>
 
 <section>
   <div class="eyebrow">Reading the map</div>
   <h2>What the bubbles mean</h2>
-  <p>Each bubble is coloured by <b>the kind of experience the source describes</b>: a tunnel and a light, a guided tour of the realms, being summoned and sent back, a journey across a landscape, calm and a life review with no journey, or a distressing one. Those six are things that happened to a person. The grey bubbles are not: a study that measured many people at once, or a count of experiences shared here, has no single shape to colour, and is marked as such.</p>
-  <p>The timeline runs from Gilgamesh, around 2100 BC, to the studies of the 2020s, stretched so the crowded last century stays readable. Drag the handles, narrow by what brought people close to death, or press <b>Play the atlas</b> to tap through all of it like a reel. Change the lens to size the bubbles by a single feature and watch which studies found it and which did not.</p>
+  <p>Every bubble on this map is <b>one experience, or one collection of them</b>, and is coloured by the shape it took: a tunnel and a light, a guided tour of the realms, being summoned and sent back, a journey across a landscape, calm and a life review with no journey, or a distressing one. Every single account here has been given the category that fits what its own source describes, which is not always the one tradition assigns it. Plato's Er is not summoned by anyone, for instance: he is killed in battle and travels with a crowd, so he sits under <b>a journey</b>.</p>
+  <p>Prevalence studies, population surveys and the count of experiences shared here are <b>not on this map</b>. They measure many people at once and have no single shape, so there is nothing to place and nothing to colour. They are in the chart below, on <a href="patterns.html">the patterns</a>, and in <a href="sources.html">the sources</a>. The timeline runs from Gilgamesh, around 2100 BC, to the accounts of the 2020s, stretched so the crowded last century stays readable. Drag the handles, narrow by cause, or press <b>Play the atlas</b> to tap through all of it like a reel.</p>
   <div class="stats">
     <div class="stat"><b>18%</b><span>of cardiac-arrest survivors reported an NDE in the Dutch prospective study</span><i>van Lommel, Lancet 2001 · 344 patients</i></div>
     <div class="stat"><b>9%</b><span>of interviewed survivors met NDE criteria in the UK/US/Austria AWARE study</span><i>Parnia, Resuscitation 2014 · 2,060 arrests</i></div>
@@ -157,11 +141,11 @@
   <div class="grid2">
     <div class="card">
       <h3>Share of people who had an NDE, by who was asked</h3>
-      <p class="small muted">Bars show the published figure; the thin brackets show the 95% confidence interval for that sample size.</p>
+      <p class="small muted">Bars show the published figure; the thin brackets show the 95% confidence interval for that sample size. Read the denominators, not the heights: 64% is seven of eleven critically ill children, and 4% is 82 of 2,044 Germans asked whether they had ever had one. These are not the same question.</p>
       <div class="bars" id="prevBars"></div>
     </div>
     <div>
-      <div class="fact"><b>Two different questions</b>Hospital studies ask survivors of cardiac arrest within days, so they count how often an NDE happens when someone actually comes close to death. Population surveys ask all adults whether they ever had one, so they count lifetime experiences across whatever brought people close.</div>
+      <div class="fact"><b>Three different questions</b>Hospital studies ask survivors of cardiac arrest within days, so they count how often an NDE happens when someone actually comes close to death. Population surveys ask all adults whether they ever had one, so they count lifetime experiences across whatever brought people close. And the Tangshan survivors were traced eleven years after an earthquake that killed about 240,000 people, which is a third question again.</div>
       <div class="fact"><b>Why hospital numbers vary</b>Six to eighteen percent is a wide range for the same event. Study design matters: how soon people were asked, whether sedation got in the way, and whether a strict scale was used to decide what counts.</div>
       <p><a href="patterns.html">See what the experiences contain →</a> · <a href="world.html">Walk through one →</a></p>
     </div>
@@ -195,7 +179,10 @@ const DECADE_MID = { "Before 1960": 1955, "1960s": 1965, "1970s": 1975, "1980s":
 const MIN_Y = -2100, MAX_Y = 2026;
 let studies = [], community = [], layer = "all", map, popup;
 let trigger = "all", etype = "all";
-const inLayer = s => !s.off_map && (layer === "all" || layer === GROUP[s.kind]);
+// The map carries single experiences only. A study or a count has no single shape
+// to place or to colour, so it is left to the charts and the sources page.
+const ONE = s => s.experience_type !== "mixed" && !s.off_map;
+const inLayer = s => ONE(s) && (layer === "all" || layer === GROUP[s.kind]);
 let PREV = [], FEAT = {}, FLABEL = {};
 
 (async () => {
@@ -216,9 +203,8 @@ let PREV = [], FEAT = {}, FLABEL = {};
 
   map.on("load", () => {
     map.addSource("studies", { type: "geojson", data: fcStudies() });
-    map.addSource("community", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
     // soft halo under each bubble, then the bubble itself
-    for (const src of ["studies", "community"]) {
+    for (const src of ["studies"]) {
       map.addLayer({ id: src + "-glow", type: "circle", source: src, paint: { "circle-radius": ["*", ["get", "r"], 2.6], "circle-color": ["get", "color"], "circle-opacity": 0.14, "circle-blur": 1 } });
       map.addLayer({ id: src + "-dot", type: "circle", source: src, paint: { "circle-radius": ["get", "r"], "circle-color": ["get", "color"], "circle-opacity": 0.82, "circle-stroke-color": "#07060f", "circle-stroke-width": 1.5 } });
       map.addLayer({ id: src + "-num", type: "symbol", source: src, layout: { "text-field": ["get", "badge"], "text-size": 11, "text-font": ["Noto Sans Bold"], "text-allow-overlap": true }, paint: { "text-color": "#07060f" } });
@@ -232,40 +218,20 @@ let PREV = [], FEAT = {}, FLABEL = {};
   const st = await TA.stats();
   if (st) {
     $("communityN").textContent = st.n;
-    if (st.map_hidden) {
-      const el = document.createElement("p"); el.className = "small muted"; el.style.marginTop = "10px";
-      el.innerHTML = `<b style="color:var(--c4)">${st.map_hidden} shared experience${st.map_hidden > 1 ? "s are" : " is"} not on the map yet.</b> A place only appears once ${st.k} or more experiences have come from it, so that nobody can be identified by where they are. ${st.stories && st.stories.awaiting_review ? `${st.stories.awaiting_review} written account${st.stories.awaiting_review > 1 ? "s are" : " is"} waiting to be read before publication.` : ""}`;
-      document.querySelector(".mapwrap").after(el);
-    }
-    community = [];
-    st.map.forEach(c => {
-      const country = GEO.countries.find(x => x.name === c.country); if (!country) return;
-      const regions = Object.entries(c.regions), inR = regions.reduce((a, [, n]) => a + n, 0);
-      regions.forEach(([name, n]) => { const r = GEO.us_states.find(x => x.name === name); if (r) community.push({ label: `${name}, ${c.country}`, n, lat: r.lat, lng: r.lng, decades: c.decades || null }); });
-      if (!regions.length || c.n - inR >= st.k) community.push({ label: c.country, n: c.n - inR || c.n, lat: country.lat, lng: country.lng, decades: c.decades || null });
-    });
-    refresh();
+    const el = document.createElement("p"); el.className = "small muted"; el.style.marginTop = "10px";
+    el.innerHTML = `<b style="color:var(--c4)">Experiences shared here are counted, not mapped.</b> ${st.n} ${st.n === 1 ? "has" : "have"} been shared so far. A count of experiences from a place has no single shape to colour, and pinning one more precisely than a country could identify the person who sent it, so they live on <a href="patterns.html#community">the patterns page</a> instead. ${st.stories && st.stories.awaiting_review ? `${st.stories.awaiting_review} written account${st.stories.awaiting_review > 1 ? "s are" : " is"} waiting to be read before publication.` : ""}`;
+    document.querySelector(".mapwrap").after(el);
   }
 })();
 
 function fcStudies() {
-  if (layer === "community") return { type: "FeatureCollection", features: [] };
   return { type: "FeatureCollection", features: studies.filter(inYears).filter(inTrigger).filter(inLayer).map(s => ({
     type: "Feature", geometry: { type: "Point", coordinates: [s.lng, s.lat] },
-    properties: (() => { const v = lensValue(s); return { ...s, group: GROUP[s.kind], color: etColor(s), r: lens === "size" ? 7 + 3.1 * Math.sqrt(Math.sqrt(s.n)) : (v === undefined || v === null ? 5 : 7 + 0.34 * v), badge: lens === "size" || v === undefined || v === null ? "" : Math.round(v) + "%", lensv: v === undefined ? "" : v }; })()
+    properties: { ...s, group: GROUP[s.kind], color: etColor(s), r: 8 + 3.1 * Math.sqrt(Math.sqrt(Math.max(1, s.n))), badge: s.n > 1 ? String(s.n) : "" }
   })) };
 }
-function fcCommunity() {
-  if ((layer !== "all" && layer !== "community") || (etype !== "all" && etype !== "mixed")) return { type: "FeatureCollection", features: [] };
-  return { type: "FeatureCollection", features: community.map((c, i) => {
-    const a = i * 2.39996, d = 1.1 * Math.sqrt(i); // nudge overlapping places apart
-    return { type: "Feature", geometry: { type: "Point", coordinates: [c.lng + d * Math.cos(a), c.lat + d * Math.sin(a) * 0.7] }, properties: { ...c, color: ETCOLOR.community, r: 8 + 3.4 * Math.sqrt(c.n), badge: String(c.n), community: true } };
-  }) };
-}
 function inYears(s) { const [a, b] = years(); return s.year >= a && s.year <= b; }
-// "one" means a bubble that is one person's experience, not a study or a count.
-const ONE = s => s.experience_type !== "mixed";
-function inTrigger(s) { return (trigger === "all" || s.trigger === trigger) && (etype === "all" || (etype === "one" ? ONE(s) : s.experience_type === etype)); }
+function inTrigger(s) { return (trigger === "all" || s.trigger === trigger) && (etype === "all" || s.experience_type === etype); }
 function years() { return [pos2year(Math.min(+$("y0").value, +$("y1").value) / 1000), pos2year(Math.max(+$("y0").value, +$("y1").value) / 1000)]; }
 function refresh() {
   if (!map || !map.getSource("studies")) return;
@@ -274,7 +240,6 @@ function refresh() {
   const sel = $("sel"), lo = Math.min(+$("y0").value, +$("y1").value) / 10, hi = Math.max(+$("y0").value, +$("y1").value) / 10;
   sel.style.left = lo + "%"; sel.style.width = (hi - lo) + "%";
   map.getSource("studies").setData(fcStudies());
-  map.getSource("community").setData(fcCommunity());
   const shown = studies.filter(inYears).filter(inTrigger);
   const comm = community.reduce((t, c) => t + c.n, 0) || 0;
   const counts = { all: shown.length + comm, community: comm };
@@ -402,13 +367,21 @@ function openScene(id) {
   }
   el.innerHTML = `<div class="sheet">${head}
       <div class="sbox" id="sbox"><canvas id="scanvas"></canvas><div class="scap"><b id="scapT"></b><span id="scapS"></span></div></div>
+      <div id="spath"></div>
       ${foot}</div>`;
   document.body.appendChild(el); document.body.style.overflow = "hidden";
   $("sceneClose").addEventListener("click", closeScene);
   el.addEventListener("click", e => { if (e.target === el) closeScene(); });
   document.addEventListener("keydown", sceneKeys);
   sceneObj = TAScene.create({
-    canvas: $("scanvas"), box: $("sbox"), stages, cold: st.experience_type === "distressing", stageMs: 8000,
+    canvas: $("scanvas"), box: $("sbox"), stages, cold: st.experience_type === "distressing", stageMs: 8000, loop: false,
+    onEnd: () => {
+      const last = reported ? stages[stages.length - 1].text : null;
+      TA.fork($("sbox"), sceneObj, last || st.finding, (path, group) => {
+        $("spath").innerHTML = `<div class="sbody"><div class="pathnote"><b class="k">${group.kind === "belief" ? "Religious teaching, not evidence" : group.kind === "null" ? "The scientific default" : "A hypothesis, not a finding"}</b>
+          <p><b>${path.name}</b> &middot; ${path.who}</p><p>${path.claim}</p><p class="src">${path.cite} ${path.url ? `&middot; <a href="${path.url}" target="_blank" rel="noopener">source</a>` : ""}</p></div></div>`;
+      });
+    },
     onStage: (i, key, strength, label, desc, place) => {
       $("scapT").textContent = `${i + 1}. ${label}`;
       $("scapS").textContent = desc + (measured ? ` · ${Math.round(strength * 100)}% of ${FEAT[st.id].n} reported this` : reported ? (place ? ` · ${place}` : "") : " · reported in this source; no percentage published");

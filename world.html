@@ -76,6 +76,7 @@ button.ghost[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)
   </div>
   <p class="small" id="distressNote" hidden style="color:var(--c4)">This is a distressing walk: no peace, no welcoming light, presences that keep their distance. Between 4% and 14% of accounts are described this way.</p>
   <div class="stages" id="stages"></div>
+  <div id="wpath"></div>
   <p class="small muted" style="margin-top:12px" id="howNote"></p>
   <p class="small muted" id="commCaption"></p>
 </section>
@@ -182,7 +183,7 @@ document.querySelectorAll("[data-mode]").forEach(b => b.addEventListener("click"
 }));
 function restart() {
   sceneObj?.destroy(); sceneObj = null;
-  let { stages, measured, n } = stagesFor(cur);
+  let { stages, measured, reported, n } = stagesFor(cur);
   if (mode === "sample" && measured) {
     stages = stages.map(([k, v]) => [k, Math.random() < v ? 1 : null]).filter(x => x[1] !== null);
     if (!stages.length) stages = [["peace", 0.5]];
@@ -190,8 +191,16 @@ function restart() {
   const tone = SP.cohorts && SP.cohorts[cur.id] && SP.cohorts[cur.id].tone;
   const distress = cold || (mode === "sample" && tone && tone.frightening != null && Math.random() * 100 < tone.frightening);
   $("distressNote").hidden = !distress;
+  $("tunnelbox").querySelector(".fork")?.remove(); $("wpath").innerHTML = "";
   sceneObj = TAScene.create({
-    canvas: $("tunnelCanvas"), box: $("tunnelbox"), stages, cold: distress, stageMs: 11000,
+    canvas: $("tunnelCanvas"), box: $("tunnelbox"), stages, cold: distress, stageMs: 11000, loop: false,
+    onEnd: () => {
+      const last = reported ? stages[stages.length - 1].text : null;
+      TA.fork($("tunnelbox"), sceneObj, last || cur.finding, (path, group) => {
+        $("wpath").innerHTML = `<div class="pathnote"><b class="k">${group.kind === "belief" ? "Religious teaching, not evidence" : group.kind === "null" ? "The scientific default" : "A hypothesis, not a finding"}</b>
+          <p><b>${path.name}</b> &middot; ${path.who}</p><p>${path.claim}</p><p class="src">${path.cite} ${path.url ? `&middot; <a href="${path.url}" target="_blank" rel="noopener">source</a>` : ""}</p></div>`;
+      });
+    },
     onStage: (i, key, strength, label, desc, place) => {
       $("capT").textContent = `${i + 1}. ${label}`;
       $("capS").textContent = desc;

@@ -46,6 +46,8 @@ window.TAScene = (function () {
     coast: "grassland above the sea", city: "a walled city", underworld: "a dim land of the dead",
     bridge: "a narrow bridge over dark water", hall: "a hall of judgment",
     abstract: "no place the source describes",
+    lattice: "a lattice of light, which stands for an idea and not a place",
+    voidless: "nothing, which is what the dying-brain account predicts",
   };
 
   // ------------------------------------------------------------------ helpers
@@ -356,6 +358,73 @@ window.TAScene = (function () {
       };
     },
 
+    // A lattice of nodes and links, for the physics hypotheses. Nobody reports this;
+    // it stands for an idea, and the page says so in as many words.
+    lattice(list) {
+      const g = new THREE.Group();
+      g.add(skyDome(list, 0x05060f, 0x0d1226));
+      const NX = 13, NY = 7, NZ = 13, SP = 11, pos = [];
+      for (let x = 0; x < NX; x++) for (let y = 0; y < NY; y++) for (let z = 0; z < NZ; z++)
+        pos.push([(x - (NX - 1) / 2) * SP, (y - (NY - 1) / 2) * SP * 0.8, -z * SP - 6]);
+      const pa = new Float32Array(pos.length * 3), ca = new Float32Array(pos.length * 3), c = new THREE.Color();
+      pos.forEach((q, i) => {
+        pa[3 * i] = q[0]; pa[3 * i + 1] = q[1]; pa[3 * i + 2] = q[2];
+        c.setHSL(0.52 + Math.random() * 0.12, 0.7, 0.6);
+        ca[3 * i] = c.r; ca[3 * i + 1] = c.g; ca[3 * i + 2] = c.b;
+      });
+      const ng = new THREE.BufferGeometry();
+      ng.setAttribute("position", new THREE.BufferAttribute(pa, 3));
+      ng.setAttribute("color", new THREE.BufferAttribute(ca, 3));
+      g.add(new THREE.Points(ng, track(list, new THREE.PointsMaterial({ size: 0.9, vertexColors: true, depthWrite: false, sizeAttenuation: true, blending: THREE.AdditiveBlending }), 0.95)));
+      // links to the next neighbour along each axis
+      const seg = [], at = (x, y, z) => ((x * NY) + y) * NZ + z;
+      for (let x = 0; x < NX; x++) for (let y = 0; y < NY; y++) for (let z = 0; z < NZ; z++) {
+        if (x + 1 < NX) seg.push(at(x, y, z), at(x + 1, y, z));
+        if (y + 1 < NY) seg.push(at(x, y, z), at(x, y + 1, z));
+        if (z + 1 < NZ) seg.push(at(x, y, z), at(x, y, z + 1));
+      }
+      const la = new Float32Array(seg.length * 3);
+      seg.forEach((n, i) => { la[3 * i] = pa[3 * n]; la[3 * i + 1] = pa[3 * n + 1]; la[3 * i + 2] = pa[3 * n + 2]; });
+      const lg = new THREE.BufferGeometry(); lg.setAttribute("position", new THREE.BufferAttribute(la, 3));
+      g.add(new THREE.LineSegments(lg, track(list, new THREE.LineBasicMaterial({ color: 0x3f6fa8, depthWrite: false, blending: THREE.AdditiveBlending }), 0.22)));
+      // a few pairs that brighten together, however far apart they sit
+      const tex = figureTexture(), pairs = [];
+      for (let i = 0; i < 7; i++) {
+        const two = [], ph = rnd(0, 6.3);
+        [pos[(Math.random() * pos.length) | 0], pos[(Math.random() * pos.length) | 0]].forEach(q => {
+          const s2 = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, color: 0xaef0ff, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+          s2.position.set(q[0], q[1], q[2]); s2.scale.set(3.4, 3.4, 1); s2.material.opacity = 0;
+          list.push([s2.material, 0.8]); g.add(s2); two.push(s2);
+        });
+        pairs.push({ two, ph });
+      }
+      return {
+        group: g, fog: 0x070a16, density: 0.009, hemi: [0x24406a, 0x05060f, 0.5], sun: [0x7fb0e0, 0.2],
+        update(dt, t) {
+          g.rotation.y = Math.sin(t * 0.05) * 0.12;
+          pairs.forEach(pr => { const k = 0.25 + 0.75 * Math.sin(t * 1.3 + pr.ph) ** 8; pr.two.forEach(x => x.scale.setScalar(2.2 + 4 * k)); });
+        },
+      };
+    },
+
+    // Nothing: the dying-brain account, where the experience is the last thing the
+    // brain does and there is no afterwards to walk into.
+    voidless(list) {
+      const g = new THREE.Group();
+      g.add(skyDome(list, 0x030308, 0x05050a));
+      const grid = new THREE.Mesh(new THREE.PlaneGeometry(200, 200, 30, 30), track(list, new THREE.MeshBasicMaterial({ color: 0x1d2030, wireframe: true }), 0.16));
+      grid.rotation.x = -Math.PI / 2; grid.position.y = -3; g.add(grid);
+      const motes = scatter(list, 1200, 0.2, ["#5a6a86", "#3d4860"], o => { o[0] = rnd(-60, 60); o[1] = rnd(-3, 16); o[2] = rnd(-120, 4); }, 0.3, true);
+      const mp = motes.geometry.attributes.position; g.add(motes);
+      return {
+        group: g, fog: 0x04040a, density: 0.03, hemi: [0x10131c, 0x020205, 0.3], sun: [0x2a3246, 0.1],
+        update(dt, t) {
+          for (let i = 0; i < mp.count; i++) { let y = mp.getY(i) - dt * 1.4; if (y < -4) y = 16; mp.setY(i, y); }
+          mp.needsUpdate = true;
+        },
+      };
+    },
+
     // No place: the collective walks, where the sources publish rates and not scenery.
     abstract(list) {
       const g = new THREE.Group();
@@ -517,7 +586,14 @@ window.TAScene = (function () {
       const dt = Math.min(.05, (now - last) / 1000); last = now;
       if (!paused) {
         t += dt;
-        if (now - t0 > stageMs) { t0 = now; idx++; if (idx >= stages.length) { if (opts.loop === false) { idx = stages.length - 1; paused = true; } else idx = 0; } announce(); }
+        if (now - t0 > stageMs) {
+          t0 = now; idx++;
+          if (idx >= stages.length) {
+            if (opts.loop === false) { idx = stages.length - 1; paused = true; opts.onEnd && opts.onEnd(); }
+            else idx = 0;
+          }
+          announce();
+        }
       }
       const at = {}; stages.forEach((s, i) => { const k = ALIAS[s.key] || s.key; if (at[k] === undefined) at[k] = i; });
       const tgt = k => { const i = at[k]; if (i === undefined) return 0; const d = idx - i; return d === 0 ? stages[i].v : (d > 0 && d <= 2 ? stages[i].v * .3 : 0); };
@@ -611,6 +687,23 @@ window.TAScene = (function () {
 
     return {
       next() { idx = (idx + 1) % stages.length; t0 = performance.now(); paused = false; announce(); },
+      // Append what comes after the account stops, and carry straight on into it.
+      extend(more) {
+        const from = stages.length;
+        more.forEach(m => {
+          const s2 = Object.assign({ v: 0.82 }, m);
+          if (!s2.terrain) s2.terrain = stages[stages.length - 1].place;
+          s2.place = BUILD[s2.terrain] ? s2.terrain : "abstract";
+          ensure(s2.place);
+          if (s2.border) {
+            const k = BORDER[s2.border] ? s2.border : "ring"; s2.border = k;
+            if (!bords[k]) { const l = []; const o = BORDER[k](l); o.list = l; scene.add(o.group); o.group.visible = false; bords[k] = o; bAlpha[k] = 0; }
+          }
+          stages.push(s2);
+        });
+        idx = from; t0 = performance.now(); paused = false; announce();
+        return stages.length;
+      },
       pause(v) { paused = v === undefined ? !paused : v; return paused; },
       destroy() { gone = true; removeEventListener("resize", resize); removeEventListener("pointerup", up); renderer.dispose(); },
       stages, LABEL

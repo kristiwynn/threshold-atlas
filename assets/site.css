@@ -64,3 +64,26 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding-block:24px;font-
 ol.sources{padding-left:20px}ol.sources li{margin-bottom:10px;color:var(--muted)}ol.sources li b{color:var(--ink);font-weight:600}
 
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* The fork at the end of a walk, and the attribution strip for a proposed path. */
+.fork{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;padding:16px;background:radial-gradient(ellipse at 50% 40%,rgba(22,20,42,.86),rgba(6,5,13,.96) 70%);overflow:auto}
+.forkin{max-width:62ch;color:#efe9dc;text-align:left}
+.forkeyebrow{font:11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.forkin h3{font-family:var(--display);font-size:clamp(22px,3.2vw,32px);font-weight:600;line-height:1.1;margin:0 0 8px;color:#efe9dc}
+.forkin p{font-size:14.5px;line-height:1.5;color:#c9c2b4;margin:0 0 12px;max-width:60ch}
+.forkbtns{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 10px}
+.forkbtns .ghostb{font:600 14px var(--body);background:transparent;color:#efe9dc;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:11px 16px;cursor:pointer}
+.forkbtns .ghostb:hover{border-color:var(--accent);color:var(--accent)}
+.forkfine{font-size:12.5px!important;color:#9a927f!important}
+.forkgroup{margin:0 0 14px}
+.fglabel{font:600 13px var(--body);color:var(--accent);margin-bottom:2px}
+.fgnote{font-size:12.5px!important;line-height:1.45!important;color:#9a927f!important;margin:0 0 7px!important}
+.fgrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px}
+.fgrow button{display:block;text-align:left;padding:9px 11px;background:rgba(255,255,255,.05);color:#efe9dc;border:1px solid rgba(255,255,255,.18);border-radius:8px;cursor:pointer}
+.fgrow button:hover{border-color:var(--accent)}
+.fgrow button b{display:block;font-family:var(--display);font-size:15px;font-weight:600;line-height:1.15}
+.fgrow button span{display:block;font:11px var(--mono);color:#9a927f;margin-top:2px}
+.pathnote{border:1px solid var(--c4);border-left-width:4px;border-radius:8px;padding:12px 14px;margin-top:12px;background:var(--surface)}
+.pathnote b.k{display:block;font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--c4);margin-bottom:4px}
+.pathnote p{margin:0 0 6px;font-size:14.5px;line-height:1.5}
+.pathnote .src{font:12px var(--mono);color:var(--faint);line-height:1.5;margin:0}

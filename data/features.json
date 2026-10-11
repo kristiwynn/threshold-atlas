@@ -118,9 +118,42 @@
     "beings": 64,
     "obe": 53
    }
+  },
+  "tangshan1992": {
+   "name": "Tangshan earthquake survivors",
+   "kind": "retrospective",
+   "n": 32,
+   "data": {
+    "obe": 43.0,
+    "review": 51.0,
+    "tunnel": 16.0,
+    "light": 15.0
+   },
+   "note": "Item rates from Feng and Liu's Table 1, for the 32 of 81 survivors who scored 7 or more on the Greyson scale, interviewed eleven years after the 1976 earthquake. Only four of this atlas's features were published as rates. Kellehear cautions that the tunnel item was offered as a category rather than volunteered."
   }
  },
  "prevalence": [
+  {
+   "label": "Critically ill children (Seattle PICU)",
+   "study": "morse1986",
+   "pct": 64,
+   "n": 11,
+   "setting": "hospital"
+  },
+  {
+   "label": "Tangshan earthquake survivors",
+   "study": "tangshan1992",
+   "pct": 40,
+   "n": 81,
+   "setting": "disaster"
+  },
+  {
+   "label": "Australians who had come close to death",
+   "study": "perera2005",
+   "pct": 25,
+   "n": 241,
+   "setting": "population"
+  },
   {
    "label": "Dutch cardiac-arrest survivors",
    "study": "lommel2001",
@@ -143,18 +176,18 @@
    "setting": "hospital"
   },
   {
+   "label": "Australian adults, whole sample",
+   "study": "perera2005",
+   "pct": 8.9,
+   "n": 673,
+   "setting": "population"
+  },
+  {
    "label": "Southampton cardiac arrests",
    "study": "parnia2001",
    "pct": 6.3,
    "n": 63,
    "setting": "hospital"
-  },
-  {
-   "label": "Australian adults",
-   "study": "perera2005",
-   "pct": 8.9,
-   "n": 673,
-   "setting": "population"
   },
   {
    "label": "US adults (Gallup, ~1,500 asked)",

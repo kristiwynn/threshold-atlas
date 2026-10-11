@@ -460,8 +460,8 @@
    "cite": "Plato. Republic, Book X, c. 380 BC. Benjamin Jowett translation.",
    "url": "https://www.gutenberg.org/files/1497/1497-h/1497-h.htm#link2H_4_0012",
    "trigger": "Battle",
-   "experience_type": "summoned",
-   "type_label": "Appointed a witness and sent back",
+   "experience_type": "journey",
+   "type_label": "A journey, and appointed a witness",
    "scene": {
     "obe": 1,
     "realm": 1,
@@ -821,16 +821,11 @@
    "cite": "Zaleski C. Otherworld Journeys: Accounts of Near-Death Experience in Medieval and Modern Times. Oxford University Press, 1987.",
    "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
    "trigger": "Mixed",
-   "experience_type": "guided",
-   "type_label": "What every era shares",
-   "scene": {
-    "obe": 1,
-    "beings": 1,
-    "realm": 1,
-    "border": 1,
-    "return": 1
-   },
-   "scene_note": "Zaleski's constants rendered as a walk: what medieval and modern accounts share is leaving the body, a guide or companion, another place, a barrier, and a return that changes the life. What they do not share, hell and judgment on one side, warmth and privacy on the other, is left out."
+   "experience_type": "mixed",
+   "type_label": "A comparison across eras",
+   "scene_note": "Zaleski's constants rendered as a walk: what medieval and modern accounts share is leaving the body, a guide or companion, another place, a barrier, and a return that changes the life. What they do not share, hell and judgment on one side, warmth and privacy on the other, is left out.",
+   "off_map": true,
+   "no_walk": "A scholarly comparison of many accounts rather than one experience, so there is no single vision to walk and nothing to place on the map. Its findings run through the rest of the atlas."
   },
   {
    "id": "tangshan1992",
@@ -1045,15 +1040,16 @@
    "finding": "A review of every non-Western NDE account published to 2005, restricted to experiences associated with illness. Two features recur everywhere: travelling to another realm, and meeting the dead. The tunnel is absent from the Indian, Tibetan, Chamorro, Native North American and Aboriginal Australian accounts and questionable elsewhere; Kellehear's conclusion is that 'there is no actual tunnel in near-death experiences', only darkness described differently by different cultures. The life review is largely confined to societies with a dominant historic religion.",
    "cite": "Kellehear A. Census of non-Western near-death experiences to 2005: overview of the current data. Journal of Near-Death Studies 2008;26:249-65.",
    "url": "https://digital.library.unt.edu/ark:/67531/metadc799184/",
-   "experience_type": "journey",
-   "type_label": "The cross-cultural core",
+   "experience_type": "mixed",
+   "type_label": "A review across eleven cultures",
    "scene": {
     "realm": 1,
     "beings": 1,
     "tunnel": 0,
     "review": 0
    },
-   "scene_note": "This is the census's own conclusion rendered as a walk: across every non-Western account published to 2005, two things recur, travelling to another realm and meeting the dead. The tunnel and the life review are left out because neither is cross-cultural, not because no account has them."
+   "scene_note": "This is the census's own conclusion rendered as a walk: across every non-Western account published to 2005, two things recur, travelling to another realm and meeting the dead. The tunnel and the life review are left out because neither is cross-cultural, not because no account has them.",
+   "off_map": true
   },
   {
    "id": "negovsky1943",
@@ -1351,8 +1347,8 @@
    "kind": "historical",
    "trigger": "Mixed",
    "nature": "A living boy, given away by his father's word, not summoned and not dying. The Upanishad describes no place at all: no gate, no river, no light, no landscape. Yama's dwelling is called only 'my house', so nothing is built here. The Upanishad also never narrates the return; only the older Brahmana telling does.",
-   "experience_type": "summoned",
-   "type_label": "Given to Death, and dismissed",
+   "experience_type": "journey",
+   "type_label": "A living boy's journey to Death's house",
    "scene": {
     "beings": 1,
     "return": 1,

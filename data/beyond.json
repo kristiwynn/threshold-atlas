@@ -1,0 +1,185 @@
+{
+ "_note": "Everything in this file is OUTSIDE the atlas's evidence. The walks report what sources describe. These are the answers people have proposed to the question the accounts stop at, and each one is named, attributed and labelled by what kind of claim it is. Nothing here is a finding and nothing here is presented as one.",
+ "heading": "The account stops here",
+ "lede": "Every one of these people came back, or the text that carries them stops. What happens if you do not come back is not something any account can report, and this atlas has no evidence about it at all. Past this point you are reading proposals: what traditions teach, what a dying brain would explain, and what a handful of physicists and philosophers have suggested. They are labelled so you always know which you are looking at.",
+ "back_label": "Go back",
+ "back_note": "What this source says happened next, which is the only part of this that is reported.",
+ "on_label": "Go on",
+ "on_note": "Leave the evidence behind and see what has been proposed. Nothing after this point is a finding.",
+ "groups": [
+  {
+   "id": "traditions",
+   "name": "What the traditions say happens next",
+   "kind": "belief",
+   "note": "Religious teaching, quoted from the texts themselves where those texts are free to quote. These are claims about what is true, not reports of anything observed, and the traditions disagree with each other."
+  },
+  {
+   "id": "brain",
+   "name": "What a dying brain would explain",
+   "kind": "null",
+   "note": "The scientific default: the experience is the last thing a brain does, and there is no afterwards. This is the only branch here with laboratory evidence behind its mechanism, and it predicts that the walk simply stops."
+  },
+  {
+   "id": "physics",
+   "name": "What has been proposed from physics",
+   "kind": "hypothesis",
+   "note": "Each of these starts from real, well-tested physics and then takes a step that the physics does not take. The established part and the speculative part are separated on every card. No result in physics is evidence that a person survives death, and none of the physicists cited claimed it was."
+  }
+ ],
+ "paths": [
+  {
+   "id": "city",
+   "group": "traditions",
+   "name": "Into the city",
+   "who": "Early Christian apocalyptic",
+   "claim": "The righteous are washed and brought inside a city of gold.",
+   "cite": "Apocalypse of Paul, sections 22-23, 4th century, M. R. James translation, 1924. Compare Revelation 21:10-21.",
+   "url": "https://archive.org/details/apocryphalnewtes0000mont",
+   "stages": [
+    { "key": "border", "border": "gate", "terrain": "coast", "label": "Washed in the lake", "text": "Michael washes the repentant in the lake Acherusa, whose water is whiter than milk, and so brings them in to the city of Christ." },
+    { "key": "realm", "terrain": "city", "label": "Twelve walls", "text": "The city is all of gold, with twelve walls, twelve towers and twelve gates, ringed by four rivers: honey, milk, oil and wine." },
+    { "key": "light", "terrain": "city", "label": "No night there", "text": "In Revelation's version of the same city there is no temple in it and no sun, because the glory of God lightens it, and the gates are never shut, for there is no night." }
+   ]
+  },
+  {
+   "id": "bardo",
+   "group": "traditions",
+   "name": "The bardo, and a womb door",
+   "who": "Tibetan Buddhist",
+   "claim": "Forty-nine days in an intermediate state, then rebirth, unless the clear light is recognised.",
+   "cite": "Bardo Thodol (the Tibetan Book of the Dead), 14th century, W. Y. Evans-Wentz translation, 1927.",
+   "url": "https://archive.org/details/tibetanbookofdea00evan",
+   "stages": [
+    { "key": "light", "terrain": "abstract", "label": "The clear light", "text": "At the first moment of death the clear light of reality dawns. Recognise it and the sequence ends there. Almost nobody recognises it, and so the journey goes on." },
+    { "key": "beings", "terrain": "abstract", "label": "Peaceful, then wrathful", "text": "Over the following weeks the peaceful forms appear, then the wrathful ones. The teaching insists repeatedly that they are the mind's own projections and not external beings." },
+    { "key": "border", "border": "gate", "terrain": "abstract", "label": "The womb door", "text": "Drawn towards a birth, the consciousness is urged to close the womb door, and failing that to choose well. Forty-nine days is the outer limit before rebirth." }
+   ]
+  },
+  {
+   "id": "another_body",
+   "group": "traditions",
+   "name": "Into another body",
+   "who": "Hindu",
+   "claim": "The self is not destroyed with the body; it takes up another.",
+   "cite": "Bhagavad Gita 2:20-22; Katha Upanishad I.2. Public-domain translations: K. T. Telang, Sacred Books of the East vol. 8, 1882; F. Max Muller, SBE vol. 15, 1884.",
+   "url": "https://archive.org/details/p2upanishads00mluoft",
+   "stages": [
+    { "key": "peace", "terrain": "abstract", "label": "It is not slain", "text": "The Gita's claim is flat: it is not born, nor does it ever die; it is not slain when the body is slain. Weapons do not cut it, fire does not burn it." },
+    { "key": "realm", "terrain": "abstract", "label": "Worn-out garments", "text": "As a man casts off worn-out garments and takes new ones, so the dweller in the body casts off worn-out bodies and enters into others." },
+    { "key": "light", "terrain": "garden", "label": "Or no return at all", "text": "The aim is not another body but the end of needing one. The Upanishads call the escape from the cycle release, and describe it as knowing rather than going anywhere." }
+   ]
+  },
+  {
+   "id": "garothman",
+   "group": "traditions",
+   "name": "The four tracks to Garothman",
+   "who": "Zoroastrian",
+   "claim": "The good go up by stages: star, moon, sun, and then the all-glorious.",
+   "cite": "The Book of Arda Viraf, chapters 7-11, Martin Haug translation, 1872.",
+   "url": "https://avesta.org/pahlavi/viraf.html",
+   "stages": [
+    { "key": "light", "terrain": "abstract", "label": "Star, moon, sun", "text": "The first footstep is the star track, where the pious glitter as stars. The second is the moon track. The third is the radiance they call the highest of the highest." },
+    { "key": "realm", "terrain": "garden", "label": "Garothman", "text": "The fourth footstep is the radiance of Garothman, the all-glorious, where Adar shows the blue water of a large tank and says: this is the water which that wood exuded." },
+    { "key": "beings", "terrain": "hall", "label": "Taken by the hand", "text": "Vohuman rises from a throne made of gold, takes the newcomer's hand, and brings them into the midst of Ohrmazd and the archangels." }
+   ]
+  },
+  {
+   "id": "sekhet",
+   "group": "traditions",
+   "name": "A homestead for ever",
+   "who": "Ancient Egyptian",
+   "claim": "Found true in the balance, the dead are given land to farm in perpetuity.",
+   "cite": "The Book of the Dead, Chapter XV and the judgment scene, E. A. Wallis Budge translation of the Papyrus of Ani, 1895.",
+   "url": "https://archive.org/details/TheBookOfTheDead-Budge-1895",
+   "stages": [
+    { "key": "review", "terrain": "hall", "label": "No wickedness found", "text": "Thoth announces the verdict: the heart has in very truth been weighed, and found true by trial in the Great Balance. There has not been found any wickedness in him." },
+    { "key": "realm", "terrain": "garden", "label": "Sekhet-hetepu", "text": "Horus takes him by the hand and leads him to Osiris, who grants a homestead for ever in Sekhet-hetepu, with wheat and barley for it." },
+    { "key": "peace", "terrain": "garden", "label": "Among the followers of Horus", "text": "The reward is not rest but ordinary work made permanent: fields, grain, and a place among the followers of Horus." }
+   ]
+  },
+  {
+   "id": "choose_again",
+   "group": "traditions",
+   "name": "Choosing the next life",
+   "who": "Plato",
+   "claim": "Souls pick their own next life, drink from the river of Forgetfulness, and are born again.",
+   "cite": "Plato, Republic X, 617d-621b, Benjamin Jowett translation.",
+   "url": "https://www.gutenberg.org/cache/epub/1497/pg1497.txt",
+   "stages": [
+    { "key": "beings", "terrain": "meadow", "label": "The lots are thrown", "text": "An interpreter throws lots among them and sets out the patterns of lives: tyrannies and exiles, beauty and poverty, animals as well as men. Virtue is not assigned. The responsibility is the chooser's." },
+    { "key": "border", "border": "river", "terrain": "meadow", "label": "The river of Unmindfulness", "text": "They camp on the plain of Forgetfulness beside the river of Unmindfulness, and all are made to drink a measure of its water. Those without sense drink more than the measure." },
+    { "key": "return", "terrain": "meadow", "label": "Shot like stars", "text": "In the middle of the night there is thunder and an earthquake, and they are driven upwards to their birth, suddenly, in all directions, like shooting stars." }
+   ]
+  },
+  {
+   "id": "hawaiki",
+   "group": "traditions",
+   "name": "The leaping-off place",
+   "who": "Maori",
+   "claim": "Spirits travel north to the cape and depart from it for the homeland.",
+   "cite": "The geography as described in the account Michael King recorded, Being Pakeha, 1985, pp. 92-94, quoted in Kellehear A, Journal of Near-Death Studies 2001;20:31-35.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799181/",
+   "stages": [
+    { "key": "realm", "terrain": "coast", "label": "North, to the cape", "text": "The route runs north, river by named river, to Te Rerenga Wairua at Cape Reinga. In the account that this atlas carries, a voice stops the traveller at exactly this point and sends her home." },
+    { "key": "border", "border": "cliff", "terrain": "coast", "label": "The entrance", "text": "She performs ablutions, climbs a ledge and dances before the entrance to the underworld. What lies past it is the part her account does not report." },
+    { "key": "return", "terrain": "coast", "label": "Towards the homeland", "text": "In the tradition the spirits leap from here and travel to the ancestral homeland. That is teaching, not testimony: nobody in this atlas describes the far side of it." }
+   ]
+  },
+  {
+   "id": "dying_brain",
+   "group": "brain",
+   "name": "The last thing a brain does",
+   "who": "Neuroscience",
+   "claim": "The experience is produced by a brain under extreme stress, and it stops when the brain does.",
+   "cite": "Blanke O et al. Stimulating illusory own-body perceptions. Nature 2002;419:269-70. Borjigin J et al. Surge of neurophysiological coherence and connectivity in the dying brain. PNAS 2013;110:14432-7. Vicente R et al. Enhanced interplay of neuronal coherence and coupling in the dying human brain. Frontiers in Aging Neuroscience 2022;14:813531.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/12239558/",
+   "stages": [
+    { "key": "obe", "terrain": "voidless", "label": "The seat of it was found", "text": "Blanke's group stimulated the right temporoparietal junction in a patient being assessed for epilepsy surgery and reliably produced the sensation of leaving the body. The feeling has an address in the brain." },
+    { "key": "light", "terrain": "voidless", "label": "A surge, not a signal", "text": "In dying rats and in dying human brains, researchers recorded a surge of gamma activity and coupling after the heart stopped. A brain going out is not quiet, which is the mechanism this branch rests on." },
+    { "key": "return", "terrain": "voidless", "label": "And then nothing", "text": "On this account there is no further walk, and the honest end of the scene is that it stops. This is the only branch on this page whose mechanism has been demonstrated in a laboratory, and what it predicts is that there is nothing to see." }
+   ]
+  },
+  {
+   "id": "holographic",
+   "group": "physics",
+   "name": "The holographic principle",
+   "who": "Gerard 't Hooft, Leonard Susskind, Juan Maldacena",
+   "claim": "What is established: the physics inside a region can be fully described by information on its boundary. What is only proposed: that a life's information therefore persists after the body that carried it.",
+   "cite": "'t Hooft G. Dimensional reduction in quantum gravity, 1993. Susskind L. The world as a hologram. Journal of Mathematical Physics 1995;36:6377. Maldacena J. The large N limit of superconformal field theories and supergravity, 1997.",
+   "url": "https://arxiv.org/abs/hep-th/9409089",
+   "stages": [
+    { "key": "realm", "terrain": "lattice", "label": "The surface holds the volume", "text": "Working on black holes, 't Hooft and Susskind found that the number of states inside a region scales with its surface area, not its volume. Everything in here can be written on the wall." },
+    { "key": "light", "terrain": "lattice", "label": "It became a working tool", "text": "Maldacena's correspondence turned it into mathematics physicists use daily: a gravitational theory in a volume is exactly equivalent to a theory without gravity on its boundary." },
+    { "key": "return", "terrain": "lattice", "label": "And here it stops", "text": "The step from here to a person surviving is one nobody in this field has taken. The principle is about how many degrees of freedom a region has. It says nothing about whether a self is one of the things conserved." }
+   ]
+  },
+  {
+   "id": "entanglement",
+   "group": "physics",
+   "name": "Entanglement, and the microtubule idea",
+   "who": "Roger Penrose and Stuart Hameroff, against Max Tegmark",
+   "claim": "What is established: entanglement is real and was awarded the 2022 Nobel Prize. What is only proposed, and strongly disputed: that the brain uses it, and that what it holds is not local to the brain.",
+   "cite": "Bell JS. On the Einstein-Podolsky-Rosen paradox, 1964. Nobel Prize in Physics 2022: Aspect, Clauser, Zeilinger. Hameroff S, Penrose R. Orchestrated reduction of quantum coherence in brain microtubules, 1996. Tegmark M. Importance of quantum decoherence in brain processes. Physical Review E 2000;61:4194.",
+   "url": "https://www.nobelprize.org/prizes/physics/2022/summary/",
+   "stages": [
+    { "key": "beings", "terrain": "lattice", "label": "Two things, one state", "text": "Entangled particles have no separate states of their own, however far apart they are moved. This is not speculation: it is measured routinely, and the measurements won a Nobel Prize in 2022." },
+    { "key": "realm", "terrain": "lattice", "label": "The claim about brains", "text": "Penrose and Hameroff proposed that microtubules inside neurons sustain quantum coherence, and that consciousness is the collapse of it. On their reading, what collapses need not be confined to the skull." },
+    { "key": "return", "terrain": "lattice", "label": "The objection", "text": "Tegmark calculated how long such coherence could survive in a warm wet brain and got around ten million millionths of a second, far too short to matter. The dispute is live, and the hypothesis remains a minority one." }
+   ]
+  },
+  {
+   "id": "block",
+   "group": "physics",
+   "name": "The block universe",
+   "who": "Hermann Minkowski, Albert Einstein",
+   "claim": "What is established: in relativity there is no universal present, and the ordering of distant events depends on the observer. What is only proposed: that every moment of a life therefore exists permanently, and nothing is lost when it ends.",
+   "cite": "Minkowski H. Space and Time, 1908. Einstein's letter to the family of Michele Besso, March 1955, which closes: the distinction between past, present and future is only a stubbornly persistent illusion.",
+   "url": "https://en.wikisource.org/wiki/Space_and_Time",
+   "stages": [
+    { "key": "realm", "terrain": "lattice", "label": "No universal now", "text": "Relativity has no preferred present. Two observers moving differently disagree about which distant events are happening at the same time, and neither of them is wrong." },
+    { "key": "peace", "terrain": "lattice", "label": "A stubbornly persistent illusion", "text": "Einstein wrote to the family of his oldest friend, weeks before his own death, that for believing physicists the distinction between past, present and future is only a stubbornly persistent illusion." },
+    { "key": "return", "terrain": "lattice", "label": "What it does not promise", "text": "On this reading a life is not erased, only finished, the way a book is not erased when you stop reading. Note what is missing: nobody is in the block experiencing it. This consoles without surviving anything." }
+   ]
+  }
+ ]
+}
