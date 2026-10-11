@@ -227,7 +227,7 @@ document.getElementById("footer").innerHTML = TA.footer();
 const $ = id => document.getElementById(id);
 const GROUP = { prospective: "prospective", survey: "survey", retrospective: "archive", cases: "archive", historical: "historical" };
 // Bubbles are coloured by the kind of experience described. The kind of source is a filter, not a colour.
-const ETCOLOR = { tunnel: "#d8a84a", guided: "#8a7fd6", summoned: "#e07a9a", journey: "#4fb3a9", calm: "#8fb8e0", distressing: "#c0504a", mixed: "#76737f", community: "#76737f" };
+const ETCOLOR = { tunnel: "#d8a84a", guided: "#8a7fd6", summoned: "#e07a9a", journey: "#4fb3a9", calm: "#8fb8e0", distressing: "#c0504a", mixed: "#76737f" };
 const etColor = s => ETCOLOR[s.experience_type] || ETCOLOR.mixed;
 const LABEL = { historical: "Historical account", prospective: "Prospective hospital study", survey: "Population survey", archive: "Case collection or archive" };
 // The timeline covers 2,400 years, so it is stretched where the accounts are: the deep past is
@@ -238,7 +238,7 @@ function year2pos(y) { for (let i = 1; i < ERAS.length; i++) { const [y0, p0] = 
 const yearText = y => y < 0 ? `${-y} BC` : String(y);
 const DECADE_MID = { "Before 1960": 1955, "1960s": 1965, "1970s": 1975, "1980s": 1985, "1990s": 1995, "2000s": 2005, "2010s": 2015, "2020s": 2025 };
 const MIN_Y = -2100, MAX_Y = 2026;
-let studies = [], community = [], layer = "all", map, popup;
+let studies = [], layer = "all", map, popup;
 let trigger = "all", etype = "all", relig = "all";
 // The map carries single experiences only. A study or a count has no single shape
 // to place or to colour, so it is left to the charts and the sources page.
@@ -316,35 +316,18 @@ function refresh() {
   sel.style.left = lo + "%"; sel.style.width = (hi - lo) + "%";
   map.getSource("studies").setData(fcStudies());
   const shown = studies.filter(inYears).filter(inTrigger);
-  const comm = community.reduce((t, c) => t + c.n, 0) || 0;
-  const counts = { all: shown.length + comm, community: comm };
-  ["historical", "prospective", "survey", "archive"].forEach(g => counts[g] = shown.filter(s => GROUP[s.kind] === g).length);
+  const counts = { all: shown.filter(ONE).length };
+  ["historical", "archive"].forEach(g => counts[g] = shown.filter(s => ONE(s) && GROUP[s.kind] === g).length);
   [...$("layer").options].forEach(o => { o.textContent = o.textContent.replace(/ · \d+$/, "") + " · " + (counts[o.value] ?? 0); });
   const here = shown.filter(inLayer);
   const people = here.reduce((t, s) => t + s.n, 0);
-  $("mapcount").textContent = layer === "community" ? `${comm} experience${comm === 1 ? "" : "s"} shared here`
-    : lens === "size" ? `${here.length} studies · ${people.toLocaleString()} people studied`
-    : `${here.filter(s => lensValue(s) !== undefined && lensValue(s) !== null).length} of ${here.length} studies measured this`;
+  $("mapcount").textContent = `${here.length} experience${here.length === 1 ? "" : "s"} · ${people.toLocaleString()} accounts behind them`;
 }
 function showPopup(e) {
   const p = e.features[0].properties, co = e.features[0].geometry.coordinates.slice();
-  const html = p.community
-    ? `<b>${p.n} experience${p.n > 1 ? "s" : ""} shared</b><div style="color:#a79f91">${p.label}</div><div style="margin-top:6px"><a href="patterns.html#community">See the community patterns</a></div>`
-    : `<b>${p.name} <span style="color:#a79f91;font-weight:400">${yearText(p.year)}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]}${Number(p.n) ? ` · n=${Number(p.n).toLocaleString()}` : ""} · ${p.trigger}${p.type_label ? ` · ${p.type_label}` : ""}</div>${p.religion ? `<div style="font-size:12px;margin:0 0 6px"><b style="color:#d8a84a">Religion:</b> ${p.religion}${p.religion_basis === "context" ? ` <i style="color:#a79f91">(inferred from time and place, not stated)</i>` : p.religion_basis === "unknown" ? "" : ""}${p.religion_note ? `<div style="color:#a79f91;margin-top:2px">${p.religion_note}</div>` : ""}</div>` : ""}${p.nature ? `<div style="color:#c98f5a;font-size:12px;margin-bottom:6px">${p.nature}</div>` : ""}${p.finding}${lens !== "size" ? `<div style="margin-top:6px;color:#d8a84a">${p.lensv === "" ? "Not measured in this study" : `${p.lensv}% · ${$("lens").selectedOptions[0].text.replace(/^Feature: /, "")}`}</div>` : ""}<div style="margin-top:8px"><a href="#" onclick="openScene('${p.id}');return false"><b>Walk this experience</b></a> · <a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
+  const html = `<b>${p.name} <span style="color:#a79f91;font-weight:400">${yearText(p.year)}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]}${Number(p.n) ? ` · n=${Number(p.n).toLocaleString()}` : ""} · ${p.trigger}${p.type_label ? ` · ${p.type_label}` : ""}</div>${p.religion ? `<div style="font-size:12px;margin:0 0 6px"><b style="color:#d8a84a">Religion:</b> ${p.religion}${p.religion_basis === "context" ? ` <i style="color:#a79f91">(inferred from time and place, not stated)</i>` : p.religion_basis === "unknown" ? "" : ""}${p.religion_note ? `<div style="color:#a79f91;margin-top:2px">${p.religion_note}</div>` : ""}</div>` : ""}${p.nature ? `<div style="color:#c98f5a;font-size:12px;margin-bottom:6px">${p.nature}</div>` : ""}${p.finding}<div style="margin-top:8px"><a href="#" onclick="openScene('${p.id}');return false"><b>Walk this experience</b></a> · <a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
   popup.setLngLat(co).setHTML(html).addTo(map);
 }
-// ---------------------------------------------------- lens: resize and recolour by a measure
-let lens = "size";
-function lensValue(s) {
-  if (lens === "size") return null;
-  if (lens === "prev") { const p = PREV.find(x => x.study === s.id); return p ? p.pct : undefined; }
-  const f = FEAT[s.id]; if (!f) return undefined;
-  return f.data[lens] !== undefined ? f.data[lens] : undefined;
-}
-const RAMP = ["#4a3f6b", "#7a5fa8", "#b06ba0", "#d8884a", "#f0c85a"];
-function lensColor(v) { if (v === undefined || v === null) return "#3a3650"; return RAMP[Math.min(4, Math.floor(v / 20))]; }
-$("lens").addEventListener("change", e => { lens = e.target.value; refresh(); });
-
 
 // ---------------------------------------------------- the totals under the map
 const ERA_BANDS = [[-2200, -500, "2200-500 BC"], [-500, 1, "500 BC - 1 AD"], [1, 500, "1-500"], [500, 1000, "500-1000"],
