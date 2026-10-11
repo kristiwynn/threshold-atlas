@@ -1625,7 +1625,7 @@
   },
   {
    "id": "negovsky1943",
-   "name": "Soviet resuscitation and 'clinical death'",
+   "name": "Soviet resuscitation, and the word for it",
    "place": "Moscow, Russia",
    "lat": 55.75,
    "lng": 37.62,
@@ -1633,12 +1633,13 @@
    "kind": "historical",
    "year": 1943,
    "trigger": "Battle",
-   "finding": "Vladimir Negovsky founded reanimatology and ran front-line resuscitation teams in the Second World War, reviving more than 40 wounded men, some clinically dead from blood loss. He named 'clinical death', the reversible period without circulation. Mass survival of clinical death is what made modern NDE research possible; his own work did not record the experiences.",
-   "cite": "Negovsky VA, work from 1943 onward; see Safar P, Vladimir A. Negovsky, the father of reanimatology. Resuscitation 2002;53:111-13.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/12009211/",
+   "finding": "Vladimir Negovsky founded reanimatology and ran front-line resuscitation teams in the Second World War, reviving more than 40 wounded men, some clinically dead from blood loss. He named 'clinical death', the reversible period without circulation, and mass survival of it is what made modern near-death research possible anywhere. He did collect what his revived patients reported. In 1984 he published it in Resuscitation as a neurophysiological analysis of 'hallucinations' experienced by post-resuscitation patients, the quotation marks his own.",
+   "cite": "Negovsky VA. A neurophysiological analysis of 'hallucinations' experienced by post resuscitation patients. Resuscitation 1984;11:1-8 (PMID 6322259). On his career: Safar P, Vladimir A. Negovsky, the father of reanimatology. Resuscitation 2002;53:111-13.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/6322259/",
    "experience_type": "mixed",
    "type_label": "No experiences recorded",
-   "no_walk": "Negovsky revived people but did not record what they experienced. Nothing here to walk, and inventing one would be a lie about his work."
+   "no_walk": "A career and a terminology, not one person's experience, so there is nothing to place on the map or to walk. The 1984 paper is paywalled and this atlas has not read it, so it makes no claim about what it concluded.",
+   "nature": "This atlas said for weeks that Negovsky did not record what his patients experienced. That was wrong: the 1984 paper exists. What is true is narrower and more interesting. The reports were collected, and filed under neurophysiology as hallucinations rather than as experiences, in a resuscitation journal rather than a near-death one, which is part of why nothing from the Soviet period reads as a near-death account today."
   },
   {
    "id": "moody1975",
