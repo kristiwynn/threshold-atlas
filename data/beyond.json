@@ -6,30 +6,81 @@
  "back_note": "What this source says happened next, which is the only part of this that is reported.",
  "on_label": "Go on",
  "on_note": "Leave the evidence behind and see what has been proposed. Nothing after this point is a finding.",
- "groups": [
+ "root": "What happens if you do not come back?",
+ "root_note": "No account answers this, because everyone who could report has come back. Everything below the root is a proposal. It is drawn as a tree because the proposals are not twelve unrelated guesses: they descend from a few places, and they borrow from each other across the branches.",
+ "domains": [
   {
-   "id": "traditions",
-   "name": "What the traditions say happens next",
-   "kind": "belief",
-   "note": "Religious teaching, quoted from the texts themselves where those texts are free to quote. These are claims about what is true, not reports of anything observed, and the traditions disagree with each other. Four of these traditions put a narrow crossing at the same point in the sequence, and none of them borrowed it from the next: Gregory's bridge over the black smoky river, the Chinvat bridge in Arda Viraf, Tundale's two planks, and as-Sirat."
+   "id": "religion",
+   "name": "Religion",
+   "note": "Teaching about what is the case, held on authority rather than offered as evidence. Four of these traditions never met and still agree on a surprising amount, which is the reason to draw them side by side."
   },
   {
-   "id": "brain",
-   "name": "What a dying brain would explain",
+   "id": "philosophy",
+   "name": "Philosophy",
+   "note": "Argument rather than revelation, though in the ancient world the line between the two is not where a modern reader expects it. Plato's myth is told by a philosopher and framed as a tale he does not vouch for."
+  },
+  {
+   "id": "science",
+   "name": "Science",
+   "note": "Two very different things sit under this word here. One branch has laboratory evidence for its mechanism and predicts that nothing continues. The other starts from well-tested physics and then takes a step the physics does not take. Keeping them on separate limbs is the point."
+  }
+ ],
+ "families": [
+  {
+   "id": "abrahamic",
+   "domain": "religion",
+   "name": "Abrahamic",
+   "kind": "belief",
+   "note": "A resurrection, a reckoning, and a place entered rather than a state attained. Judaism belongs on this limb and is not here yet: the atlas has no citable path for it."
+  },
+  {
+   "id": "dharmic",
+   "domain": "religion",
+   "name": "Dharmic",
+   "kind": "belief",
+   "note": "Not one destination but a cycle, and the aim is to stop going round it. Death is a door in the middle of the process rather than the end of it."
+  },
+  {
+   "id": "ancient",
+   "domain": "religion",
+   "name": "Ancient Egypt and Iran",
+   "kind": "belief",
+   "note": "The two oldest surviving systems that weigh a life and then sort it. Both put a balance at the hinge, and the Egyptian one is the oldest description of the shape that survives anywhere.",
+   "short": "Egypt and Iran"
+  },
+  {
+   "id": "indigenous",
+   "domain": "religion",
+   "name": "Indigenous and Pacific",
+   "kind": "belief",
+   "note": "The route runs through real, named geography rather than a separate world, and the departure point is a place you can stand in today.",
+   "short": "Indigenous"
+  },
+  {
+   "id": "greek",
+   "domain": "philosophy",
+   "name": "Greek",
+   "kind": "belief",
+   "note": "Rebirth argued rather than revealed, with the choice of the next life placed squarely on the chooser. Plato has the interpreter say it outright: virtue is not assigned."
+  },
+  {
+   "id": "neuro",
+   "domain": "science",
+   "name": "Neuroscience",
    "kind": "null",
-   "note": "The scientific default: the experience is the last thing a brain does, and there is no afterwards. This is the only branch here with laboratory evidence behind its mechanism, and it predicts that the walk simply stops."
+   "note": "The default position, and the only branch on this tree whose mechanism has been demonstrated in a laboratory. What it predicts is that there is nothing further to walk into."
   },
   {
    "id": "physics",
-   "name": "What has been proposed from physics",
+   "domain": "science",
+   "name": "Physics",
    "kind": "hypothesis",
-   "note": "Each of these starts from real, well-tested physics and then takes a step that the physics does not take. The established part and the speculative part are separated on every card. No result in physics is evidence that a person survives death, and none of the physicists cited claimed it was."
+   "note": "Each of these begins in established physics and ends in a claim the physics does not make. None of the physicists cited said their result was evidence that a person survives, and the cards say where the step happens."
   }
  ],
  "paths": [
   {
    "id": "city",
-   "group": "traditions",
    "name": "Into the city",
    "who": "Early Christian apocalyptic",
    "claim": "The righteous are washed and brought inside a city of gold.",
@@ -55,11 +106,11 @@
      "label": "No night there",
      "text": "In Revelation's version of the same city there is no temple in it and no sun, because the glory of God lightens it, and the gates are never shut, for there is no night."
     }
-   ]
+   ],
+   "family": "abrahamic"
   },
   {
    "id": "barzakh",
-   "group": "traditions",
    "name": "The bar, the balance and the bridge",
    "who": "Islamic",
    "claim": "The dead wait behind a barrier until the resurrection, are weighed, and cross over the fire to two gardens.",
@@ -104,11 +155,41 @@
      "label": "The companions, as the text has them",
      "text": "Having large black eyes, and kept in pavilions from public view. Near them shall lie the virgins of paradise, refraining their looks from beholding any besides their spouses. Therein shall they delight themselves, lying on green cushions and beautiful carpets."
     }
-   ]
+   ],
+   "family": "abrahamic",
+   "short": "The bar, balance and bridge"
+  },
+  {
+   "id": "another_body",
+   "name": "Into another body",
+   "who": "Hindu",
+   "claim": "The self is not destroyed with the body; it takes up another.",
+   "cite": "Bhagavad Gita 2:20-22; Katha Upanishad I.2. Public-domain translations: K. T. Telang, Sacred Books of the East vol. 8, 1882; F. Max Muller, SBE vol. 15, 1884.",
+   "url": "https://archive.org/details/p2upanishads00mluoft",
+   "stages": [
+    {
+     "key": "peace",
+     "terrain": "abstract",
+     "label": "It is not slain",
+     "text": "The Gita's claim is flat: it is not born, nor does it ever die; it is not slain when the body is slain. Weapons do not cut it, fire does not burn it."
+    },
+    {
+     "key": "realm",
+     "terrain": "abstract",
+     "label": "Worn-out garments",
+     "text": "As a man casts off worn-out garments and takes new ones, so the dweller in the body casts off worn-out bodies and enters into others."
+    },
+    {
+     "key": "light",
+     "terrain": "garden",
+     "label": "Or no return at all",
+     "text": "The aim is not another body but the end of needing one. The Upanishads call the escape from the cycle release, and describe it as knowing rather than going anywhere."
+    }
+   ],
+   "family": "dharmic"
   },
   {
    "id": "bardo",
-   "group": "traditions",
    "name": "The bardo, and a womb door",
    "who": "Tibetan Buddhist",
    "claim": "Forty-nine days in an intermediate state, then rebirth, unless the clear light is recognised.",
@@ -134,69 +215,11 @@
      "label": "The womb door",
      "text": "Drawn towards a birth, the consciousness is urged to close the womb door, and failing that to choose well. Forty-nine days is the outer limit before rebirth."
     }
-   ]
-  },
-  {
-   "id": "another_body",
-   "group": "traditions",
-   "name": "Into another body",
-   "who": "Hindu",
-   "claim": "The self is not destroyed with the body; it takes up another.",
-   "cite": "Bhagavad Gita 2:20-22; Katha Upanishad I.2. Public-domain translations: K. T. Telang, Sacred Books of the East vol. 8, 1882; F. Max Muller, SBE vol. 15, 1884.",
-   "url": "https://archive.org/details/p2upanishads00mluoft",
-   "stages": [
-    {
-     "key": "peace",
-     "terrain": "abstract",
-     "label": "It is not slain",
-     "text": "The Gita's claim is flat: it is not born, nor does it ever die; it is not slain when the body is slain. Weapons do not cut it, fire does not burn it."
-    },
-    {
-     "key": "realm",
-     "terrain": "abstract",
-     "label": "Worn-out garments",
-     "text": "As a man casts off worn-out garments and takes new ones, so the dweller in the body casts off worn-out bodies and enters into others."
-    },
-    {
-     "key": "light",
-     "terrain": "garden",
-     "label": "Or no return at all",
-     "text": "The aim is not another body but the end of needing one. The Upanishads call the escape from the cycle release, and describe it as knowing rather than going anywhere."
-    }
-   ]
-  },
-  {
-   "id": "garothman",
-   "group": "traditions",
-   "name": "The four tracks to Garothman",
-   "who": "Zoroastrian",
-   "claim": "The good go up by stages: star, moon, sun, and then the all-glorious.",
-   "cite": "The Book of Arda Viraf, chapters 7-11, Martin Haug translation, 1872.",
-   "url": "https://avesta.org/pahlavi/viraf.html",
-   "stages": [
-    {
-     "key": "light",
-     "terrain": "abstract",
-     "label": "Star, moon, sun",
-     "text": "The first footstep is the star track, where the pious glitter as stars. The second is the moon track. The third is the radiance they call the highest of the highest."
-    },
-    {
-     "key": "realm",
-     "terrain": "garden",
-     "label": "Garothman",
-     "text": "The fourth footstep is the radiance of Garothman, the all-glorious, where Adar shows the blue water of a large tank and says: this is the water which that wood exuded."
-    },
-    {
-     "key": "beings",
-     "terrain": "hall",
-     "label": "Taken by the hand",
-     "text": "Vohuman rises from a throne made of gold, takes the newcomer's hand, and brings them into the midst of Ohrmazd and the archangels."
-    }
-   ]
+   ],
+   "family": "dharmic"
   },
   {
    "id": "sekhet",
-   "group": "traditions",
    "name": "A homestead for ever",
    "who": "Ancient Egyptian",
    "claim": "Found true in the balance, the dead are given land to farm in perpetuity.",
@@ -221,41 +244,40 @@
      "label": "Among the followers of Horus",
      "text": "The reward is not rest but ordinary work made permanent: fields, grain, and a place among the followers of Horus."
     }
-   ]
+   ],
+   "family": "ancient"
   },
   {
-   "id": "choose_again",
-   "group": "traditions",
-   "name": "Choosing the next life",
-   "who": "Plato",
-   "claim": "Souls pick their own next life, drink from the river of Forgetfulness, and are born again.",
-   "cite": "Plato, Republic X, 617d-621b, Benjamin Jowett translation.",
-   "url": "https://www.gutenberg.org/cache/epub/1497/pg1497.txt",
+   "id": "garothman",
+   "name": "The four tracks to Garothman",
+   "who": "Zoroastrian",
+   "claim": "The good go up by stages: star, moon, sun, and then the all-glorious.",
+   "cite": "The Book of Arda Viraf, chapters 7-11, Martin Haug translation, 1872.",
+   "url": "https://avesta.org/pahlavi/viraf.html",
    "stages": [
     {
+     "key": "light",
+     "terrain": "abstract",
+     "label": "Star, moon, sun",
+     "text": "The first footstep is the star track, where the pious glitter as stars. The second is the moon track. The third is the radiance they call the highest of the highest."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "Garothman",
+     "text": "The fourth footstep is the radiance of Garothman, the all-glorious, where Adar shows the blue water of a large tank and says: this is the water which that wood exuded."
+    },
+    {
      "key": "beings",
-     "terrain": "meadow",
-     "label": "The lots are thrown",
-     "text": "An interpreter throws lots among them and sets out the patterns of lives: tyrannies and exiles, beauty and poverty, animals as well as men. Virtue is not assigned. The responsibility is the chooser's."
-    },
-    {
-     "key": "border",
-     "border": "river",
-     "terrain": "meadow",
-     "label": "The river of Unmindfulness",
-     "text": "They camp on the plain of Forgetfulness beside the river of Unmindfulness, and all are made to drink a measure of its water. Those without sense drink more than the measure."
-    },
-    {
-     "key": "return",
-     "terrain": "meadow",
-     "label": "Shot like stars",
-     "text": "In the middle of the night there is thunder and an earthquake, and they are driven upwards to their birth, suddenly, in all directions, like shooting stars."
+     "terrain": "hall",
+     "label": "Taken by the hand",
+     "text": "Vohuman rises from a throne made of gold, takes the newcomer's hand, and brings them into the midst of Ohrmazd and the archangels."
     }
-   ]
+   ],
+   "family": "ancient"
   },
   {
    "id": "hawaiki",
-   "group": "traditions",
    "name": "The leaping-off place",
    "who": "Maori",
    "claim": "Spirits travel north to the cape and depart from it for the homeland.",
@@ -281,11 +303,42 @@
      "label": "Towards the homeland",
      "text": "In the tradition the spirits leap from here and travel to the ancestral homeland. That is teaching, not testimony: nobody in this atlas describes the far side of it."
     }
-   ]
+   ],
+   "family": "indigenous"
+  },
+  {
+   "id": "choose_again",
+   "name": "Choosing the next life",
+   "who": "Plato",
+   "claim": "Souls pick their own next life, drink from the river of Forgetfulness, and are born again.",
+   "cite": "Plato, Republic X, 617d-621b, Benjamin Jowett translation.",
+   "url": "https://www.gutenberg.org/cache/epub/1497/pg1497.txt",
+   "stages": [
+    {
+     "key": "beings",
+     "terrain": "meadow",
+     "label": "The lots are thrown",
+     "text": "An interpreter throws lots among them and sets out the patterns of lives: tyrannies and exiles, beauty and poverty, animals as well as men. Virtue is not assigned. The responsibility is the chooser's."
+    },
+    {
+     "key": "border",
+     "border": "river",
+     "terrain": "meadow",
+     "label": "The river of Unmindfulness",
+     "text": "They camp on the plain of Forgetfulness beside the river of Unmindfulness, and all are made to drink a measure of its water. Those without sense drink more than the measure."
+    },
+    {
+     "key": "return",
+     "terrain": "meadow",
+     "label": "Shot like stars",
+     "text": "In the middle of the night there is thunder and an earthquake, and they are driven upwards to their birth, suddenly, in all directions, like shooting stars."
+    }
+   ],
+   "family": "greek",
+   "who_short": "Plato, Republic X"
   },
   {
    "id": "dying_brain",
-   "group": "brain",
    "name": "The last thing a brain does",
    "who": "Neuroscience",
    "claim": "The experience is produced by a brain under extreme stress, and it stops when the brain does.",
@@ -310,11 +363,11 @@
      "label": "And then nothing",
      "text": "On this account there is no further walk, and the honest end of the scene is that it stops. This is the only branch on this page whose mechanism has been demonstrated in a laboratory, and what it predicts is that there is nothing to see."
     }
-   ]
+   ],
+   "family": "neuro"
   },
   {
    "id": "holographic",
-   "group": "physics",
    "name": "The holographic principle",
    "who": "Gerard 't Hooft, Leonard Susskind, Juan Maldacena",
    "claim": "What is established: the physics inside a region can be fully described by information on its boundary. What is only proposed: that a life's information therefore persists after the body that carried it.",
@@ -339,11 +392,12 @@
      "label": "And here it stops",
      "text": "The step from here to a person surviving is one nobody in this field has taken. The principle is about how many degrees of freedom a region has. It says nothing about whether a self is one of the things conserved."
     }
-   ]
+   ],
+   "family": "physics",
+   "who_short": "'t Hooft, Susskind, Maldacena"
   },
   {
    "id": "entanglement",
-   "group": "physics",
    "name": "Entanglement, and the microtubule idea",
    "who": "Roger Penrose and Stuart Hameroff, against Max Tegmark",
    "claim": "What is established: entanglement is real and was awarded the 2022 Nobel Prize. What is only proposed, and strongly disputed: that the brain uses it, and that what it holds is not local to the brain.",
@@ -368,11 +422,13 @@
      "label": "The objection",
      "text": "Tegmark calculated how long such coherence could survive in a warm wet brain and got around ten million millionths of a second, far too short to matter. The dispute is live, and the hypothesis remains a minority one."
     }
-   ]
+   ],
+   "family": "physics",
+   "short": "Entanglement and microtubules",
+   "who_short": "Penrose and Hameroff, v. Tegmark"
   },
   {
    "id": "block",
-   "group": "physics",
    "name": "The block universe",
    "who": "Hermann Minkowski, Albert Einstein",
    "claim": "What is established: in relativity there is no universal present, and the ordering of distant events depends on the observer. What is only proposed: that every moment of a life therefore exists permanently, and nothing is lost when it ends.",
@@ -397,7 +453,76 @@
      "label": "What it does not promise",
      "text": "On this reading a life is not erased, only finished, the way a book is not erased when you stop reading. Note what is missing: nobody is in the block experiencing it. This consoles without surviving anything."
     }
-   ]
+   ],
+   "family": "physics",
+   "who_short": "Minkowski and Einstein"
+  }
+ ],
+ "links": [
+  {
+   "id": "rivers",
+   "name": "Four rivers",
+   "paths": [
+    "city",
+    "barzakh"
+   ],
+   "note": "Both name exactly four, and three of the four substances are the same. The city of Christ has honey, milk, oil and wine; Sura 47 has water, milk, wine and clarified honey."
+  },
+  {
+   "id": "balance",
+   "name": "The deeds weighed",
+   "paths": [
+    "sekhet",
+    "barzakh"
+   ],
+   "walks": [
+    "bookofdead",
+    "ardaviraf",
+    "bailey2001"
+   ],
+   "note": "A literal pair of scales, in four traditions that did not borrow it from each other: Ani's heart against the feather of law, the balances heavy or light, Rashn's yellow golden balance at the Chinvat bridge, and the Tibetan demon's black pebbles weighed against a white deity's white ones."
+  },
+  {
+   "id": "crossing",
+   "name": "The narrow crossing",
+   "paths": [
+    "barzakh"
+   ],
+   "walks": [
+    "gregory",
+    "tundale",
+    "ardaviraf"
+   ],
+   "note": "The strongest convergence on this site, and it reaches back into the accounts rather than staying among the proposals: Gregory's bridge over the black smoky river, where the unjust slip in and the just pass over; the Chinvat bridge that widens to nine javelin-lengths for the righteous; Tundale's two planks, the second set with iron nails; and as-Sirat, which is not in the Qur'an but in the commentary on it."
+  },
+  {
+   "id": "rebirth",
+   "name": "Round again",
+   "paths": [
+    "another_body",
+    "bardo",
+    "choose_again"
+   ],
+   "note": "Three limbs, one shape: death is not a destination but a turn in a cycle. Plato's version is the odd one, because the soul picks its own next life and is told the responsibility is its own."
+  },
+  {
+   "id": "garden",
+   "name": "A garden, not a city",
+   "paths": [
+    "barzakh",
+    "sekhet",
+    "garothman"
+   ],
+   "note": "Where the Christian branch builds architecture, these three plant ground: two gardens with two fountains each, a homestead with wheat and barley, and a tank of blue water at Garothman."
+  },
+  {
+   "id": "conserved",
+   "name": "Nothing is destroyed",
+   "paths": [
+    "holographic",
+    "block"
+   ],
+   "note": "The two physics branches arrive at the same consolation by different routes, and neither delivers a survivor. One says the information is still written on the boundary; the other says the moment still exists. Nobody is in either of them experiencing anything."
   }
  ]
 }

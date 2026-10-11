@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond · The Threshold Atlas</title>
+<meta name="description" content="The proposals for what happens if you do not come back, drawn as a tree from religion, philosophy and science, with the motifs that cross between them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.treewrap{position:relative;overflow-x:auto;overflow-y:hidden;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:10px 0}
+#tree{display:block;min-width:860px}
+#tree .edge{fill:none;stroke:var(--line);stroke-width:1.5}
+#tree .edge.on{stroke:var(--accent);stroke-width:2.2}
+#tree .xlink{fill:none;stroke:var(--c4);stroke-width:1.4;stroke-dasharray:4 4;opacity:.5}
+#tree .xlink.on{opacity:1;stroke-width:2.2}
+#tree .node rect{fill:var(--bg);stroke:var(--line);stroke-width:1.5;rx:7}
+#tree .node:hover rect,#tree .node.on rect{stroke:var(--accent)}
+#tree .node text{font-family:var(--body);fill:var(--ink)}
+#tree .node .t{font-family:var(--display);font-weight:600}
+#tree .node .s{font-family:var(--mono);font-size:10px;fill:var(--muted)}
+#tree .node.lvl0 rect{fill:var(--surface2,var(--surface));stroke:var(--accent)}
+#tree .node.leaf{cursor:pointer}
+#tree .node.dim{opacity:.32}
+#tree .xlabel{font:10px var(--mono);fill:var(--c4);letter-spacing:.06em}
+.kindtag{display:inline-block;font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px solid currentColor;margin-left:8px;vertical-align:2px}
+.k-belief{color:var(--c3)}.k-null{color:var(--c2)}.k-hypothesis{color:var(--c4)}
+.motifs{display:grid;gap:8px;margin-top:12px}
+.motif{border:1px solid var(--line);border-left:3px solid var(--c4);border-radius:8px;padding:10px 13px;cursor:pointer;background:var(--surface)}
+.motif[aria-pressed="true"]{border-color:var(--c4);background:var(--bg)}
+.motif b{font-family:var(--display);font-size:17px;font-weight:600;display:block}
+.motif span{font-size:14px;color:var(--muted);line-height:1.5}
+.detail{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--surface);margin-top:14px}
+.detail h3{font-family:var(--display);font-size:26px;font-weight:600;margin:0 0 2px}
+.detail .who{font:12px var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.detail ol{margin:14px 0 0;padding-left:20px}
+.detail ol li{margin-bottom:9px;font-size:15.5px;line-height:1.55}
+.detail ol li b{font-family:var(--display);font-size:17px;display:block;font-weight:600}
+.detail .src{font:12px var(--mono);color:var(--faint);line-height:1.5;margin-top:12px}
+.detail .warn{color:var(--c4);font-size:14.5px;line-height:1.5}
+.pbox{position:relative;background:#06050d;border-radius:10px;overflow:hidden;aspect-ratio:16/10;border:1px solid var(--line);margin-top:14px}
+.pbox canvas{display:block;width:100%;height:100%;touch-action:none}
+.pbox .cap{position:absolute;left:0;right:0;bottom:0;padding:13px 16px 15px;background:linear-gradient(transparent,rgba(6,5,13,.86) 45%);color:#efe9dc}
+.pbox .cap b{display:block;font-family:var(--display);font-size:clamp(18px,2.6vw,26px);font-weight:600;line-height:1.1}
+.pbox .cap span{display:block;font-size:13.5px;color:#c9c2b4;margin-top:4px;max-width:70ch}
+@media (max-width:640px){.treewrap{padding:6px 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div id="nav"></div>
+
+<section class="hero">
+  <div class="eyebrow">Beyond the evidence</div>
+  <h1>What has been proposed</h1>
+  <p class="lede" id="lede"></p>
+</section>
+
+<section>
+  <h2 class="vh">The tree</h2>
+  <div class="treewrap"><svg id="tree" role="img" aria-label="A tree of proposals for what happens after death, branching from religion, philosophy and science"></svg></div>
+  <p class="small muted" style="margin-top:10px">Solid lines are descent: a proposal sits on the limb it actually comes from. Dotted lines are something else, and they are the reason this is a network and not just a tree. Tap a leaf to read it and walk it. Tap a motif below to light up where it recurs.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Across the branches</div>
+  <h2>What recurs where it should not</h2>
+  <p>These traditions had no common ancestor and in most cases no contact. Each motif below turns up on limbs that do not meet, and two of them reach back out of the proposals into the accounts on <a href="index.html">the map</a> itself.</p>
+  <div class="motifs" id="motifs"></div>
+</section>
+
+<section>
+  <div class="eyebrow">The proposal</div>
+  <h2 id="dTitle">Pick a leaf</h2>
+  <div id="detail"></div>
+</section>
+
+<div id="footer"></div>
+</div>
+
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="assets/common.js"></script>
+<script src="assets/scene.js"></script>
+<script>
+document.getElementById("nav").innerHTML = TA.nav("beyond.html");
+document.getElementById("footer").innerHTML = TA.footer();
+const $ = id => document.getElementById(id);
+const esc = x => String(x ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const KIND = { belief: ["k-belief", "Religious teaching, not evidence"], null: ["k-null", "The scientific default"], hypothesis: ["k-hypothesis", "A hypothesis, not a finding"] };
+let B = null, scene = null, motif = null, picked = null;
+
+// ------------------------------------------------------------------ layout
+// A horizontal tree: four columns, leaves on a fixed pitch, every parent
+// centred on its own children. Computed rather than hand-placed so adding a
+// proposal cannot break the drawing.
+const COL = [[14, 168], [196, 138], [348, 168], [530, 300]];
+const PITCH = 62, TOP = 26, PAD = 22;
+function layout(b) {
+  const nodes = [], byId = {};
+  const add = n => { nodes.push(n); byId[n.id] = n; return n; };
+  let y = TOP;
+  b.families.forEach(f => {
+    const kids = b.paths.filter(p => p.family === f.id);
+    kids.forEach(p => add({ id: p.id, lvl: 3, t: p.short || p.name, s: p.who_short || p.who, y: (y += PITCH) - PITCH, leaf: true, path: p, parent: f.id }));
+    const ys = kids.map(p => byId[p.id].y);
+    add({ id: f.id, lvl: 2, t: f.short || f.name, s: kids.length + (kids.length === 1 ? " proposal" : " proposals"), y: (ys[0] + ys[ys.length - 1]) / 2, fam: f, parent: f.domain });
+  });
+  b.domains.forEach(d => {
+    const ys = b.families.filter(f => f.domain === d.id).map(f => byId[f.id].y);
+    add({ id: d.id, lvl: 1, t: d.name, s: "", y: (ys[0] + ys[ys.length - 1]) / 2, dom: d, parent: "root" });
+  });
+  const dys = b.domains.map(d => byId[d.id].y);
+  add({ id: "root", lvl: 0, t: "Past the evidence", s: "", y: (dys[0] + dys[dys.length - 1]) / 2 });
+  nodes.forEach(n => { const [x, w] = COL[n.lvl]; n.x = x; n.w = w; n.h = n.leaf ? 46 : 38; });
+  return { nodes, byId, height: y + PAD };
+}
+const L = {};
+function draw() {
+  const { nodes, byId, height } = L;
+  const W = COL[3][0] + COL[3][1] + 14;
+  const svg = $("tree");
+  svg.setAttribute("viewBox", `0 0 ${W} ${height}`);
+  svg.setAttribute("height", height);
+  const curve = (a, b) => { const x1 = a.x + a.w, x2 = b.x, m = (x1 + x2) / 2; return `M${x1} ${a.y} C${m} ${a.y} ${m} ${b.y} ${x2} ${b.y}`; };
+  const lit = litSet();
+  const edges = nodes.filter(n => n.parent).map(n => {
+    const p = byId[n.parent];
+    return `<path class="edge${lit && lit.has(n.id) && lit.has(n.parent) ? " on" : ""}" d="${curve(p, n)}"/>`;
+  }).join("");
+  // dotted motif links, bowed out to the right of the leaves
+  const xl = (B.links || []).map(k => {
+    const ns = k.paths.map(id => byId[id]).filter(Boolean);
+    if (ns.length < 2) return "";
+    const on = motif === k.id;
+    const bx = COL[3][0] + COL[3][1] + 4;
+    return ns.slice(1).map((n, i) => {
+      const a = ns[i], bow = bx + 5;
+      return `<path class="xlink${on ? " on" : ""}" d="M${a.x + a.w} ${a.y} C${bow} ${a.y} ${bow} ${n.y} ${n.x + n.w} ${n.y}"/>`;
+    }).join("");
+  }).join("");
+  const body = nodes.map(n => {
+    const cls = `node lvl${n.lvl}${n.leaf ? " leaf" : ""}${picked === n.id ? " on" : ""}${lit && !lit.has(n.id) ? " dim" : ""}`;
+    const ts = n.lvl === 0 ? 14 : n.lvl === 1 ? 16 : n.lvl === 2 ? 14 : 13.5;
+    return `<g class="${cls}" data-id="${esc(n.id)}" ${n.leaf ? 'tabindex="0" role="button"' : ""}>
+      <rect x="${n.x}" y="${n.y - n.h / 2}" width="${n.w}" height="${n.h}"/>
+      <text class="t" x="${n.x + 10}" y="${n.y + (n.s ? -1 : 4)}" font-size="${ts}">${esc(trim(n.t, n.w))}</text>
+      ${n.s ? `<text class="s" x="${n.x + 10}" y="${n.y + 13}">${esc(trim(n.s, n.w, 5.4))}</text>` : ""}
+    </g>`;
+  }).join("");
+  svg.innerHTML = edges + xl + body;
+}
+// SVG will not wrap text, so a label that cannot fit is cut rather than spilling.
+function trim(s, w, per = 7.2) { const max = Math.floor((w - 20) / per); return s.length > max ? s.slice(0, max - 1).trimEnd() + "…" : s; }
+function litSet() {
+  if (!motif) return null;
+  const k = (B.links || []).find(x => x.id === motif); if (!k) return null;
+  const set = new Set(["root"]);
+  k.paths.forEach(id => { set.add(id); const p = L.byId[id]; if (p) { set.add(p.parent); const f = L.byId[p.parent]; if (f) set.add(f.parent); } });
+  return set;
+}
+
+// ------------------------------------------------------------------ detail
+function pick(id) {
+  const p = B.paths.find(x => x.id === id); if (!p) return;
+  picked = id; draw();
+  const f = B.families.find(x => x.id === p.family), d = B.domains.find(x => x.id === f.domain);
+  const [kc, kl] = KIND[f.kind] || KIND.belief;
+  $("dTitle").textContent = p.name;
+  $("detail").innerHTML = `<div class="detail">
+      <h3>${esc(p.name)} <span class="kindtag ${kc}">${esc(kl)}</span></h3>
+      <div class="who">${esc(d.name)} &rarr; ${esc(f.name)} &rarr; ${esc(p.who)}</div>
+      <p style="font-size:17px;line-height:1.5;margin:12px 0 0">${esc(p.claim)}</p>
+      ${p.note ? `<p class="warn">${esc(p.note)}</p>` : ""}
+      <p class="small muted" style="margin:10px 0 0"><b>${esc(f.name)}:</b> ${esc(f.note)}</p>
+      <ol>${p.stages.map(s => `<li><b>${esc(s.label)}</b>${esc(s.text)}</li>`).join("")}</ol>
+      <div class="pbox" id="pbox"><canvas id="pcanvas"></canvas><div class="cap"><b id="pcapT"></b><span id="pcapS"></span></div></div>
+      <p class="src">${esc(p.cite)}${p.url ? ` &middot; <a href="${esc(p.url)}" target="_blank" rel="noopener">source</a>` : ""}</p>
+    </div>`;
+  scene?.destroy();
+  scene = TAScene.create({
+    canvas: $("pcanvas"), box: $("pbox"), stages: p.stages.map(s => Object.assign({ v: 0.82 }, s)), stageMs: 10000,
+    onStage: (i, key, v, label, text) => { $("pcapT").textContent = `${i + 1}. ${label}`; $("pcapS").textContent = text; },
+  });
+  $("dTitle").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+(async () => {
+  B = await TA.data("beyond");
+  $("lede").textContent = B.root_note;
+  Object.assign(L, layout(B));
+  draw();
+  $("motifs").innerHTML = (B.links || []).map(k => {
+    const where = k.paths.map(id => (B.paths.find(p => p.id === id) || {}).name).filter(Boolean);
+    const walks = (k.walks || []).length ? ` It also appears in ${k.walks.length} account${k.walks.length > 1 ? "s" : ""} on the map.` : "";
+    return `<div class="motif" data-k="${esc(k.id)}" role="button" tabindex="0" aria-pressed="false"><b>${esc(k.name)}</b><span>${esc(k.note)}${walks} <i>Proposals: ${esc(where.join(", "))}</i></span></div>`;
+  }).join("");
+  $("motifs").addEventListener("click", e => {
+    const el = e.target.closest(".motif"); if (!el) return;
+    motif = motif === el.dataset.k ? null : el.dataset.k;
+    document.querySelectorAll(".motif").forEach(x => x.setAttribute("aria-pressed", x.dataset.k === motif));
+    draw();
+  });
+  $("tree").addEventListener("click", e => { const g = e.target.closest(".node.leaf"); if (g) pick(g.dataset.id); });
+  $("tree").addEventListener("keydown", e => { if (e.key !== "Enter" && e.key !== " ") return; const g = e.target.closest(".node.leaf"); if (g) { e.preventDefault(); pick(g.dataset.id); } });
+  addEventListener("resize", draw);
+  const want = location.hash.slice(1);
+  if (want && B.paths.some(p => p.id === want)) pick(want);
+})();
+</script>
+</body>
+</html>

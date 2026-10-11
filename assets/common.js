@@ -29,7 +29,7 @@ window.TA = (() => {
     }).join("");
   }
   function nav(current) {
-    const links = [["index.html", "Map"], ["patterns.html", "Patterns"], ["accounts.html", "Accounts"], ["stories.html", "Shared here"], ["world.html", "World"], ["share.html", "Share yours"], ["sources.html", "Sources"]];
+    const links = [["index.html", "Map"], ["patterns.html", "Patterns"], ["accounts.html", "Accounts"], ["stories.html", "Shared here"], ["world.html", "World"], ["beyond.html", "Beyond"], ["share.html", "Share yours"], ["sources.html", "Sources"]];
     return `<nav class="top"><a class="brand" href="index.html">The Threshold Atlas</a>${links.map(([h, t]) => `<a href="${h}" ${h === current ? 'aria-current="page"' : ""}>${t}</a>`).join("")}</nav>`;
   }
   function footer() {
@@ -72,10 +72,13 @@ window.TA = (() => {
       } else if (go === "on") {
         el.querySelector(".forkin").innerHTML = `<div class="forkeyebrow" style="color:var(--c4)">Past the evidence</div>
           <h3>What has been proposed</h3>
-          ${b.groups.map(g => `<div class="forkgroup"><div class="fglabel">${esc(g.name)}</div>
-            <p class="fgnote">${esc(g.note)}</p>
-            <div class="fgrow">${b.paths.filter(p => p.group === g.id).map(p =>
-              `<button data-path="${esc(p.id)}"><b>${esc(p.name)}</b><span>${esc(p.who)}</span></button>`).join("")}</div></div>`).join("")}
+          ${b.domains.map(d => `<div class="forkgroup"><div class="fglabel">${esc(d.name)}</div>
+            <p class="fgnote">${esc(d.note)}</p>
+            ${b.families.filter(f => f.domain === d.id).map(f => `<div class="fgfam"><div class="fgsub">${esc(f.name)}</div>
+              <div class="fgrow">${b.paths.filter(p => p.family === f.id).map(p =>
+                `<button data-path="${esc(p.id)}"><b>${esc(p.short || p.name)}</b><span>${esc(p.who_short || p.who)}</span></button>`).join("")}</div></div>`).join("")}
+            </div>`).join("")}
+          <p class="forkfine">These twelve are not twelve unrelated guesses, and four of them share motifs across branches that never met. <a href="beyond.html" style="color:var(--accent)">See the whole tree</a>.</p>
           <div class="forkbtns"><button class="ghostb" data-go="again">Walk the account again instead</button></div>`;
       } else if (go === "again") {
         el.remove(); scene.pause(false); scene.next();
@@ -85,7 +88,7 @@ window.TA = (() => {
         const path = b.paths.find(x => x.id === pid); if (!path) return;
         el.remove();
         scene.extend(path.stages);
-        onNote && onNote(path, b.groups.find(g => g.id === path.group));
+        onNote && onNote(path, b.families.find(f => f.id === path.family));
       }
     });
   }

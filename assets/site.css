@@ -87,3 +87,5 @@ ol.sources{padding-left:20px}ol.sources li{margin-bottom:10px;color:var(--muted)
 .pathnote b.k{display:block;font:11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--c4);margin-bottom:4px}
 .pathnote p{margin:0 0 6px;font-size:14.5px;line-height:1.5}
 .pathnote .src{font:12px var(--mono);color:var(--faint);line-height:1.5;margin:0}
+.fgfam{margin:0 0 9px}
+.fgsub{font:11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#9a927f;margin:0 0 4px}
