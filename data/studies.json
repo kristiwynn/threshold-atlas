@@ -2,1151 +2,6 @@
  "_note": "Research tier. Landmark studies with where they were coordinated. Every row cites its source. Coordinates are the lead institution, not where experiences happened.",
  "studies": [
   {
-   "id": "lommel2001",
-   "name": "Dutch prospective study",
-   "place": "Netherlands (10 hospitals; lead author at Rijnstate Hospital, Arnhem)",
-   "lat": 51.98,
-   "lng": 5.91,
-   "n": 344,
-   "kind": "prospective",
-   "year": 2001,
-   "finding": "344 consecutive survivors of 509 successful resuscitations across ten Dutch hospitals, interviewed within days. 62 (18%) had some recollection of the time of clinical death; 41 (12%) a core experience and 23 (7%) a deep or very deep one. The 18% is the figure usually quoted. The authors concede possible selection bias: the one hospital that ran nearly four years and contributed 137 patients found only 8%.",
-   "cite": "van Lommel P, van Wees R, Meyers V, Elfferich I. Near-death experience in survivors of cardiac arrest: a prospective study in the Netherlands. The Lancet 2001;358:2039-45.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/11755611/",
-   "trigger": "Cardiac arrest",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "measured": true
-  },
-  {
-   "id": "aware2014",
-   "name": "AWARE",
-   "place": "Stony Brook, NY, USA (15 hospitals in UK, US, Austria)",
-   "lat": 40.9257,
-   "lng": -73.1409,
-   "n": 2060,
-   "kind": "prospective",
-   "year": 2014,
-   "finding": "2,060 cardiac arrests across 15 hospitals; 330 survived to discharge, 140 were interviewed and 101 completed the second-stage interview. 9% of those 101 met criteria for an NDE and 2% described explicit awareness with recall of events. The published record is not consistent about these counts, so no raw numbers are asserted here.",
-   "cite": "Parnia S et al. AWARE: AWAreness during REsuscitation, a prospective study. Resuscitation 2014;85:1799-1805.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/25301715/",
-   "trigger": "Cardiac arrest",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "no_walk": "This study counted how many people had an experience, not what was in it. Its sister study AWARE II describes the content.",
-   "walk_instead": "aware2023"
-  },
-  {
-   "id": "aware2023",
-   "name": "AWARE II",
-   "place": "New York, USA (25 hospitals in US and UK)",
-   "lat": 40.74,
-   "lng": -73.97,
-   "n": 567,
-   "kind": "prospective",
-   "year": 2023,
-   "finding": "567 patients; EEG recorded during CPR in a pilot sub-study of some patients; 28 survivors interviewed; 126 community accounts analysed for themes.",
-   "cite": "Parnia S et al. AWAreness during REsuscitation II: a multi-center study of consciousness and awareness in cardiac arrest. Resuscitation 2023;191:109903.",
-   "url": "https://www.sciencedirect.com/science/article/abs/pii/S0300957223002162",
-   "trigger": "Cardiac arrest",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "scene": {
-    "dead": 1,
-    "obe": 1,
-    "realm": 1,
-    "review": 1,
-    "return": 1,
-    "tunnel": 0
-   },
-   "scene_note": "AWARE II describes what survivors recalled as a separation from the body, observing events without pain or distress, travelling to a destination, and a meaningful evaluation of their own actions and relationships. The paper reports themes rather than percentages, so each stage plays at the same strength."
-  },
-  {
-   "id": "greyson2003",
-   "name": "Cardiac care unit study",
-   "place": "Charlottesville, Virginia, USA",
-   "lat": 38.03,
-   "lng": -78.48,
-   "n": 1595,
-   "kind": "prospective",
-   "year": 2003,
-   "finding": "1,595 consecutive cardiac inpatients. 116 (7%) were admitted with cardiac arrest, and 11 of those (10%) reported an NDE, against 1% of the other cardiac patients. Across the whole cohort the rate was 27 of 1,595, or 1.7%.",
-   "cite": "Greyson B. Incidence and correlates of near-death experiences in a cardiac care unit. General Hospital Psychiatry 2003;25:269-76.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/12850659/",
-   "trigger": "Cardiac arrest",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "no_walk": "A prevalence study: it measured how often an NDE happens in a cardiac unit, not what the experiences contained.",
-   "walk_instead": "lommel2001"
-  },
-  {
-   "id": "parnia2001",
-   "name": "Southampton study",
-   "place": "Southampton, UK",
-   "lat": 50.93,
-   "lng": -1.4,
-   "n": 63,
-   "kind": "prospective",
-   "year": 2001,
-   "finding": "63 cardiac-arrest survivors at Southampton General Hospital. 56 (88.8%) had no recall; 7 (11.1%) had some memory of the period, and of those 4 (6.3%) scored 7 or more on the Greyson scale. Two of the three below the threshold still had NDE-like features.",
-   "cite": "Parnia S, Waller DG, Yeates R, Fenwick P. A qualitative and quantitative study of the incidence, features and aetiology of near death experiences in cardiac arrest survivors. Resuscitation 2001;48:149-56.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/11426476/",
-   "trigger": "Cardiac arrest",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "no_walk": "A prevalence study in one hospital; the sample of experiencers was too small to publish feature rates.",
-   "walk_instead": "lommel2001"
-  },
-  {
-   "id": "morse1986",
-   "name": "Childhood NDEs",
-   "place": "Seattle, Washington, USA (Children's Orthopedic Hospital)",
-   "lat": 47.663,
-   "lng": -122.282,
-   "n": 40,
-   "kind": "prospective",
-   "year": 1986,
-   "finding": "40 children aged 3 to 16 in a paediatric intensive care unit: 11 critically ill (7 cardiac-arrest survivors and 4 with a Glasgow coma score under 5) and 29 seriously ill age-matched controls. 7 of the 11 reported near-death elements. No control reported an NDE, though four recalled something, three of them intraoperative.",
-   "cite": "Morse M, Conner D, Tyler D. Near-death experiences in a pediatric population: a preliminary report. American Journal of Diseases of Children 1986;140:1110-14.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/3020964/",
-   "trigger": "Critical illness",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "no_walk": "A comparison of critically ill children with a control group, reporting that NDE features occurred in one and not the other, without published rates per feature.",
-   "walk_instead": "lommel2001"
-  },
-  {
-   "id": "gallup1982",
-   "name": "Gallup poll",
-   "place": "United States",
-   "lat": 39.5,
-   "lng": -98.4,
-   "n": 1500,
-   "kind": "survey",
-   "year": 1982,
-   "finding": "About 5% of US adults, then roughly 8 million people, reported a near-death experience.",
-   "cite": "Gallup G, Proctor W. Adventures in Immortality. McGraw-Hill, 1982.",
-   "url": "https://digital.library.unt.edu/explore/collections/JNDS/",
-   "trigger": "Mixed",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "no_walk": "A national poll of how many adults had ever had one. This atlas does not have verified figures for the individual elements it asked about.",
-   "walk_instead": "long2010",
-   "nature": "About 1,500 adults were asked, between early 1980 and September 1981; Gallup's book does not give an exact sample size."
-  },
-  {
-   "id": "knoblauch2001",
-   "name": "German survey",
-   "place": "Germany (representative sample)",
-   "lat": 51.2,
-   "lng": 10.4,
-   "n": 2044,
-   "kind": "survey",
-   "year": 2001,
-   "finding": "2,044 Germans in a nationally representative sample: 82 (4%) reported an NDE. Content split sharply east and west: 60% of west German accounts were positive against 40% in the east, where 60% were negative; tunnels were commoner in the east, light in the west. The rate itself did not differ. The authors ran no significance tests on these splits and call them 'only tendencies'.",
-   "cite": "Knoblauch H, Schmied I, Schnettler B. Different kinds of near-death experience: a report on a survey of near-death experiences in Germany. Journal of Near-Death Studies 2001;20:15-29.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799348/",
-   "trigger": "Mixed",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "no_walk": "A population survey measuring how many Germans had had one, and differences between East and West, rather than rates per feature.",
-   "walk_instead": "long2010"
-  },
-  {
-   "id": "perera2005",
-   "name": "Australian survey",
-   "place": "Australia (telephone survey)",
-   "lat": -25.3,
-   "lng": 133.8,
-   "n": 673,
-   "kind": "survey",
-   "year": 2005,
-   "finding": "673 Australians in a national telephone survey. 241 (36%) had come close to death, and 60 of them met the study's NDE criterion: 8.9% of everyone asked, or about a quarter of those who had come close. The 8.9% is computed from the paper's own table, which the text and abstract report variously as 9% and 8%.",
-   "cite": "Perera M, Padmasekara G, Belanti J. Prevalence of near-death experiences in Australia. Journal of Near-Death Studies 2005;24:109-16.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799374/",
-   "trigger": "Mixed",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "no_walk": "A telephone survey measuring how many Australians had had one.",
-   "walk_instead": "long2010",
-   "nature": "The criterion was endorsing any two items from a telephone-adapted list, not a Greyson score of 7, and the authors note the prompts raised endorsement. This rate is not comparable with the hospital figures."
-  },
-  {
-   "id": "long2010",
-   "name": "NDERF survey",
-   "place": "Tacoma, Washington, USA (online, worldwide)",
-   "lat": 47.25,
-   "lng": -122.44,
-   "n": 613,
-   "kind": "retrospective",
-   "year": 2010,
-   "finding": "613 experiencers scoring 7 or more on the Greyson scale; feature rates and tone. Thousands more accounts archived at nderf.org.",
-   "cite": "Long J, Perry P. Evidence of the Afterlife: The Science of Near-Death Experiences. HarperOne, 2010.",
-   "url": "https://www.nderf.org/NDERF/EvidenceAfterlife/evidence/NDERF_Study_Methods.htm",
-   "trigger": "Mixed",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "measured": true,
-   "nature": "Self-selected internet survey: people who went looking for an NDE website, answering retrospectively in English with no medical records. The percentages describe self-identified experiencers, not people who nearly died."
-  },
-  {
-   "id": "martial2017",
-   "name": "Liège narratives",
-   "place": "Liège, Belgium",
-   "lat": 50.63,
-   "lng": 5.57,
-   "n": 154,
-   "kind": "retrospective",
-   "year": 2017,
-   "finding": "154 written NDE narratives analysed for which features occur and in what order; no fixed sequence was found.",
-   "cite": "Martial C et al. Temporality of features in near-death experience narratives. Frontiers in Human Neuroscience 2017;11:311.",
-   "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2017.00311/full",
-   "trigger": "Mixed",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "measured": true,
-   "nature": "Recruited from the same Coma Science Group and IANDS pool as the distressing narratives on this map, so the two bubbles overlap rather than confirm each other."
-  },
-  {
-   "id": "pasricha1986",
-   "name": "Indian cases",
-   "place": "Northern India",
-   "lat": 26.85,
-   "lng": 80.95,
-   "n": 16,
-   "kind": "cases",
-   "year": 1986,
-   "finding": "16 cases investigated in north India: messengers called yamdoots, a clerk with a book of records, and being sent back because the wrong person was brought. Beings of light were reported here, unlike in Pasricha's later south Indian series. A quarter woke with residual marks on the body from being branded in the other realm. No tunnel and no life review in any case.",
-   "cite": "Pasricha S, Stevenson I. Near-death experiences in India: a preliminary report. Journal of Nervous and Mental Disease 1986;174:165-70.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/3950600/",
-   "trigger": "Illness",
-   "experience_type": "summoned",
-   "type_label": "Summoned by mistake and sent back",
-   "scene": {
-    "beings": 1,
-    "realm": 1,
-    "return": 1,
-    "tunnel": 0,
-    "review": 0,
-    "light": 1,
-    "obe": 0
-   },
-   "walk": [
-    {
-     "key": "messengers",
-     "terrain": "abstract",
-     "label": "The yamdoots come",
-     "text": "Messengers called yamdoots arrive and take the person away, sometimes roughly. They are the servants of Yama, lord of the dead."
-    },
-    {
-     "key": "ledger",
-     "terrain": "hall",
-     "label": "The man with the book",
-     "text": "The person is brought before Chitragupta, 'the man with the book', who keeps the record of what each life contains."
-    },
-    {
-     "key": "error",
-     "terrain": "hall",
-     "label": "The wrong person",
-     "text": "The book is checked and a mistake is found. Ninety-four per cent of the Indian cases are sent back because of such an error; in a third, somebody else died instead."
-    },
-    {
-     "key": "light",
-     "terrain": "hall",
-     "label": "Beings of light",
-     "text": "Beings of light were reported by the north Indian experiencers. Pasricha's later south Indian series reported none, which is one of the few differences inside one country."
-    },
-    {
-     "key": "return",
-     "terrain": "abstract",
-     "label": "Sent back, and marked",
-     "text": "They are sent back, often against their wish. A quarter wake with residual marks on the body where they were branded in the other realm. No case reports a tunnel or a life review."
-    }
-   ],
-   "religion_group": "Hindu",
-   "religion": "Hindu",
-   "religion_basis": "stated",
-   "religion_note": "Yamdoots, the servants of Yama, and Chitragupta, the man with the book."
-  },
-  {
-   "id": "moody1975",
-   "name": "Life After Life interviews",
-   "place": "Charlottesville, Virginia, USA",
-   "lat": 38.1,
-   "lng": -78.3,
-   "n": 150,
-   "kind": "cases",
-   "year": 1975,
-   "finding": "About 150 interviews that named the phenomenon and listed its recurring elements.",
-   "cite": "Moody R. Life After Life. Mockingbird Books, 1975.",
-   "url": "https://www.lifeafterlife.com/",
-   "trigger": "Mixed",
-   "experience_type": "tunnel",
-   "type_label": "Tunnel and light",
-   "scene": {
-    "obe": 1,
-    "peace": 1,
-    "tunnel": 1,
-    "light": 1,
-    "beings": 1,
-    "review": 1,
-    "border": 1,
-    "return": 1
-   },
-   "religion_group": "Not recorded",
-   "religion": "Not recorded",
-   "religion_basis": "unknown",
-   "religion_note": "Moody's interviews did not systematically record religion."
-  },
-  {
-   "id": "ring1980",
-   "name": "Life at Death",
-   "place": "Storrs, Connecticut, USA",
-   "lat": 41.81,
-   "lng": -72.25,
-   "n": 102,
-   "kind": "cases",
-   "year": 1980,
-   "finding": "102 people who came close to death; the five-stage model (peace, body separation, darkness, light, entering the light).",
-   "cite": "Ring K. Life at Death: A Scientific Investigation of the Near-Death Experience. Coward, McCann & Geoghegan, 1980.",
-   "url": "https://iands.org/",
-   "trigger": "Mixed",
-   "experience_type": "tunnel",
-   "type_label": "Tunnel and light",
-   "scene": {
-    "peace": 1,
-    "obe": 1,
-    "tunnel": 1,
-    "light": 1,
-    "beings": 1,
-    "return": 1
-   },
-   "religion_group": "Not recorded",
-   "religion": "Not recorded",
-   "religion_basis": "unknown",
-   "religion_note": "Ring studied religiousness as a variable, but this atlas has not verified his figures and so records nothing here."
-  },
-  {
-   "id": "cassol2019",
-   "name": "Distressing narratives",
-   "place": "Liège, Belgium",
-   "lat": 50.64,
-   "lng": 5.58,
-   "n": 17,
-   "kind": "retrospective",
-   "year": 2019,
-   "finding": "123 accounts from Liege scored 7 or more on the Greyson scale; 17 of them (14%) were distressing: 8 inverse, 8 hellish, 1 void. They do not differ from the other 106 on the transcendental features, the light and the other world score the same, only on the affective ones, where the median falls from 6 to 2. Six of the 17 begin with peace before turning.",
-   "cite": "Cassol H, Martial C, Annen J, et al. A systematic analysis of distressing near-death experience accounts. Memory 2019;27:1122-29.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/31105066/",
-   "trigger": "Mixed",
-   "experience_type": "distressing",
-   "type_label": "Distressing: inverse, hellish or void",
-   "scene": {
-    "peace": 1,
-    "light": 1,
-    "beings": 1,
-    "realm": 1,
-    "tunnel": 1
-   },
-   "scene_note": "Peace and light are present in this walk because the paper found them present: what collapses in a distressing experience is the feeling, not the content. Six of the seventeen accounts open with peace or joy.",
-   "nature": "The 17 come from a coma and intensive-care subgroup of the Liege pool, so the 14% is not a general rate. This cohort overlaps the 154 Liege narratives on the map; the two bubbles are not independent samples.",
-   "walk": [
-    {
-     "key": "peace",
-     "terrain": "torment",
-     "label": "It can begin well",
-     "text": "Six of the seventeen distressing accounts clearly mention positive feelings at the beginning: peacefulness, or joy. Then it turns."
-    },
-    {
-     "key": "tunnel",
-     "terrain": "torment",
-     "label": "The dark",
-     "text": "Darkness, which in the one void account is where the experience stays: an endless emptiness with nobody in it."
-    },
-    {
-     "key": "light",
-     "terrain": "torment",
-     "label": "The light is still there",
-     "text": "These accounts do not differ from the other 106 on the transcendental features. The bright light and the other world score the same. What collapses is the feeling."
-    },
-    {
-     "key": "beings",
-     "terrain": "torment",
-     "label": "Presences",
-     "text": "Eight of the accounts are inverse, where the usual features arrive but feel hostile or wrong. Eight are hellish, with a place of torment."
-    },
-    {
-     "key": "realm",
-     "terrain": "torment",
-     "label": "A place of torment",
-     "text": "On the affective component of the Greyson scale the median falls from six to two. The content is the same; the experience of it is not."
-    }
-   ],
-   "religion_group": "Not recorded",
-   "religion": "Not recorded",
-   "religion_basis": "unknown",
-   "religion_note": "The Liege group recorded Greyson scores and injury type, not religion."
-  },
-  {
-   "id": "nderf_sounds",
-   "name": "NDERF overview of elements",
-   "place": "Online (NDERF website)",
-   "lat": 47.25,
-   "lng": -122.44,
-   "n": 0,
-   "kind": "retrospective",
-   "year": 1999,
-   "finding": "A 1999 NDERF web page listing the elements its editors see recurring, including unusual sounds: 'pleasant, musical, buzzing or ringing'. It publishes no percentages and is an advocacy page rather than research, so it is cited here only for the wording of the sounds element and is kept off the map.",
-   "cite": "Long J. NDE overview. Near Death Experience Research Foundation website, 1999 (archived).",
-   "url": "http://web.archive.org/web/20120115222330/http://www.nderf.org/NDE%20Overview.htm",
-   "trigger": "Mixed",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "no_walk": "A website overview rather than a study. Nothing is measured, so there is nothing to walk.",
-   "off_map": true
-  },
-  {
-   "id": "bailey2001",
-   "name": "Tibetan delok accounts",
-   "place": "Tibetan cultural world (texts at Dharamsala; interviews in Bhutan and Nepal)",
-   "lat": 29.65,
-   "lng": 91.14,
-   "n": 16,
-   "kind": "cases",
-   "year": 2001,
-   "finding": "Deloks ('those who return from the hereafter') are people taken for dead who revive and describe a journey through the Buddhist realms. Bailey compared these accounts with Western NDEs: no tunnel, and the reckoning is public rather than private, a bridge, a scale with black pebbles for sinful deeds against white, and the mirror of existence. They come back carrying a message for the living.",
-   "cite": "Bailey LW. A 'little death': the near-death experience and Tibetan delogs. Journal of Near-Death Studies 2001;19:139-59. The count of 16 accounts (12 texts from the Library of Tibetan Works and Archives, 4 interviews by Francoise Pommaret) is Kellehear's tally, not Bailey's.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799135/",
-   "tradition_from": 1200,
-   "trigger": "Illness",
-   "experience_type": "guided",
-   "type_label": "A guided tour of the realms",
-   "scene": {
-    "beings": 1,
-    "realm": 1,
-    "review": 1,
-    "return": 1,
-    "tunnel": 0
-   },
-   "nature": "Kellehear includes the deloks only 'for the sake of completeness': some had dyings on fasting days, the 10th, 15th and 30th of each month, and local observers took them for epileptics. Bailey's own named case is Sangs Rgyas Chos 'dzom, a twelve-year-old girl in Bhutan shortly after 1650.",
-   "walk": [
-    {
-     "key": "dead",
-     "terrain": "abstract",
-     "label": "Taken for dead",
-     "text": "A delok, 'one who returns from the hereafter', is taken for dead, sometimes for days. Most of them are women."
-    },
-    {
-     "key": "beings",
-     "terrain": "torment",
-     "label": "Guided through the realms",
-     "text": "Guides lead them through the Buddhist realms, hot and cold. Kellehear records no mention of a tunnel in any of these accounts."
-    },
-    {
-     "key": "review",
-     "terrain": "hall",
-     "label": "Weighed in public",
-     "text": "The reckoning is public, not a private replay: a small black demon holds black pebbles for the sinful deeds, a white deity holds white pebbles to weigh against them."
-    },
-    {
-     "key": "border",
-     "border": "bridge",
-     "terrain": "hall",
-     "label": "The bridge, the scale, the mirror",
-     "text": "They watch the judgment of souls with a bridge, a scale, and the mirror of existence, in which what was done is shown."
-    },
-    {
-     "key": "return",
-     "terrain": "garden",
-     "label": "Sent back with a message",
-     "text": "They are judged and given a message to carry back, usually to practise faithfully and to stop causing harm. One twelve-year-old Bhutanese delok's task was to be a messenger between the living and the dead."
-    }
-   ],
-   "religion_group": "Buddhist",
-   "religion": "Tibetan Buddhist",
-   "religion_basis": "stated",
-   "religion_note": "Deloks are led through the Buddhist realms and sent back with a message to practise."
-  },
-  {
-   "id": "plato",
-   "name": "The Myth of Er",
-   "place": "Pamphylia, Anatolia (now Turkey)",
-   "lat": 36.95,
-   "lng": 30.85,
-   "n": 1,
-   "kind": "historical",
-   "year": -380,
-   "finding": "The oldest surviving Western narrative of this shape. Er, a soldier killed in battle, revives on his funeral pyre on the twelfth day and describes leaving the body, a journey to a place of judgment, a pillar of light 'straight as a column, extending right through the whole heaven and through the earth', souls choosing their next lives, and being appointed to carry the report back. He could not say how he returned to the body.",
-   "cite": "Plato. Republic, Book X, c. 380 BC. Benjamin Jowett translation.",
-   "url": "https://www.gutenberg.org/files/1497/1497-h/1497-h.htm#link2H_4_0012",
-   "trigger": "Battle",
-   "experience_type": "journey",
-   "type_label": "A journey, and appointed a witness",
-   "scene": {
-    "obe": 1,
-    "realm": 1,
-    "beings": 1,
-    "border": 1,
-    "return": 1,
-    "tunnel": 0,
-    "review": 0,
-    "light": 1
-   },
-   "nature": "Plato tells this as a tale, not a case report: 'this too is a tale of a hero, Er the son of Armenius, a Pamphylian by birth.' Pinned in Pamphylia because that is where Plato puts Er; the Republic was written in Athens.",
-   "walk": [
-    {
-     "key": "obe",
-     "terrain": "meadow",
-     "label": "Slain in battle",
-     "text": "Er is killed in battle. Ten days later his body is found undecayed. When his soul left the body he went on a journey with a great company."
-    },
-    {
-     "key": "border",
-     "border": "cliff",
-     "terrain": "meadow",
-     "label": "Two openings in the earth",
-     "text": "They reach a place where two openings gape in the earth and two in the heaven above it, with judges seated in the space between."
-    },
-    {
-     "key": "beings",
-     "terrain": "meadow",
-     "label": "The judges",
-     "text": "The just are sent to the right and upward, the unjust to the left and down. Souls come up dusty and worn, or down clean and bright."
-    },
-    {
-     "key": "realm",
-     "terrain": "meadow",
-     "label": "Seven days in the meadow",
-     "text": "They go forth into the meadow and encamp as at a festival. Those who know one another embrace, and each asks the others what they saw."
-    },
-    {
-     "key": "light",
-     "terrain": "meadow",
-     "label": "The pillar of light",
-     "text": "Four days on they see from above a line of light, straight as a column, running through the whole heaven and earth, like the rainbow but brighter and purer."
-    },
-    {
-     "key": "return",
-     "terrain": "meadow",
-     "label": "Appointed the messenger",
-     "text": "He is told he is to be the messenger who carries the report to men. How he returned to the body he could not say. He revives on the funeral pyre."
-    }
-   ],
-   "religion_group": "Greek and Roman",
-   "religion": "Greek polytheism",
-   "religion_basis": "context",
-   "religion_note": "Er's own religion is never stated. The frame is Greek and the judges are unnamed."
-  },
-  {
-   "id": "gregory",
-   "name": "Gregory the Great's Dialogues",
-   "place": "Rome, Italy",
-   "lat": 41.9,
-   "lng": 12.5,
-   "n": 4,
-   "kind": "historical",
-   "year": 593,
-   "finding": "Four accounts in Book IV of people taken for dead who revived. In the best known, Stephen is told he was summoned by mistake, the wrong man of the same name, and is sent back: the same clerical-error motif found in Indian cases fourteen centuries later. Gregory is blunt that it did Stephen no good, 'he did never perfectly amend his former wicked life', and he died again in the Roman plague of 590.",
-   "cite": "Gregory the Great. Dialogues, Book IV, chapters 32 and 37, c. 593. Gardner edition, 1911. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
-   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
-   "trigger": "Illness",
-   "experience_type": "summoned",
-   "type_label": "Summoned by mistake and sent back",
-   "scene": {
-    "realm": 1,
-    "beings": 1,
-    "border": 1,
-    "return": 1,
-    "tunnel": 0,
-    "review": 0,
-    "obe": 1,
-    "light": 1
-   },
-   "scene_note": "Pinned at Rome, where Gregory wrote. The four accounts are set in three places: the desert of Evasa, Constantinople, and Rome.",
-   "walk": [
-    {
-     "key": "dead",
-     "terrain": "abstract",
-     "label": "Stephen dies in Constantinople",
-     "text": "Stephen, in Constantinople on business, falls sick and dies. His soul is carried to the dungeon of hell and he is brought before a judge."
-    },
-    {
-     "key": "error",
-     "terrain": "hall",
-     "label": "The wrong Stephen",
-     "text": "The judge refuses him: 'I commanded not this man to be brought, but Stephen the smith.' He revives, and the smith next door dies at that same hour."
-    },
-    {
-     "key": "obe",
-     "terrain": "abstract",
-     "label": "A soldier dies in the plague",
-     "text": "A soldier at the point of death has his soul carried out of his body so that he lies void of all sense and feeling, then comes quickly to himself again."
-    },
-    {
-     "key": "realm",
-     "terrain": "bridge",
-     "label": "The bridge and the black river",
-     "text": "He sees a bridge under which a black and smoky river runs, with a filthy and intolerable smell."
-    },
-    {
-     "key": "border",
-     "border": "bridge",
-     "terrain": "bridge",
-     "label": "Crossing",
-     "text": "The unjust slip from the bridge into the stink below. The just pass over it unhindered to the far side."
-    },
-    {
-     "key": "realm",
-     "terrain": "garden",
-     "label": "Green meadows beyond",
-     "text": "On the farther side are pleasant green meadows full of sweet flowers, with companies of men walking in them, all apparelled in white."
-    },
-    {
-     "key": "light",
-     "terrain": "city",
-     "label": "The house built of gold",
-     "text": "Mansions stand shining with brightness and light, one of them sumptuous, its bricks seeming to be of gold, and old men, young, girls and boys carry them to the building."
-    },
-    {
-     "key": "beings",
-     "terrain": "bridge",
-     "label": "Stephen on the bridge",
-     "text": "On the same bridge he sees Stephen again, drawn by the legs downward by terrible men out of the river and pulled upward by the arms by white and beautiful persons."
-    },
-    {
-     "key": "return",
-     "terrain": "abstract",
-     "label": "Sent back, and unchanged",
-     "text": "The soldier returns and tells what he saw. Gregory records that Stephen never perfectly amended his life, and died years later in the plague."
-    }
-   ],
-   "religion_group": "Christian",
-   "religion": "Christian, Latin",
-   "religion_basis": "stated",
-   "religion_note": "Gregory is pope when he writes it; the accounts are of Christians."
-  },
-  {
-   "id": "drythelm",
-   "name": "The Vision of Drythelm",
-   "place": "Melrose, Scotland (from Incuneningum, Northumbria)",
-   "lat": 55.5986,
-   "lng": -2.7139,
-   "n": 1,
-   "kind": "historical",
-   "year": 696,
-   "finding": "A Northumbrian householder died of illness, revived at dawn, and described leaving the body and being led by a guide 'with a countenance full of light, and shining raiment' through places of punishment and of light, then sent back. He divided his property in three and lived as a monk at Melrose afterwards. Bede wrote it down about 731, thirty-five years later, from Haemgils, who had questioned him at Melrose.",
-   "cite": "Bede. Ecclesiastical History of the English People, Book V, Chapter XII; event dated c. 696, written c. 731. Revised A. M. Sellar translation, 1907. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
-   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
-   "trigger": "Illness",
-   "experience_type": "guided",
-   "type_label": "A guided tour of the realms",
-   "scene": {
-    "beings": 1,
-    "realm": 1,
-    "light": 1,
-    "border": 1,
-    "return": 1,
-    "tunnel": 0,
-    "review": 0,
-    "obe": 1
-   },
-   "nature": "Pinned at Melrose, the one place in the account that is certainly identified. Bede's 'Incuneningum' has never been agreed on: Cunninghame in Ayrshire, Tyninghame in East Lothian and Chester-le-Street have all been proposed.",
-   "walk": [
-    {
-     "key": "obe",
-     "terrain": "abstract",
-     "label": "Dead at nightfall",
-     "text": "He dies in the beginning of the night and comes to life again at dawn, sitting suddenly up. Only his wife stays with him. A guide with a countenance full of light and shining raiment leads him away."
-    },
-    {
-     "key": "realm",
-     "terrain": "torment",
-     "label": "The valley of flame and hail",
-     "text": "A broad deep valley of infinite length: one side terrible with raging flames, the other with violent hail and cold snows, and souls tossed from one side to the other as by a storm."
-    },
-    {
-     "key": "border",
-     "border": "cliff",
-     "terrain": "torment",
-     "label": "The pit, and the tongs",
-     "text": "The shadows thicken until he can see nothing but the darkness and his guide. Globes of black flame rise from a pit and fall back into it, and laughing spirits come at him with tongs."
-    },
-    {
-     "key": "light",
-     "terrain": "garden",
-     "label": "Out into clear light",
-     "text": "His guide returns, the spirits scatter, and he is brought out of the darkness into an atmosphere of clear light, brighter than the noontide sun."
-    },
-    {
-     "key": "border",
-     "border": "wall",
-     "terrain": "garden",
-     "label": "A wall with no door",
-     "text": "A vast wall stands before them, boundless in length and height, with no door, window or way up. At the wall they are suddenly on top of it."
-    },
-    {
-     "key": "realm",
-     "terrain": "garden",
-     "label": "The flowery field",
-     "text": "Beyond the wall is a wide and pleasant plain full of fragrant flowers, with companies of men in white. He thinks this might be the kingdom of heaven. His guide answers his unspoken thought: it is not."
-    },
-    {
-     "key": "beings",
-     "terrain": "garden",
-     "label": "A brighter light still, and singing",
-     "text": "Farther on he sees a light far more beautiful than before, hears sweet singing, and smells so wonderful a fragrance that the flowery field now seems mean by comparison."
-    },
-    {
-     "key": "return",
-     "terrain": "garden",
-     "label": "Sent back to live differently",
-     "text": "He is not allowed in. He returns and tells his wife he must not live as he was wont, divides his property in three, and takes the tonsure at Melrose."
-    }
-   ],
-   "religion_group": "Christian",
-   "religion": "Christian, Northumbrian",
-   "religion_basis": "stated",
-   "religion_note": "He divides his property and takes the tonsure at Melrose afterwards."
-  },
-  {
-   "id": "tundale",
-   "name": "The Vision of Tundale",
-   "place": "Cork, Ireland",
-   "lat": 51.8985,
-   "lng": -8.4756,
-   "n": 1,
-   "kind": "historical",
-   "year": 1148,
-   "finding": "An Irish knight from Cashel collapses at table in Cork, 'struck by I know not what sudden cause', and lies as dead from the tenth hour of Wednesday to the tenth hour of Saturday. Demons set on his soul before his guardian angel reaches him, and he is led through the otherworld undergoing the torments himself rather than only watching. Written down by Marcus, an Irish monk at Regensburg; one of the most widely copied of the medieval otherworld journeys, translated forty-three times into fifteen languages by the fifteenth century.",
-   "cite": "Marcus of Regensburg. Visio Tnugdali, vision dated 1148, composed shortly after. Wagner critical edition, 1882. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
-   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
-   "trigger": "Sudden collapse",
-   "experience_type": "guided",
-   "type_label": "A guided tour of the realms",
-   "scene": {
-    "beings": 1,
-    "realm": 1,
-    "light": 1,
-    "border": 1,
-    "return": 1,
-    "tunnel": 0,
-    "review": 0,
-    "obe": 1
-   },
-   "nature": "Every surviving manuscript reads 1149, which Wagner shows is an old copying error: the text's own synchronisms, including the death of St Malachy at Clairvaux, fix the vision in 1148.",
-   "walk": [
-    {
-     "key": "dead",
-     "terrain": "abstract",
-     "label": "Struck down at table",
-     "text": "Reaching for his food he cannot bring his hand back to his mouth. He cries out, hands his axe to his companion's wife and says: guard my axe, for I am dying."
-    },
-    {
-     "key": "obe",
-     "terrain": "abstract",
-     "label": "Three days as dead",
-     "text": "He lies dead from the tenth hour of Wednesday to the tenth hour of Saturday. Those who palpated the body felt a slight warmth in the left breast, so burial was delayed."
-    },
-    {
-     "key": "beings",
-     "terrain": "torment",
-     "label": "The angel like a bright star",
-     "text": "Demons set on the soul. Then he sees something coming from far off like a most shining star. It greets him by his own name: Hail, Tnugdal, what are you doing?"
-    },
-    {
-     "key": "realm",
-     "terrain": "torment",
-     "label": "He suffers the torments himself",
-     "text": "He is not only shown the punishments but undergoes very many incredible and intolerable kinds of them. The angel tells him it followed him from birth and he never took its counsel."
-    },
-    {
-     "key": "border",
-     "border": "bridge",
-     "terrain": "torment",
-     "label": "The plank across the valley",
-     "text": "A plank reaches from one mountain to another like a bridge, a thousand paces long and one foot wide. He sees many fall from it; only a pilgrim priest crosses unhurt."
-    },
-    {
-     "key": "border",
-     "border": "bridge",
-     "terrain": "torment",
-     "label": "The bridge of nails",
-     "text": "A second plank, two miles long and a palm wide, is set with the sharpest iron nails that pierce the feet of everyone crossing. Below is a lake of bellowing beasts asking only for souls."
-    },
-    {
-     "key": "light",
-     "terrain": "city",
-     "label": "The silver wall",
-     "text": "A very high and bright wall of silver, with no gate in it, which divine power brings him through. Inside are choirs of saints rejoicing."
-    },
-    {
-     "key": "realm",
-     "terrain": "city",
-     "label": "The wall of purest gold",
-     "text": "A second wall as high as the first, of the purest and most brilliant gold, so that the shine of the metal alone delights more than everything seen before it."
-    },
-    {
-     "key": "return",
-     "terrain": "garden",
-     "label": "He revives before the crowd",
-     "text": "He comes back to his body in front of the clergy and the crowd gathered to bury him."
-    }
-   ],
-   "religion_group": "Christian",
-   "religion": "Christian, Irish",
-   "religion_basis": "stated",
-   "religion_note": "An Irish knight; the vision is written down by a monk at Regensburg."
-  },
-  {
-   "id": "beaufort",
-   "name": "Beaufort's drowning",
-   "place": "Portsmouth, England",
-   "lat": 50.8,
-   "lng": -1.09,
-   "n": 1,
-   "kind": "historical",
-   "year": 1791,
-   "finding": "Francis Beaufort, then a midshipman of 17, fell into Portsmouth harbour and nearly drowned. His account, written in 1825 and published in 1847, describes no pain, calm, and 'every incident of my past life' passing before him: the first detailed first-person life review in English.",
-   "cite": "Beaufort F. Letter to Dr W. H. Wollaston, written 1825, published 1847.",
-   "url": "https://snr.org.uk/captain-beaufort-on-the-sensation-felt-by-drowning-man/",
-   "trigger": "Drowning",
-   "experience_type": "calm",
-   "type_label": "Calm and a life review, without a journey",
-   "scene": {
-    "peace": 1,
-    "review": 1,
-    "obe": 0,
-    "tunnel": 0,
-    "light": 0,
-    "realm": 0
-   },
-   "religion_group": "Not recorded",
-   "religion": "Not recorded",
-   "religion_basis": "unknown",
-   "religion_note": "Beaufort's account of his own drowning says nothing about his religion."
-  },
-  {
-   "id": "heim1892",
-   "name": "Heim's falls",
-   "place": "Zurich, Switzerland",
-   "lat": 47.37,
-   "lng": 8.54,
-   "n": 30,
-   "kind": "historical",
-   "year": 1892,
-   "finding": "The first systematic collection. Albert Heim, a geologist, survived a fall in the Alps and spent 25 years gathering accounts from climbers, soldiers and workers who had fallen. He found about 95% felt no pain or fear, but calm, speeded thought and a review of their lives.",
-   "cite": "Heim A. Notizen uber den Tod durch Absturz. Jahrbuch des Schweizer Alpenclub 1892;27:327-37. Translated by Noyes R, Kletti R, Omega 1972;3:45-52.",
-   "url": "https://www.greenharbor.com/fffolder/ffreading.html",
-   "trigger": "Falls",
-   "experience_type": "calm",
-   "type_label": "Calm and a life review, without a journey",
-   "scene": {
-    "peace": 1,
-    "review": 1,
-    "light": 0,
-    "tunnel": 0,
-    "realm": 0
-   },
-   "religion_group": "Not recorded",
-   "religion": "Not recorded",
-   "religion_basis": "unknown",
-   "religion_note": "Heim collected falls, not beliefs. No religion is recorded for any of the thirty."
-  },
-  {
-   "id": "zaleski1987",
-   "name": "Otherworld Journeys",
-   "place": "Cambridge, Massachusetts, USA",
-   "lat": 42.37,
-   "lng": -71.11,
-   "n": 0,
-   "kind": "historical",
-   "year": 1987,
-   "finding": "The scholarly comparison of medieval and modern accounts. Zaleski found the constants (leaving the body, a guide, a barrier, a return with a changed life) and the differences: medieval journeys are guided tours with judgment and punishment, modern ones are private, warm and without hell.",
-   "cite": "Zaleski C. Otherworld Journeys: Accounts of Near-Death Experience in Medieval and Modern Times. Oxford University Press, 1987.",
-   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
-   "trigger": "Mixed",
-   "experience_type": "mixed",
-   "type_label": "A comparison across eras",
-   "scene_note": "Zaleski's constants rendered as a walk: what medieval and modern accounts share is leaving the body, a guide or companion, another place, a barrier, and a return that changes the life. What they do not share, hell and judgment on one side, warmth and privacy on the other, is left out.",
-   "off_map": true,
-   "no_walk": "A scholarly comparison of many accounts rather than one experience, so there is no single vision to walk and nothing to place on the map. Its findings run through the rest of the atlas."
-  },
-  {
-   "id": "tangshan1992",
-   "name": "Tangshan earthquake survivors",
-   "place": "Tangshan, China",
-   "lat": 39.63,
-   "lng": 118.18,
-   "n": 81,
-   "kind": "retrospective",
-   "year": 1992,
-   "trigger": "Earthquake",
-   "finding": "81 survivors of the 1976 earthquake that killed about 240,000 people were interviewed eleven years after it; 32 (40%) scored 7 or more on the Greyson scale. Most were cognitive or transcendental in type. Item by item, a life review was the second commonest feature at 51%, leaving the body 43%, a tunnel-like dark region 16% and an unnaturally brilliant light 15%.",
-   "cite": "Feng Z, Liu J. Near-death experiences among survivors of the 1976 Tangshan earthquake. Journal of Near-Death Studies 1992;11:39-48.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799015/",
-   "experience_type": "mixed",
-   "type_label": "Measured across many people",
-   "scene": {
-    "obe": 1,
-    "peace": 1,
-    "beings": 1,
-    "tunnel": 1,
-    "review": 1
-   },
-   "scene_note": "Stage strengths here are not the published item rates: Feng and Liu report a life review in 51% of the 32, leaving the body in 43%, a tunnel-like dark region in 16% and a brilliant light in 15%. Kellehear cautions that the tunnel item was offered to respondents as a category rather than volunteered."
-  },
-  {
-   "id": "monchaux1740",
-   "name": "The first medical account",
-   "place": "Paris, France",
-   "lat": 48.86,
-   "lng": 2.35,
-   "n": 1,
-   "kind": "historical",
-   "year": 1740,
-   "trigger": "Illness",
-   "finding": "A French military physician recorded an apothecary who, after heavy bleeding for a fever, lay unconscious and on waking described 'a light so pure and strong he thought he was in paradise', the most pleasant sensation of his life. The oldest known description by a doctor, rediscovered in 2014.",
-   "cite": "du Monchaux PJ. Anecdotes de Medecine, 1740. Rediscovered by Charlier P, Resuscitation 2014;85:e155.",
-   "url": "https://www.researchgate.net/publication/263207147_Oldest_medical_description_of_a_near_death_experience_NDE_France_18th_century",
-   "scene": {
-    "peace": 1,
-    "light": 1
-   },
-   "scene_note": "A single case, with no percentages: the patient described losing all sensation and then a light so pure and strong he thought he was in paradise. Only those two stages are shown, because only those two are in the account.",
-   "experience_type": "calm",
-   "type_label": "Calm and a light, without a journey",
-   "religion_group": "Not recorded",
-   "religion": "Not recorded",
-   "religion_basis": "unknown",
-   "religion_note": "The medical report does not record the patient's religion."
-  },
-  {
-   "id": "green1984",
-   "name": "Chamorro cases, Guam",
-   "place": "Guam",
-   "lat": 13.44,
-   "lng": 144.79,
-   "n": 4,
-   "kind": "cases",
-   "year": 1984,
-   "trigger": "Illness",
-   "finding": "Four Chamorro accounts from Guam, two interviewed by Green himself. No tunnel, no life review. People report leaving the body, flying 'through the clouds' or walking on a road, invisible visits to living relatives in America, and arriving at a gardenlike paradise where they are met by the dead, some of them relatives.",
-   "cite": "Green JT. Near-death experiences in a Chammorro culture. Vital Signs 1984;4(1-2):6-7. Not digitised; every detail here is as summarised in Kellehear A, Census of non-Western near-death experiences to 2005. Journal of Near-Death Studies 2008;26:249-65.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799184/",
-   "experience_type": "journey",
-   "type_label": "A journey across a familiar landscape",
-   "scene": {
-    "obe": 1,
-    "realm": 1,
-    "beings": 1,
-    "return": 1,
-    "tunnel": 0,
-    "review": 0,
-    "light": 0
-   },
-   "nature": "Green's original newsletter article is not available anywhere online; this entry rests entirely on Kellehear's summaries of it.",
-   "walk": [
-    {
-     "key": "obe",
-     "terrain": "abstract",
-     "label": "Out of the body",
-     "text": "The Chamorro accounts begin with leaving the body, which is unusual among the non-Western cases: India and China's do not report it."
-    },
-    {
-     "key": "realm",
-     "terrain": "meadow",
-     "label": "Flying, or walking on a road",
-     "text": "People recount flying through the clouds, or suddenly finding themselves walking on a road. Some make invisible visits to living relatives in America."
-    },
-    {
-     "key": "beings",
-     "terrain": "garden",
-     "label": "Met in a gardenlike place",
-     "text": "They arrive at a paradisiacal place of gardenlike appearance and are met there by the dead, some of whom are relatives."
-    },
-    {
-     "key": "return",
-     "terrain": "garden",
-     "label": "Back again",
-     "text": "They return. There is no tunnel in any of the four accounts and no review of the life. Green's own article has never been digitised; this is as Kellehear summarises it."
-    }
-   ],
-   "religion_group": "Christian",
-   "religion": "Chamorro, predominantly Roman Catholic",
-   "religion_basis": "context",
-   "religion_note": "Demographic only. Kellehear's summary of these four accounts names no religious figures at all."
-  },
-  {
-   "id": "king1985",
-   "name": "A Maori account",
-   "place": "Aotearoa New Zealand",
-   "lat": -38.0,
-   "lng": 176.0,
-   "n": 1,
-   "kind": "cases",
-   "year": 1985,
-   "trigger": "Illness",
-   "finding": "A Maori woman's account recorded by Michael King. She hovers over her own head, leaves the room and flies north over the Waikato, the Manukau and the lands of Ngati Whatua, Ngapuhi, Te Rarawa and Te Aupouri to Te Rerenga Wairua, 'the leaping off place of spirits' at Cape Reinga. A voice stops her there, telling her her time had not come, and she wakes to her living relatives at the bedside. No tunnel, no life review.",
-   "cite": "King M. Being Pakeha: An Encounter with New Zealand and the Maori Renaissance, 1985, pp. 92-94. Quoted in Kellehear A, An Hawaiian near-death experience. Journal of Near-Death Studies 2001;20:31-35.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799181/",
-   "experience_type": "journey",
-   "type_label": "A journey across a familiar landscape",
-   "scene": {
-    "obe": 1,
-    "realm": 1,
-    "beings": 1,
-    "return": 1,
-    "tunnel": 0,
-    "review": 0,
-    "light": 0
-   },
-   "walk": [
-    {
-     "key": "obe",
-     "terrain": "coast",
-     "label": "Hovering over her own head",
-     "text": "In her spirit she hovers over her own head, then leaves the room."
-    },
-    {
-     "key": "realm",
-     "terrain": "coast",
-     "label": "North, over the named land",
-     "text": "She travels north towards the Tail of the Fish, passing over the Waikato River, across the Manukau, over Ngati Whatua, Ngapuhi, Te Rarawa and Te Aupouri."
-    },
-    {
-     "key": "border",
-     "border": "cliff",
-     "terrain": "coast",
-     "label": "Te Rerenga Wairua",
-     "text": "She reaches Te Rerenga Wairua, the leaping off place of spirits at Cape Reinga. She performs ablutions, climbs a ledge and dances before the entrance to the underworld."
-    },
-    {
-     "key": "return",
-     "terrain": "coast",
-     "label": "A voice turns her back",
-     "text": "A voice stops her and tells her that her time has not come, and that she must return until she is called again. She wakes to her anxious living relatives."
-    }
-   ],
-   "religion_group": "Maori",
-   "religion": "Maori",
-   "religion_basis": "stated",
-   "religion_note": "The route is the traditional one to Te Rerenga Wairua, the leaping off place of spirits."
-  },
-  {
-   "id": "kellehear2001hawaii",
-   "name": "A Hawaiian account",
-   "place": "Kona, Hawaii, USA",
-   "lat": 19.64,
-   "lng": -155.99,
-   "n": 1,
-   "kind": "cases",
-   "year": 2001,
-   "trigger": "Illness",
-   "finding": "Kalima, a woman in Kona, in an account from the early 1900s found in a 1907 collection of Hawaiian folk tales: the spirit leaves the body, travels, is met and sent back. Like the Maori and Chamorro cases it has a journey and deceased relatives but no tunnel and no life review, and no mention of light or darkness at all.",
-   "cite": "Kellehear A. An Hawaiian near-death experience. Journal of Near-Death Studies 2001;20:31-35.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799181/",
-   "experience_type": "journey",
-   "type_label": "A journey across a familiar landscape",
-   "scene": {
-    "obe": 1,
-    "realm": 1,
-    "beings": 1,
-    "return": 1,
-    "tunnel": 0,
-    "review": 0,
-    "light": 0
-   },
-   "walk": [
-    {
-     "key": "obe",
-     "terrain": "coast",
-     "label": "The spirit leaves",
-     "text": "Kalima, a woman in Kona, in an account recorded in a 1907 collection of Hawaiian folk tales: her spirit leaves the body."
-    },
-    {
-     "key": "realm",
-     "terrain": "coast",
-     "label": "The journey",
-     "text": "She travels. There is no mention anywhere in the account of light or of darkness, which sets it apart from the Western pattern."
-    },
-    {
-     "key": "beings",
-     "terrain": "coast",
-     "label": "Met by the dead",
-     "text": "She is met by deceased people, as in the Maori and Chamorro accounts. There is no tunnel and no review of her life."
-    },
-    {
-     "key": "return",
-     "terrain": "coast",
-     "label": "Sent back",
-     "text": "She is sent back and revives."
-    }
-   ],
-   "religion_group": "Native Hawaiian",
-   "religion": "Native Hawaiian",
-   "religion_basis": "context",
-   "religion_note": "Kalima's own religion is not stated; the account comes from a 1907 collection of Hawaiian folk tales."
-  },
-  {
-   "id": "kellehear2008census",
-   "name": "Census of non-Western accounts",
-   "place": "Bath, England",
-   "lat": 51.38,
-   "lng": -2.36,
-   "n": 0,
-   "kind": "retrospective",
-   "year": 2008,
-   "trigger": "Mixed",
-   "finding": "A review of every non-Western NDE account published to 2005, restricted to experiences associated with illness. Two features recur everywhere: travelling to another realm, and meeting the dead. The tunnel is absent from the Indian, Tibetan, Chamorro, Native North American and Aboriginal Australian accounts and questionable elsewhere; Kellehear's conclusion is that 'there is no actual tunnel in near-death experiences', only darkness described differently by different cultures. The life review is largely confined to societies with a dominant historic religion.",
-   "cite": "Kellehear A. Census of non-Western near-death experiences to 2005: overview of the current data. Journal of Near-Death Studies 2008;26:249-65.",
-   "url": "https://digital.library.unt.edu/ark:/67531/metadc799184/",
-   "experience_type": "mixed",
-   "type_label": "A review across eleven cultures",
-   "scene": {
-    "realm": 1,
-    "beings": 1,
-    "tunnel": 0,
-    "review": 0
-   },
-   "scene_note": "This is the census's own conclusion rendered as a walk: across every non-Western account published to 2005, two things recur, travelling to another realm and meeting the dead. The tunnel and the life review are left out because neither is cross-cultural, not because no account has them.",
-   "off_map": true
-  },
-  {
-   "id": "negovsky1943",
-   "name": "Soviet resuscitation and 'clinical death'",
-   "place": "Moscow, Russia",
-   "lat": 55.75,
-   "lng": 37.62,
-   "n": 0,
-   "kind": "historical",
-   "year": 1943,
-   "trigger": "Battle",
-   "finding": "Vladimir Negovsky founded reanimatology and ran front-line resuscitation teams in the Second World War, reviving more than 40 wounded men, some clinically dead from blood loss. He named 'clinical death', the reversible period without circulation. Mass survival of clinical death is what made modern NDE research possible; his own work did not record the experiences.",
-   "cite": "Negovsky VA, work from 1943 onward; see Safar P, Vladimir A. Negovsky, the father of reanimatology. Resuscitation 2002;53:111-13.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/12009211/",
-   "experience_type": "mixed",
-   "type_label": "No experiences recorded",
-   "no_walk": "Negovsky revived people but did not record what they experienced. Nothing here to walk, and inventing one would be a lie about his work."
-  },
-  {
-   "id": "brazil_nupes",
-   "name": "Brazilian research",
-   "place": "Juiz de Fora and Sao Paulo, Brazil",
-   "lat": -21.76,
-   "lng": -43.35,
-   "n": 0,
-   "kind": "retrospective",
-   "year": 2010,
-   "trigger": "Mixed",
-   "finding": "Brazil has the largest Spiritist population in the world and a long research tradition into mediumship, out-of-body and near-death experiences, centred on NUPES at the Federal University of Juiz de Fora. The largest relevant survey, Monteiro de Barros and colleagues, asked 1,053 Brazilians about sixteen spiritual and religious experiences including near-death ones: 92% reported at least one in their lifetime and half had felt the presence of a dead person. The paper is paywalled and its near-death figure is not in the abstract, so this atlas has no Brazilian near-death rate to show. A single Brazilian case scored on the Greyson scale is published in open access.",
-   "cite": "Monteiro de Barros MC et al. Prevalence of spiritual and religious experiences in the general population: a Brazilian nationwide study. Transcultural Psychiatry 2025;62:422-36. Case report: Braghetta CC et al. Trends in Psychiatry and Psychotherapy 2013;35:81-4.",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/35382640/",
-   "experience_type": "mixed",
-   "type_label": "Review, no figures published",
-   "no_walk": "A survey of spiritual and religious experiences rather than a near-death study, and the near-death figure inside it is behind a paywall. Nothing to walk until a Brazilian rate is published openly.",
-   "nature": "An online convenience sample of 1,053 people, so 'nationwide' in reach but not a population prevalence the way a household survey would be."
-  },
-  {
    "id": "gilgamesh",
    "name": "Enkidu's dream of the House of the Dust",
    "place": "Uruk, Mesopotamia (Iraq)",
@@ -1634,6 +489,76 @@
    "religion_note": "Herodotus describes the Getai sending a messenger to Salmoxis every fourth year."
   },
   {
+   "id": "plato",
+   "name": "The Myth of Er",
+   "place": "Pamphylia, Anatolia (now Turkey)",
+   "lat": 36.95,
+   "lng": 30.85,
+   "n": 1,
+   "kind": "historical",
+   "year": -380,
+   "finding": "The oldest surviving Western narrative of this shape. Er, a soldier killed in battle, revives on his funeral pyre on the twelfth day and describes leaving the body, a journey to a place of judgment, a pillar of light 'straight as a column, extending right through the whole heaven and through the earth', souls choosing their next lives, and being appointed to carry the report back. He could not say how he returned to the body.",
+   "cite": "Plato. Republic, Book X, c. 380 BC. Benjamin Jowett translation.",
+   "url": "https://www.gutenberg.org/files/1497/1497-h/1497-h.htm#link2H_4_0012",
+   "trigger": "Battle",
+   "experience_type": "journey",
+   "type_label": "A journey, and appointed a witness",
+   "scene": {
+    "obe": 1,
+    "realm": 1,
+    "beings": 1,
+    "border": 1,
+    "return": 1,
+    "tunnel": 0,
+    "review": 0,
+    "light": 1
+   },
+   "nature": "Plato tells this as a tale, not a case report: 'this too is a tale of a hero, Er the son of Armenius, a Pamphylian by birth.' Pinned in Pamphylia because that is where Plato puts Er; the Republic was written in Athens.",
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "meadow",
+     "label": "Slain in battle",
+     "text": "Er is killed in battle. Ten days later his body is found undecayed. When his soul left the body he went on a journey with a great company."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "meadow",
+     "label": "Two openings in the earth",
+     "text": "They reach a place where two openings gape in the earth and two in the heaven above it, with judges seated in the space between."
+    },
+    {
+     "key": "beings",
+     "terrain": "meadow",
+     "label": "The judges",
+     "text": "The just are sent to the right and upward, the unjust to the left and down. Souls come up dusty and worn, or down clean and bright."
+    },
+    {
+     "key": "realm",
+     "terrain": "meadow",
+     "label": "Seven days in the meadow",
+     "text": "They go forth into the meadow and encamp as at a festival. Those who know one another embrace, and each asks the others what they saw."
+    },
+    {
+     "key": "light",
+     "terrain": "meadow",
+     "label": "The pillar of light",
+     "text": "Four days on they see from above a line of light, straight as a column, running through the whole heaven and earth, like the rainbow but brighter and purer."
+    },
+    {
+     "key": "return",
+     "terrain": "meadow",
+     "label": "Appointed the messenger",
+     "text": "He is told he is to be the messenger who carries the report to men. How he returned to the body he could not say. He revives on the funeral pyre."
+    }
+   ],
+   "religion_group": "Greek and Roman",
+   "religion": "Greek polytheism",
+   "religion_basis": "context",
+   "religion_note": "Er's own religion is never stated. The frame is Greek and the judges are unnamed."
+  },
+  {
    "id": "thespesius",
    "name": "Thespesius of Soli",
    "place": "Soli, Cilicia (Turkey)",
@@ -1751,6 +676,546 @@
    "religion": "Greek and Roman polytheism",
    "religion_basis": "context",
    "religion_note": "Thespesius's own religion is not stated. Plutarch, who tells it, was a priest of Apollo at Delphi."
+  },
+  {
+   "id": "visiopauli",
+   "name": "The Apocalypse of Paul",
+   "place": "Eastern Mediterranean",
+   "lat": 31.2,
+   "lng": 29.92,
+   "year": 380,
+   "n": 1,
+   "kind": "historical",
+   "trigger": "None: a visionary ascent",
+   "nature": "Not a near-death account. Nobody is taken for dead: Paul is caught up alive, and the text deliberately refuses to settle whether his body went with him, quoting 2 Corinthians: whether in the body I know not, or whether out of the body I know not. The deaths he watches are other people's. Only a Syriac appendix has him return, and James doubts it is original.",
+   "experience_type": "guided",
+   "type_label": "A living man shown both places",
+   "scene": {
+    "beings": 1,
+    "realm": 1,
+    "light": 1,
+    "border": 1,
+    "review": 1,
+    "obe": 1,
+    "tunnel": 0,
+    "return": 0
+   },
+   "finding": "Caught up in the spirit to the third heaven, with the text refusing to say whether in the body or out of it. He is shown the deaths of a righteous and a sinful soul, the golden gate with its pillars of golden letters, the land of promise where the earth is seven times brighter than silver, a river of milk and honey, the city of Christ with twelve walls, then a river of fire, pits three thousand cubits deep and a well sealed with seven seals.",
+   "cite": "Apocalypse of Paul, 4th century. M. R. James, The Apocryphal New Testament, Oxford 1924, pp. 525-555.",
+   "url": "https://archive.org/details/apocryphalnewtes0000mont",
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Caught up, body or not",
+     "text": "Whether in the body I know not, or whether out of the body I know not, God knows: such a one was caught up to the third heaven. The Syriac adds that he was caught up in the spirit and carried there."
+    },
+    {
+     "key": "beings",
+     "terrain": "abstract",
+     "label": "Angels without mercy",
+     "text": "Beneath the firmament he sees angels without mercy, having no pity, their countenances full of fury, their teeth sticking out of their mouths, and sparks of fire going out of their hair and their mouths."
+    },
+    {
+     "key": "review",
+     "terrain": "abstract",
+     "label": "A good man's works stand before him",
+     "text": "At a righteous man's death all the works he had done for the name of God, and all his desires which he remembered and which he remembered not, stand before his face in the hour of necessity."
+    },
+    {
+     "key": "ledger",
+     "terrain": "hall",
+     "label": "The writing of the sins",
+     "text": "Before the judge, the angel of a sinful soul comes with a writing in his hands: these, Lord, are all the sins of this soul from its youth up until this day, even from ten years from its birth."
+    },
+    {
+     "key": "border",
+     "border": "gate",
+     "terrain": "city",
+     "label": "The golden gate",
+     "text": "He is set before a gate of gold with two pillars of gold full of golden letters. These are the names of the righteous that minister to God with their whole heart, while they are yet on earth."
+    },
+    {
+     "key": "beings",
+     "terrain": "garden",
+     "label": "Enoch, then Elias",
+     "text": "Inside the gate he meets Enoch, the scribe of righteousness, and then Elias. They embrace him, and weep that so few take hold of the promises."
+    },
+    {
+     "key": "realm",
+     "terrain": "meadow",
+     "label": "The land of promise",
+     "text": "Brought down past the firmament and out beyond the Ocean, he is told: this is the land of promise. There the earth was seven times brighter than silver."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "A river of milk and honey",
+     "text": "He looks round that land and sees a river flowing with milk and honey, with trees planted at the brink of it, full of fruits: every tree bearing twelve fruits in the year."
+    },
+    {
+     "key": "border",
+     "terrain": "coast",
+     "label": "The lake Acherusa",
+     "text": "He is set in a golden ship on the lake Acherusa, whose water is whiter than milk, where Michael washes the repentant before bringing them in to the city of Christ."
+    },
+    {
+     "key": "realm",
+     "terrain": "city",
+     "label": "The city of Christ",
+     "text": "The city is all of gold, with twelve walls, twelve towers and twelve gates, ringed by four rivers: honey called Phison, milk Euphrates, oil Geon and wine Tigris."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "abstract",
+     "label": "By the way of the sunsetting",
+     "text": "He is taken by the way of the sunsetting. When he is come beyond the ocean he looks, and there is no light in that place, but darkness and sorrow and sadness. And he sighed."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "The river of fire",
+     "text": "A river of fire burning with heat, and in it a multitude of men and women sunk up to the knees, others up to the navel, others up to the lips and others up to the hair. Each depth answers a sin."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "Pits three thousand cubits deep",
+     "text": "He sees pits exceeding deep: the depth of that place was as it were three thousand cubits. Hardly after five hundred years do they come at the bottom."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "The well of seven seals",
+     "text": "He is set over a well and finds it sealed with seven seals. Opened, it stinks worse than all the torments. Inside are masses of fire burning on every side, and the mouth so strait as to take but one man in."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "The worm that sleeps not",
+     "text": "Further north and west is a place where there is nothing else but cold and snow, and there lies the worm that sleeps not, of the measure of one cubit, and on them were two heads."
+    },
+    {
+     "key": "beings",
+     "terrain": "torment",
+     "label": "Michael comes down",
+     "text": "The heaven opens and Michael the archangel comes down out of heaven, and with him all the host of angels. For Paul's sake the damned are granted refreshment for a day and a night, for ever."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "Paradise, and the tree of life",
+     "text": "In Paradise he sees the head of the waters and the four rivers named by their lands, Phison, Geon, Tigris and Euphrates, and is shown the tree of life."
+    },
+    {
+     "key": "light",
+     "terrain": "garden",
+     "label": "Mary, with two hundred before her",
+     "text": "A virgin comes from afar off, with two hundred angels before her singing hymns, and salutes him by name. This is Mary the virgin, the mother of the Lord."
+    },
+    {
+     "key": "return",
+     "terrain": "garden",
+     "label": "Where the text stops",
+     "text": "The Greek, Latin and Syriac all break off inside Elijah's speech. Only a Syriac appendix adds a return: and I, Paul, returned to myself, and I knew all that I had seen. James doubts it is the original ending."
+    }
+   ],
+   "religion_group": "Christian",
+   "religion": "Christian",
+   "religion_basis": "stated",
+   "religion_note": "The vision is framed by 2 Corinthians and guided by an angel of Christ."
+  },
+  {
+   "id": "gregory",
+   "name": "Gregory the Great's Dialogues",
+   "place": "Rome, Italy",
+   "lat": 41.9,
+   "lng": 12.5,
+   "n": 4,
+   "kind": "historical",
+   "year": 593,
+   "finding": "Four accounts in Book IV of people taken for dead who revived. In the best known, Stephen is told he was summoned by mistake, the wrong man of the same name, and is sent back: the same clerical-error motif found in Indian cases fourteen centuries later. Gregory is blunt that it did Stephen no good, 'he did never perfectly amend his former wicked life', and he died again in the Roman plague of 590.",
+   "cite": "Gregory the Great. Dialogues, Book IV, chapters 32 and 37, c. 593. Gardner edition, 1911. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
+   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
+   "trigger": "Illness",
+   "experience_type": "summoned",
+   "type_label": "Summoned by mistake and sent back",
+   "scene": {
+    "realm": 1,
+    "beings": 1,
+    "border": 1,
+    "return": 1,
+    "tunnel": 0,
+    "review": 0,
+    "obe": 1,
+    "light": 1
+   },
+   "scene_note": "Pinned at Rome, where Gregory wrote. The four accounts are set in three places: the desert of Evasa, Constantinople, and Rome.",
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "Stephen dies in Constantinople",
+     "text": "Stephen, in Constantinople on business, falls sick and dies. His soul is carried to the dungeon of hell and he is brought before a judge."
+    },
+    {
+     "key": "error",
+     "terrain": "hall",
+     "label": "The wrong Stephen",
+     "text": "The judge refuses him: 'I commanded not this man to be brought, but Stephen the smith.' He revives, and the smith next door dies at that same hour."
+    },
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "A soldier dies in the plague",
+     "text": "A soldier at the point of death has his soul carried out of his body so that he lies void of all sense and feeling, then comes quickly to himself again."
+    },
+    {
+     "key": "realm",
+     "terrain": "bridge",
+     "label": "The bridge and the black river",
+     "text": "He sees a bridge under which a black and smoky river runs, with a filthy and intolerable smell."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "bridge",
+     "label": "Crossing",
+     "text": "The unjust slip from the bridge into the stink below. The just pass over it unhindered to the far side."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "Green meadows beyond",
+     "text": "On the farther side are pleasant green meadows full of sweet flowers, with companies of men walking in them, all apparelled in white."
+    },
+    {
+     "key": "light",
+     "terrain": "city",
+     "label": "The house built of gold",
+     "text": "Mansions stand shining with brightness and light, one of them sumptuous, its bricks seeming to be of gold, and old men, young, girls and boys carry them to the building."
+    },
+    {
+     "key": "beings",
+     "terrain": "bridge",
+     "label": "Stephen on the bridge",
+     "text": "On the same bridge he sees Stephen again, drawn by the legs downward by terrible men out of the river and pulled upward by the arms by white and beautiful persons."
+    },
+    {
+     "key": "return",
+     "terrain": "abstract",
+     "label": "Sent back, and unchanged",
+     "text": "The soldier returns and tells what he saw. Gregory records that Stephen never perfectly amended his life, and died years later in the plague."
+    }
+   ],
+   "religion_group": "Christian",
+   "religion": "Christian, Latin",
+   "religion_basis": "stated",
+   "religion_note": "Gregory is pope when he writes it; the accounts are of Christians."
+  },
+  {
+   "id": "fursa",
+   "name": "The visions of Fursa",
+   "place": "Cnobheresburg (Burgh Castle), East Anglia",
+   "lat": 52.583,
+   "lng": 1.651,
+   "n": 1,
+   "kind": "historical",
+   "year": 633,
+   "finding": "An Irish preacher among the East Angles fell sick and saw angels. In a later vision he was taken up on high and bidden to look back at the world: below him lay a dark valley, and in the air four fires, which the angels named as falsehood, covetousness, discord and cruelty, the fires that would consume the world. He recovered, and built his monastery inside an old fort in the woods near the sea.",
+   "cite": "Bede. Ecclesiastical History of the English People, Book III, Chapter XIX; dated c. 633. Revised A. M. Sellar translation, 1907, after Giles and Stevens. Project Gutenberg.",
+   "url": "https://www.gutenberg.org/cache/epub/38326/pg38326.txt",
+   "trigger": "Illness",
+   "experience_type": "guided",
+   "type_label": "Taken up, and shown",
+   "religion_group": "Christian",
+   "religion": "Christian, Irish",
+   "religion_basis": "stated",
+   "religion_note": "An Irish monk preaching in East Anglia; the figures that conduct him are angels.",
+   "nature": "Fursa recovers and lives on, so this is a return, unlike the two Bede accounts that follow it here. Bede says his uncorrupted flesh was later taken as testimony to his sanctity.",
+   "scene": {
+    "obe": 1,
+    "realm": 1,
+    "beings": 1,
+    "review": 1,
+    "return": 1,
+    "tunnel": 0,
+    "light": 0
+   },
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "Sick among the East Angles",
+     "text": "Preaching in the province of the East Angles he fell into some infirmity of body, and was thought worthy to see a vision of angels, admonishing him that his end was certain but its hour uncertain."
+    },
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Taken up on high",
+     "text": "When he had been taken up on high, he was bidden by the angels that conducted him to look back upon the world."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "A dark valley beneath",
+     "text": "Casting his eyes downward, he saw, as it were, a dark valley in the depths underneath him."
+    },
+    {
+     "key": "review",
+     "terrain": "torment",
+     "label": "Four fires in the air",
+     "text": "He saw four fires in the air, not far distant from each other, and was told they were the fires which would kindle and consume the world: falsehood, covetousness, discord and cruelty."
+    },
+    {
+     "key": "return",
+     "terrain": "abstract",
+     "label": "Confirmed, and sent to work",
+     "text": "Being confirmed by this vision he set himself with all speed to build a monastery, pleasantly situated in the woods near the sea, within the area of a fort called Cnobheresburg."
+    }
+   ]
+  },
+  {
+   "id": "drythelm",
+   "name": "The Vision of Drythelm",
+   "place": "Melrose, Scotland (from Incuneningum, Northumbria)",
+   "lat": 55.5986,
+   "lng": -2.7139,
+   "n": 1,
+   "kind": "historical",
+   "year": 696,
+   "finding": "A Northumbrian householder died of illness, revived at dawn, and described leaving the body and being led by a guide 'with a countenance full of light, and shining raiment' through places of punishment and of light, then sent back. He divided his property in three and lived as a monk at Melrose afterwards. Bede wrote it down about 731, thirty-five years later, from Haemgils, who had questioned him at Melrose.",
+   "cite": "Bede. Ecclesiastical History of the English People, Book V, Chapter XII; event dated c. 696, written c. 731. Revised A. M. Sellar translation, 1907. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
+   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
+   "trigger": "Illness",
+   "experience_type": "guided",
+   "type_label": "A guided tour of the realms",
+   "scene": {
+    "beings": 1,
+    "realm": 1,
+    "light": 1,
+    "border": 1,
+    "return": 1,
+    "tunnel": 0,
+    "review": 0,
+    "obe": 1
+   },
+   "nature": "Pinned at Melrose, the one place in the account that is certainly identified. Bede's 'Incuneningum' has never been agreed on: Cunninghame in Ayrshire, Tyninghame in East Lothian and Chester-le-Street have all been proposed.",
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Dead at nightfall",
+     "text": "He dies in the beginning of the night and comes to life again at dawn, sitting suddenly up. Only his wife stays with him. A guide with a countenance full of light and shining raiment leads him away."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "The valley of flame and hail",
+     "text": "A broad deep valley of infinite length: one side terrible with raging flames, the other with violent hail and cold snows, and souls tossed from one side to the other as by a storm."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "torment",
+     "label": "The pit, and the tongs",
+     "text": "The shadows thicken until he can see nothing but the darkness and his guide. Globes of black flame rise from a pit and fall back into it, and laughing spirits come at him with tongs."
+    },
+    {
+     "key": "light",
+     "terrain": "garden",
+     "label": "Out into clear light",
+     "text": "His guide returns, the spirits scatter, and he is brought out of the darkness into an atmosphere of clear light, brighter than the noontide sun."
+    },
+    {
+     "key": "border",
+     "border": "wall",
+     "terrain": "garden",
+     "label": "A wall with no door",
+     "text": "A vast wall stands before them, boundless in length and height, with no door, window or way up. At the wall they are suddenly on top of it."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "The flowery field",
+     "text": "Beyond the wall is a wide and pleasant plain full of fragrant flowers, with companies of men in white. He thinks this might be the kingdom of heaven. His guide answers his unspoken thought: it is not."
+    },
+    {
+     "key": "beings",
+     "terrain": "garden",
+     "label": "A brighter light still, and singing",
+     "text": "Farther on he sees a light far more beautiful than before, hears sweet singing, and smells so wonderful a fragrance that the flowery field now seems mean by comparison."
+    },
+    {
+     "key": "return",
+     "terrain": "garden",
+     "label": "Sent back to live differently",
+     "text": "He is not allowed in. He returns and tells his wife he must not live as he was wont, divides his property in three, and takes the tonsure at Melrose."
+    }
+   ],
+   "religion_group": "Christian",
+   "religion": "Christian, Northumbrian",
+   "religion_basis": "stated",
+   "religion_note": "He divides his property and takes the tonsure at Melrose afterwards."
+  },
+  {
+   "id": "mercian_thegn",
+   "name": "The thegn and the two books",
+   "place": "Mercia (province only; pinned at Tamworth)",
+   "lat": 52.633,
+   "lng": -1.695,
+   "n": 1,
+   "kind": "historical",
+   "year": 707,
+   "finding": "A king's thegn under Coenred of Mercia, repeatedly urged to repent and always deferring. Sick and in great pain, he told the king what he had seen: two fair youths who showed him a small and beautiful book holding all the good he had ever done, which was very little; then an army of hideous spirits whose chief produced a book of monstrous size and almost insupportable weight, in which every crime he had committed was written, even in the least thought. He died.",
+   "cite": "Bede. Ecclesiastical History of the English People, Book V, Chapter XIII; dated 704-709, from Bishop Pechthelm. Revised A. M. Sellar translation, 1907, after Giles and Stevens. Project Gutenberg.",
+   "url": "https://www.gutenberg.org/cache/epub/38326/pg38326.txt",
+   "trigger": "Illness",
+   "experience_type": "distressing",
+   "type_label": "Shown the record, and taken",
+   "religion_group": "Christian",
+   "religion": "Christian, Mercian",
+   "religion_basis": "stated",
+   "religion_note": "A Christian king's thegn, rebuked by his king for deferring confession; the figures are angels and devils.",
+   "nature": "Not a return. He saw this at the point of death and died without repenting, and Bede tells it as a warning. Bede notes the white book was small and the black one great because the man's few good actions were obscured by the evil of his youth.",
+   "scene": {
+    "beings": 1,
+    "review": 1,
+    "realm": 1,
+    "border": 1,
+    "return": 0,
+    "tunnel": 0,
+    "light": 0,
+    "obe": 0,
+    "peace": 0
+   },
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "He will repent later",
+     "text": "Falling sick he took to his bed and was tormented with grievous pains. The king, who loved him, urged him even then to repent. He answered that he would confess when he had recovered, lest his companions upbraid him for doing it out of fear."
+    },
+    {
+     "key": "beings",
+     "terrain": "abstract",
+     "label": "Two fair youths",
+     "text": "There came into this room two fair youths, and sat down by me, the one at my head, and the other at my feet."
+    },
+    {
+     "key": "ledger",
+     "terrain": "hall",
+     "label": "The small beautiful book",
+     "text": "One of them drew forth a book most beautiful, but very small, and gave it me to read. Looking into it, I there found all the good actions I had ever done in my life written down, and they were very few and inconsiderable. They took back the book and said nothing to me."
+    },
+    {
+     "key": "beings",
+     "terrain": "torment",
+     "label": "The house fills",
+     "text": "Then, on a sudden, appeared an army of evil spirits of hideous countenance, and they beset this house without, and sitting down filled the greater part of it within."
+    },
+    {
+     "key": "ledger",
+     "terrain": "hall",
+     "label": "A book of monstrous size",
+     "text": "Their chief took out a book terrible to behold, of a monstrous size and of almost insupportable weight. I found therein most plainly written, in hideous characters, all the crimes I ever committed, not only in word and deed, but even in the least thought."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "torment",
+     "label": "The ploughshares",
+     "text": "They said: take him and lead him away. Two wicked spirits arose with ploughshares in their hands, and one struck me on the head and the other on the foot, and they are now with great torment creeping into the inward parts of my body. As soon as they meet I shall die."
+    }
+   ]
+  },
+  {
+   "id": "bede_craftsman",
+   "name": "The craftsman who saw hell open",
+   "place": "A monastery in Northumbria, unnamed (pinned at Jarrow)",
+   "lat": 54.98,
+   "lng": -1.472,
+   "n": 1,
+   "kind": "historical",
+   "year": 731,
+   "finding": "Bede says he knew the man himself: a skilled craftsman in a famous monastery who lived badly, given to drunkenness, and more often in his workshop day and night than in church. Falling sick and brought to extremity he told the brethren, lamenting, that he saw hell opened, Satan sunk in its depths, and Caiaphas and the others who killed Christ beside him in the flames, with a place of eternal perdition prepared for himself. Urged to repent, he answered that there was no time left, since he had seen his judgment already passed. He died without the viaticum.",
+   "cite": "Bede. Ecclesiastical History of the English People, Book V, Chapter XIV; written c. 731, from Bede's own acquaintance. Revised A. M. Sellar translation, 1907, after Giles and Stevens. Project Gutenberg.",
+   "url": "https://www.gutenberg.org/cache/epub/38326/pg38326.txt",
+   "trigger": "Illness",
+   "experience_type": "distressing",
+   "type_label": "Hell seen, and no reprieve",
+   "religion_group": "Christian",
+   "religion": "Christian, Northumbrian",
+   "religion_basis": "stated",
+   "religion_note": "A monk of a Northumbrian monastery, which Bede declines to name, as he declines to name the man.",
+   "nature": "Not a return, and the bleakest account on this map. Bede records it as a warning and says plainly that the man died in despair. Bede does not name the monastery, so the pin is his own at Jarrow rather than a stated place.",
+   "scene": {
+    "realm": 1,
+    "beings": 1,
+    "border": 1,
+    "return": 0,
+    "tunnel": 0,
+    "light": 0,
+    "obe": 0,
+    "peace": 0,
+    "review": 0
+   },
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "Brought to extremity",
+     "text": "A cunning artificer, often rebuked and long borne with for the sake of his work, much given to drunkenness, and more used to stop in his workshop day and night than to go to church. Falling sick, he was brought to extremity."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "Hell opened",
+     "text": "He called the brethren and with much lamentation, like one damned, began to tell them that he saw hell opened, and Satan sunk in the depths thereof."
+    },
+    {
+     "key": "beings",
+     "terrain": "torment",
+     "label": "Caiaphas, in the flames",
+     "text": "And Caiaphas, with the others that slew our Lord, hard by him, delivered up to avenging flames."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "torment",
+     "label": "A place prepared",
+     "text": "In whose neighbourhood, said he, I see a place of eternal perdition prepared for me, miserable wretch that I am."
+    },
+    {
+     "key": "review",
+     "terrain": "torment",
+     "label": "No time left",
+     "text": "The brethren exhorted him to repent while he was still in the flesh. He answered in despair: there is no time for me now to change my course of life, when I have myself seen my judgement passed. Uttering these words, he died."
+    }
+   ]
+  },
+  {
+   "id": "nihonryoiki",
+   "name": "Japan's oldest return-from-death tales",
+   "place": "Nara, Japan",
+   "lat": 34.69,
+   "lng": 135.8,
+   "year": 822,
+   "n": 116,
+   "kind": "historical",
+   "trigger": "Illness",
+   "nature": "Listed, not walked. The tales exist and are early, but nothing in them can be quoted here yet. The honest fix is a fresh translation from the public-domain original, which this atlas has not made.",
+   "experience_type": "summoned",
+   "type_label": "Listed, not walked",
+   "finding": "The Nihon Ryoiki of 822 collects Japan's earliest return-from-death stories, in which people are taken by the messengers of King Emma and sent back. The ninth-century original is out of copyright, but the only English translations, Nakamura 1973 and Watson 2013, are not, and no open text of either exists. Rather than paraphrase a translation this atlas cannot quote, the entry stays empty and says so.",
+   "cite": "Nihon Ryoiki, 822 CE. English translations: Nakamura K, Miraculous Stories from the Japanese Buddhist Tradition, 1973; Watson B, Record of Miraculous Events in Japan, 2013. Neither is available in open text.",
+   "url": "https://www.britannica.com/topic/Nihon-ryoiki",
+   "no_walk": "No English translation of these tales is free to quote, and this atlas will not reconstruct a vision from memory. The Konjaku Monogatarishu of about 1120 retells many of the same stories and is also out of copyright; both are waiting on a translation that can be published here.",
+   "religion_group": "Buddhist",
+   "religion": "Japanese Buddhist",
+   "religion_basis": "stated",
+   "religion_note": "People are taken by the messengers of King Emma, the Buddhist judge of the dead."
   },
   {
    "id": "ardaviraf",
@@ -1916,28 +1381,6 @@
    "religion_note": "He is chosen by lot by the Dasturs of the religion to settle a doctrinal dispute."
   },
   {
-   "id": "nihonryoiki",
-   "name": "Japan's oldest return-from-death tales",
-   "place": "Nara, Japan",
-   "lat": 34.69,
-   "lng": 135.8,
-   "year": 822,
-   "n": 116,
-   "kind": "historical",
-   "trigger": "Illness",
-   "nature": "Listed, not walked. The tales exist and are early, but nothing in them can be quoted here yet. The honest fix is a fresh translation from the public-domain original, which this atlas has not made.",
-   "experience_type": "summoned",
-   "type_label": "Listed, not walked",
-   "finding": "The Nihon Ryoiki of 822 collects Japan's earliest return-from-death stories, in which people are taken by the messengers of King Emma and sent back. The ninth-century original is out of copyright, but the only English translations, Nakamura 1973 and Watson 2013, are not, and no open text of either exists. Rather than paraphrase a translation this atlas cannot quote, the entry stays empty and says so.",
-   "cite": "Nihon Ryoiki, 822 CE. English translations: Nakamura K, Miraculous Stories from the Japanese Buddhist Tradition, 1973; Watson B, Record of Miraculous Events in Japan, 2013. Neither is available in open text.",
-   "url": "https://www.britannica.com/topic/Nihon-ryoiki",
-   "no_walk": "No English translation of these tales is free to quote, and this atlas will not reconstruct a vision from memory. The Konjaku Monogatarishu of about 1120 retells many of the same stories and is also out of copyright; both are waiting on a translation that can be published here.",
-   "religion_group": "Buddhist",
-   "religion": "Japanese Buddhist",
-   "religion_basis": "stated",
-   "religion_note": "People are taken by the messengers of King Emma, the Buddhist judge of the dead."
-  },
-  {
    "id": "taiping",
    "name": "Li E, who revived in her coffin",
    "place": "Kaifeng, China",
@@ -2012,153 +1455,908 @@
    "religion_note": "A Director of Destinies and a Household Bureau: the afterlife as a civil service."
   },
   {
-   "id": "visiopauli",
-   "name": "The Apocalypse of Paul",
-   "place": "Eastern Mediterranean",
-   "lat": 31.2,
-   "lng": 29.92,
-   "year": 380,
+   "id": "tundale",
+   "name": "The Vision of Tundale",
+   "place": "Cork, Ireland",
+   "lat": 51.8985,
+   "lng": -8.4756,
    "n": 1,
    "kind": "historical",
-   "trigger": "None: a visionary ascent",
-   "nature": "Not a near-death account. Nobody is taken for dead: Paul is caught up alive, and the text deliberately refuses to settle whether his body went with him, quoting 2 Corinthians: whether in the body I know not, or whether out of the body I know not. The deaths he watches are other people's. Only a Syriac appendix has him return, and James doubts it is original.",
+   "year": 1148,
+   "finding": "An Irish knight from Cashel collapses at table in Cork, 'struck by I know not what sudden cause', and lies as dead from the tenth hour of Wednesday to the tenth hour of Saturday. Demons set on his soul before his guardian angel reaches him, and he is led through the otherworld undergoing the torments himself rather than only watching. Written down by Marcus, an Irish monk at Regensburg; one of the most widely copied of the medieval otherworld journeys, translated forty-three times into fifteen languages by the fifteenth century.",
+   "cite": "Marcus of Regensburg. Visio Tnugdali, vision dated 1148, composed shortly after. Wagner critical edition, 1882. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
+   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
+   "trigger": "Sudden collapse",
    "experience_type": "guided",
-   "type_label": "A living man shown both places",
+   "type_label": "A guided tour of the realms",
    "scene": {
     "beings": 1,
     "realm": 1,
     "light": 1,
     "border": 1,
-    "review": 1,
-    "obe": 1,
+    "return": 1,
     "tunnel": 0,
-    "return": 0
+    "review": 0,
+    "obe": 1
    },
-   "finding": "Caught up in the spirit to the third heaven, with the text refusing to say whether in the body or out of it. He is shown the deaths of a righteous and a sinful soul, the golden gate with its pillars of golden letters, the land of promise where the earth is seven times brighter than silver, a river of milk and honey, the city of Christ with twelve walls, then a river of fire, pits three thousand cubits deep and a well sealed with seven seals.",
-   "cite": "Apocalypse of Paul, 4th century. M. R. James, The Apocryphal New Testament, Oxford 1924, pp. 525-555.",
-   "url": "https://archive.org/details/apocryphalnewtes0000mont",
+   "nature": "Every surviving manuscript reads 1149, which Wagner shows is an old copying error: the text's own synchronisms, including the death of St Malachy at Clairvaux, fix the vision in 1148.",
    "walk": [
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "Struck down at table",
+     "text": "Reaching for his food he cannot bring his hand back to his mouth. He cries out, hands his axe to his companion's wife and says: guard my axe, for I am dying."
+    },
     {
      "key": "obe",
      "terrain": "abstract",
-     "label": "Caught up, body or not",
-     "text": "Whether in the body I know not, or whether out of the body I know not, God knows: such a one was caught up to the third heaven. The Syriac adds that he was caught up in the spirit and carried there."
-    },
-    {
-     "key": "beings",
-     "terrain": "abstract",
-     "label": "Angels without mercy",
-     "text": "Beneath the firmament he sees angels without mercy, having no pity, their countenances full of fury, their teeth sticking out of their mouths, and sparks of fire going out of their hair and their mouths."
-    },
-    {
-     "key": "review",
-     "terrain": "abstract",
-     "label": "A good man's works stand before him",
-     "text": "At a righteous man's death all the works he had done for the name of God, and all his desires which he remembered and which he remembered not, stand before his face in the hour of necessity."
-    },
-    {
-     "key": "ledger",
-     "terrain": "hall",
-     "label": "The writing of the sins",
-     "text": "Before the judge, the angel of a sinful soul comes with a writing in his hands: these, Lord, are all the sins of this soul from its youth up until this day, even from ten years from its birth."
-    },
-    {
-     "key": "border",
-     "border": "gate",
-     "terrain": "city",
-     "label": "The golden gate",
-     "text": "He is set before a gate of gold with two pillars of gold full of golden letters. These are the names of the righteous that minister to God with their whole heart, while they are yet on earth."
-    },
-    {
-     "key": "beings",
-     "terrain": "garden",
-     "label": "Enoch, then Elias",
-     "text": "Inside the gate he meets Enoch, the scribe of righteousness, and then Elias. They embrace him, and weep that so few take hold of the promises."
-    },
-    {
-     "key": "realm",
-     "terrain": "meadow",
-     "label": "The land of promise",
-     "text": "Brought down past the firmament and out beyond the Ocean, he is told: this is the land of promise. There the earth was seven times brighter than silver."
-    },
-    {
-     "key": "realm",
-     "terrain": "garden",
-     "label": "A river of milk and honey",
-     "text": "He looks round that land and sees a river flowing with milk and honey, with trees planted at the brink of it, full of fruits: every tree bearing twelve fruits in the year."
-    },
-    {
-     "key": "border",
-     "terrain": "coast",
-     "label": "The lake Acherusa",
-     "text": "He is set in a golden ship on the lake Acherusa, whose water is whiter than milk, where Michael washes the repentant before bringing them in to the city of Christ."
-    },
-    {
-     "key": "realm",
-     "terrain": "city",
-     "label": "The city of Christ",
-     "text": "The city is all of gold, with twelve walls, twelve towers and twelve gates, ringed by four rivers: honey called Phison, milk Euphrates, oil Geon and wine Tigris."
-    },
-    {
-     "key": "border",
-     "border": "cliff",
-     "terrain": "abstract",
-     "label": "By the way of the sunsetting",
-     "text": "He is taken by the way of the sunsetting. When he is come beyond the ocean he looks, and there is no light in that place, but darkness and sorrow and sadness. And he sighed."
-    },
-    {
-     "key": "realm",
-     "terrain": "torment",
-     "label": "The river of fire",
-     "text": "A river of fire burning with heat, and in it a multitude of men and women sunk up to the knees, others up to the navel, others up to the lips and others up to the hair. Each depth answers a sin."
-    },
-    {
-     "key": "realm",
-     "terrain": "torment",
-     "label": "Pits three thousand cubits deep",
-     "text": "He sees pits exceeding deep: the depth of that place was as it were three thousand cubits. Hardly after five hundred years do they come at the bottom."
-    },
-    {
-     "key": "realm",
-     "terrain": "torment",
-     "label": "The well of seven seals",
-     "text": "He is set over a well and finds it sealed with seven seals. Opened, it stinks worse than all the torments. Inside are masses of fire burning on every side, and the mouth so strait as to take but one man in."
-    },
-    {
-     "key": "realm",
-     "terrain": "torment",
-     "label": "The worm that sleeps not",
-     "text": "Further north and west is a place where there is nothing else but cold and snow, and there lies the worm that sleeps not, of the measure of one cubit, and on them were two heads."
+     "label": "Three days as dead",
+     "text": "He lies dead from the tenth hour of Wednesday to the tenth hour of Saturday. Those who palpated the body felt a slight warmth in the left breast, so burial was delayed."
     },
     {
      "key": "beings",
      "terrain": "torment",
-     "label": "Michael comes down",
-     "text": "The heaven opens and Michael the archangel comes down out of heaven, and with him all the host of angels. For Paul's sake the damned are granted refreshment for a day and a night, for ever."
+     "label": "The angel like a bright star",
+     "text": "Demons set on the soul. Then he sees something coming from far off like a most shining star. It greets him by his own name: Hail, Tnugdal, what are you doing?"
     },
     {
      "key": "realm",
-     "terrain": "garden",
-     "label": "Paradise, and the tree of life",
-     "text": "In Paradise he sees the head of the waters and the four rivers named by their lands, Phison, Geon, Tigris and Euphrates, and is shown the tree of life."
+     "terrain": "torment",
+     "label": "He suffers the torments himself",
+     "text": "He is not only shown the punishments but undergoes very many incredible and intolerable kinds of them. The angel tells him it followed him from birth and he never took its counsel."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "torment",
+     "label": "The plank across the valley",
+     "text": "A plank reaches from one mountain to another like a bridge, a thousand paces long and one foot wide. He sees many fall from it; only a pilgrim priest crosses unhurt."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "torment",
+     "label": "The bridge of nails",
+     "text": "A second plank, two miles long and a palm wide, is set with the sharpest iron nails that pierce the feet of everyone crossing. Below is a lake of bellowing beasts asking only for souls."
     },
     {
      "key": "light",
-     "terrain": "garden",
-     "label": "Mary, with two hundred before her",
-     "text": "A virgin comes from afar off, with two hundred angels before her singing hymns, and salutes him by name. This is Mary the virgin, the mother of the Lord."
+     "terrain": "city",
+     "label": "The silver wall",
+     "text": "A very high and bright wall of silver, with no gate in it, which divine power brings him through. Inside are choirs of saints rejoicing."
+    },
+    {
+     "key": "realm",
+     "terrain": "city",
+     "label": "The wall of purest gold",
+     "text": "A second wall as high as the first, of the purest and most brilliant gold, so that the shine of the metal alone delights more than everything seen before it."
     },
     {
      "key": "return",
      "terrain": "garden",
-     "label": "Where the text stops",
-     "text": "The Greek, Latin and Syriac all break off inside Elijah's speech. Only a Syriac appendix adds a return: and I, Paul, returned to myself, and I knew all that I had seen. James doubts it is the original ending."
+     "label": "He revives before the crowd",
+     "text": "He comes back to his body in front of the clergy and the crowd gathered to bury him."
     }
    ],
    "religion_group": "Christian",
-   "religion": "Christian",
+   "religion": "Christian, Irish",
    "religion_basis": "stated",
-   "religion_note": "The vision is framed by 2 Corinthians and guided by an angel of Christ."
+   "religion_note": "An Irish knight; the vision is written down by a monk at Regensburg."
+  },
+  {
+   "id": "monchaux1740",
+   "name": "The first medical account",
+   "place": "Paris, France",
+   "lat": 48.86,
+   "lng": 2.35,
+   "n": 1,
+   "kind": "historical",
+   "year": 1740,
+   "trigger": "Illness",
+   "finding": "A French military physician recorded an apothecary who, after heavy bleeding for a fever, lay unconscious and on waking described 'a light so pure and strong he thought he was in paradise', the most pleasant sensation of his life. The oldest known description by a doctor, rediscovered in 2014.",
+   "cite": "du Monchaux PJ. Anecdotes de Medecine, 1740. Rediscovered by Charlier P, Resuscitation 2014;85:e155.",
+   "url": "https://www.researchgate.net/publication/263207147_Oldest_medical_description_of_a_near_death_experience_NDE_France_18th_century",
+   "scene": {
+    "peace": 1,
+    "light": 1
+   },
+   "scene_note": "A single case, with no percentages: the patient described losing all sensation and then a light so pure and strong he thought he was in paradise. Only those two stages are shown, because only those two are in the account.",
+   "experience_type": "calm",
+   "type_label": "Calm and a light, without a journey",
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "The medical report does not record the patient's religion."
+  },
+  {
+   "id": "beaufort",
+   "name": "Beaufort's drowning",
+   "place": "Portsmouth, England",
+   "lat": 50.8,
+   "lng": -1.09,
+   "n": 1,
+   "kind": "historical",
+   "year": 1791,
+   "finding": "Francis Beaufort, then a midshipman of 17, fell into Portsmouth harbour and nearly drowned. His account, written in 1825 and published in 1847, describes no pain, calm, and 'every incident of my past life' passing before him: the first detailed first-person life review in English.",
+   "cite": "Beaufort F. Letter to Dr W. H. Wollaston, written 1825, published 1847.",
+   "url": "https://snr.org.uk/captain-beaufort-on-the-sensation-felt-by-drowning-man/",
+   "trigger": "Drowning",
+   "experience_type": "calm",
+   "type_label": "Calm and a life review, without a journey",
+   "scene": {
+    "peace": 1,
+    "review": 1,
+    "obe": 0,
+    "tunnel": 0,
+    "light": 0,
+    "realm": 0
+   },
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "Beaufort's account of his own drowning says nothing about his religion."
+  },
+  {
+   "id": "heim1892",
+   "name": "Heim's falls",
+   "place": "Zurich, Switzerland",
+   "lat": 47.37,
+   "lng": 8.54,
+   "n": 30,
+   "kind": "historical",
+   "year": 1892,
+   "finding": "The first systematic collection. Albert Heim, a geologist, survived a fall in the Alps and spent 25 years gathering accounts from climbers, soldiers and workers who had fallen. He found about 95% felt no pain or fear, but calm, speeded thought and a review of their lives.",
+   "cite": "Heim A. Notizen uber den Tod durch Absturz. Jahrbuch des Schweizer Alpenclub 1892;27:327-37. Translated by Noyes R, Kletti R, Omega 1972;3:45-52.",
+   "url": "https://www.greenharbor.com/fffolder/ffreading.html",
+   "trigger": "Falls",
+   "experience_type": "calm",
+   "type_label": "Calm and a life review, without a journey",
+   "scene": {
+    "peace": 1,
+    "review": 1,
+    "light": 0,
+    "tunnel": 0,
+    "realm": 0
+   },
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "Heim collected falls, not beliefs. No religion is recorded for any of the thirty."
+  },
+  {
+   "id": "negovsky1943",
+   "name": "Soviet resuscitation and 'clinical death'",
+   "place": "Moscow, Russia",
+   "lat": 55.75,
+   "lng": 37.62,
+   "n": 0,
+   "kind": "historical",
+   "year": 1943,
+   "trigger": "Battle",
+   "finding": "Vladimir Negovsky founded reanimatology and ran front-line resuscitation teams in the Second World War, reviving more than 40 wounded men, some clinically dead from blood loss. He named 'clinical death', the reversible period without circulation. Mass survival of clinical death is what made modern NDE research possible; his own work did not record the experiences.",
+   "cite": "Negovsky VA, work from 1943 onward; see Safar P, Vladimir A. Negovsky, the father of reanimatology. Resuscitation 2002;53:111-13.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/12009211/",
+   "experience_type": "mixed",
+   "type_label": "No experiences recorded",
+   "no_walk": "Negovsky revived people but did not record what they experienced. Nothing here to walk, and inventing one would be a lie about his work."
+  },
+  {
+   "id": "moody1975",
+   "name": "Life After Life interviews",
+   "place": "Charlottesville, Virginia, USA",
+   "lat": 38.1,
+   "lng": -78.3,
+   "n": 150,
+   "kind": "cases",
+   "year": 1975,
+   "finding": "About 150 interviews that named the phenomenon and listed its recurring elements.",
+   "cite": "Moody R. Life After Life. Mockingbird Books, 1975.",
+   "url": "https://www.lifeafterlife.com/",
+   "trigger": "Mixed",
+   "experience_type": "tunnel",
+   "type_label": "Tunnel and light",
+   "scene": {
+    "obe": 1,
+    "peace": 1,
+    "tunnel": 1,
+    "light": 1,
+    "beings": 1,
+    "review": 1,
+    "border": 1,
+    "return": 1
+   },
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "Moody's interviews did not systematically record religion."
+  },
+  {
+   "id": "ring1980",
+   "name": "Life at Death",
+   "place": "Storrs, Connecticut, USA",
+   "lat": 41.81,
+   "lng": -72.25,
+   "n": 102,
+   "kind": "cases",
+   "year": 1980,
+   "finding": "102 people who came close to death; the five-stage model (peace, body separation, darkness, light, entering the light).",
+   "cite": "Ring K. Life at Death: A Scientific Investigation of the Near-Death Experience. Coward, McCann & Geoghegan, 1980.",
+   "url": "https://iands.org/",
+   "trigger": "Mixed",
+   "experience_type": "tunnel",
+   "type_label": "Tunnel and light",
+   "scene": {
+    "peace": 1,
+    "obe": 1,
+    "tunnel": 1,
+    "light": 1,
+    "beings": 1,
+    "return": 1
+   },
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "Ring studied religiousness as a variable, but this atlas has not verified his figures and so records nothing here."
+  },
+  {
+   "id": "gallup1982",
+   "name": "Gallup poll",
+   "place": "United States",
+   "lat": 39.5,
+   "lng": -98.4,
+   "n": 1500,
+   "kind": "survey",
+   "year": 1982,
+   "finding": "About 5% of US adults, then roughly 8 million people, reported a near-death experience.",
+   "cite": "Gallup G, Proctor W. Adventures in Immortality. McGraw-Hill, 1982.",
+   "url": "https://digital.library.unt.edu/explore/collections/JNDS/",
+   "trigger": "Mixed",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "no_walk": "A national poll of how many adults had ever had one. This atlas does not have verified figures for the individual elements it asked about.",
+   "walk_instead": "long2010",
+   "nature": "About 1,500 adults were asked, between early 1980 and September 1981; Gallup's book does not give an exact sample size."
+  },
+  {
+   "id": "green1984",
+   "name": "Chamorro cases, Guam",
+   "place": "Guam",
+   "lat": 13.44,
+   "lng": 144.79,
+   "n": 4,
+   "kind": "cases",
+   "year": 1984,
+   "trigger": "Illness",
+   "finding": "Four Chamorro accounts from Guam, two interviewed by Green himself. No tunnel, no life review. People report leaving the body, flying 'through the clouds' or walking on a road, invisible visits to living relatives in America, and arriving at a gardenlike paradise where they are met by the dead, some of them relatives.",
+   "cite": "Green JT. Near-death experiences in a Chammorro culture. Vital Signs 1984;4(1-2):6-7. Not digitised; every detail here is as summarised in Kellehear A, Census of non-Western near-death experiences to 2005. Journal of Near-Death Studies 2008;26:249-65.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799184/",
+   "experience_type": "journey",
+   "type_label": "A journey across a familiar landscape",
+   "scene": {
+    "obe": 1,
+    "realm": 1,
+    "beings": 1,
+    "return": 1,
+    "tunnel": 0,
+    "review": 0,
+    "light": 0
+   },
+   "nature": "Green's original newsletter article is not available anywhere online; this entry rests entirely on Kellehear's summaries of it.",
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Out of the body",
+     "text": "The Chamorro accounts begin with leaving the body, which is unusual among the non-Western cases: India and China's do not report it."
+    },
+    {
+     "key": "realm",
+     "terrain": "meadow",
+     "label": "Flying, or walking on a road",
+     "text": "People recount flying through the clouds, or suddenly finding themselves walking on a road. Some make invisible visits to living relatives in America."
+    },
+    {
+     "key": "beings",
+     "terrain": "garden",
+     "label": "Met in a gardenlike place",
+     "text": "They arrive at a paradisiacal place of gardenlike appearance and are met there by the dead, some of whom are relatives."
+    },
+    {
+     "key": "return",
+     "terrain": "garden",
+     "label": "Back again",
+     "text": "They return. There is no tunnel in any of the four accounts and no review of the life. Green's own article has never been digitised; this is as Kellehear summarises it."
+    }
+   ],
+   "religion_group": "Christian",
+   "religion": "Chamorro, predominantly Roman Catholic",
+   "religion_basis": "context",
+   "religion_note": "Demographic only. Kellehear's summary of these four accounts names no religious figures at all."
+  },
+  {
+   "id": "king1985",
+   "name": "A Maori account",
+   "place": "Aotearoa New Zealand",
+   "lat": -38.0,
+   "lng": 176.0,
+   "n": 1,
+   "kind": "cases",
+   "year": 1985,
+   "trigger": "Illness",
+   "finding": "A Maori woman's account recorded by Michael King. She hovers over her own head, leaves the room and flies north over the Waikato, the Manukau and the lands of Ngati Whatua, Ngapuhi, Te Rarawa and Te Aupouri to Te Rerenga Wairua, 'the leaping off place of spirits' at Cape Reinga. A voice stops her there, telling her her time had not come, and she wakes to her living relatives at the bedside. No tunnel, no life review.",
+   "cite": "King M. Being Pakeha: An Encounter with New Zealand and the Maori Renaissance, 1985, pp. 92-94. Quoted in Kellehear A, An Hawaiian near-death experience. Journal of Near-Death Studies 2001;20:31-35.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799181/",
+   "experience_type": "journey",
+   "type_label": "A journey across a familiar landscape",
+   "scene": {
+    "obe": 1,
+    "realm": 1,
+    "beings": 1,
+    "return": 1,
+    "tunnel": 0,
+    "review": 0,
+    "light": 0
+   },
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "coast",
+     "label": "Hovering over her own head",
+     "text": "In her spirit she hovers over her own head, then leaves the room."
+    },
+    {
+     "key": "realm",
+     "terrain": "coast",
+     "label": "North, over the named land",
+     "text": "She travels north towards the Tail of the Fish, passing over the Waikato River, across the Manukau, over Ngati Whatua, Ngapuhi, Te Rarawa and Te Aupouri."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "coast",
+     "label": "Te Rerenga Wairua",
+     "text": "She reaches Te Rerenga Wairua, the leaping off place of spirits at Cape Reinga. She performs ablutions, climbs a ledge and dances before the entrance to the underworld."
+    },
+    {
+     "key": "return",
+     "terrain": "coast",
+     "label": "A voice turns her back",
+     "text": "A voice stops her and tells her that her time has not come, and that she must return until she is called again. She wakes to her anxious living relatives."
+    }
+   ],
+   "religion_group": "Maori",
+   "religion": "Maori",
+   "religion_basis": "stated",
+   "religion_note": "The route is the traditional one to Te Rerenga Wairua, the leaping off place of spirits."
+  },
+  {
+   "id": "morse1986",
+   "name": "Childhood NDEs",
+   "place": "Seattle, Washington, USA (Children's Orthopedic Hospital)",
+   "lat": 47.663,
+   "lng": -122.282,
+   "n": 40,
+   "kind": "prospective",
+   "year": 1986,
+   "finding": "40 children aged 3 to 16 in a paediatric intensive care unit: 11 critically ill (7 cardiac-arrest survivors and 4 with a Glasgow coma score under 5) and 29 seriously ill age-matched controls. 7 of the 11 reported near-death elements. No control reported an NDE, though four recalled something, three of them intraoperative.",
+   "cite": "Morse M, Conner D, Tyler D. Near-death experiences in a pediatric population: a preliminary report. American Journal of Diseases of Children 1986;140:1110-14.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/3020964/",
+   "trigger": "Critical illness",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "no_walk": "A comparison of critically ill children with a control group, reporting that NDE features occurred in one and not the other, without published rates per feature.",
+   "walk_instead": "lommel2001"
+  },
+  {
+   "id": "pasricha1986",
+   "name": "Indian cases",
+   "place": "Northern India",
+   "lat": 26.85,
+   "lng": 80.95,
+   "n": 16,
+   "kind": "cases",
+   "year": 1986,
+   "finding": "16 cases investigated in north India: messengers called yamdoots, a clerk with a book of records, and being sent back because the wrong person was brought. Beings of light were reported here, unlike in Pasricha's later south Indian series. A quarter woke with residual marks on the body from being branded in the other realm. No tunnel and no life review in any case.",
+   "cite": "Pasricha S, Stevenson I. Near-death experiences in India: a preliminary report. Journal of Nervous and Mental Disease 1986;174:165-70.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/3950600/",
+   "trigger": "Illness",
+   "experience_type": "summoned",
+   "type_label": "Summoned by mistake and sent back",
+   "scene": {
+    "beings": 1,
+    "realm": 1,
+    "return": 1,
+    "tunnel": 0,
+    "review": 0,
+    "light": 1,
+    "obe": 0
+   },
+   "walk": [
+    {
+     "key": "messengers",
+     "terrain": "abstract",
+     "label": "The yamdoots come",
+     "text": "Messengers called yamdoots arrive and take the person away, sometimes roughly. They are the servants of Yama, lord of the dead."
+    },
+    {
+     "key": "ledger",
+     "terrain": "hall",
+     "label": "The man with the book",
+     "text": "The person is brought before Chitragupta, 'the man with the book', who keeps the record of what each life contains."
+    },
+    {
+     "key": "error",
+     "terrain": "hall",
+     "label": "The wrong person",
+     "text": "The book is checked and a mistake is found. Ninety-four per cent of the Indian cases are sent back because of such an error; in a third, somebody else died instead."
+    },
+    {
+     "key": "light",
+     "terrain": "hall",
+     "label": "Beings of light",
+     "text": "Beings of light were reported by the north Indian experiencers. Pasricha's later south Indian series reported none, which is one of the few differences inside one country."
+    },
+    {
+     "key": "return",
+     "terrain": "abstract",
+     "label": "Sent back, and marked",
+     "text": "They are sent back, often against their wish. A quarter wake with residual marks on the body where they were branded in the other realm. No case reports a tunnel or a life review."
+    }
+   ],
+   "religion_group": "Hindu",
+   "religion": "Hindu",
+   "religion_basis": "stated",
+   "religion_note": "Yamdoots, the servants of Yama, and Chitragupta, the man with the book."
+  },
+  {
+   "id": "zaleski1987",
+   "name": "Otherworld Journeys",
+   "place": "Cambridge, Massachusetts, USA",
+   "lat": 42.37,
+   "lng": -71.11,
+   "n": 0,
+   "kind": "historical",
+   "year": 1987,
+   "finding": "The scholarly comparison of medieval and modern accounts. Zaleski found the constants (leaving the body, a guide, a barrier, a return with a changed life) and the differences: medieval journeys are guided tours with judgment and punishment, modern ones are private, warm and without hell.",
+   "cite": "Zaleski C. Otherworld Journeys: Accounts of Near-Death Experience in Medieval and Modern Times. Oxford University Press, 1987.",
+   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/",
+   "trigger": "Mixed",
+   "experience_type": "mixed",
+   "type_label": "A comparison across eras",
+   "scene_note": "Zaleski's constants rendered as a walk: what medieval and modern accounts share is leaving the body, a guide or companion, another place, a barrier, and a return that changes the life. What they do not share, hell and judgment on one side, warmth and privacy on the other, is left out.",
+   "off_map": true,
+   "no_walk": "A scholarly comparison of many accounts rather than one experience, so there is no single vision to walk and nothing to place on the map. Its findings run through the rest of the atlas."
+  },
+  {
+   "id": "tangshan1992",
+   "name": "Tangshan earthquake survivors",
+   "place": "Tangshan, China",
+   "lat": 39.63,
+   "lng": 118.18,
+   "n": 81,
+   "kind": "retrospective",
+   "year": 1992,
+   "trigger": "Earthquake",
+   "finding": "81 survivors of the 1976 earthquake that killed about 240,000 people were interviewed eleven years after it; 32 (40%) scored 7 or more on the Greyson scale. Most were cognitive or transcendental in type. Item by item, a life review was the second commonest feature at 51%, leaving the body 43%, a tunnel-like dark region 16% and an unnaturally brilliant light 15%.",
+   "cite": "Feng Z, Liu J. Near-death experiences among survivors of the 1976 Tangshan earthquake. Journal of Near-Death Studies 1992;11:39-48.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799015/",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "scene": {
+    "obe": 1,
+    "peace": 1,
+    "beings": 1,
+    "tunnel": 1,
+    "review": 1
+   },
+   "scene_note": "Stage strengths here are not the published item rates: Feng and Liu report a life review in 51% of the 32, leaving the body in 43%, a tunnel-like dark region in 16% and a brilliant light in 15%. Kellehear cautions that the tunnel item was offered to respondents as a category rather than volunteered."
+  },
+  {
+   "id": "nderf_sounds",
+   "name": "NDERF overview of elements",
+   "place": "Online (NDERF website)",
+   "lat": 47.25,
+   "lng": -122.44,
+   "n": 0,
+   "kind": "retrospective",
+   "year": 1999,
+   "finding": "A 1999 NDERF web page listing the elements its editors see recurring, including unusual sounds: 'pleasant, musical, buzzing or ringing'. It publishes no percentages and is an advocacy page rather than research, so it is cited here only for the wording of the sounds element and is kept off the map.",
+   "cite": "Long J. NDE overview. Near Death Experience Research Foundation website, 1999 (archived).",
+   "url": "http://web.archive.org/web/20120115222330/http://www.nderf.org/NDE%20Overview.htm",
+   "trigger": "Mixed",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "no_walk": "A website overview rather than a study. Nothing is measured, so there is nothing to walk.",
+   "off_map": true
+  },
+  {
+   "id": "lommel2001",
+   "name": "Dutch prospective study",
+   "place": "Netherlands (10 hospitals; lead author at Rijnstate Hospital, Arnhem)",
+   "lat": 51.98,
+   "lng": 5.91,
+   "n": 344,
+   "kind": "prospective",
+   "year": 2001,
+   "finding": "344 consecutive survivors of 509 successful resuscitations across ten Dutch hospitals, interviewed within days. 62 (18%) had some recollection of the time of clinical death; 41 (12%) a core experience and 23 (7%) a deep or very deep one. The 18% is the figure usually quoted. The authors concede possible selection bias: the one hospital that ran nearly four years and contributed 137 patients found only 8%.",
+   "cite": "van Lommel P, van Wees R, Meyers V, Elfferich I. Near-death experience in survivors of cardiac arrest: a prospective study in the Netherlands. The Lancet 2001;358:2039-45.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/11755611/",
+   "trigger": "Cardiac arrest",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "measured": true
+  },
+  {
+   "id": "parnia2001",
+   "name": "Southampton study",
+   "place": "Southampton, UK",
+   "lat": 50.93,
+   "lng": -1.4,
+   "n": 63,
+   "kind": "prospective",
+   "year": 2001,
+   "finding": "63 cardiac-arrest survivors at Southampton General Hospital. 56 (88.8%) had no recall; 7 (11.1%) had some memory of the period, and of those 4 (6.3%) scored 7 or more on the Greyson scale. Two of the three below the threshold still had NDE-like features.",
+   "cite": "Parnia S, Waller DG, Yeates R, Fenwick P. A qualitative and quantitative study of the incidence, features and aetiology of near death experiences in cardiac arrest survivors. Resuscitation 2001;48:149-56.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/11426476/",
+   "trigger": "Cardiac arrest",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "no_walk": "A prevalence study in one hospital; the sample of experiencers was too small to publish feature rates.",
+   "walk_instead": "lommel2001"
+  },
+  {
+   "id": "knoblauch2001",
+   "name": "German survey",
+   "place": "Germany (representative sample)",
+   "lat": 51.2,
+   "lng": 10.4,
+   "n": 2044,
+   "kind": "survey",
+   "year": 2001,
+   "finding": "2,044 Germans in a nationally representative sample: 82 (4%) reported an NDE. Content split sharply east and west: 60% of west German accounts were positive against 40% in the east, where 60% were negative; tunnels were commoner in the east, light in the west. The rate itself did not differ. The authors ran no significance tests on these splits and call them 'only tendencies'.",
+   "cite": "Knoblauch H, Schmied I, Schnettler B. Different kinds of near-death experience: a report on a survey of near-death experiences in Germany. Journal of Near-Death Studies 2001;20:15-29.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799348/",
+   "trigger": "Mixed",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "no_walk": "A population survey measuring how many Germans had had one, and differences between East and West, rather than rates per feature.",
+   "walk_instead": "long2010"
+  },
+  {
+   "id": "bailey2001",
+   "name": "Tibetan delok accounts",
+   "place": "Tibetan cultural world (texts at Dharamsala; interviews in Bhutan and Nepal)",
+   "lat": 29.65,
+   "lng": 91.14,
+   "n": 16,
+   "kind": "cases",
+   "year": 2001,
+   "finding": "Deloks ('those who return from the hereafter') are people taken for dead who revive and describe a journey through the Buddhist realms. Bailey compared these accounts with Western NDEs: no tunnel, and the reckoning is public rather than private, a bridge, a scale with black pebbles for sinful deeds against white, and the mirror of existence. They come back carrying a message for the living.",
+   "cite": "Bailey LW. A 'little death': the near-death experience and Tibetan delogs. Journal of Near-Death Studies 2001;19:139-59. The count of 16 accounts (12 texts from the Library of Tibetan Works and Archives, 4 interviews by Francoise Pommaret) is Kellehear's tally, not Bailey's.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799135/",
+   "tradition_from": 1200,
+   "trigger": "Illness",
+   "experience_type": "guided",
+   "type_label": "A guided tour of the realms",
+   "scene": {
+    "beings": 1,
+    "realm": 1,
+    "review": 1,
+    "return": 1,
+    "tunnel": 0
+   },
+   "nature": "Kellehear includes the deloks only 'for the sake of completeness': some had dyings on fasting days, the 10th, 15th and 30th of each month, and local observers took them for epileptics. Bailey's own named case is Sangs Rgyas Chos 'dzom, a twelve-year-old girl in Bhutan shortly after 1650.",
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "Taken for dead",
+     "text": "A delok, 'one who returns from the hereafter', is taken for dead, sometimes for days. Most of them are women."
+    },
+    {
+     "key": "beings",
+     "terrain": "torment",
+     "label": "Guided through the realms",
+     "text": "Guides lead them through the Buddhist realms, hot and cold. Kellehear records no mention of a tunnel in any of these accounts."
+    },
+    {
+     "key": "review",
+     "terrain": "hall",
+     "label": "Weighed in public",
+     "text": "The reckoning is public, not a private replay: a small black demon holds black pebbles for the sinful deeds, a white deity holds white pebbles to weigh against them."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "hall",
+     "label": "The bridge, the scale, the mirror",
+     "text": "They watch the judgment of souls with a bridge, a scale, and the mirror of existence, in which what was done is shown."
+    },
+    {
+     "key": "return",
+     "terrain": "garden",
+     "label": "Sent back with a message",
+     "text": "They are judged and given a message to carry back, usually to practise faithfully and to stop causing harm. One twelve-year-old Bhutanese delok's task was to be a messenger between the living and the dead."
+    }
+   ],
+   "religion_group": "Buddhist",
+   "religion": "Tibetan Buddhist",
+   "religion_basis": "stated",
+   "religion_note": "Deloks are led through the Buddhist realms and sent back with a message to practise."
+  },
+  {
+   "id": "kellehear2001hawaii",
+   "name": "A Hawaiian account",
+   "place": "Kona, Hawaii, USA",
+   "lat": 19.64,
+   "lng": -155.99,
+   "n": 1,
+   "kind": "cases",
+   "year": 2001,
+   "trigger": "Illness",
+   "finding": "Kalima, a woman in Kona, in an account from the early 1900s found in a 1907 collection of Hawaiian folk tales: the spirit leaves the body, travels, is met and sent back. Like the Maori and Chamorro cases it has a journey and deceased relatives but no tunnel and no life review, and no mention of light or darkness at all.",
+   "cite": "Kellehear A. An Hawaiian near-death experience. Journal of Near-Death Studies 2001;20:31-35.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799181/",
+   "experience_type": "journey",
+   "type_label": "A journey across a familiar landscape",
+   "scene": {
+    "obe": 1,
+    "realm": 1,
+    "beings": 1,
+    "return": 1,
+    "tunnel": 0,
+    "review": 0,
+    "light": 0
+   },
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "coast",
+     "label": "The spirit leaves",
+     "text": "Kalima, a woman in Kona, in an account recorded in a 1907 collection of Hawaiian folk tales: her spirit leaves the body."
+    },
+    {
+     "key": "realm",
+     "terrain": "coast",
+     "label": "The journey",
+     "text": "She travels. There is no mention anywhere in the account of light or of darkness, which sets it apart from the Western pattern."
+    },
+    {
+     "key": "beings",
+     "terrain": "coast",
+     "label": "Met by the dead",
+     "text": "She is met by deceased people, as in the Maori and Chamorro accounts. There is no tunnel and no review of her life."
+    },
+    {
+     "key": "return",
+     "terrain": "coast",
+     "label": "Sent back",
+     "text": "She is sent back and revives."
+    }
+   ],
+   "religion_group": "Native Hawaiian",
+   "religion": "Native Hawaiian",
+   "religion_basis": "context",
+   "religion_note": "Kalima's own religion is not stated; the account comes from a 1907 collection of Hawaiian folk tales."
+  },
+  {
+   "id": "greyson2003",
+   "name": "Cardiac care unit study",
+   "place": "Charlottesville, Virginia, USA",
+   "lat": 38.03,
+   "lng": -78.48,
+   "n": 1595,
+   "kind": "prospective",
+   "year": 2003,
+   "finding": "1,595 consecutive cardiac inpatients. 116 (7%) were admitted with cardiac arrest, and 11 of those (10%) reported an NDE, against 1% of the other cardiac patients. Across the whole cohort the rate was 27 of 1,595, or 1.7%.",
+   "cite": "Greyson B. Incidence and correlates of near-death experiences in a cardiac care unit. General Hospital Psychiatry 2003;25:269-76.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/12850659/",
+   "trigger": "Cardiac arrest",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "no_walk": "A prevalence study: it measured how often an NDE happens in a cardiac unit, not what the experiences contained.",
+   "walk_instead": "lommel2001"
+  },
+  {
+   "id": "perera2005",
+   "name": "Australian survey",
+   "place": "Australia (telephone survey)",
+   "lat": -25.3,
+   "lng": 133.8,
+   "n": 673,
+   "kind": "survey",
+   "year": 2005,
+   "finding": "673 Australians in a national telephone survey. 241 (36%) had come close to death, and 60 of them met the study's NDE criterion: 8.9% of everyone asked, or about a quarter of those who had come close. The 8.9% is computed from the paper's own table, which the text and abstract report variously as 9% and 8%.",
+   "cite": "Perera M, Padmasekara G, Belanti J. Prevalence of near-death experiences in Australia. Journal of Near-Death Studies 2005;24:109-16.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799374/",
+   "trigger": "Mixed",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "no_walk": "A telephone survey measuring how many Australians had had one.",
+   "walk_instead": "long2010",
+   "nature": "The criterion was endorsing any two items from a telephone-adapted list, not a Greyson score of 7, and the authors note the prompts raised endorsement. This rate is not comparable with the hospital figures."
+  },
+  {
+   "id": "kellehear2008census",
+   "name": "Census of non-Western accounts",
+   "place": "Bath, England",
+   "lat": 51.38,
+   "lng": -2.36,
+   "n": 0,
+   "kind": "retrospective",
+   "year": 2008,
+   "trigger": "Mixed",
+   "finding": "A review of every non-Western NDE account published to 2005, restricted to experiences associated with illness. Two features recur everywhere: travelling to another realm, and meeting the dead. The tunnel is absent from the Indian, Tibetan, Chamorro, Native North American and Aboriginal Australian accounts and questionable elsewhere; Kellehear's conclusion is that 'there is no actual tunnel in near-death experiences', only darkness described differently by different cultures. The life review is largely confined to societies with a dominant historic religion.",
+   "cite": "Kellehear A. Census of non-Western near-death experiences to 2005: overview of the current data. Journal of Near-Death Studies 2008;26:249-65.",
+   "url": "https://digital.library.unt.edu/ark:/67531/metadc799184/",
+   "experience_type": "mixed",
+   "type_label": "A review across eleven cultures",
+   "scene": {
+    "realm": 1,
+    "beings": 1,
+    "tunnel": 0,
+    "review": 0
+   },
+   "scene_note": "This is the census's own conclusion rendered as a walk: across every non-Western account published to 2005, two things recur, travelling to another realm and meeting the dead. The tunnel and the life review are left out because neither is cross-cultural, not because no account has them.",
+   "off_map": true
+  },
+  {
+   "id": "long2010",
+   "name": "NDERF survey",
+   "place": "Tacoma, Washington, USA (online, worldwide)",
+   "lat": 47.25,
+   "lng": -122.44,
+   "n": 613,
+   "kind": "retrospective",
+   "year": 2010,
+   "finding": "613 experiencers scoring 7 or more on the Greyson scale; feature rates and tone. Thousands more accounts archived at nderf.org.",
+   "cite": "Long J, Perry P. Evidence of the Afterlife: The Science of Near-Death Experiences. HarperOne, 2010.",
+   "url": "https://www.nderf.org/NDERF/EvidenceAfterlife/evidence/NDERF_Study_Methods.htm",
+   "trigger": "Mixed",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "measured": true,
+   "nature": "Self-selected internet survey: people who went looking for an NDE website, answering retrospectively in English with no medical records. The percentages describe self-identified experiencers, not people who nearly died."
+  },
+  {
+   "id": "brazil_nupes",
+   "name": "Brazilian research",
+   "place": "Juiz de Fora and Sao Paulo, Brazil",
+   "lat": -21.76,
+   "lng": -43.35,
+   "n": 0,
+   "kind": "retrospective",
+   "year": 2010,
+   "trigger": "Mixed",
+   "finding": "Brazil has the largest Spiritist population in the world and a long research tradition into mediumship, out-of-body and near-death experiences, centred on NUPES at the Federal University of Juiz de Fora. The largest relevant survey, Monteiro de Barros and colleagues, asked 1,053 Brazilians about sixteen spiritual and religious experiences including near-death ones: 92% reported at least one in their lifetime and half had felt the presence of a dead person. The paper is paywalled and its near-death figure is not in the abstract, so this atlas has no Brazilian near-death rate to show. A single Brazilian case scored on the Greyson scale is published in open access.",
+   "cite": "Monteiro de Barros MC et al. Prevalence of spiritual and religious experiences in the general population: a Brazilian nationwide study. Transcultural Psychiatry 2025;62:422-36. Case report: Braghetta CC et al. Trends in Psychiatry and Psychotherapy 2013;35:81-4.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/35382640/",
+   "experience_type": "mixed",
+   "type_label": "Review, no figures published",
+   "no_walk": "A survey of spiritual and religious experiences rather than a near-death study, and the near-death figure inside it is behind a paywall. Nothing to walk until a Brazilian rate is published openly.",
+   "nature": "An online convenience sample of 1,053 people, so 'nationwide' in reach but not a population prevalence the way a household survey would be."
+  },
+  {
+   "id": "aware2014",
+   "name": "AWARE",
+   "place": "Stony Brook, NY, USA (15 hospitals in UK, US, Austria)",
+   "lat": 40.9257,
+   "lng": -73.1409,
+   "n": 2060,
+   "kind": "prospective",
+   "year": 2014,
+   "finding": "2,060 cardiac arrests across 15 hospitals; 330 survived to discharge, 140 were interviewed and 101 completed the second-stage interview. 9% of those 101 met criteria for an NDE and 2% described explicit awareness with recall of events. The published record is not consistent about these counts, so no raw numbers are asserted here.",
+   "cite": "Parnia S et al. AWARE: AWAreness during REsuscitation, a prospective study. Resuscitation 2014;85:1799-1805.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/25301715/",
+   "trigger": "Cardiac arrest",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "no_walk": "This study counted how many people had an experience, not what was in it. Its sister study AWARE II describes the content.",
+   "walk_instead": "aware2023"
+  },
+  {
+   "id": "martial2017",
+   "name": "Liège narratives",
+   "place": "Liège, Belgium",
+   "lat": 50.63,
+   "lng": 5.57,
+   "n": 154,
+   "kind": "retrospective",
+   "year": 2017,
+   "finding": "154 written NDE narratives analysed for which features occur and in what order; no fixed sequence was found.",
+   "cite": "Martial C et al. Temporality of features in near-death experience narratives. Frontiers in Human Neuroscience 2017;11:311.",
+   "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2017.00311/full",
+   "trigger": "Mixed",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "measured": true,
+   "nature": "Recruited from the same Coma Science Group and IANDS pool as the distressing narratives on this map, so the two bubbles overlap rather than confirm each other."
+  },
+  {
+   "id": "cassol2019",
+   "name": "Distressing narratives",
+   "place": "Liège, Belgium",
+   "lat": 50.64,
+   "lng": 5.58,
+   "n": 17,
+   "kind": "retrospective",
+   "year": 2019,
+   "finding": "123 accounts from Liege scored 7 or more on the Greyson scale; 17 of them (14%) were distressing: 8 inverse, 8 hellish, 1 void. They do not differ from the other 106 on the transcendental features, the light and the other world score the same, only on the affective ones, where the median falls from 6 to 2. Six of the 17 begin with peace before turning.",
+   "cite": "Cassol H, Martial C, Annen J, et al. A systematic analysis of distressing near-death experience accounts. Memory 2019;27:1122-29.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/31105066/",
+   "trigger": "Mixed",
+   "experience_type": "distressing",
+   "type_label": "Distressing: inverse, hellish or void",
+   "scene": {
+    "peace": 1,
+    "light": 1,
+    "beings": 1,
+    "realm": 1,
+    "tunnel": 1
+   },
+   "scene_note": "Peace and light are present in this walk because the paper found them present: what collapses in a distressing experience is the feeling, not the content. Six of the seventeen accounts open with peace or joy.",
+   "nature": "The 17 come from a coma and intensive-care subgroup of the Liege pool, so the 14% is not a general rate. This cohort overlaps the 154 Liege narratives on the map; the two bubbles are not independent samples.",
+   "walk": [
+    {
+     "key": "peace",
+     "terrain": "torment",
+     "label": "It can begin well",
+     "text": "Six of the seventeen distressing accounts clearly mention positive feelings at the beginning: peacefulness, or joy. Then it turns."
+    },
+    {
+     "key": "tunnel",
+     "terrain": "torment",
+     "label": "The dark",
+     "text": "Darkness, which in the one void account is where the experience stays: an endless emptiness with nobody in it."
+    },
+    {
+     "key": "light",
+     "terrain": "torment",
+     "label": "The light is still there",
+     "text": "These accounts do not differ from the other 106 on the transcendental features. The bright light and the other world score the same. What collapses is the feeling."
+    },
+    {
+     "key": "beings",
+     "terrain": "torment",
+     "label": "Presences",
+     "text": "Eight of the accounts are inverse, where the usual features arrive but feel hostile or wrong. Eight are hellish, with a place of torment."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "A place of torment",
+     "text": "On the affective component of the Greyson scale the median falls from six to two. The content is the same; the experience of it is not."
+    }
+   ],
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "The Liege group recorded Greyson scores and injury type, not religion."
+  },
+  {
+   "id": "aware2023",
+   "name": "AWARE II",
+   "place": "New York, USA (25 hospitals in US and UK)",
+   "lat": 40.74,
+   "lng": -73.97,
+   "n": 567,
+   "kind": "prospective",
+   "year": 2023,
+   "finding": "567 patients; EEG recorded during CPR in a pilot sub-study of some patients; 28 survivors interviewed; 126 community accounts analysed for themes.",
+   "cite": "Parnia S et al. AWAreness during REsuscitation II: a multi-center study of consciousness and awareness in cardiac arrest. Resuscitation 2023;191:109903.",
+   "url": "https://www.sciencedirect.com/science/article/abs/pii/S0300957223002162",
+   "trigger": "Cardiac arrest",
+   "experience_type": "mixed",
+   "type_label": "Measured across many people",
+   "scene": {
+    "dead": 1,
+    "obe": 1,
+    "realm": 1,
+    "review": 1,
+    "return": 1,
+    "tunnel": 0
+   },
+   "scene_note": "AWARE II describes what survivors recalled as a separation from the body, observing events without pain or distress, travelling to a destination, and a meaningful evaluation of their own actions and relationships. The paper reports themes rather than percentages, so each stage plays at the same strength."
   }
  ]
 }
