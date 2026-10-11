@@ -198,7 +198,7 @@ function restart() {
       const last = reported ? stages[stages.length - 1].text : null;
       TA.fork($("tunnelbox"), sceneObj, last || cur.finding, (path, group) => {
         $("wpath").innerHTML = `<div class="pathnote"><b class="k">${group.kind === "belief" ? "Religious teaching, not evidence" : group.kind === "null" ? "The scientific default" : "A hypothesis, not a finding"}</b>
-          <p><b>${path.name}</b> &middot; ${path.who}</p><p>${path.claim}</p><p class="src">${path.cite} ${path.url ? `&middot; <a href="${path.url}" target="_blank" rel="noopener">source</a>` : ""}</p></div>`;
+          <p><b>${path.name}</b> &middot; ${path.who}</p><p>${path.claim}</p>${path.note ? `<p style="color:var(--c4)">${path.note}</p>` : ""}<p class="src">${path.cite} ${path.url ? `&middot; <a href="${path.url}" target="_blank" rel="noopener">source</a>` : ""}</p></div>`;
       });
     },
     onStage: (i, key, strength, label, desc, place) => {
