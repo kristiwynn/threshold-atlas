@@ -108,6 +108,9 @@
           <option value="historical">A single historical account</option>
           <option value="archive">A collection of accounts</option>
         </select>
+        <select id="relig" aria-label="Religion of the person reporting it">
+          <option value="all">Any religion</option>
+        </select>
         <select id="trigger" aria-label="What brought the person close to death">
           <option value="all">Any cause</option>
         </select>
@@ -118,6 +121,53 @@
     <div class="mapcount" id="mapcount"></div>
   </div>
   <p class="small muted" style="margin-top:10px">Basemap © OpenFreeMap, data © OpenStreetMap contributors. Each bubble is pinned where the experience happened, or as near as the source allows: Er in Pamphylia rather than Athens where Plato wrote, Drythelm at Melrose rather than the disputed Incuneningum, Tundale at Cork where he collapsed rather than Cashel where he was from. Where a source gives only a culture, the pin says so.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Totals</div>
+  <h2>Everything on the map, counted</h2>
+  <p>Two numbers run through these charts and they are not the same. <b>Pins</b> is how many entries sit on the map: 26. <b>Accounts</b> is how many individual experiences those pins stand for: 472, because some pins are collections rather than single reports.</p>
+  <p>The first two charts are the same six categories counted both ways, and they disagree completely. By pins, the tunnel and the light is the <i>rarest</i> thing on this map, two entries out of twenty-six, while guided tours and journeys have eight each. By accounts it is the commonest by a mile, 252 of 472. Both are true. The tunnel looks ubiquitous because the two collections that define the Western stereotype, Moody's 150 cases and Ring's 102, are filed under it and outweigh every single historical account put together. That is a fact about who got collected, not about what happens.</p>
+  <div class="grid2">
+    <div class="card">
+      <h3>By kind of experience</h3>
+      <p class="small muted">The six categories, as the bubbles are coloured.</p>
+      <div class="bars" id="tCat"></div>
+    </div>
+    <div class="card">
+      <h3>Accounts behind those pins</h3>
+      <p class="small muted">The same six categories, weighted by how many individual experiences each pin covers.</p>
+      <div class="bars" id="tCatN"></div>
+    </div>
+    <div class="card">
+      <h3>By religion of the person reporting it</h3>
+      <p class="small muted">Where the account itself names a religion, that is used. Where only the time and place imply one, it is marked inferred. Where the source recorded nothing, that is its own bar.</p>
+      <div class="bars" id="tRel"></div>
+    </div>
+    <div class="card">
+      <h3>By what brought them close to death</h3>
+      <p class="small muted">Causes as each source gives them, including the ones that are not a cause at all.</p>
+      <div class="bars" id="tCause"></div>
+    </div>
+    <div class="card">
+      <h3>By era</h3>
+      <p class="small muted">Where the accounts actually are in time. The deep past is thin and the gaps are long.</p>
+      <div class="bars" id="tEra"></div>
+    </div>
+    <div class="card">
+      <h3>How the religion was established</h3>
+      <p class="small muted">Stated by the account, inferred from its setting, or never recorded. The third bar is the honest size of what is not known.</p>
+      <div class="bars" id="tBasis"></div>
+    </div>
+  </div>
+  <div class="fact" style="margin-top:18px"><b>Two gaps worth naming</b>Nothing on this map is Islamic and nothing is Jewish. That is not a finding about those traditions; it is a hole in what this atlas has been able to cite, and it is being worked on. Six of the twenty-six pins record no religion at all, which is what most modern researchers collected: they recorded Greyson scores and injury types, not beliefs.</div>
+  <h3 style="margin-top:28px">Does religion change the experience?</h3>
+  <p>The published answer is split, and both sides are on this site.</p>
+  <div class="grid2">
+    <div class="fact"><b>It shapes the content</b>Kellehear's census found the life review largely absent from hunter-gatherer accounts, and cites Bellah's argument that a psychology of conscience goes with religions that put moral weight on the individual rather than the group: Judaism, Christianity, Buddhism, Hinduism. He also notes that the reading of a person's record in the Indian cases is a traditional Hindu belief already widely held there. In Pasricha's north Indian series 75% met a being of light or religious figure; in her 1993 series, none did.</div>
+    <div class="fact"><b>It does not</b>Long argues the opposite from the NDERF survey: children aged five and under, who are least likely to hold religious beliefs yet, describe content "strikingly similar" to adults, and over 500 accounts in other languages show "impressive similarities". Van Lommel's paper reports, citing the earlier literature, that experiencers "do not differ from controls with respect to age, sex, ethnic origin, religion, or degree of religious belief". He recorded religion in his own cohort and published no difference by it.</div>
+  </div>
+  <p class="small muted" style="margin-top:12px">Kellehear A, Journal of Near-Death Studies 2008;26:249-65 · Pasricha SK, Journal of Near-Death Studies 2008;26:267-82 · Long J and Perry P, Evidence of the Afterlife, 2010 · van Lommel P et al., Lancet 2001;358:2039-45. Knoblauch's German survey found the sharpest split of all, between the secularised east and the west, and it is <a href="patterns.html">on the patterns page</a>.</p>
 </section>
 
 <section>
@@ -178,7 +228,7 @@ const yearText = y => y < 0 ? `${-y} BC` : String(y);
 const DECADE_MID = { "Before 1960": 1955, "1960s": 1965, "1970s": 1975, "1980s": 1985, "1990s": 1995, "2000s": 2005, "2010s": 2015, "2020s": 2025 };
 const MIN_Y = -2100, MAX_Y = 2026;
 let studies = [], community = [], layer = "all", map, popup;
-let trigger = "all", etype = "all";
+let trigger = "all", etype = "all", relig = "all";
 // The map carries single experiences only. A study or a count has no single shape
 // to place or to colour, so it is left to the charts and the sources page.
 const ONE = s => s.experience_type !== "mixed" && !s.off_map;
@@ -192,6 +242,11 @@ let PREV = [], FEAT = {}, FLABEL = {};
   // Causes come from the data, so a new one never silently drops out of the filter.
   $("trigger").insertAdjacentHTML("beforeend", [...new Set(studies.map(x => x.trigger))].filter(Boolean).sort()
     .map(x => `<option>${x}</option>`).join(""));
+  // Religions come from the data too, commonest first, so the thin ones are visibly thin.
+  const rc = {}; studies.filter(ONE).forEach(x => rc[x.religion_group] = (rc[x.religion_group] || 0) + 1);
+  $("relig").insertAdjacentHTML("beforeend", Object.entries(rc).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([k, v]) => `<option value="${k}">${k} · ${v}</option>`).join(""));
+  drawTotals();
   TA.bars($("prevBars"), F.prevalence.map(p => [`${p.label} <span class="muted small">(${byId[p.study].year})</span>`, p.pct, { n: p.n, color: p.setting === "hospital" ? "c1" : "c2" }]));
 
   map = new maplibregl.Map({
@@ -208,6 +263,10 @@ let PREV = [], FEAT = {}, FLABEL = {};
       map.addLayer({ id: src + "-glow", type: "circle", source: src, paint: { "circle-radius": ["*", ["get", "r"], 2.6], "circle-color": ["get", "color"], "circle-opacity": 0.14, "circle-blur": 1 } });
       map.addLayer({ id: src + "-dot", type: "circle", source: src, paint: { "circle-radius": ["get", "r"], "circle-color": ["get", "color"], "circle-opacity": 0.82, "circle-stroke-color": "#07060f", "circle-stroke-width": 1.5 } });
       map.addLayer({ id: src + "-num", type: "symbol", source: src, layout: { "text-field": ["get", "badge"], "text-size": 11, "text-font": ["Noto Sans Bold"], "text-allow-overlap": true }, paint: { "text-color": "#07060f" } });
+      // the religion of the person reporting it, written under the bubble once there is room
+      map.addLayer({ id: src + "-rel", type: "symbol", source: src, minzoom: 2.6,
+        layout: { "text-field": ["get", "rlabel"], "text-size": 10, "text-font": ["Noto Sans Regular"], "text-offset": ["literal", [0, 1.9]], "text-anchor": "top", "text-allow-overlap": false, "text-optional": true },
+        paint: { "text-color": "#cfc6b4", "text-halo-color": "#07060f", "text-halo-width": 1.4 } });
       map.on("click", src + "-dot", e => showPopup(e));
       map.on("mouseenter", src + "-dot", () => map.getCanvas().style.cursor = "pointer");
       map.on("mouseleave", src + "-dot", () => map.getCanvas().style.cursor = "");
@@ -227,11 +286,16 @@ let PREV = [], FEAT = {}, FLABEL = {};
 function fcStudies() {
   return { type: "FeatureCollection", features: studies.filter(inYears).filter(inTrigger).filter(inLayer).map(s => ({
     type: "Feature", geometry: { type: "Point", coordinates: [s.lng, s.lat] },
-    properties: { ...s, group: GROUP[s.kind], color: etColor(s), r: 8 + 3.1 * Math.sqrt(Math.sqrt(Math.max(1, s.n))), badge: s.n > 1 ? String(s.n) : "" }
+    properties: { ...s, group: GROUP[s.kind], color: etColor(s), r: 8 + 3.1 * Math.sqrt(Math.sqrt(Math.max(1, s.n))), badge: s.n > 1 ? String(s.n) : "",
+      rlabel: s.religion_basis === "unknown" ? "religion not recorded" : s.religion_group + (s.religion_basis === "context" ? " (inferred)" : "") }
   })) };
 }
 function inYears(s) { const [a, b] = years(); return s.year >= a && s.year <= b; }
-function inTrigger(s) { return (trigger === "all" || s.trigger === trigger) && (etype === "all" || s.experience_type === etype); }
+function inTrigger(s) {
+  return (trigger === "all" || s.trigger === trigger)
+    && (etype === "all" || s.experience_type === etype)
+    && (relig === "all" || s.religion_group === relig);
+}
 function years() { return [pos2year(Math.min(+$("y0").value, +$("y1").value) / 1000), pos2year(Math.max(+$("y0").value, +$("y1").value) / 1000)]; }
 function refresh() {
   if (!map || !map.getSource("studies")) return;
@@ -255,7 +319,7 @@ function showPopup(e) {
   const p = e.features[0].properties, co = e.features[0].geometry.coordinates.slice();
   const html = p.community
     ? `<b>${p.n} experience${p.n > 1 ? "s" : ""} shared</b><div style="color:#a79f91">${p.label}</div><div style="margin-top:6px"><a href="patterns.html#community">See the community patterns</a></div>`
-    : `<b>${p.name} <span style="color:#a79f91;font-weight:400">${yearText(p.year)}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]}${Number(p.n) ? ` · n=${Number(p.n).toLocaleString()}` : ""} · ${p.trigger}${p.type_label ? ` · ${p.type_label}` : ""}</div>${p.nature ? `<div style="color:#c98f5a;font-size:12px;margin-bottom:6px">${p.nature}</div>` : ""}${p.finding}${lens !== "size" ? `<div style="margin-top:6px;color:#d8a84a">${p.lensv === "" ? "Not measured in this study" : `${p.lensv}% · ${$("lens").selectedOptions[0].text.replace(/^Feature: /, "")}`}</div>` : ""}<div style="margin-top:8px"><a href="#" onclick="openScene('${p.id}');return false"><b>Walk this experience</b></a> · <a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
+    : `<b>${p.name} <span style="color:#a79f91;font-weight:400">${yearText(p.year)}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]}${Number(p.n) ? ` · n=${Number(p.n).toLocaleString()}` : ""} · ${p.trigger}${p.type_label ? ` · ${p.type_label}` : ""}</div>${p.religion ? `<div style="font-size:12px;margin:0 0 6px"><b style="color:#d8a84a">Religion:</b> ${p.religion}${p.religion_basis === "context" ? ` <i style="color:#a79f91">(inferred from time and place, not stated)</i>` : p.religion_basis === "unknown" ? "" : ""}${p.religion_note ? `<div style="color:#a79f91;margin-top:2px">${p.religion_note}</div>` : ""}</div>` : ""}${p.nature ? `<div style="color:#c98f5a;font-size:12px;margin-bottom:6px">${p.nature}</div>` : ""}${p.finding}${lens !== "size" ? `<div style="margin-top:6px;color:#d8a84a">${p.lensv === "" ? "Not measured in this study" : `${p.lensv}% · ${$("lens").selectedOptions[0].text.replace(/^Feature: /, "")}`}</div>` : ""}<div style="margin-top:8px"><a href="#" onclick="openScene('${p.id}');return false"><b>Walk this experience</b></a> · <a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
   popup.setLngLat(co).setHTML(html).addTo(map);
 }
 // ---------------------------------------------------- lens: resize and recolour by a measure
@@ -269,6 +333,32 @@ function lensValue(s) {
 const RAMP = ["#4a3f6b", "#7a5fa8", "#b06ba0", "#d8884a", "#f0c85a"];
 function lensColor(v) { if (v === undefined || v === null) return "#3a3650"; return RAMP[Math.min(4, Math.floor(v / 20))]; }
 $("lens").addEventListener("change", e => { lens = e.target.value; refresh(); });
+
+
+// ---------------------------------------------------- the totals under the map
+const ERA_BANDS = [[-2200, -500, "2200-500 BC"], [-500, 1, "500 BC - 1 AD"], [1, 500, "1-500"], [500, 1000, "500-1000"],
+  [1000, 1500, "1000-1500"], [1500, 1800, "1500-1800"], [1800, 1950, "1800-1950"], [1950, 2030, "1950-2026"]];
+function drawTotals() {
+  const rows = studies.filter(ONE);
+  const tally = (key, weigh) => {
+    const m = {};
+    rows.forEach(s => { const k = key(s); if (k == null) return; m[k] = (m[k] || 0) + (weigh ? Math.max(1, s.n) : 1); });
+    return Object.entries(m).sort((a, b) => b[1] - a[1]);
+  };
+  const CAT = { tunnel: "Tunnel and light", guided: "A guided tour", summoned: "Summoned, sent back", journey: "A journey", calm: "Calm, no journey", distressing: "Distressing" };
+  const CATCOL = { tunnel: "c1", guided: "c3", summoned: "c4", journey: "c2", calm: "c2", distressing: "c4" };
+  const catCol = lab => CATCOL[Object.keys(CAT).find(x => CAT[x] === lab)] || "c1";
+  const bar = (el, pairs, color, unit) => TA.bars($(el), pairs.map(([k, v]) =>
+    [k, v, { count: true, unit, color: typeof color === "function" ? color(k) : color }]));
+
+  bar("tCat", tally(s => s.experience_type).map(([k, v]) => [CAT[k] || k, v]), catCol, "pins");
+  bar("tCatN", tally(s => s.experience_type, true).map(([k, v]) => [CAT[k] || k, v]), catCol, "accounts");
+  bar("tRel", tally(s => s.religion_group), k => k === "Not recorded" ? "faint" : "c3", "pins");
+  bar("tCause", tally(s => s.trigger), "c2", "pins");
+  bar("tBasis", tally(s => ({ stated: "Stated by the account", context: "Inferred from its setting", unknown: "Never recorded" })[s.religion_basis]),
+    k => k === "Never recorded" ? "faint" : k === "Inferred from its setting" ? "c4" : "c2", "pins");
+  bar("tEra", ERA_BANDS.map(([a, b, lab]) => [lab, rows.filter(s => s.year >= a && s.year < b).length]).filter(x => x[1]), "c1", "pins");
+}
 
 // ---------------------------------------------------- the reel: tap through the atlas
 let reelI = 0, reelTimer = null, reelMap = null, reelHeld = false, reelStart = 0, reelLeft = 0;
@@ -395,8 +485,9 @@ function closeScene() { sceneObj?.destroy(); sceneObj = null; document.getElemen
 $("ticks").innerHTML = [-2000, -1500, -1000, -500, 0, 500, 1000, 1500, 1800, 1900, 1950, 2000, 2025].map(y => `<i style="left:${year2pos(y) * 100}%"></i>`).join("");
 $("trigger").addEventListener("change", e => { trigger = e.target.value; refresh(); });
 $("etype").addEventListener("change", e => { etype = e.target.value; refresh(); });
+$("relig").addEventListener("change", e => { relig = e.target.value; refresh(); });
 ["y0", "y1"].forEach(id => $(id).addEventListener("input", refresh));
-$("resetYears").addEventListener("click", () => { $("y0").value = 0; $("y1").value = 1000; $("trigger").value = "all"; trigger = "all"; $("etype").value = "all"; etype = "all"; $("layer").value = "all"; layer = "all"; refresh(); });
+$("resetYears").addEventListener("click", () => { $("y0").value = 0; $("y1").value = 1000; $("trigger").value = "all"; trigger = "all"; $("etype").value = "all"; etype = "all"; $("layer").value = "all"; layer = "all"; $("relig").value = "all"; relig = "all"; refresh(); });
 $("layer").addEventListener("change", e => { layer = e.target.value; refresh(); });
 </script>
 </body>

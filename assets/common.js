@@ -13,12 +13,19 @@ window.TA = (() => {
     return [100 * (c - m) / d, 100 * (c + m) / d];
   }
   // rows: [label, pct, {n, color, note}]
+  // Rows are [label, value, opts]. Values are percentages by default. Pass
+  // opts.count for plain counts, which are scaled against the biggest row
+  // rather than against 100, and printed without a per-cent sign.
   function bars(el, rows) {
+    const top = Math.max(1, ...rows.map(([, v, o = {}]) => (o.count ? v : 0) || 0));
     el.innerHTML = rows.map(([lab, val, o = {}]) => {
-      const [lo, hi] = o.n ? wilson(val / 100, o.n) : [null, null];
+      const pct = o.count ? (val / top) * 100 : val;
+      const [lo, hi] = !o.count && o.n ? wilson(val / 100, o.n) : [null, null];
       const ci = lo != null ? `<span class="ci" style="left:${lo}%;width:${Math.max(0, hi - lo)}%"></span>` : "";
-      const vtxt = val == null ? "–" : `<b>${Math.round(val * 10) / 10}%</b>` + (lo != null ? ` <span title="95% confidence interval">${Math.round(lo)}–${Math.round(hi)}</span>` : "") + (o.n ? ` <span title="sample size">n=${o.n}</span>` : "");
-      return `<div class="bar"><span class="lab">${lab}</span><span class="track"><span class="fill" style="width:${Math.max(0, Math.min(100, val || 0))}%;background:var(--${o.color || "c1"})"></span>${ci}</span><span class="val">${vtxt}</span></div>`;
+      const vtxt = val == null ? "–"
+        : o.count ? `<b>${val.toLocaleString()}</b>${o.unit ? ` <span>${o.unit}</span>` : ""}`
+        : `<b>${Math.round(val * 10) / 10}%</b>` + (lo != null ? ` <span title="95% confidence interval">${Math.round(lo)}–${Math.round(hi)}</span>` : "") + (o.n ? ` <span title="sample size">n=${o.n}</span>` : "");
+      return `<div class="bar"><span class="lab">${lab}</span><span class="track"><span class="fill" style="width:${Math.max(0, Math.min(100, pct || 0))}%;background:var(--${o.color || "c1"})"></span>${ci}</span><span class="val">${vtxt}</span></div>`;
     }).join("");
   }
   function nav(current) {

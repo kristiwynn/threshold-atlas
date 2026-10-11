@@ -262,7 +262,11 @@
      "label": "Sent back, and marked",
      "text": "They are sent back, often against their wish. A quarter wake with residual marks on the body where they were branded in the other realm. No case reports a tunnel or a life review."
     }
-   ]
+   ],
+   "religion_group": "Hindu",
+   "religion": "Hindu",
+   "religion_basis": "stated",
+   "religion_note": "Yamdoots, the servants of Yama, and Chitragupta, the man with the book."
   },
   {
    "id": "moody1975",
@@ -288,7 +292,11 @@
     "review": 1,
     "border": 1,
     "return": 1
-   }
+   },
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "Moody's interviews did not systematically record religion."
   },
   {
    "id": "ring1980",
@@ -312,7 +320,11 @@
     "light": 1,
     "beings": 1,
     "return": 1
-   }
+   },
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "Ring studied religiousness as a variable, but this atlas has not verified his figures and so records nothing here."
   },
   {
    "id": "cassol2019",
@@ -369,7 +381,11 @@
      "label": "A place of torment",
      "text": "On the affective component of the Greyson scale the median falls from six to two. The content is the same; the experience of it is not."
     }
-   ]
+   ],
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "The Liege group recorded Greyson scores and injury type, not religion."
   },
   {
    "id": "nderf_sounds",
@@ -445,7 +461,11 @@
      "label": "Sent back with a message",
      "text": "They are judged and given a message to carry back, usually to practise faithfully and to stop causing harm. One twelve-year-old Bhutanese delok's task was to be a messenger between the living and the dead."
     }
-   ]
+   ],
+   "religion_group": "Buddhist",
+   "religion": "Tibetan Buddhist",
+   "religion_basis": "stated",
+   "religion_note": "Deloks are led through the Buddhist realms and sent back with a message to practise."
   },
   {
    "id": "plato",
@@ -511,7 +531,11 @@
      "label": "Appointed the messenger",
      "text": "He is told he is to be the messenger who carries the report to men. How he returned to the body he could not say. He revives on the funeral pyre."
     }
-   ]
+   ],
+   "religion_group": "Greek and Roman",
+   "religion": "Greek polytheism",
+   "religion_basis": "context",
+   "religion_note": "Er's own religion is never stated. The frame is Greek and the judges are unnamed."
   },
   {
    "id": "gregory",
@@ -595,7 +619,11 @@
      "label": "Sent back, and unchanged",
      "text": "The soldier returns and tells what he saw. Gregory records that Stephen never perfectly amended his life, and died years later in the plague."
     }
-   ]
+   ],
+   "religion_group": "Christian",
+   "religion": "Christian, Latin",
+   "religion_basis": "stated",
+   "religion_note": "Gregory is pope when he writes it; the accounts are of Christians."
   },
   {
    "id": "drythelm",
@@ -674,7 +702,11 @@
      "label": "Sent back to live differently",
      "text": "He is not allowed in. He returns and tells his wife he must not live as he was wont, divides his property in three, and takes the tonsure at Melrose."
     }
-   ]
+   ],
+   "religion_group": "Christian",
+   "religion": "Christian, Northumbrian",
+   "religion_basis": "stated",
+   "religion_note": "He divides his property and takes the tonsure at Melrose afterwards."
   },
   {
    "id": "tundale",
@@ -759,7 +791,11 @@
      "label": "He revives before the crowd",
      "text": "He comes back to his body in front of the clergy and the crowd gathered to bury him."
     }
-   ]
+   ],
+   "religion_group": "Christian",
+   "religion": "Christian, Irish",
+   "religion_basis": "stated",
+   "religion_note": "An Irish knight; the vision is written down by a monk at Regensburg."
   },
   {
    "id": "beaufort",
@@ -783,7 +819,11 @@
     "tunnel": 0,
     "light": 0,
     "realm": 0
-   }
+   },
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "Beaufort's account of his own drowning says nothing about his religion."
   },
   {
    "id": "heim1892",
@@ -806,7 +846,11 @@
     "light": 0,
     "tunnel": 0,
     "realm": 0
-   }
+   },
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "Heim collected falls, not beliefs. No religion is recorded for any of the thirty."
   },
   {
    "id": "zaleski1987",
@@ -870,7 +914,11 @@
    },
    "scene_note": "A single case, with no percentages: the patient described losing all sensation and then a light so pure and strong he thought he was in paradise. Only those two stages are shown, because only those two are in the account.",
    "experience_type": "calm",
-   "type_label": "Calm and a light, without a journey"
+   "type_label": "Calm and a light, without a journey",
+   "religion_group": "Not recorded",
+   "religion": "Not recorded",
+   "religion_basis": "unknown",
+   "religion_note": "The medical report does not record the patient's religion."
   },
   {
    "id": "green1984",
@@ -922,7 +970,11 @@
      "label": "Back again",
      "text": "They return. There is no tunnel in any of the four accounts and no review of the life. Green's own article has never been digitised; this is as Kellehear summarises it."
     }
-   ]
+   ],
+   "religion_group": "Christian",
+   "religion": "Chamorro, predominantly Roman Catholic",
+   "religion_basis": "context",
+   "religion_note": "Demographic only. Kellehear's summary of these four accounts names no religious figures at all."
   },
   {
    "id": "king1985",
@@ -974,7 +1026,11 @@
      "label": "A voice turns her back",
      "text": "A voice stops her and tells her that her time has not come, and that she must return until she is called again. She wakes to her anxious living relatives."
     }
-   ]
+   ],
+   "religion_group": "Maori",
+   "religion": "Maori",
+   "religion_basis": "stated",
+   "religion_note": "The route is the traditional one to Te Rerenga Wairua, the leaping off place of spirits."
   },
   {
    "id": "kellehear2001hawaii",
@@ -1025,7 +1081,11 @@
      "label": "Sent back",
      "text": "She is sent back and revives."
     }
-   ]
+   ],
+   "religion_group": "Native Hawaiian",
+   "religion": "Native Hawaiian",
+   "religion_basis": "context",
+   "religion_note": "Kalima's own religion is not stated; the account comes from a 1907 collection of Hawaiian folk tales."
   },
   {
    "id": "kellehear2008census",
@@ -1155,7 +1215,11 @@
      "label": "The Recorder of Hades",
      "text": "Belit-seri, Recorder of Hades, bows before Ereshkigal and reads aloud before her. She lifts her head and beholds him. Here the tablet breaks off."
     }
-   ]
+   ],
+   "religion_group": "Mesopotamian",
+   "religion": "Mesopotamian polytheism",
+   "religion_basis": "stated",
+   "religion_note": "The dream names Ereshkigal, queen of the underworld, and Irkalla."
   },
   {
    "id": "bookofdead",
@@ -1239,7 +1303,11 @@
      "label": "A homestead for ever",
      "text": "Horus takes Ani by the hand and leads him to Osiris, lord of eternity, who grants him a homestead for ever in Sekhet-hetepu, with wheat and barley for it."
     }
-   ]
+   ],
+   "religion_group": "Ancient Egyptian",
+   "religion": "Ancient Egyptian",
+   "religion_basis": "stated",
+   "religion_note": "The text is an Egyptian funerary liturgy; Ani is a temple scribe."
   },
   {
    "id": "odyssey",
@@ -1334,7 +1402,11 @@
      "label": "Driven back",
      "text": "So many thousands of ghosts crowd round him with appalling cries that he is panic stricken lest the Gorgon's head be sent up from the house of Hades, and he hastens back to his ship."
     }
-   ]
+   ],
+   "religion_group": "Greek and Roman",
+   "religion": "Greek polytheism",
+   "religion_basis": "stated",
+   "religion_note": "Hades, Persephone and Hermes are named, and the rites are Greek."
   },
   {
    "id": "nachiketa",
@@ -1418,7 +1490,11 @@
      "label": "He refuses, and asks to go home",
      "text": "Keep your horses, keep dance and song for yourself. In the older Brahmana telling he is asked what he ate on each of the three nights: your offspring, your cattle, your good works. Then: may I return living to my father."
     }
-   ]
+   ],
+   "religion_group": "Hindu",
+   "religion": "Vedic Brahmanism",
+   "religion_basis": "stated",
+   "religion_note": "Yama, the fire sacrifice, and the duties of a Brahmana guest."
   },
   {
    "id": "aristeas",
@@ -1482,7 +1558,11 @@
      "label": "Two hundred and forty years later",
      "text": "He appeared in Metapontion and told them to set up an altar of Apollo, saying that he had accompanied the god, being then a raven. Having said this he disappeared."
     }
-   ]
+   ],
+   "religion_group": "Greek and Roman",
+   "religion": "Greek, a devotee of Apollo",
+   "religion_basis": "stated",
+   "religion_note": "Herodotus has him possessed by Phoebus, and later appearing as the raven that accompanied Apollo."
   },
   {
    "id": "zalmoxis",
@@ -1547,7 +1627,11 @@
      "label": "The historian's doubt",
      "text": "As to this matter and the chamber under ground, writes Herodotus, I neither disbelieve it nor do I very strongly believe, but I think that this Salmoxis lived many years before Pythagoras."
     }
-   ]
+   ],
+   "religion_group": "Thracian",
+   "religion": "Getic, the cult of Salmoxis",
+   "religion_basis": "stated",
+   "religion_note": "Herodotus describes the Getai sending a messenger to Salmoxis every fourth year."
   },
   {
    "id": "thespesius",
@@ -1662,7 +1746,11 @@
      "label": "Forced back as through a pipe",
      "text": "A woman of admirable form takes his arm to brand him with a fiery wand; another stops her. He is hurried away with a strong and violent wind, forced as through a pipe, and wakes on the brink of his own grave."
     }
-   ]
+   ],
+   "religion_group": "Greek and Roman",
+   "religion": "Greek and Roman polytheism",
+   "religion_basis": "context",
+   "religion_note": "Thespesius's own religion is not stated. Plutarch, who tells it, was a priest of Apollo at Delphi."
   },
   {
    "id": "ardaviraf",
@@ -1821,7 +1909,11 @@
      "label": "Back to the carpet",
      "text": "Srosh the pious conveyed him successfully and courageously back to this carpeted place, where his body had lain seven days."
     }
-   ]
+   ],
+   "religion_group": "Zoroastrian",
+   "religion": "Zoroastrian",
+   "religion_basis": "stated",
+   "religion_note": "He is chosen by lot by the Dasturs of the religion to settle a doctrinal dispute."
   },
   {
    "id": "nihonryoiki",
@@ -1839,7 +1931,11 @@
    "finding": "The Nihon Ryoiki of 822 collects Japan's earliest return-from-death stories, in which people are taken by the messengers of King Emma and sent back. The ninth-century original is out of copyright, but the only English translations, Nakamura 1973 and Watson 2013, are not, and no open text of either exists. Rather than paraphrase a translation this atlas cannot quote, the entry stays empty and says so.",
    "cite": "Nihon Ryoiki, 822 CE. English translations: Nakamura K, Miraculous Stories from the Japanese Buddhist Tradition, 1973; Watson B, Record of Miraculous Events in Japan, 2013. Neither is available in open text.",
    "url": "https://www.britannica.com/topic/Nihon-ryoiki",
-   "no_walk": "No English translation of these tales is free to quote, and this atlas will not reconstruct a vision from memory. The Konjaku Monogatarishu of about 1120 retells many of the same stories and is also out of copyright; both are waiting on a translation that can be published here."
+   "no_walk": "No English translation of these tales is free to quote, and this atlas will not reconstruct a vision from memory. The Konjaku Monogatarishu of about 1120 retells many of the same stories and is also out of copyright; both are waiting on a translation that can be published here.",
+   "religion_group": "Buddhist",
+   "religion": "Japanese Buddhist",
+   "religion_basis": "stated",
+   "religion_note": "People are taken by the messengers of King Emma, the Buddhist judge of the dead."
   },
   {
    "id": "taiping",
@@ -1909,7 +2005,11 @@
      "label": "Mind my head",
      "text": "He split the coffin with an axe, hunting her gold. She suddenly called out from inside it: Cai Zhong, mind my head."
     }
-   ]
+   ],
+   "religion_group": "Chinese popular religion",
+   "religion": "Chinese popular religion",
+   "religion_basis": "stated",
+   "religion_note": "A Director of Destinies and a Household Bureau: the afterlife as a civil service."
   },
   {
    "id": "visiopauli",
@@ -2054,7 +2154,11 @@
      "label": "Where the text stops",
      "text": "The Greek, Latin and Syriac all break off inside Elijah's speech. Only a Syriac appendix adds a return: and I, Paul, returned to myself, and I knew all that I had seen. James doubts it is the original ending."
     }
-   ]
+   ],
+   "religion_group": "Christian",
+   "religion": "Christian",
+   "religion_basis": "stated",
+   "religion_note": "The vision is framed by 2 Corinthians and guided by an angel of Christ."
   }
  ]
 }
