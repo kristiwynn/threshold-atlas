@@ -73,22 +73,14 @@
 <div class="wrap">
 <div id="nav"></div>
 
-<section class="hero">
+<section class="hero" style="padding-block:28px 18px">
   <div class="eyebrow">An atlas of near-death experiences</div>
-  <h1>The Threshold Atlas</h1>
-  <p class="lede">Where people have come back from the edge of death, what they say they saw, and how often each part of the story recurs. Every figure from a published study; every account added here kept separate and counted on its own.</p>
-  <div class="stats">
-    <div class="stat"><b>18%</b><span>of cardiac-arrest survivors reported an NDE in the Dutch prospective study</span><i>van Lommel, Lancet 2001 · 344 patients</i></div>
-    <div class="stat"><b>9%</b><span>of interviewed survivors met NDE criteria in the UK/US/Austria AWARE study</span><i>Parnia, Resuscitation 2014 · 2,060 arrests</i></div>
-    <div class="stat"><b>75%</b><span>of experiencers describe leaving their body, the most common single feature</span><i>Long, NDERF survey · 613 experiencers</i></div>
-    <div class="stat"><b id="communityN">0</b><span>experiences shared on this atlas so far</span><i>community · anonymous · <a href="share.html">add yours</a></i></div>
-  </div>
+  <h1 style="margin-bottom:8px">The Threshold Atlas</h1>
+  <p class="lede" style="margin-bottom:0">Where people have come back from the edge of death, and what they say they saw. Tap a bubble, then <b>Walk this experience</b>.</p>
 </section>
 
 <section>
-  <div class="eyebrow">Map</div>
-  <h2>Where it has been studied, and where people say it happened</h2>
-  <p>Click any bubble and choose <b>Walk this experience</b> to see what that source describes. The timeline runs from Gilgamesh, around 2100 BC, to the studies of the 2020s, stretched so the crowded last century stays readable. Drag the handles, filter by what brought people close to death, or press <b>Play the atlas</b> to tap through all of it like a reel. Change the lens to size the bubbles by a single feature and watch which studies found it and which did not. Gold and teal bubbles are studies, sized by how many people they covered; rose bubbles are experiences shared here, grouped by country and US state once a place has five or more. Tap any bubble.</p>
+  <h2 class="vh">The map</h2>
   <div class="mapwrap">
     <div id="map" role="region" aria-label="Map of near-death experience studies and shared experiences"></div>
     <div class="maptop">
@@ -111,18 +103,18 @@
           <option value="community">Shared here</option>
         </select>
         <select id="etype" aria-label="Kind of experience described">
-          <option value="all">Any kind of experience</option>
+          <option value="all">Every bubble</option>
+          <option value="one">Only single experiences</option>
           <option value="tunnel">Tunnel and light</option>
           <option value="guided">A guided tour of the realms</option>
           <option value="summoned">Summoned, and sent back</option>
           <option value="journey">A journey across a landscape</option>
           <option value="calm">Calm and a life review, no journey</option>
           <option value="distressing">Distressing</option>
-          <option value="mixed">Measured across many people</option>
+          <option value="mixed">Not one experience: a study or a count</option>
         </select>
         <select id="trigger" aria-label="What brought people close to death">
           <option value="all">Any cause</option>
-          <option>Cardiac arrest</option><option>Illness</option><option>Critical illness</option><option>Falls</option><option>Drowning</option><option>Battle</option><option>Sudden collapse</option><option>Earthquake</option><option>Mixed</option>
         </select>
         <select id="lens" aria-label="Colour and size the bubbles by">
           <option value="size">Bubbles by study size</option>
@@ -138,11 +130,26 @@
         <button class="playbtn" id="playBtn">▶ Play the atlas</button>
       </div>
     </div>
-    <div class="maplegend"><span style="--sw:#d8a84a">Tunnel and light</span><span style="--sw:#8a7fd6">Guided tour</span><span style="--sw:#e07a9a">Summoned</span><span style="--sw:#4fb3a9">A journey</span><span style="--sw:#8fb8e0">Calm, no journey</span><span style="--sw:#c0504a">Distressing</span><span style="--sw:#9a9280">Measured across many</span><span style="--sw:#efe9dc">Shared here</span></div>
+    <div class="maplegend"><span style="--sw:#d8a84a">Tunnel and light</span><span style="--sw:#8a7fd6">Guided tour</span><span style="--sw:#e07a9a">Summoned</span><span style="--sw:#4fb3a9">A journey</span><span style="--sw:#8fb8e0">Calm, no journey</span><span style="--sw:#c0504a">Distressing</span><span style="--sw:#76737f">Not one experience: a study or a count</span></div>
     <div class="mapcount" id="mapcount"></div>
   </div>
   <p class="small muted" style="margin-top:10px">Basemap © OpenFreeMap, data © OpenStreetMap contributors. Studies are placed at the lead hospital or institution; AWARE and NDERF spanned many countries and sit at their coordinating centre. Shared experiences are never placed more precisely than a country or US state, and are nudged apart so they can be told apart.</p>
 </section>
+
+<section>
+  <div class="eyebrow">Reading the map</div>
+  <h2>What the bubbles mean</h2>
+  <p>Each bubble is coloured by <b>the kind of experience the source describes</b>: a tunnel and a light, a guided tour of the realms, being summoned and sent back, a journey across a landscape, calm and a life review with no journey, or a distressing one. Those six are things that happened to a person. The grey bubbles are not: a study that measured many people at once, or a count of experiences shared here, has no single shape to colour, and is marked as such.</p>
+  <p>The timeline runs from Gilgamesh, around 2100 BC, to the studies of the 2020s, stretched so the crowded last century stays readable. Drag the handles, narrow by what brought people close to death, or press <b>Play the atlas</b> to tap through all of it like a reel. Change the lens to size the bubbles by a single feature and watch which studies found it and which did not.</p>
+  <div class="stats">
+    <div class="stat"><b>18%</b><span>of cardiac-arrest survivors reported an NDE in the Dutch prospective study</span><i>van Lommel, Lancet 2001 · 344 patients</i></div>
+    <div class="stat"><b>9%</b><span>of interviewed survivors met NDE criteria in the UK/US/Austria AWARE study</span><i>Parnia, Resuscitation 2014 · 2,060 arrests</i></div>
+    <div class="stat"><b>75%</b><span>of experiencers describe leaving their body, the most common single feature</span><i>Long, NDERF survey · 613 experiencers</i></div>
+    <div class="stat"><b id="communityN">0</b><span>experiences shared on this atlas so far</span><i>community · anonymous · <a href="share.html">add yours</a></i></div>
+  </div>
+</section>
+
+
 
 <section>
   <div class="eyebrow">Prevalence</div>
@@ -175,7 +182,7 @@ document.getElementById("footer").innerHTML = TA.footer();
 const $ = id => document.getElementById(id);
 const GROUP = { prospective: "prospective", survey: "survey", retrospective: "archive", cases: "archive", historical: "historical" };
 // Bubbles are coloured by the kind of experience described. The kind of source is a filter, not a colour.
-const ETCOLOR = { tunnel: "#d8a84a", guided: "#8a7fd6", summoned: "#e07a9a", journey: "#4fb3a9", calm: "#8fb8e0", distressing: "#c0504a", mixed: "#9a9280", community: "#efe9dc" };
+const ETCOLOR = { tunnel: "#d8a84a", guided: "#8a7fd6", summoned: "#e07a9a", journey: "#4fb3a9", calm: "#8fb8e0", distressing: "#c0504a", mixed: "#76737f", community: "#76737f" };
 const etColor = s => ETCOLOR[s.experience_type] || ETCOLOR.mixed;
 const LABEL = { historical: "Historical account", prospective: "Prospective hospital study", survey: "Population survey", archive: "Case collection or archive" };
 // The timeline covers 2,400 years, so it is stretched where the accounts are: the deep past is
@@ -195,6 +202,9 @@ let PREV = [], FEAT = {}, FLABEL = {};
   const F = await TA.data("features"), S = await TA.data("studies");
   PREV = F.prevalence; FEAT = F.studies; FLABEL = Object.fromEntries(F.features);
   studies = S.studies; const byId = Object.fromEntries(studies.map(s => [s.id, s]));
+  // Causes come from the data, so a new one never silently drops out of the filter.
+  $("trigger").insertAdjacentHTML("beforeend", [...new Set(studies.map(x => x.trigger))].filter(Boolean).sort()
+    .map(x => `<option>${x}</option>`).join(""));
   TA.bars($("prevBars"), F.prevalence.map(p => [`${p.label} <span class="muted small">(${byId[p.study].year})</span>`, p.pct, { n: p.n, color: p.setting === "hospital" ? "c1" : "c2" }]));
 
   map = new maplibregl.Map({
@@ -246,14 +256,16 @@ function fcStudies() {
   })) };
 }
 function fcCommunity() {
-  if (layer !== "all" && layer !== "community") return { type: "FeatureCollection", features: [] };
+  if ((layer !== "all" && layer !== "community") || (etype !== "all" && etype !== "mixed")) return { type: "FeatureCollection", features: [] };
   return { type: "FeatureCollection", features: community.map((c, i) => {
     const a = i * 2.39996, d = 1.1 * Math.sqrt(i); // nudge overlapping places apart
     return { type: "Feature", geometry: { type: "Point", coordinates: [c.lng + d * Math.cos(a), c.lat + d * Math.sin(a) * 0.7] }, properties: { ...c, color: ETCOLOR.community, r: 8 + 3.4 * Math.sqrt(c.n), badge: String(c.n), community: true } };
   }) };
 }
 function inYears(s) { const [a, b] = years(); return s.year >= a && s.year <= b; }
-function inTrigger(s) { return (trigger === "all" || s.trigger === trigger) && (etype === "all" || s.experience_type === etype); }
+// "one" means a bubble that is one person's experience, not a study or a count.
+const ONE = s => s.experience_type !== "mixed";
+function inTrigger(s) { return (trigger === "all" || s.trigger === trigger) && (etype === "all" || (etype === "one" ? ONE(s) : s.experience_type === etype)); }
 function years() { return [pos2year(Math.min(+$("y0").value, +$("y1").value) / 1000), pos2year(Math.max(+$("y0").value, +$("y1").value) / 1000)]; }
 function refresh() {
   if (!map || !map.getSource("studies")) return;
@@ -355,6 +367,8 @@ function sceneStages(st) {
   // Measured feature rates where the study published them; otherwise the presence or absence
   // the source itself reports, shown at a fixed strength and labelled as not measured.
   const ORDER = ["dead", "obe", "peace", "tunnel", "light", "beings", "realm", "review", "border", "return"];
+  // A single reported vision walks in the order the source tells it, in the places it names.
+  if (st.walk) return { stages: st.walk.map(w => Object.assign({ v: 0.82 }, w)), measured: false, reported: true };
   const f = FEAT[st.id];
   if (f) return { stages: ORDER.filter(k => f.data[k] !== undefined).map(k => [k, f.data[k] / 100]), measured: true };
   if (st.scene) return { stages: ORDER.filter(k => st.scene[k] === 1).map(k => [k, 0.75]), measured: false };
@@ -362,7 +376,7 @@ function sceneStages(st) {
 }
 function openScene(id) {
   const st = studies.find(x => x.id === id); if (!st) return;
-  const { stages, measured } = sceneStages(st);
+  const { stages, measured, reported } = sceneStages(st);
   closeScene();
   const el = document.createElement("div"); el.className = "sceneModal"; el.id = "sceneModal";
   const alt = st.walk_instead && studies.find(x => x.id === st.walk_instead);
@@ -370,7 +384,7 @@ function openScene(id) {
         ${stages.length ? `<button id="sceneNext" class="sbtn">Next stage</button>` : ""}<button id="sceneClose" class="sbtn" aria-label="Close">×</button></div>`;
   const foot = `<div class="sbody">
         ${st.nature ? `<p class="sprov" style="color:#c98f5a">${st.nature}</p>` : ""}<p class="sfind">${st.finding}</p>
-        ${stages.length ? `<p class="sprov">${st.scene_note ? st.scene_note : measured ? "Each stage plays as strongly as the share of people in this study who reported it." : "This source describes which parts happened but publishes no percentages, so every stage it reports is shown at the same strength."}</p>` : ""}
+        ${stages.length ? `<p class="sprov">${st.scene_note ? st.scene_note : reported ? "This walk follows the order this source tells it in, and builds only the places the source names." : measured ? "Each stage plays as strongly as the share of people in this study who reported it." : "This source describes which parts happened but publishes no percentages, so every stage it reports is shown at the same strength."}</p>` : ""}
         <p class="sprov">${st.cite} · <a href="${st.url}" target="_blank" rel="noopener">source</a> · <a href="world.html">the full world</a></p>
       </div>`;
   if (!stages.length) {
@@ -395,9 +409,9 @@ function openScene(id) {
   document.addEventListener("keydown", sceneKeys);
   sceneObj = TAScene.create({
     canvas: $("scanvas"), box: $("sbox"), stages, cold: st.experience_type === "distressing", stageMs: 8000,
-    onStage: (i, key, strength, label, desc) => {
+    onStage: (i, key, strength, label, desc, place) => {
       $("scapT").textContent = `${i + 1}. ${label}`;
-      $("scapS").textContent = desc + (measured ? ` · ${Math.round(strength * 100)}% of ${FEAT[st.id].n} reported this` : " · reported in this source; no percentage published");
+      $("scapS").textContent = desc + (measured ? ` · ${Math.round(strength * 100)}% of ${FEAT[st.id].n} reported this` : reported ? (place ? ` · ${place}` : "") : " · reported in this source; no percentage published");
     }
   });
   $("sceneNext").addEventListener("click", () => sceneObj && sceneObj.next());

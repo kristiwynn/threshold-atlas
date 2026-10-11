@@ -121,8 +121,10 @@ let STUDIES = [], FEAT = {}, SP = null, cur = null, mode = "typical", sceneObj =
   renderSoundTable();
 })();
 
-function walkable(s) { return !!(FEAT[s.id] || s.scene); }
+function walkable(s) { return !!(s.walk || FEAT[s.id] || s.scene); }
 function stagesFor(s) {
+  // A single reported vision walks in the order the source tells it, in the places it names.
+  if (s.walk) return { stages: s.walk.map(w => Object.assign({ v: 0.82 }, w)), measured: false, reported: true, n: s.n };
   if (FEAT[s.id]) return { stages: ORDER.filter(k => FEAT[s.id].data[k] !== undefined).map(k => [k, FEAT[s.id].data[k] / 100]), measured: true, n: FEAT[s.id].n };
   if (s.scene) return { stages: ORDER.filter(k => s.scene[k] === 1).map(k => [k, 0.78]), measured: false, n: s.n };
   return { stages: [], measured: false, n: 0 };
@@ -143,7 +145,7 @@ function select(id) {
   const s = STUDIES.find(x => x.id === id) || STUDIES.find(x => x.id === "long2010");
   cur = s; try { localStorage.setItem("ta-cohort", s.id); } catch (e) {}
   document.querySelectorAll("#cohorts button").forEach(b => b.setAttribute("aria-pressed", b.dataset.c === s.id));
-  const { stages, measured, n } = stagesFor(s);
+  const { stages, measured, reported, n } = stagesFor(s);
   cold = s.experience_type === "distressing";
   $("whoT").textContent = s.name;
   $("whoS").textContent = `${yearText(s.year)} · ${s.place}${s.type_label ? ` · ${s.type_label}` : ""}`;
@@ -152,14 +154,15 @@ function select(id) {
   $("whoNature").hidden = !s.nature;
   $("whoCite").innerHTML = `${s.cite} · <a href="${s.url}" target="_blank" rel="noopener">source</a>`;
   $("howNote").textContent = s.scene_note ? s.scene_note
+    : reported ? `This walk follows the order this source tells it in, and builds only the places the source names.`
     : measured ? `Each stage plays as strongly as the share of the ${n} experiencers in this study who reported it.`
     : `This source describes which parts happened but publishes no percentages, so each stage it reports is shown at the same strength.`;
-  $("stages").innerHTML = stages.map(([k, v], i) =>
-    `<div class="stage" data-i="${i}"><b>${i + 1}. ${TAScene.LABEL[k]}</b><span class="v">${measured ? `<em>${Math.round(v * 100)}%</em> of ${n}` : "reported here"}</span></div>`).join("")
+  $("stages").innerHTML = stages.map((st, i) => { const k = Array.isArray(st) ? st[0] : st.key, v = Array.isArray(st) ? st[1] : st.v;
+    return `<div class="stage" data-i="${i}"><b>${i + 1}. ${(Array.isArray(st) ? 0 : st.label) || TAScene.LABEL[k]}</b><span class="v">${measured ? `<em>${Math.round(v * 100)}%</em> of ${n}` : reported ? (TAScene.PLACE[st.terrain] || "as told") : "reported here"}</span></div>`; }).join("")
     || `<p class="muted">No stages.</p>`;
   $("prov").innerHTML = `<table><thead><tr><th>Stage</th><th>Reported by</th><th>Source</th></tr></thead><tbody>` +
     ORDER.map(k => {
-      const inc = stages.find(x => x[0] === k);
+      const inc = stages.map(x => Array.isArray(x) ? x : [x.key, x.v]).find(x => x[0] === k);
       if (inc) return `<tr><td>${TAScene.LABEL[k]}</td><td class="num">${measured ? `${Math.round(inc[1] * 100)}% of ${n}` : "reported, no percentage published"}</td><td><a href="${s.url}" target="_blank" rel="noopener">${s.cite.split(".")[0]}</a></td></tr>`;
       const absent = s.scene && s.scene[k] === 0;
       return `<tr><td>${TAScene.LABEL[k]}</td><td class="num muted">${absent ? "reported ABSENT in this source" : "not mentioned"}</td><td class="muted">—</td></tr>`;
@@ -181,7 +184,7 @@ function restart() {
   sceneObj?.destroy(); sceneObj = null;
   let { stages, measured, n } = stagesFor(cur);
   if (mode === "sample" && measured) {
-    stages = stages.filter(() => true).map(([k, v]) => [k, Math.random() < v ? 1 : null]).filter(x => x[1] !== null);
+    stages = stages.map(([k, v]) => [k, Math.random() < v ? 1 : null]).filter(x => x[1] !== null);
     if (!stages.length) stages = [["peace", 0.5]];
   }
   const tone = SP.cohorts && SP.cohorts[cur.id] && SP.cohorts[cur.id].tone;
@@ -189,10 +192,10 @@ function restart() {
   $("distressNote").hidden = !distress;
   sceneObj = TAScene.create({
     canvas: $("tunnelCanvas"), box: $("tunnelbox"), stages, cold: distress, stageMs: 11000,
-    onStage: (i, key, strength, label, desc) => {
+    onStage: (i, key, strength, label, desc, place) => {
       $("capT").textContent = `${i + 1}. ${label}`;
       $("capS").textContent = desc;
-      $("capI").textContent = (measured ? `${Math.round(strength * 100)}% of ${n} experiencers reported this` : `Reported in this source; no percentage published`) + ` · ${cur.cite.split(".")[0]}`;
+      $("capI").textContent = (measured ? `${Math.round(strength * 100)}% of ${n} experiencers reported this` : place ? `In ${place}` : `Reported in this source; no percentage published`) + ` · ${cur.cite.split(".")[0]}`;
       document.querySelectorAll("#stages .stage").forEach((el, j) => j === i ? el.setAttribute("aria-current", "step") : el.removeAttribute("aria-current"));
     }
   });

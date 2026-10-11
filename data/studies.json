@@ -230,7 +230,39 @@
     "review": 0,
     "light": 1,
     "obe": 0
-   }
+   },
+   "walk": [
+    {
+     "key": "messengers",
+     "terrain": "abstract",
+     "label": "The yamdoots come",
+     "text": "Messengers called yamdoots arrive and take the person away, sometimes roughly. They are the servants of Yama, lord of the dead."
+    },
+    {
+     "key": "ledger",
+     "terrain": "hall",
+     "label": "The man with the book",
+     "text": "The person is brought before Chitragupta, 'the man with the book', who keeps the record of what each life contains."
+    },
+    {
+     "key": "error",
+     "terrain": "hall",
+     "label": "The wrong person",
+     "text": "The book is checked and a mistake is found. Ninety-four per cent of the Indian cases are sent back because of such an error; in a third, somebody else died instead."
+    },
+    {
+     "key": "light",
+     "terrain": "hall",
+     "label": "Beings of light",
+     "text": "Beings of light were reported by the north Indian experiencers. Pasricha's later south Indian series reported none, which is one of the few differences inside one country."
+    },
+    {
+     "key": "return",
+     "terrain": "abstract",
+     "label": "Sent back, and marked",
+     "text": "They are sent back, often against their wish. A quarter wake with residual marks on the body where they were branded in the other realm. No case reports a tunnel or a life review."
+    }
+   ]
   },
   {
    "id": "moody1975",
@@ -305,7 +337,39 @@
     "tunnel": 1
    },
    "scene_note": "Peace and light are present in this walk because the paper found them present: what collapses in a distressing experience is the feeling, not the content. Six of the seventeen accounts open with peace or joy.",
-   "nature": "The 17 come from a coma and intensive-care subgroup of the Liege pool, so the 14% is not a general rate. This cohort overlaps the 154 Liege narratives on the map; the two bubbles are not independent samples."
+   "nature": "The 17 come from a coma and intensive-care subgroup of the Liege pool, so the 14% is not a general rate. This cohort overlaps the 154 Liege narratives on the map; the two bubbles are not independent samples.",
+   "walk": [
+    {
+     "key": "peace",
+     "terrain": "torment",
+     "label": "It can begin well",
+     "text": "Six of the seventeen distressing accounts clearly mention positive feelings at the beginning: peacefulness, or joy. Then it turns."
+    },
+    {
+     "key": "tunnel",
+     "terrain": "torment",
+     "label": "The dark",
+     "text": "Darkness, which in the one void account is where the experience stays: an endless emptiness with nobody in it."
+    },
+    {
+     "key": "light",
+     "terrain": "torment",
+     "label": "The light is still there",
+     "text": "These accounts do not differ from the other 106 on the transcendental features. The bright light and the other world score the same. What collapses is the feeling."
+    },
+    {
+     "key": "beings",
+     "terrain": "torment",
+     "label": "Presences",
+     "text": "Eight of the accounts are inverse, where the usual features arrive but feel hostile or wrong. Eight are hellish, with a place of torment."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "A place of torment",
+     "text": "On the affective component of the Greyson scale the median falls from six to two. The content is the same; the experience of it is not."
+    }
+   ]
   },
   {
    "id": "nderf_sounds",
@@ -348,7 +412,40 @@
     "return": 1,
     "tunnel": 0
    },
-   "nature": "Kellehear includes the deloks only 'for the sake of completeness': some had dyings on fasting days, the 10th, 15th and 30th of each month, and local observers took them for epileptics. Bailey's own named case is Sangs Rgyas Chos 'dzom, a twelve-year-old girl in Bhutan shortly after 1650."
+   "nature": "Kellehear includes the deloks only 'for the sake of completeness': some had dyings on fasting days, the 10th, 15th and 30th of each month, and local observers took them for epileptics. Bailey's own named case is Sangs Rgyas Chos 'dzom, a twelve-year-old girl in Bhutan shortly after 1650.",
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "Taken for dead",
+     "text": "A delok, 'one who returns from the hereafter', is taken for dead, sometimes for days. Most of them are women."
+    },
+    {
+     "key": "beings",
+     "terrain": "torment",
+     "label": "Guided through the realms",
+     "text": "Guides lead them through the Buddhist realms, hot and cold. Kellehear records no mention of a tunnel in any of these accounts."
+    },
+    {
+     "key": "review",
+     "terrain": "hall",
+     "label": "Weighed in public",
+     "text": "The reckoning is public, not a private replay: a small black demon holds black pebbles for the sinful deeds, a white deity holds white pebbles to weigh against them."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "hall",
+     "label": "The bridge, the scale, the mirror",
+     "text": "They watch the judgment of souls with a bridge, a scale, and the mirror of existence, in which what was done is shown."
+    },
+    {
+     "key": "return",
+     "terrain": "garden",
+     "label": "Sent back with a message",
+     "text": "They are judged and given a message to carry back, usually to practise faithfully and to stop causing harm. One twelve-year-old Bhutanese delok's task was to be a messenger between the living and the dead."
+    }
+   ]
   },
   {
    "id": "plato",
@@ -375,7 +472,46 @@
     "review": 0,
     "light": 1
    },
-   "nature": "Plato tells this as a tale, not a case report: 'this too is a tale of a hero, Er the son of Armenius, a Pamphylian by birth.' Pinned in Pamphylia because that is where Plato puts Er; the Republic was written in Athens."
+   "nature": "Plato tells this as a tale, not a case report: 'this too is a tale of a hero, Er the son of Armenius, a Pamphylian by birth.' Pinned in Pamphylia because that is where Plato puts Er; the Republic was written in Athens.",
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "meadow",
+     "label": "Slain in battle",
+     "text": "Er is killed in battle. Ten days later his body is found undecayed. When his soul left the body he went on a journey with a great company."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "meadow",
+     "label": "Two openings in the earth",
+     "text": "They reach a place where two openings gape in the earth and two in the heaven above it, with judges seated in the space between."
+    },
+    {
+     "key": "beings",
+     "terrain": "meadow",
+     "label": "The judges",
+     "text": "The just are sent to the right and upward, the unjust to the left and down. Souls come up dusty and worn, or down clean and bright."
+    },
+    {
+     "key": "realm",
+     "terrain": "meadow",
+     "label": "Seven days in the meadow",
+     "text": "They go forth into the meadow and encamp as at a festival. Those who know one another embrace, and each asks the others what they saw."
+    },
+    {
+     "key": "light",
+     "terrain": "meadow",
+     "label": "The pillar of light",
+     "text": "Four days on they see from above a line of light, straight as a column, running through the whole heaven and earth, like the rainbow but brighter and purer."
+    },
+    {
+     "key": "return",
+     "terrain": "meadow",
+     "label": "Appointed the messenger",
+     "text": "He is told he is to be the messenger who carries the report to men. How he returned to the body he could not say. He revives on the funeral pyre."
+    }
+   ]
   },
   {
    "id": "gregory",
@@ -402,7 +538,64 @@
     "obe": 1,
     "light": 1
    },
-   "scene_note": "Pinned at Rome, where Gregory wrote. The four accounts are set in three places: the desert of Evasa, Constantinople, and Rome."
+   "scene_note": "Pinned at Rome, where Gregory wrote. The four accounts are set in three places: the desert of Evasa, Constantinople, and Rome.",
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "Stephen dies in Constantinople",
+     "text": "Stephen, in Constantinople on business, falls sick and dies. His soul is carried to the dungeon of hell and he is brought before a judge."
+    },
+    {
+     "key": "error",
+     "terrain": "hall",
+     "label": "The wrong Stephen",
+     "text": "The judge refuses him: 'I commanded not this man to be brought, but Stephen the smith.' He revives, and the smith next door dies at that same hour."
+    },
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "A soldier dies in the plague",
+     "text": "A soldier at the point of death has his soul carried out of his body so that he lies void of all sense and feeling, then comes quickly to himself again."
+    },
+    {
+     "key": "realm",
+     "terrain": "bridge",
+     "label": "The bridge and the black river",
+     "text": "He sees a bridge under which a black and smoky river runs, with a filthy and intolerable smell."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "bridge",
+     "label": "Crossing",
+     "text": "The unjust slip from the bridge into the stink below. The just pass over it unhindered to the far side."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "Green meadows beyond",
+     "text": "On the farther side are pleasant green meadows full of sweet flowers, with companies of men walking in them, all apparelled in white."
+    },
+    {
+     "key": "light",
+     "terrain": "city",
+     "label": "The house built of gold",
+     "text": "Mansions stand shining with brightness and light, one of them sumptuous, its bricks seeming to be of gold, and old men, young, girls and boys carry them to the building."
+    },
+    {
+     "key": "beings",
+     "terrain": "bridge",
+     "label": "Stephen on the bridge",
+     "text": "On the same bridge he sees Stephen again, drawn by the legs downward by terrible men out of the river and pulled upward by the arms by white and beautiful persons."
+    },
+    {
+     "key": "return",
+     "terrain": "abstract",
+     "label": "Sent back, and unchanged",
+     "text": "The soldier returns and tells what he saw. Gregory records that Stephen never perfectly amended his life, and died years later in the plague."
+    }
+   ]
   },
   {
    "id": "drythelm",
@@ -429,7 +622,59 @@
     "review": 0,
     "obe": 1
    },
-   "nature": "Pinned at Melrose, the one place in the account that is certainly identified. Bede's 'Incuneningum' has never been agreed on: Cunninghame in Ayrshire, Tyninghame in East Lothian and Chester-le-Street have all been proposed."
+   "nature": "Pinned at Melrose, the one place in the account that is certainly identified. Bede's 'Incuneningum' has never been agreed on: Cunninghame in Ayrshire, Tyninghame in East Lothian and Chester-le-Street have all been proposed.",
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Dead at nightfall",
+     "text": "He dies in the beginning of the night and comes to life again at dawn, sitting suddenly up. Only his wife stays with him. A guide with a countenance full of light and shining raiment leads him away."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "The valley of flame and hail",
+     "text": "A broad deep valley of infinite length: one side terrible with raging flames, the other with violent hail and cold snows, and souls tossed from one side to the other as by a storm."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "torment",
+     "label": "The pit, and the tongs",
+     "text": "The shadows thicken until he can see nothing but the darkness and his guide. Globes of black flame rise from a pit and fall back into it, and laughing spirits come at him with tongs."
+    },
+    {
+     "key": "light",
+     "terrain": "garden",
+     "label": "Out into clear light",
+     "text": "His guide returns, the spirits scatter, and he is brought out of the darkness into an atmosphere of clear light, brighter than the noontide sun."
+    },
+    {
+     "key": "border",
+     "border": "wall",
+     "terrain": "garden",
+     "label": "A wall with no door",
+     "text": "A vast wall stands before them, boundless in length and height, with no door, window or way up. At the wall they are suddenly on top of it."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "The flowery field",
+     "text": "Beyond the wall is a wide and pleasant plain full of fragrant flowers, with companies of men in white. He thinks this might be the kingdom of heaven. His guide answers his unspoken thought: it is not."
+    },
+    {
+     "key": "beings",
+     "terrain": "garden",
+     "label": "A brighter light still, and singing",
+     "text": "Farther on he sees a light far more beautiful than before, hears sweet singing, and smells so wonderful a fragrance that the flowery field now seems mean by comparison."
+    },
+    {
+     "key": "return",
+     "terrain": "garden",
+     "label": "Sent back to live differently",
+     "text": "He is not allowed in. He returns and tells his wife he must not live as he was wont, divides his property in three, and takes the tonsure at Melrose."
+    }
+   ]
   },
   {
    "id": "tundale",
@@ -456,7 +701,65 @@
     "review": 0,
     "obe": 1
    },
-   "nature": "Every surviving manuscript reads 1149, which Wagner shows is an old copying error: the text's own synchronisms, including the death of St Malachy at Clairvaux, fix the vision in 1148."
+   "nature": "Every surviving manuscript reads 1149, which Wagner shows is an old copying error: the text's own synchronisms, including the death of St Malachy at Clairvaux, fix the vision in 1148.",
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "Struck down at table",
+     "text": "Reaching for his food he cannot bring his hand back to his mouth. He cries out, hands his axe to his companion's wife and says: guard my axe, for I am dying."
+    },
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Three days as dead",
+     "text": "He lies dead from the tenth hour of Wednesday to the tenth hour of Saturday. Those who palpated the body felt a slight warmth in the left breast, so burial was delayed."
+    },
+    {
+     "key": "beings",
+     "terrain": "torment",
+     "label": "The angel like a bright star",
+     "text": "Demons set on the soul. Then he sees something coming from far off like a most shining star. It greets him by his own name: Hail, Tnugdal, what are you doing?"
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "He suffers the torments himself",
+     "text": "He is not only shown the punishments but undergoes very many incredible and intolerable kinds of them. The angel tells him it followed him from birth and he never took its counsel."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "torment",
+     "label": "The plank across the valley",
+     "text": "A plank reaches from one mountain to another like a bridge, a thousand paces long and one foot wide. He sees many fall from it; only a pilgrim priest crosses unhurt."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "torment",
+     "label": "The bridge of nails",
+     "text": "A second plank, two miles long and a palm wide, is set with the sharpest iron nails that pierce the feet of everyone crossing. Below is a lake of bellowing beasts asking only for souls."
+    },
+    {
+     "key": "light",
+     "terrain": "city",
+     "label": "The silver wall",
+     "text": "A very high and bright wall of silver, with no gate in it, which divine power brings him through. Inside are choirs of saints rejoicing."
+    },
+    {
+     "key": "realm",
+     "terrain": "city",
+     "label": "The wall of purest gold",
+     "text": "A second wall as high as the first, of the purest and most brilliant gold, so that the shine of the metal alone delights more than everything seen before it."
+    },
+    {
+     "key": "return",
+     "terrain": "garden",
+     "label": "He revives before the crowd",
+     "text": "He comes back to his body in front of the clergy and the crowd gathered to bury him."
+    }
+   ]
   },
   {
    "id": "beaufort",
@@ -551,7 +854,7 @@
     "tunnel": 1,
     "review": 1
    },
-   "scene_note": "Stage strengths here are the published item rates, so the tunnel and the light play faintly and the life review strongly. Kellehear cautions that the tunnel item was offered to respondents as a category rather than volunteered, so its 16% may be an overcount."
+   "scene_note": "Stage strengths here are not the published item rates: Feng and Liu report a life review in 51% of the 32, leaving the body in 43%, a tunnel-like dark region in 16% and a brilliant light in 15%. Kellehear cautions that the tunnel item was offered to respondents as a category rather than volunteered."
   },
   {
    "id": "monchaux1740",
@@ -598,7 +901,33 @@
     "review": 0,
     "light": 0
    },
-   "nature": "Green's original newsletter article is not available anywhere online; this entry rests entirely on Kellehear's summaries of it."
+   "nature": "Green's original newsletter article is not available anywhere online; this entry rests entirely on Kellehear's summaries of it.",
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Out of the body",
+     "text": "The Chamorro accounts begin with leaving the body, which is unusual among the non-Western cases: India and China's do not report it."
+    },
+    {
+     "key": "realm",
+     "terrain": "meadow",
+     "label": "Flying, or walking on a road",
+     "text": "People recount flying through the clouds, or suddenly finding themselves walking on a road. Some make invisible visits to living relatives in America."
+    },
+    {
+     "key": "beings",
+     "terrain": "garden",
+     "label": "Met in a gardenlike place",
+     "text": "They arrive at a paradisiacal place of gardenlike appearance and are met there by the dead, some of whom are relatives."
+    },
+    {
+     "key": "return",
+     "terrain": "garden",
+     "label": "Back again",
+     "text": "They return. There is no tunnel in any of the four accounts and no review of the life. Green's own article has never been digitised; this is as Kellehear summarises it."
+    }
+   ]
   },
   {
    "id": "king1985",
@@ -623,7 +952,34 @@
     "tunnel": 0,
     "review": 0,
     "light": 0
-   }
+   },
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "coast",
+     "label": "Hovering over her own head",
+     "text": "In her spirit she hovers over her own head, then leaves the room."
+    },
+    {
+     "key": "realm",
+     "terrain": "coast",
+     "label": "North, over the named land",
+     "text": "She travels north towards the Tail of the Fish, passing over the Waikato River, across the Manukau, over Ngati Whatua, Ngapuhi, Te Rarawa and Te Aupouri."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "coast",
+     "label": "Te Rerenga Wairua",
+     "text": "She reaches Te Rerenga Wairua, the leaping off place of spirits at Cape Reinga. She performs ablutions, climbs a ledge and dances before the entrance to the underworld."
+    },
+    {
+     "key": "return",
+     "terrain": "coast",
+     "label": "A voice turns her back",
+     "text": "A voice stops her and tells her that her time has not come, and that she must return until she is called again. She wakes to her anxious living relatives."
+    }
+   ]
   },
   {
    "id": "kellehear2001hawaii",
@@ -648,7 +1004,33 @@
     "tunnel": 0,
     "review": 0,
     "light": 0
-   }
+   },
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "coast",
+     "label": "The spirit leaves",
+     "text": "Kalima, a woman in Kona, in an account recorded in a 1907 collection of Hawaiian folk tales: her spirit leaves the body."
+    },
+    {
+     "key": "realm",
+     "terrain": "coast",
+     "label": "The journey",
+     "text": "She travels. There is no mention anywhere in the account of light or of darkness, which sets it apart from the Western pattern."
+    },
+    {
+     "key": "beings",
+     "terrain": "coast",
+     "label": "Met by the dead",
+     "text": "She is met by deceased people, as in the Maori and Chamorro accounts. There is no tunnel and no review of her life."
+    },
+    {
+     "key": "return",
+     "terrain": "coast",
+     "label": "Sent back",
+     "text": "She is sent back and revives."
+    }
+   ]
   },
   {
    "id": "kellehear2008census",
@@ -710,28 +1092,74 @@
   },
   {
    "id": "gilgamesh",
-   "name": "Enkidu's dream of the underworld",
+   "name": "Enkidu's dream of the House of the Dust",
    "place": "Uruk, Mesopotamia (Iraq)",
    "lat": 31.32,
    "lng": 45.64,
    "year": -2100,
    "n": 1,
    "kind": "historical",
-   "trigger": "Illness",
-   "nature": "Epic poetry, not a personal report",
+   "trigger": "Divine decree",
+   "nature": "A dream, told by a dying man inside a poem. Enkidu does not go and come back: the dream says the road has no returning, and he dies in the next tablet. The thing that seizes him has a dark face and a lion's claws; what its face is likened to is broken away in the tablet, so nothing more is built here.",
    "experience_type": "guided",
    "type_label": "A guided tour of the realms",
    "scene": {
     "beings": 1,
     "realm": 1,
-    "return": 1,
-    "tunnel": 0,
-    "review": 0,
-    "light": 0
+    "tunnel": 1,
+    "border": 1,
+    "review": 1,
+    "return": 0,
+    "light": 0,
+    "obe": 0
    },
-   "finding": "Dying of illness, Enkidu describes a dream in which a figure seizes him and leads him down to the House of Dust, where the dead sit in darkness wearing feathers and eat clay. He wakes and tells Gilgamesh, then dies. The oldest surviving text in which someone near death describes being taken to the land of the dead and comes back to report it, although it is a poem and not a first-hand account.",
-   "cite": "The Epic of Gilgamesh, Tablet VII. Standard Babylonian version c. 1200 BC; earliest Sumerian poems c. 2100 BC.",
-   "url": "https://www.ancient.eu/gilgamesh/"
+   "finding": "Enkidu tells Gilgamish a dream: the firmament roared, and a man with a dark face and nails like a lion's claws bore down on him and led him by the road on which there is no returning, down to the Dwelling of Darkness. There the dead sit in the dark wearing a garment of feathers, with dust for food and mud for sustenance. The tablet breaks off as the Recorder of Hades lifts her head and looks at him.",
+   "cite": "Epic of Gilgamish, Tablet VII, column IV. R. Campbell Thompson translation, 1928.",
+   "url": "https://archive.org/details/thompson-1928-gilgamesh",
+   "walk": [
+    {
+     "key": "messengers",
+     "terrain": "abstract",
+     "label": "The firmament roared",
+     "text": "The firmament roared and the earth echoed it. He stood by himself. Then he saw a man, all dark was his face, and his nails like the claws of a lion."
+    },
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Pressed down",
+     "text": "His hands became like a bird's. The figure overcame him, climbed up and pressed him down, and he could not throw the weight off his body."
+    },
+    {
+     "key": "tunnel",
+     "terrain": "underworld",
+     "label": "The road of no returning",
+     "text": "He is led to the Dwelling of Darkness, the home of Irkalla, the dwelling from which whoever enters comes forth never, by the road on the passage whereof there can be no returning."
+    },
+    {
+     "key": "border",
+     "terrain": "underworld",
+     "label": "At the gate the crown is humbled",
+     "text": "At the gate the crown is humbled: those who wore crowns and of old ruled over the country have been brought low here."
+    },
+    {
+     "key": "realm",
+     "terrain": "underworld",
+     "label": "The House of the Dust",
+     "text": "In the House of the Dust their food is dust and the mud is their sustenance. Bird-like they wear a garment of feathers, and sitting there in the darkness they will never see the light."
+    },
+    {
+     "key": "beings",
+     "terrain": "underworld",
+     "label": "Who sits there",
+     "text": "High priest and acolyte are sitting there, seer and magician, the priest who anointed the Sea of the great gods. Etana and Sumuqan sit there, and Ereshkigal, Queen of the Underworld."
+    },
+    {
+     "key": "ledger",
+     "terrain": "underworld",
+     "label": "The Recorder of Hades",
+     "text": "Belit-seri, Recorder of Hades, bows before Ereshkigal and reads aloud before her. She lifts her head and beholds him. Here the tablet breaks off."
+    }
+   ]
   },
   {
    "id": "bookofdead",
@@ -742,8 +1170,8 @@
    "year": -1550,
    "n": 0,
    "kind": "historical",
-   "trigger": "Mixed",
-   "nature": "Funerary text, not a personal report",
+   "trigger": "None: a funerary liturgy",
+   "nature": "A funerary text, not an experience. Nobody nearly died, nobody returned, and there is no event behind it. It is on this map because it is the oldest surviving description of the shape, not because anyone reported it.",
    "experience_type": "guided",
    "type_label": "A guided tour of the realms",
    "scene": {
@@ -751,11 +1179,71 @@
     "realm": 1,
     "review": 1,
     "border": 1,
-    "tunnel": 0
+    "tunnel": 0,
+    "light": 0,
+    "obe": 0,
+    "return": 0
    },
-   "finding": "Egypt's funerary texts describe the soul travelling after death, guided past dangers, to a hall where the heart is weighed against a feather while forty-two judges watch and the person's deeds are recited. It is a guidebook for the dead rather than anyone's account of nearly dying, but the judgment scene is the oldest written version of a life being examined and weighed.",
-   "cite": "The Book of Going Forth by Day (Book of the Dead), Spell 125. New Kingdom, from c. 1550 BC.",
-   "url": "https://www.britishmuseum.org/collection/object/Y_EA9901-3"
+   "finding": "Not a report by anyone but a liturgy, spoken in the first person by the dead scribe Ani. Anubis holds the door and asks its name. Forty-two gods sit in a row in the Hall of Double Right and Truth. The heart is weighed against the feather of law while Thoth stands by with a reed-pen and a palette of black and red ink, and Am-mit the Devourer waits behind him. Found true, Ani is led by the hand to a homestead for ever.",
+   "cite": "The Book of the Dead, Chapter CXXV and the judgment scene, Plates III-IV. E. A. Wallis Budge translation of the Papyrus of Ani, 1895. The forty-two denials are in Budge's appendix, not in Ani's own text.",
+   "url": "https://archive.org/details/TheBookOfTheDead-Budge-1895",
+   "walk": [
+    {
+     "key": "border",
+     "border": "gate",
+     "terrain": "hall",
+     "label": "The door asks its own name",
+     "text": "Anubis holds the door. Do you know the name of this door, to declare it to me? Driven away of Shu is the name of this door. Pass, for you know the names."
+    },
+    {
+     "key": "realm",
+     "terrain": "hall",
+     "label": "Where nothing grows",
+     "text": "I have drawn near to the place where the acacia tree grows not, where the tree thick with leaves exists not, and where the ground yields neither herb nor grass."
+    },
+    {
+     "key": "beings",
+     "terrain": "hall",
+     "label": "Forty-two in a row",
+     "text": "Forty-two gods sit in a row in the middle of the Hall of Double Right and Truth, and he must know the name of every one of them."
+    },
+    {
+     "key": "review",
+     "terrain": "hall",
+     "label": "The denials",
+     "text": "He denies each deed in turn. I have not committed murder. I have not filched that which has been offered in the temples. I have not snatched the milk from the mouth of the babe."
+    },
+    {
+     "key": "review",
+     "terrain": "hall",
+     "label": "A word to his own heart",
+     "text": "My heart my mother, my heart my coming into being. May there be no parting of you from me in the presence of him who keeps the scales."
+    },
+    {
+     "key": "review",
+     "terrain": "hall",
+     "label": "The weighing",
+     "text": "The heart goes into one pan of the Great Balance against the feather of law. Anubis, jackal-headed, tests the tongue of the scales."
+    },
+    {
+     "key": "ledger",
+     "terrain": "hall",
+     "label": "Thoth writes it down",
+     "text": "Thoth stands with his reed-pen and a palette of black and red ink to record the result, then declares it: found true by trial in the Great Balance, no wickedness found in him."
+    },
+    {
+     "key": "beings",
+     "terrain": "hall",
+     "label": "The Devourer waits",
+     "text": "Behind Thoth waits Am-mit, the eater of the dead, part crocodile, part hippopotamus, part lion. Let it not be given to the devourer to prevail over him."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "A homestead for ever",
+     "text": "Horus takes Ani by the hand and leads him to Osiris, lord of eternity, who grants him a homestead for ever in Sekhet-hetepu, with wheat and barley for it."
+    }
+   ]
   },
   {
    "id": "odyssey",
@@ -767,7 +1255,7 @@
    "n": 1,
    "kind": "historical",
    "trigger": "Mixed",
-   "nature": "Epic poetry, not a personal report",
+   "nature": "A living man's journey, by ship, with a crew and sheep. His mother says it in the text: how did you come down here while you are still alive. He does not descend; the dead come up to him. There is no tunnel and no light.",
    "experience_type": "journey",
    "type_label": "A journey across a landscape",
    "scene": {
@@ -775,13 +1263,82 @@
     "beings": 1,
     "border": 1,
     "return": 1,
+    "review": 1,
     "tunnel": 0,
-    "review": 0,
-    "light": 0
+    "light": 0,
+    "obe": 0
    },
-   "finding": "Odysseus sails to the edge of the world and calls up the dead, who come to him in crowds: his mother, his comrades, the prophet Teiresias. He speaks with them, cannot embrace them, and is driven back by fear. Plato opens the Myth of Er by distinguishing it from exactly this tale.",
-   "cite": "Homer, Odyssey, Book XI, c. 8th-7th century BC.",
-   "url": "https://www.gutenberg.org/files/1727/1727-h/1727-h.htm"
+   "finding": "Odysseus sails to where the river Oceanus meets the land of the Cimmerians, digs a trench a cubit each way and pours honey, milk, wine and water. The dead come up to him across it and he guards the blood with a drawn sword. He speaks with Elpenor, with Teiresias, and with his own mother, who asks how a living man came down. Three times he springs to hold her and three times she slips away. He is driven back by fear that the Gorgon's head will be sent up.",
+   "cite": "Homer, Odyssey, Book XI. Samuel Butler translation, Project Gutenberg.",
+   "url": "https://www.gutenberg.org/files/1727/1727-h/1727-h.htm",
+   "walk": [
+    {
+     "key": "border",
+     "terrain": "coast",
+     "label": "Into the deep waters of Oceanus",
+     "text": "They reach the deep waters of the river Oceanus, and the land and city of the Cimmerians, who live enshrouded in mist and darkness which the rays of the sun never pierce."
+    },
+    {
+     "key": "realm",
+     "terrain": "coast",
+     "label": "A trench a cubit each way",
+     "text": "He draws his sword and digs the trench a cubit each way, and makes a drink-offering to all the dead: honey and milk, then wine, then water, with white barley meal sprinkled over the whole."
+    },
+    {
+     "key": "beings",
+     "terrain": "underworld",
+     "label": "They come trooping up",
+     "text": "The ghosts come trooping up from Erebus with a strange screaming: brides, young bachelors, old men worn out with toil, and brave men killed in battle with their armour still smirched with blood."
+    },
+    {
+     "key": "beings",
+     "terrain": "underworld",
+     "label": "Elpenor, unburied",
+     "text": "Elpenor, who fell from Circe's roof and lies unburied, asks for a barrow on the sea shore with the oar he used to row with planted over the grave."
+    },
+    {
+     "key": "beings",
+     "terrain": "underworld",
+     "label": "Teiresias drinks the blood",
+     "text": "Teiresias comes with his golden sceptre: withdraw your sword that I may drink of the blood and answer your questions truly. He foretells that death shall come from the sea."
+    },
+    {
+     "key": "border",
+     "terrain": "underworld",
+     "label": "How did you come down alive?",
+     "text": "His mother Anticlea asks how he came down to this abode of darkness while he is still alive, for between them and the living are great and terrible waters, and Oceanus, which no man can cross on foot."
+    },
+    {
+     "key": "beings",
+     "terrain": "underworld",
+     "label": "Three times she slips away",
+     "text": "Three times he springs towards her to clasp her in his arms, and each time she flits from his embrace as it were a dream or a phantom. The soul flits away as though it were a dream."
+    },
+    {
+     "key": "realm",
+     "terrain": "meadow",
+     "label": "The meadow of asphodel",
+     "text": "Achilles, who says he would rather be a paid servant in a poor man's house and be above ground than king of kings among the dead, strides off across a meadow full of asphodel."
+    },
+    {
+     "key": "review",
+     "terrain": "underworld",
+     "label": "Minos gives sentence",
+     "text": "Minos sits with his golden sceptre in the spacious house of Hades, giving judgment on the dead, and the ghosts gather round him sitting and standing to learn his sentences on them."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "Tityus, Tantalus, Sisyphus",
+     "text": "Two vultures dig their beaks into Tityus's liver. Tantalus stands in a lake up to his chin that dries up whenever he stoops to drink. Sisyphus's pitiless stone comes thundering down to the plain."
+    },
+    {
+     "key": "return",
+     "terrain": "coast",
+     "label": "Driven back",
+     "text": "So many thousands of ghosts crowd round him with appalling cries that he is panic stricken lest the Gorgon's head be sent up from the house of Hades, and he hastens back to his ship."
+    }
+   ]
   },
   {
    "id": "nachiketa",
@@ -793,45 +1350,208 @@
    "n": 1,
    "kind": "historical",
    "trigger": "Mixed",
-   "nature": "Scripture, not a personal report",
+   "nature": "A living boy, given away by his father's word, not summoned and not dying. The Upanishad describes no place at all: no gate, no river, no light, no landscape. Yama's dwelling is called only 'my house', so nothing is built here. The Upanishad also never narrates the return; only the older Brahmana telling does.",
    "experience_type": "summoned",
-   "type_label": "Summoned, and sent back",
+   "type_label": "Given to Death, and dismissed",
    "scene": {
-    "realm": 1,
     "beings": 1,
     "return": 1,
+    "peace": 1,
+    "border": 1,
+    "realm": 0,
     "tunnel": 0,
     "review": 0,
-    "light": 0
+    "light": 0,
+    "obe": 0
    },
-   "finding": "A boy is sent to the house of Yama, lord of the dead, waits three nights without food, and is granted three boons. With the third he asks what becomes of a person after death. He is answered, and returns with the knowledge. India's oldest account of going to death and coming back, though it is scripture rather than a report of an event.",
-   "cite": "Katha Upanishad, c. 6th-1st century BC (dating contested; some place it c. 8th century BC).",
-   "url": "https://en.wikipedia.org/wiki/Katha_Upanishad"
+   "finding": "Asked a third time to whom he will be given, Nachiketa's father answers in anger: I shall give you to Death. He goes, and Yama is not at home. He waits three nights in the house without eating, and because a Brahmana guest enters a house like fire, Yama on his return owes him three boons. The first is that his father be free from anger and know him when Death has dismissed him.",
+   "cite": "Katha Upanishad, First Adhyaya, First Valli. F. Max Muller translation, Sacred Books of the East vol. 15, 1884. The return itself is in Taittiriya Brahmana III.11.8, which Muller quotes in his introduction.",
+   "url": "https://archive.org/details/p2upanishads00mluoft",
+   "walk": [
+    {
+     "key": "border",
+     "terrain": "abstract",
+     "label": "I shall give you to Death",
+     "text": "He asks his father a second and a third time to whom he will be given. Then the father replies, in anger: I shall give you to Death."
+    },
+    {
+     "key": "border",
+     "terrain": "abstract",
+     "label": "At the head of many",
+     "text": "I go as the first, at the head of many who have still to die. I go in the midst of many who are now dying. What will be the work of Yama which today he has to do to me?"
+    },
+    {
+     "key": "realm",
+     "terrain": "abstract",
+     "label": "Nobody is home",
+     "text": "He reaches the house while Yama is away, and no one receives him. A voice warns: fire enters into the houses when a Brahmana enters as a guest. Bring water."
+    },
+    {
+     "key": "beings",
+     "terrain": "abstract",
+     "label": "Three nights without eating",
+     "text": "Yama returns and finds the boy has dwelt three nights in his house without eating. O Brahmana, as you have done so, choose now three boons. Hail to you, and welfare to me."
+    },
+    {
+     "key": "return",
+     "terrain": "abstract",
+     "label": "The first boon",
+     "text": "I choose that my father be pacified, kind and free from anger towards me, and that he may know me and greet me when I shall have been dismissed by you."
+    },
+    {
+     "key": "peace",
+     "terrain": "abstract",
+     "label": "The second boon",
+     "text": "In the heaven-world there is no fear. You are not there, O Death, and no one is afraid on account of old age. Leaving behind both hunger and thirst, and out of reach of sorrow, all rejoice."
+    },
+    {
+     "key": "beings",
+     "terrain": "abstract",
+     "label": "The third boon, and the doubt",
+     "text": "There is that doubt when a man is dead: some saying he is, others he is not. This I should like to know, taught by you. This is the third of my boons."
+    },
+    {
+     "key": "beings",
+     "terrain": "abstract",
+     "label": "Death tries to buy him off",
+     "text": "Choose sons and grandsons who shall live a hundred years, herds of cattle, elephants, gold and horses. Take these fair maidens with their chariots and musical instruments. But do not ask me about dying."
+    },
+    {
+     "key": "return",
+     "terrain": "abstract",
+     "label": "He refuses, and asks to go home",
+     "text": "Keep your horses, keep dance and song for yourself. In the older Brahmana telling he is asked what he ate on each of the three nights: your offspring, your cattle, your good works. Then: may I return living to my father."
+    }
+   ]
   },
   {
    "id": "aristeas",
-   "name": "Aristeas and Zalmoxis",
-   "place": "Black Sea coast",
-   "lat": 40.98,
-   "lng": 27.51,
+   "name": "Aristeas of Proconnesos",
+   "place": "Proconnesos (Marmara Island), Sea of Marmara",
+   "lat": 40.62,
+   "lng": 27.57,
    "year": -440,
-   "n": 2,
+   "n": 1,
    "kind": "historical",
-   "trigger": "Mixed",
-   "nature": "Reported as fact by a historian",
+   "trigger": "Unexplained death",
+   "nature": "Reported at second hand, with the historian's own distance kept: they say that Aristeas. Nothing in Herodotus says his soul left his body; soul-flight is a modern reading, not in the text. Nor does he visit any land of the dead: the Arimaspeia is an overland journey north under Apollo's possession.",
    "experience_type": "journey",
-   "type_label": "A journey across a landscape",
+   "type_label": "A body missing, and a man seen again",
    "scene": {
-    "obe": 1,
     "realm": 1,
     "return": 1,
+    "beings": 1,
+    "obe": 0,
     "tunnel": 0,
-    "review": 0,
-    "light": 0
+    "light": 0,
+    "review": 0
    },
-   "finding": "Herodotus reports two men said to have returned from death. Aristeas of Proconnesus dropped dead in a fuller's shop, his body vanished, and he was seen alive elsewhere; his soul was said to leave his body and travel. Zalmoxis, a Thracian, vanished into an underground chamber for three years and reappeared, which convinced his people he had come back from the dead.",
-   "cite": "Herodotus, Histories, Book IV, c. 440 BC.",
-   "url": "https://www.gutenberg.org/files/2707/2707-h/2707-h.htm"
+   "finding": "Aristeas, in birth inferior to none of the citizens, walked into a fuller's shop in Proconnesos and died there. A man from Artake disputed it, saying he had met him on the road to Kyzicos and spoken with him. When the shop was opened he was not found there either dead or alive. In the seventh year he appeared again and composed the Arimaspeia.",
+   "cite": "Herodotus, Histories IV.13-16. G. C. Macaulay translation, Project Gutenberg.",
+   "url": "https://www.gutenberg.org/files/2707/2707-h/2707-h.htm",
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "city",
+     "label": "Dead in a fuller's shop",
+     "text": "Aristeas, in birth inferior to none of the citizens, entered a fuller's shop in Proconnesos and there died. The fuller closed his workshop and went to report the matter."
+    },
+    {
+     "key": "error",
+     "terrain": "city",
+     "label": "But he was seen on the road",
+     "text": "A man of Kyzicos who had come from Artake entered into controversy with those who said so, and declared that he had met him going towards Kyzicos and had spoken with him."
+    },
+    {
+     "key": "error",
+     "terrain": "city",
+     "label": "Neither dead nor alive",
+     "text": "The relatives came to the shop with the things proper for burial. When the house was opened, Aristeas was not found there either dead or alive."
+    },
+    {
+     "key": "return",
+     "terrain": "city",
+     "label": "In the seventh year",
+     "text": "In the seventh year after this he appeared at Proconnesos and composed the verses the Greeks now call the Arimaspeia. Having composed them, he disappeared a second time."
+    },
+    {
+     "key": "realm",
+     "terrain": "meadow",
+     "label": "What the verses say",
+     "text": "In them he came to the land of the Issedonians, being possessed by Phoebus. Beyond them dwelt the one-eyed Arimaspians, beyond those the gold-guarding griffins, and beyond them the Hyperboreans, as far as the sea."
+    },
+    {
+     "key": "beings",
+     "terrain": "city",
+     "label": "Two hundred and forty years later",
+     "text": "He appeared in Metapontion and told them to set up an altar of Apollo, saying that he had accompanied the god, being then a raven. Having said this he disappeared."
+    }
+   ]
+  },
+  {
+   "id": "zalmoxis",
+   "name": "Zalmoxis and the cellar",
+   "place": "Lands of the Getai, lower Danube (now Romania and Bulgaria)",
+   "lat": 44.17,
+   "lng": 27.33,
+   "n": 1,
+   "kind": "historical",
+   "year": -440,
+   "finding": "Herodotus relays what Greeks on the Hellespont told him: Zalmoxis feasted the chief men of the Getai and taught them that they would not die but come to a place where they would have all things good. Meanwhile he was digging himself a chamber under the ground. He went down into it and lived there three years; the Thracians mourned him as dead; in the fourth year he appeared again, and what he had told them became credible.",
+   "cite": "Herodotus, Histories IV.94-96. G. C. Macaulay translation, Project Gutenberg.",
+   "url": "https://www.gutenberg.org/ebooks/2707",
+   "trigger": "A staged death",
+   "experience_type": "journey",
+   "type_label": "A death staged, and a return",
+   "nature": "On this telling nobody returns from death: the chamber is a cellar Zalmoxis dug himself, and the story is a debunking. Herodotus attributes it to Greek informants and then withholds belief: of this matter and the chamber under ground, I neither disbelieve it nor do I very strongly believe.",
+   "scene": {
+    "realm": 1,
+    "return": 1,
+    "peace": 1,
+    "tunnel": 0,
+    "light": 0,
+    "review": 0,
+    "obe": 0,
+    "beings": 0
+   },
+   "walk": [
+    {
+     "key": "messengers",
+     "terrain": "meadow",
+     "label": "A messenger on three javelins",
+     "text": "Every fourth year the Getai cast lots and send one of themselves as a messenger to Salmoxis, charged with their requests. They swing him up and throw him so as to fall on the spear-points."
+    },
+    {
+     "key": "peace",
+     "terrain": "abstract",
+     "label": "What he taught them",
+     "text": "He prepared a banqueting-hall and feasted the chief men of the tribe, instructing them that neither he nor his guests nor their descendants would die, but would come to a place where they would live for ever and have all things good."
+    },
+    {
+     "key": "realm",
+     "terrain": "underworld",
+     "label": "The chamber under the ground",
+     "text": "Meanwhile he was making a chamber for himself under the ground. When it was finished he disappeared from among the Thracians and went down into it, and continued to live there for three years."
+    },
+    {
+     "key": "dead",
+     "terrain": "meadow",
+     "label": "They mourned him as dead",
+     "text": "The Thracians missed him. They grieved for his loss and mourned for him as dead."
+    },
+    {
+     "key": "return",
+     "terrain": "meadow",
+     "label": "In the fourth year",
+     "text": "Then in the fourth year he appeared to the Thracians again, and in this way the things which Salmoxis said became credible to them."
+    },
+    {
+     "key": "error",
+     "terrain": "abstract",
+     "label": "The historian's doubt",
+     "text": "As to this matter and the chamber under ground, writes Herodotus, I neither disbelieve it nor do I very strongly believe, but I think that this Salmoxis lived many years before Pythagoras."
+    }
+   ]
   },
   {
    "id": "thespesius",
@@ -843,21 +1563,110 @@
    "n": 1,
    "kind": "historical",
    "trigger": "Falls",
-   "nature": "Told as a real case by Plutarch",
+   "nature": "Told inside a philosophical dialogue, and the text itself denies he was fully dead: his kinsman tells him he is not in the number of the dead as yet, having come with his intellectual faculty only and left the rest of his soul, like an anchor, in his body.",
    "experience_type": "guided",
    "type_label": "A guided tour of the realms",
    "scene": {
     "obe": 1,
-    "realm": 1,
+    "peace": 1,
+    "light": 1,
     "beings": 1,
+    "realm": 1,
     "review": 1,
+    "border": 1,
     "return": 1,
-    "tunnel": 0,
-    "light": 1
+    "tunnel": 0
    },
-   "finding": "A dishonest man named Aridaeus fell on his head and was taken for dead. On the third day, as he was being carried to burial, he revived. He described leaving his body through the head, seeing in every direction at once, meeting a relative who guided him, and watching souls being judged and marked by their deeds. He changed his name to Thespesius and lived honestly afterwards.",
-   "cite": "Plutarch, On the Delays of the Divine Vengeance, c. 100 AD.",
-   "url": "https://www.gutenberg.org/files/58567/58567-h/58567-h.htm"
+   "finding": "Thespesius fell headlong from a precipice, broke nothing, but the fall beat the breath out of him. Three days later, as they were letting him down into the grave, he came to himself. He describes being flung from the helm into open sea, souls rising as little fiery bubbles that break open into men and women, three lakes of boiling gold, freezing lead and scaly iron, and his own father climbing out of an abyss covered in scars.",
+   "cite": "Plutarch, Concerning Such Whom God Is Slow to Punish, section 22, in Plutarch's Morals, William W. Goodwin edition. Project Gutenberg.",
+   "url": "https://www.gutenberg.org/ebooks/79588",
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "meadow",
+     "label": "The fall",
+     "text": "He fell from a precipice upon his neck. He received no wound and broke no limb, but the force of the fall beat the breath out of his body. Three days later they carried him out to be buried."
+    },
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Flung from the helm",
+     "text": "When his sense first left his body it seemed to him as if he were a pilot flung from the helm by the force of a storm into the midst of the sea. Then he rose again above water by degrees."
+    },
+    {
+     "key": "light",
+     "terrain": "abstract",
+     "label": "Stars of vast magnitude",
+     "text": "He saw stars of a vast magnitude, at immense distances from one another, sending forth a light wonderful for the brightness of its colour, which shot itself out in length with incredible force."
+    },
+    {
+     "key": "peace",
+     "terrain": "abstract",
+     "label": "Riding the light",
+     "text": "The soul rode on that light as if in a chariot, and was most swiftly, yet as gently and smoothly, dandled from one place to another."
+    },
+    {
+     "key": "beings",
+     "terrain": "abstract",
+     "label": "Souls like fiery bubbles",
+     "text": "He saw the souls of the newly departed mounting from below, resembling little fiery bubbles to which the air gave way. The bubbles broke by degrees, and out came men and women, light and nimble."
+    },
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "Not dead yet",
+     "text": "A kinsman who died very young greets him by a new name: you are not in the number of the dead as yet, but have come here with your intellectual faculty, having left the rest of your soul, like an anchor, in your body."
+    },
+    {
+     "key": "review",
+     "terrain": "abstract",
+     "label": "Souls read by their colour",
+     "text": "The kinsman reads the stains on passing souls. A black and sordid hue is the tincture of avarice and fraud, a bloody flame-like dye betokens cruelty, and a dark violet colour like cuttlefish ink proceeds from envy."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "garden",
+     "label": "The place of oblivion",
+     "text": "He comes to a gaping chasm, fathomless downward, fringed about with the pleasing verdure of herbs and plants and a delightful prospect of flowers. It is called the place of oblivion. Souls circle it but do not enter."
+    },
+    {
+     "key": "realm",
+     "terrain": "abstract",
+     "label": "The goblet and the three daemons",
+     "text": "He beholds a prodigious standing goblet into which several rivers discharge themselves, one of them whiter than snow or the foam of the sea, and three daemons sitting in a triangle, blending the rivers together by certain measures."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "His guide leaves him",
+     "text": "He looks about for his kind and courteous guide, but the guide has quite left him, so that he sees him no more. Then he is among his own kindred and companions, who call him by name out of their punishments."
+    },
+    {
+     "key": "review",
+     "terrain": "torment",
+     "label": "His father out of the abyss",
+     "text": "He sees his father ascending out of an abyss, full of stripes, gashes and scars, who acknowledges that he had most impiously poisoned several of his guests for the sake of their gold."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "Three lakes",
+     "text": "Three lakes lie parallel and equidistant: one of boiling gold, one of lead exceeding cold, and the third of scaly, rugged iron. Daemons stand by them with instruments, like smiths or founders, putting souls in and drawing them out."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "Hammered into a new shape",
+     "text": "Souls bound for a second life are bent and hammered. Of a sudden a conspicuous light shines out, and a voice out of the light gives order for one soul to be transfigured into the shape of some more mild and gentle creature."
+    },
+    {
+     "key": "return",
+     "terrain": "abstract",
+     "label": "Forced back as through a pipe",
+     "text": "A woman of admirable form takes his arm to brand him with a fiery wand; another stops her. He is hurried away with a strong and violent wind, forced as through a pipe, and wakes on the brink of his own grave."
+    }
+   ]
   },
   {
    "id": "ardaviraf",
@@ -868,22 +1677,155 @@
    "year": 900,
    "n": 1,
    "kind": "historical",
-   "trigger": "Mixed",
-   "nature": "Religious vision text",
+   "trigger": "A drug-induced trance",
+   "nature": "Neither a near-death account nor a spontaneous vision. Viraf is a living man chosen by lot, drugged by priests and sent deliberately to settle a dispute; Srosh greets him with 'although you have come when it is not your time', and the priests call him the messenger come from the realm of the dead to the realm of the living.",
    "experience_type": "guided",
-   "type_label": "A guided tour of the realms",
+   "type_label": "Sent on purpose, and brought back",
    "scene": {
     "beings": 1,
     "realm": 1,
     "light": 1,
     "border": 1,
     "return": 1,
-    "tunnel": 0,
-    "review": 1
+    "review": 1,
+    "obe": 1,
+    "tunnel": 0
    },
-   "finding": "A Zoroastrian priest is chosen for his piety, drinks a prepared mixture, and lies as dead for seven days and nights while his soul crosses the Chinvat bridge. Two guides take him through the star, moon and sun tracks into heaven, then down through hell. He is told to go back and report what he saw, and on waking he asks for food and begins to tell it.",
-   "cite": "Arda Wiraz Namag, Middle Persian; story probably of 9th-10th century Pars, text redacted into the 11th-12th centuries.",
-   "url": "https://en.wikipedia.org/wiki/Book_of_Arda_Viraf"
+   "finding": "Chosen by lot to settle a doctrinal dispute, Viraf drinks wine and narcotic of Vishtasp from three golden cups and sleeps seven days and nights while the priests chant over him. He crosses the Chinwad bridge, is shown Hamistagan where good and sin were equal, the star, moon and sun tracks, and Garothman; then he comes back to the bridge and goes down into hell, before being carried to the eternal light.",
+   "cite": "The Book of Arda Viraf. Martin Haug translation, Haug and West, 1872; text at avesta.org.",
+   "url": "https://avesta.org/pahlavi/viraf.html",
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Three golden cups",
+     "text": "The Dasturs of the religion filled three golden cups with wine and narcotic of Vishtasp. He swallowed it, said grace while still conscious, and slept upon the clean carpet."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "bridge",
+     "label": "Seven days away",
+     "text": "His soul went from the body to the Chinwad bridge of Chakat-i-Daitik, and came back on the seventh day, and went into the body."
+    },
+    {
+     "key": "messengers",
+     "terrain": "bridge",
+     "label": "Srosh and Adar bow to him",
+     "text": "Srosh the pious and Adar the angel came to meet him, and bowed, and said: be welcome, Arda Viraf, although you have come when it is not your time."
+    },
+    {
+     "key": "beings",
+     "terrain": "abstract",
+     "label": "A pious soul's first three nights",
+     "text": "He watches a pious soul seated on the top of its own body for three nights, then depart into the sweet scent of trees, the air of that fragrance coming from the southern side, from the direction of God."
+    },
+    {
+     "key": "beings",
+     "terrain": "garden",
+     "label": "Your own deeds, as a girl",
+     "text": "The dead man's own religion and deeds stand before him in the graceful form of a damsel, a beautiful appearance, who tells him plainly: I am your actions, O youth of good thoughts, of good words, of good deeds."
+    },
+    {
+     "key": "review",
+     "terrain": "hall",
+     "label": "The yellow golden balance",
+     "text": "At the bridge he sees Rashn the just, who held in his hand the yellow golden balance, and weighed the pious and the wicked."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "bridge",
+     "label": "The bridge widens",
+     "text": "The width of that Chinwad bridge became again nine javelin-lengths. With the assistance of Srosh the pious and Adar the angel, he passed over easily, happily, courageously and triumphantly."
+    },
+    {
+     "key": "realm",
+     "terrain": "meadow",
+     "label": "Hamistagan, the ever-stationary",
+     "text": "They call this place Hamistagan, the ever stationary. These are the souls of those men whose good works and sin were equal. Their punishment is cold, or heat, from the revolution of the atmosphere."
+    },
+    {
+     "key": "light",
+     "terrain": "abstract",
+     "label": "The star track",
+     "text": "He put forth the first footstep to the star track, and saw the souls of the pious whose radiance, ever increasing, was glittering as the stars."
+    },
+    {
+     "key": "light",
+     "terrain": "abstract",
+     "label": "The moon track",
+     "text": "The second footstep was to the moon track, where he saw a great assembly of the pious, and their brightness is like the brightness of the moon."
+    },
+    {
+     "key": "light",
+     "terrain": "abstract",
+     "label": "The sun track",
+     "text": "The third is the radiance they call the highest of the highest. He saw the pious on thrones and carpets made of gold: those who in the world exercised good sovereignty."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "Garothman, and the tank of water",
+     "text": "The fourth footstep was to the radiance of Garothman, the all-glorious. Adar showed him the blue water of a large tank, and said: this is the water which that wood exuded."
+    },
+    {
+     "key": "beings",
+     "terrain": "hall",
+     "label": "Taken by the hand",
+     "text": "Vohuman the archangel arose from a throne made of gold, took hold of his hand, and brought him into the midst of Ohrmazd and the archangels. This is Ohrmazd."
+    },
+    {
+     "key": "border",
+     "border": "bridge",
+     "terrain": "bridge",
+     "label": "Back to the bridge",
+     "text": "He came back again to the Chinwad bridge, and saw the soul of one of the wicked, and the mischief and evil shown to such souls in their first three nights."
+    },
+    {
+     "key": "beings",
+     "terrain": "abstract",
+     "label": "The other woman",
+     "text": "A stinking cold wind comes to meet him out of the north. He saw his own religion and deeds as a profligate woman, naked, decayed, gapping, bandy-legged, lean-hipped, unlimitedly spotted. I am your bad actions."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "torment",
+     "label": "The greedy jaws of hell",
+     "text": "The greedy jaws of hell, like the most frightful pit, descending in a very narrow and fearful place, in darkness so gloomy it is necessary to hold by the hand, and in such stench that whoever inhales it will stagger and fall."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "A pit a thousand cubits deep",
+     "text": "Below the bridge, in a desert, hell is shown to him in the earth: as a pit, to the bottom of which a thousand cubits would not reach. And everyone in it thinks: I am alone."
+    },
+    {
+     "key": "review",
+     "terrain": "torment",
+     "label": "Each punishment named with its sin",
+     "text": "Driving snow, severe cold, the heat of brisk-burning fire, foul stench, stone and ashes, hail and rain: and for each, the deed that earned it, down to demolishing the bridge of a rapid river."
+    },
+    {
+     "key": "light",
+     "terrain": "abstract",
+     "label": "Out, to the eternal light",
+     "text": "Srosh and Adar brought him forth from that dark, terrible, fearful place, and carried him to the eternal light, and the assembly of Ohrmazd and the archangels."
+    },
+    {
+     "key": "beings",
+     "terrain": "abstract",
+     "label": "A light, and nobody",
+     "text": "He remained astonished, for he saw a light, but he saw nobody. He also heard a voice, and he understood that this is Ohrmazd, telling him to speak truly."
+    },
+    {
+     "key": "return",
+     "terrain": "abstract",
+     "label": "Back to the carpet",
+     "text": "Srosh the pious conveyed him successfully and courageously back to this carpeted place, where his body had lain seven days."
+    }
+   ]
   },
   {
    "id": "nihonryoiki",
@@ -895,24 +1837,17 @@
    "n": 116,
    "kind": "historical",
    "trigger": "Illness",
-   "nature": "Collected tales, told as true",
+   "nature": "Listed, not walked. The tales exist and are early, but nothing in them can be quoted here yet. The honest fix is a fresh translation from the public-domain original, which this atlas has not made.",
    "experience_type": "summoned",
-   "type_label": "Summoned, and sent back",
-   "scene": {
-    "beings": 1,
-    "realm": 1,
-    "review": 1,
-    "return": 1,
-    "tunnel": 0,
-    "light": 0
-   },
-   "finding": "A monk gathered 116 tales told around Japan. Several describe someone seized by the messengers of King Yama, carried to his court, judged on a record of their deeds, and sent back, sometimes because the wrong person was taken. The same summons-and-clerical-error pattern found in India and in Gregory's Rome.",
-   "cite": "Kyokai. Nihon Ryoiki, compiled c. 810-824.",
-   "url": "https://www.britannica.com/topic/Nihon-ryoiki"
+   "type_label": "Listed, not walked",
+   "finding": "The Nihon Ryoiki of 822 collects Japan's earliest return-from-death stories, in which people are taken by the messengers of King Emma and sent back. The ninth-century original is out of copyright, but the only English translations, Nakamura 1973 and Watson 2013, are not, and no open text of either exists. Rather than paraphrase a translation this atlas cannot quote, the entry stays empty and says so.",
+   "cite": "Nihon Ryoiki, 822 CE. English translations: Nakamura K, Miraculous Stories from the Japanese Buddhist Tradition, 1973; Watson B, Record of Miraculous Events in Japan, 2013. Neither is available in open text.",
+   "url": "https://www.britannica.com/topic/Nihon-ryoiki",
+   "no_walk": "No English translation of these tales is free to quote, and this atlas will not reconstruct a vision from memory. The Konjaku Monogatarishu of about 1120 retells many of the same stories and is also out of copyright; both are waiting on a translation that can be published here."
   },
   {
    "id": "taiping",
-   "name": "Chinese return-from-death tales",
+   "name": "Li E, who revived in her coffin",
    "place": "Kaifeng, China",
    "lat": 34.8,
    "lng": 114.31,
@@ -920,21 +1855,65 @@
    "n": 0,
    "kind": "historical",
    "trigger": "Mixed",
-   "nature": "Imperial anthology of earlier tales",
+   "nature": "A genuine return-from-death account: she was buried half a month and revived in the coffin, and the Grand Administrator took her statement, which the text says was checked in the western district and confirmed. The narrative tells the grave-opening first; this walk follows her own order instead.",
    "experience_type": "summoned",
    "type_label": "Summoned, and sent back",
    "scene": {
-    "obe": 1,
-    "realm": 1,
     "beings": 1,
+    "realm": 1,
     "review": 1,
     "return": 1,
+    "obe": 1,
     "tunnel": 0,
     "light": 0
    },
-   "finding": "An imperial anthology that preserved centuries of earlier Chinese writing, including many huanhun or 'returned soul' tales: an official or a daughter of a household leaves the body, is taken before the courts of the dead, has their record checked, and comes back. Many of the works it copied from are otherwise lost.",
-   "cite": "Taiping Guangji, compiled 977-978 under the Song, drawing on several hundred earlier works.",
-   "url": "https://en.wikipedia.org/wiki/Taiping_Guangji"
+   "finding": "At the end of the Han, Li E of Wuling, a woman of sixty, died of illness and was buried outside the city. Half a month later she was summoned by the Director of Destinies in error and dismissed again, but could not get home: her family had already buried her. Her brother-in-law in the shades had the Household Bureau arrange a companion and an order to open her grave. Her neighbour split the coffin with an axe, hunting her gold, and she called out from inside it.",
+   "cite": "Taiping Guangji, juan 375 (the 'Returning to Life' chapters), 978 CE, citing the lost Qiongshen miyuan. The Chinese is public domain at Chinese Wikisource; no published English translation exists, so the renderings here are this site's own working translation and are labelled as such.",
+   "url": "https://zh.wikisource.org/wiki/%E5%A4%AA%E5%B9%B3%E5%BB%A3%E8%A8%98/%E5%8D%B7%E7%AC%AC375",
+   "walk": [
+    {
+     "key": "dead",
+     "terrain": "abstract",
+     "label": "Buried half a month",
+     "text": "At the end of the Han, Li E, a woman of Wuling aged sixty, died of illness and was buried outside the city wall. Half a month had already passed."
+    },
+    {
+     "key": "error",
+     "terrain": "hall",
+     "label": "Summoned by mistake",
+     "text": "I was summoned by the Director of Destinies by mistake. On arriving, I was dismissed."
+    },
+    {
+     "key": "beings",
+     "terrain": "underworld",
+     "label": "Her brother-in-law",
+     "text": "Going outside the gate she met her brother-in-law Liu Wenbo. Startled, the two of them wept facing one another."
+    },
+    {
+     "key": "dead",
+     "terrain": "underworld",
+     "label": "How am I to get back?",
+     "text": "I have been here more than ten days. My family have already buried me. How am I to get back by myself?"
+    },
+    {
+     "key": "ledger",
+     "terrain": "hall",
+     "label": "Word to the Household Bureau",
+     "text": "Wenbo at once sent a gate-runner to make the matter known to the Household Bureau, the registry that held the record of her case."
+    },
+    {
+     "key": "messengers",
+     "terrain": "underworld",
+     "label": "A companion, and an order",
+     "text": "The reply: on the western border of Wuling there is a man, Li Hei, also permitted to return, who may be her companion. And Hei is ordered to pass her neighbour's house and have Cai Zhong open the grave."
+    },
+    {
+     "key": "return",
+     "terrain": "abstract",
+     "label": "Mind my head",
+     "text": "He split the coffin with an axe, hunting her gold. She suddenly called out from inside it: Cai Zhong, mind my head."
+    }
+   ]
   },
   {
    "id": "visiopauli",
@@ -945,21 +1924,141 @@
    "year": 380,
    "n": 1,
    "kind": "historical",
-   "trigger": "Mixed",
-   "nature": "Apocryphal vision text",
+   "trigger": "None: a visionary ascent",
+   "nature": "Not a near-death account. Nobody is taken for dead: Paul is caught up alive, and the text deliberately refuses to settle whether his body went with him, quoting 2 Corinthians: whether in the body I know not, or whether out of the body I know not. The deaths he watches are other people's. Only a Syriac appendix has him return, and James doubts it is original.",
    "experience_type": "guided",
-   "type_label": "A guided tour of the realms",
+   "type_label": "A living man shown both places",
    "scene": {
     "beings": 1,
     "realm": 1,
     "light": 1,
     "border": 1,
+    "review": 1,
+    "obe": 1,
     "tunnel": 0,
-    "review": 1
+    "return": 0
    },
-   "finding": "An expansion of Paul's single line about a man 'caught up to the third heaven' into a full guided tour: an angel leads him to see where the righteous and the wicked go, and what is done there. Zaleski treats it as the first of the four stages by which the Christian otherworld journey took shape, and it shaped every medieval vision that followed.",
-   "cite": "Visio Pauli (Apocalypse of Paul), c. 4th century, expanding 2 Corinthians 12:2-4. Discussed in Zaleski C, Otherworld Journeys, Oxford University Press, 1987.",
-   "url": "https://psi-encyclopedia.spr.ac.uk/articles/medieval-near-death-experiences/"
+   "finding": "Caught up in the spirit to the third heaven, with the text refusing to say whether in the body or out of it. He is shown the deaths of a righteous and a sinful soul, the golden gate with its pillars of golden letters, the land of promise where the earth is seven times brighter than silver, a river of milk and honey, the city of Christ with twelve walls, then a river of fire, pits three thousand cubits deep and a well sealed with seven seals.",
+   "cite": "Apocalypse of Paul, 4th century. M. R. James, The Apocryphal New Testament, Oxford 1924, pp. 525-555.",
+   "url": "https://archive.org/details/apocryphalnewtes0000mont",
+   "walk": [
+    {
+     "key": "obe",
+     "terrain": "abstract",
+     "label": "Caught up, body or not",
+     "text": "Whether in the body I know not, or whether out of the body I know not, God knows: such a one was caught up to the third heaven. The Syriac adds that he was caught up in the spirit and carried there."
+    },
+    {
+     "key": "beings",
+     "terrain": "abstract",
+     "label": "Angels without mercy",
+     "text": "Beneath the firmament he sees angels without mercy, having no pity, their countenances full of fury, their teeth sticking out of their mouths, and sparks of fire going out of their hair and their mouths."
+    },
+    {
+     "key": "review",
+     "terrain": "abstract",
+     "label": "A good man's works stand before him",
+     "text": "At a righteous man's death all the works he had done for the name of God, and all his desires which he remembered and which he remembered not, stand before his face in the hour of necessity."
+    },
+    {
+     "key": "ledger",
+     "terrain": "hall",
+     "label": "The writing of the sins",
+     "text": "Before the judge, the angel of a sinful soul comes with a writing in his hands: these, Lord, are all the sins of this soul from its youth up until this day, even from ten years from its birth."
+    },
+    {
+     "key": "border",
+     "border": "gate",
+     "terrain": "city",
+     "label": "The golden gate",
+     "text": "He is set before a gate of gold with two pillars of gold full of golden letters. These are the names of the righteous that minister to God with their whole heart, while they are yet on earth."
+    },
+    {
+     "key": "beings",
+     "terrain": "garden",
+     "label": "Enoch, then Elias",
+     "text": "Inside the gate he meets Enoch, the scribe of righteousness, and then Elias. They embrace him, and weep that so few take hold of the promises."
+    },
+    {
+     "key": "realm",
+     "terrain": "meadow",
+     "label": "The land of promise",
+     "text": "Brought down past the firmament and out beyond the Ocean, he is told: this is the land of promise. There the earth was seven times brighter than silver."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "A river of milk and honey",
+     "text": "He looks round that land and sees a river flowing with milk and honey, with trees planted at the brink of it, full of fruits: every tree bearing twelve fruits in the year."
+    },
+    {
+     "key": "border",
+     "terrain": "coast",
+     "label": "The lake Acherusa",
+     "text": "He is set in a golden ship on the lake Acherusa, whose water is whiter than milk, where Michael washes the repentant before bringing them in to the city of Christ."
+    },
+    {
+     "key": "realm",
+     "terrain": "city",
+     "label": "The city of Christ",
+     "text": "The city is all of gold, with twelve walls, twelve towers and twelve gates, ringed by four rivers: honey called Phison, milk Euphrates, oil Geon and wine Tigris."
+    },
+    {
+     "key": "border",
+     "border": "cliff",
+     "terrain": "abstract",
+     "label": "By the way of the sunsetting",
+     "text": "He is taken by the way of the sunsetting. When he is come beyond the ocean he looks, and there is no light in that place, but darkness and sorrow and sadness. And he sighed."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "The river of fire",
+     "text": "A river of fire burning with heat, and in it a multitude of men and women sunk up to the knees, others up to the navel, others up to the lips and others up to the hair. Each depth answers a sin."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "Pits three thousand cubits deep",
+     "text": "He sees pits exceeding deep: the depth of that place was as it were three thousand cubits. Hardly after five hundred years do they come at the bottom."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "The well of seven seals",
+     "text": "He is set over a well and finds it sealed with seven seals. Opened, it stinks worse than all the torments. Inside are masses of fire burning on every side, and the mouth so strait as to take but one man in."
+    },
+    {
+     "key": "realm",
+     "terrain": "torment",
+     "label": "The worm that sleeps not",
+     "text": "Further north and west is a place where there is nothing else but cold and snow, and there lies the worm that sleeps not, of the measure of one cubit, and on them were two heads."
+    },
+    {
+     "key": "beings",
+     "terrain": "torment",
+     "label": "Michael comes down",
+     "text": "The heaven opens and Michael the archangel comes down out of heaven, and with him all the host of angels. For Paul's sake the damned are granted refreshment for a day and a night, for ever."
+    },
+    {
+     "key": "realm",
+     "terrain": "garden",
+     "label": "Paradise, and the tree of life",
+     "text": "In Paradise he sees the head of the waters and the four rivers named by their lands, Phison, Geon, Tigris and Euphrates, and is shown the tree of life."
+    },
+    {
+     "key": "light",
+     "terrain": "garden",
+     "label": "Mary, with two hundred before her",
+     "text": "A virgin comes from afar off, with two hundred angels before her singing hymns, and salutes him by name. This is Mary the virgin, the mother of the Lord."
+    },
+    {
+     "key": "return",
+     "terrain": "garden",
+     "label": "Where the text stops",
+     "text": "The Greek, Latin and Syriac all break off inside Elijah's speech. Only a Syriac appendix adds a return: and I, Paul, returned to myself, and I knew all that I had seen. James doubts it is the original ending."
+    }
+   ]
   }
  ]
 }
