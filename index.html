@@ -25,6 +25,7 @@
 .slider .ticks{position:absolute;top:22px;left:0;right:0;height:8px}
 .slider .ticks i{position:absolute;width:1px;height:5px;background:rgba(255,255,255,.22)}
 .maplegend{position:absolute;left:16px;bottom:14px;z-index:2;max-width:min(520px,calc(100% - 32px));display:flex;flex-wrap:wrap;gap:6px 12px;border-radius:12px;font-size:12px;color:#c9c2b4;background:rgba(7,6,15,.72);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
+.maplegend span.ring::before{background:transparent;border:2px solid var(--sw);box-shadow:none;width:8px;height:8px}
 .maplegend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle;background:var(--sw);box-shadow:0 0 8px var(--sw)}
 .mapcount{position:absolute;right:16px;bottom:14px;z-index:2;font:12px var(--mono);color:#c9c2b4;background:rgba(7,6,15,.72);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
 .lens{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
@@ -66,6 +67,7 @@
 .reel .tapL,.reel .tapR{position:absolute;top:0;bottom:0;width:32%;z-index:3;cursor:pointer}
 .reel .tapL{left:0}.reel .tapR{right:0}
 .reel .hint{position:absolute;right:16px;top:14px;z-index:4;font:11px var(--mono);color:#6f6a7e}
+@media (max-width:900px){.mapcount{display:none}}
 @media (max-width:640px){#map{height:58vh}.maplegend{position:static;max-width:none;margin-top:10px;border-radius:10px;background:var(--surface)}.mapcount{display:none}}
 </style>
 </head>
@@ -114,10 +116,17 @@
         <select id="trigger" aria-label="What brought the person close to death">
           <option value="all">Any cause</option>
         </select>
+        <select id="counts" aria-label="Counts of experiences by place">
+          <option value="both">Counts: archive and shared here</option>
+          <option value="nderf">Counts: all NDERF accounts</option>
+          <option value="archive">Counts: archive accounts coded here</option>
+          <option value="community">Counts: shared on this site</option>
+          <option value="none">No counts</option>
+        </select>
         <button class="playbtn" id="playBtn">▶ Play the atlas</button>
       </div>
     </div>
-    <div class="maplegend"><span style="--sw:#d8a84a">Tunnel and light</span><span style="--sw:#8a7fd6">Guided tour</span><span style="--sw:#e07a9a">Summoned</span><span style="--sw:#4fb3a9">A journey</span><span style="--sw:#8fb8e0">Calm, no journey</span><span style="--sw:#c0504a">Distressing</span></div>
+    <div class="maplegend"><span style="--sw:#d8a84a">Tunnel and light</span><span style="--sw:#8a7fd6">Guided tour</span><span style="--sw:#e07a9a">Summoned</span><span style="--sw:#4fb3a9">A journey</span><span style="--sw:#8fb8e0">Calm, no journey</span><span style="--sw:#c0504a">Distressing</span><span class="ring" style="--sw:#9fb4ff">NDERF listings (count)</span><span class="ring" style="--sw:#efe9dc">Coded here (count)</span><span class="ring" style="--sw:#f2a6c0">Shared here (count)</span></div>
     <div class="mapcount" id="mapcount"></div>
   </div>
   <details class="more"><summary>Where each bubble is pinned</summary>
@@ -188,7 +197,8 @@
   <p>Every bubble is <b>one experience, or one collection of them</b>, coloured by the shape it took. The label under it is the religion of the person reporting it. Walk any bubble to the end and you reach a fork: back, or on into <a href="beyond.html">what has been proposed</a>.</p>
   <details class="more"><summary>How the categories were assigned, and what is missing</summary>
     <p>Each account got the category that fits <i>its own source</i>, not the one tradition assigns it. Plato's Er is not summoned by anyone: he is killed in battle and travels with a crowd, so he sits under a journey.</p>
-    <p>Prevalence studies and the count of experiences shared here are not on this map. They measure many people at once and have no single shape to place or colour. They are in the chart below, on <a href="patterns.html">Patterns</a> and in <a href="sources.html">Sources</a>.</p>
+    <p>Prevalence studies are not on this map. They measure many people at once and have no single shape to place or colour. They are in the chart below, on <a href="patterns.html">Patterns</a> and in <a href="sources.html">Sources</a>.</p>
+    <p><b>The hollow rings are counts, not single experiences.</b> Cream rings are archive accounts (NDERF, IANDS) this atlas has read and coded; pink rings are experiences people shared here. Each sits at the centre of a country, or of a US state once that state has 5 or more. A place with fewer than 5 is left off entirely, so no ring can point at one person. The rings ignore the year, kind, religion and cause filters, because a count has no single year or kind.</p>
     <p>The timeline runs from 2100 BC to the 2020s, stretched so the crowded last century stays readable. <b>Play the atlas</b> taps through everything like a reel.</p>
   </details>
   <div class="stats">
@@ -287,17 +297,72 @@ let PREV = [], FEAT = {}, FLABEL = {};
       map.on("mouseenter", src + "-dot", () => map.getCanvas().style.cursor = "pointer");
       map.on("mouseleave", src + "-dot", () => map.getCanvas().style.cursor = "");
     }
+    // Counts of experiences by place: hollow rings, so they never read as one experience.
+    map.addSource("counts", { type: "geojson", data: fcCounts() });
+    // with both kinds in one place, the two rings are pulled apart so both stay readable
+    for (const [kind, dx] of [["nderf", 0], ["archive", -9], ["community", 9]]) {
+      map.addLayer({ id: `counts-${kind}-ring`, type: "circle", source: "counts", filter: ["==", ["get", "kind"], kind], paint: { "circle-radius": ["get", "r"], "circle-color": CCOLOR[kind], "circle-opacity": 0.08, "circle-stroke-color": CCOLOR[kind], "circle-stroke-width": 2, "circle-stroke-opacity": 0.9, "circle-translate": [dx, 0] } });
+      map.addLayer({ id: `counts-${kind}-num`, type: "symbol", source: "counts", filter: ["==", ["get", "kind"], kind], layout: { "text-field": ["get", "label"], "text-size": 11, "text-font": ["Noto Sans Bold"], "text-allow-overlap": true }, paint: { "text-color": CCOLOR[kind], "text-halo-color": "#07060f", "text-halo-width": 1.4, "text-translate": [dx, 0] } });
+      map.on("click", `counts-${kind}-ring`, e => showCountPopup(e));
+      map.on("mouseenter", `counts-${kind}-ring`, () => map.getCanvas().style.cursor = "pointer");
+      map.on("mouseleave", `counts-${kind}-ring`, () => map.getCanvas().style.cursor = "");
+    }
+    showCounts();
+    // studies stay on top, so a bubble inside a ring can still be clicked
+    ["studies-glow", "studies-dot", "studies-num", "studies-rel"].forEach(id => map.moveLayer(id));
     refresh();
   });
 
-  const st = await TA.stats();
-  if (st) {
-    $("communityN").textContent = st.n;
-    const el = document.createElement("p"); el.className = "small muted"; el.style.marginTop = "10px";
-    el.innerHTML = `<b style="color:var(--c4)">Experiences shared here are counted, not mapped.</b> ${st.n} ${st.n === 1 ? "has" : "have"} been shared so far. A count of experiences from a place has no single shape to colour, and pinning one more precisely than a country could identify the person who sent it, so they live on <a href="patterns.html#community">the patterns page</a> instead. ${st.stories && st.stories.awaiting_review ? `${st.stories.awaiting_review} written account${st.stories.awaiting_review > 1 ? "s are" : " is"} waiting to be read before publication.` : ""}`;
-    document.querySelector(".mapwrap").after(el);
-  }
+  const [st, ar, nd] = await Promise.all([TA.stats(), TA.archiveStats(), TA.data("nderf-counts").catch(() => null)]);
+  COUNTS.community = st ? st.map || [] : []; COUNTS.archive = ar ? ar.map || [] : [];
+  // NDERF's own listing counts: public totals per country, so no suppression is needed, but keep the floor anyway
+  if (nd) { NDERF = nd; COUNTS.nderf = Object.entries(nd.countries || {}).filter(([, n]) => n >= 5).map(([country, n]) => ({ country, n, regions: {} })); }
+  if (map.getSource("counts")) map.getSource("counts").setData(fcCounts());
+  if (st) $("communityN").textContent = st.n;
 })();
+
+// ------------------------------------------- counts by place, from the suppressed API
+// The API only returns countries with 5 or more, and regions within them with 5 or more.
+const COUNTS = { nderf: [], archive: [], community: [] };
+let NDERF = null;
+const CCOLOR = { nderf: "#9fb4ff", archive: "#efe9dc", community: "#f2a6c0" };
+const CNAME = { nderf: "accounts listed on NDERF", archive: "archive accounts coded here", community: "experiences shared on this site" };
+const CENTRE = Object.fromEntries(GEO.countries.map(c => [c.name, [c.lng, c.lat]]));
+const STATE = Object.fromEntries(GEO.us_states.map(c => [c.name, [c.lng, c.lat]]));
+function fcCounts() {
+  const features = [];
+  for (const kind of ["nderf", "archive", "community"]) {
+    const add = (where, n, place, parent) => features.push({ type: "Feature", geometry: { type: "Point", coordinates: where },
+      properties: { kind, n, place, parent: parent || "", color: CCOLOR[kind], r: ringR(kind, n), label: String(n) } });
+    for (const g of COUNTS[kind]) {
+      if (!CENTRE[g.country]) continue;
+      let rest = g.n;
+      for (const [reg, n] of Object.entries(g.regions || {})) { if (g.country === "United States" && STATE[reg]) { add(STATE[reg], n, reg, g.country); rest -= n; } }
+      if (rest >= 5) add(CENTRE[g.country], rest, g.country);
+      else if (rest > 0 && rest < g.n) { /* fewer than 5 left over: fold them into the largest region shown */ const f = features.filter(x => x.properties.kind === kind && x.properties.parent === g.country).sort((a, b) => b.properties.n - a.properties.n)[0]; if (f) { f.properties.n += rest; f.properties.label = String(f.properties.n); f.properties.r = ringR(kind, f.properties.n); f.properties.place = `${f.properties.place} and elsewhere in ${g.country}`; } }
+      else if (rest > 0) add(CENTRE[g.country], rest, g.country);
+    }
+  }
+  return { type: "FeatureCollection", features };
+}
+// NDERF runs to thousands per country, so its rings grow with the log; the small counts grow with the square root.
+function ringR(kind, n) { return kind === "nderf" ? 8 + 7 * Math.log10(n) : 9 + 2.4 * Math.sqrt(n); }
+function showCounts() {
+  const v = $("counts").value;
+  for (const kind of ["nderf", "archive", "community"]) for (const part of ["ring", "num"]) {
+    const id = `counts-${kind}-${part}`;
+    if (map && map.getLayer(id)) map.setLayoutProperty(id, "visibility", v === kind || (v === "both" && kind !== "nderf") ? "visible" : "none");
+  }
+}
+function showCountPopup(e) {
+  const p = e.features[0].properties, place = p.parent ? `${p.place}, ${p.parent}` : p.place;
+  if (p.kind === "nderf") {
+    popup.setLngLat(e.lngLat).setHTML(`<b style="color:${p.color}">${Number(p.n).toLocaleString()} ${CNAME.nderf}</b><div style="color:#a79f91;margin:2px 0 6px">${place} · as NDERF's search lists them${NDERF.checked ? `, checked ${NDERF.checked}` : ""}</div><div style="font-size:12px">A count of what NDERF holds, by the country NDERF gives. Nothing from the accounts themselves is on this site.</div><div style="margin-top:8px"><a href="${NDERF.url}" target="_blank" rel="noopener">Read them on NDERF</a></div>`).addTo(map);
+    return;
+  }
+  const link = p.kind === "archive" ? `<a href="patterns.html#archive">What these accounts report</a>` : `<a href="patterns.html#community">What people here report</a>`;
+  popup.setLngLat(e.lngLat).setHTML(`<b style="color:${p.color}">${Number(p.n).toLocaleString()} ${CNAME[p.kind]}</b><div style="color:#a79f91;margin:2px 0 6px">${place} · pinned to the centre of the ${p.parent ? "state" : "country"}, never closer</div><div style="font-size:12px">${p.kind === "archive" ? "Read on NDERF or IANDS and scored on the Greyson items by this atlas. Only the codes are kept." : "Anonymous, self-reported. Places with fewer than 5 are not shown."}</div><div style="margin-top:8px">${link}</div>`).addTo(map);
+}
 
 function fcStudies() {
   return { type: "FeatureCollection", features: studies.filter(inYears).filter(inTrigger).filter(inLayer).map(s => ({
@@ -488,6 +553,7 @@ $("relig").addEventListener("change", e => { relig = e.target.value; refresh(); 
 ["y0", "y1"].forEach(id => $(id).addEventListener("input", refresh));
 $("resetYears").addEventListener("click", () => { $("y0").value = 0; $("y1").value = 1000; $("trigger").value = "all"; trigger = "all"; $("etype").value = "all"; etype = "all"; $("layer").value = "all"; layer = "all"; $("relig").value = "all"; relig = "all"; refresh(); });
 $("layer").addEventListener("change", e => { layer = e.target.value; refresh(); });
+$("counts").addEventListener("change", showCounts);
 </script>
 </body>
 </html>

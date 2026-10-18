@@ -1,0 +1,9 @@
+{
+ "_note": "External-archive tier. How many accounts NDERF's own search lists for each country, as its search page reports them on the date checked. Counts only: no account text, names or links to individual accounts. Country is NDERF's field (COUNTRY_AI), not checked here. Accounts with no country are not mapped.",
+ "source": "NDERF search, search.nderf.org",
+ "url": "https://search.nderf.org/en/",
+ "checked": null,
+ "language_sites": ["en"],
+ "total": 5910,
+ "countries": {}
+}

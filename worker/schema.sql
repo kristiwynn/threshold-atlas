@@ -21,3 +21,30 @@ CREATE TABLE IF NOT EXISTS submissions (
 );
 CREATE INDEX IF NOT EXISTS idx_status ON submissions(status);
 CREATE INDEX IF NOT EXISTS idx_country ON submissions(country, region);
+
+-- Archive accounts (NDERF, IANDS, ...) read by a person and coded on the same 16 Greyson
+-- items as submissions. Codes only: no text, no quotes, no paraphrase is ever stored.
+-- source_ref is the archive's own ID or URL path, kept so an account is never coded twice.
+CREATE TABLE IF NOT EXISTS archive_codes (
+  id TEXT PRIMARY KEY,
+  source TEXT NOT NULL,                     -- NDERF | IANDS | Other
+  source_ref TEXT NOT NULL,
+  coded INTEGER NOT NULL,
+  codebook TEXT NOT NULL,                   -- codebook version, e.g. v1
+  method TEXT NOT NULL,                     -- manual | ai-assisted (a person checked every item either way)
+  language TEXT,
+  near_death TEXT NOT NULL,                 -- Clinical | Perceived | No | Not stated
+  age_band TEXT NOT NULL,                   -- includes 'Not stated'
+  sex TEXT NOT NULL,
+  country TEXT NOT NULL,
+  region TEXT,
+  cause TEXT NOT NULL,
+  decade TEXT,
+  tone TEXT,
+  religion TEXT,
+  items TEXT NOT NULL,                      -- JSON: 16 Greyson item scores, 0/1/2
+  score INTEGER NOT NULL,
+  after TEXT,                               -- JSON: after-effects checklist
+  UNIQUE (source, source_ref)
+);
+CREATE INDEX IF NOT EXISTS idx_archive_source ON archive_codes(source);

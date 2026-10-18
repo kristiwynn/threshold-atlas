@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Code an archive account · The Threshold Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.f2{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+label{display:grid;gap:5px;font-size:14px;color:var(--muted)}
+input,select,textarea{font:16px var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%}
+textarea{min-height:140px;resize:vertical;font-size:15px;line-height:1.5}
+.item{padding:12px 0;border-top:1px solid var(--line)}
+.item .t{font-size:16px;color:var(--ink);margin-bottom:7px}
+.item .t span{color:var(--faint);font-family:var(--mono);font-size:12px;margin-right:8px}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts label{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink);font-size:14px;background:var(--surface)}
+.opts label:has(input:checked){border-color:var(--accent);background:rgba(216,168,74,.14)}
+.opts input{width:16px;height:16px;margin:0;accent-color:var(--accent)}
+.ev{font-size:13px;color:var(--c2);margin-top:6px;padding-left:12px;border-left:2px solid var(--c2)}
+button.primary{font:600 16px var(--body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:10px;padding:12px 20px;cursor:pointer}
+button.primary:disabled{opacity:.45;cursor:default}
+button.ghost{font:600 15px var(--body);background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:10px 16px;cursor:pointer}
+.bar2{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.status{font-size:15px;color:var(--muted)}
+.status.bad{color:var(--c4)}
+.sticky{position:sticky;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:12px 0;margin-top:20px;z-index:2}
+#recent{font-family:var(--mono);font-size:13px;color:var(--muted)}
+#recent div{padding:3px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div id="nav"></div>
+
+<section class="hero">
+  <div class="eyebrow">Private · archive coding</div>
+  <h1>Code an archive account</h1>
+  <p class="lede">Read an account on NDERF or IANDS in another tab, then record what it reports. Only the codes and the account's link are saved: no words from the account, no quotes, no paraphrase. One account can only be coded once.</p>
+</section>
+
+<section>
+<form id="f" autocomplete="off">
+  <div class="card">
+    <div class="f2">
+      <label>Coding key<input id="key" type="password" placeholder="Moderation key"></label>
+      <label>Archive<select id="source"><option>NDERF</option><option>IANDS</option><option>Other</option></select></label>
+      <label style="grid-column:span 2">Account link or ID<input id="ref" required placeholder="https://www.nderf.org/Experiences/…"></label>
+    </div>
+    <p class="status small" id="refStatus"></p>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Suggest codes from the text (optional)</h3>
+    <p class="small muted">Paste the account to get suggested item scores. The text goes to the model once and is never saved; it is cleared when you save. Check every item yourself.</p>
+    <textarea id="text" placeholder="Paste the account here for suggestions only"></textarea>
+    <div class="bar2"><button type="button" class="ghost" id="suggest">Suggest codes</button><span class="status" id="sugStatus"></span></div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>About the experiencer</h3>
+    <p class="small muted">Use "Not stated" whenever the account does not say. Never guess from a name or writing style.</p>
+    <div class="f2" style="margin-top:10px">
+      <label>Language of account<input id="language" list="langs" placeholder="English"></label>
+      <label>Close to death<select id="near_death"><option>Not stated</option><option value="Clinical">Clinically (e.g. arrest, resuscitated)</option><option value="Perceived">Felt they were dying</option><option value="No">No (NDE-like)</option></select></label>
+      <label>Age at the time<select id="age_band"><option>Not stated</option><option>Under 18</option><option>18-29</option><option>30-44</option><option>45-59</option><option>60-74</option><option>75+</option></select></label>
+      <label>Sex<select id="sex"><option>Not stated</option><option>Female</option><option>Male</option><option>Other or prefer not to say</option></select></label>
+      <label>Country<select id="country"><option>Not stated</option></select></label>
+      <label id="regionWrap" hidden>State<select id="region"><option value="">Not stated</option></select></label>
+      <label>When<select id="decade"><option value="">Not stated</option><option>2020s</option><option>2010s</option><option>2000s</option><option>1990s</option><option>1980s</option><option>1970s</option><option>1960s</option><option>Before 1960</option></select></label>
+      <label>Cause<select id="cause"><option>Not stated</option></select></label>
+      <label>Religion at the time<select id="religion"><option>Not stated</option><option>Christian</option><option>Jewish</option><option>Muslim</option><option>Hindu</option><option>Buddhist</option><option>Spiritual, not religious</option><option>No religion</option><option>Other</option></select></label>
+      <label>Tone<select id="tone"><option value="">Not stated</option><option>Wonderful</option><option>Mixed</option><option>Frightening</option></select></label>
+    </div>
+    <datalist id="langs"><option>English</option><option>Spanish</option><option>French</option><option>German</option><option>Portuguese</option><option>Italian</option><option>Dutch</option><option>Russian</option><option>Chinese</option><option>Japanese</option><option>Arabic</option><option>Hindi</option></datalist>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>The sixteen Greyson items</h3>
+    <p class="small muted">Score only what the account says. If it is not mentioned, it is 0, even if it is typical.</p>
+    <div id="items"></div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Since then, as the account reports</h3>
+    <div class="opts" id="after" style="margin-top:8px"></div>
+  </div>
+
+  <div class="sticky">
+    <div class="bar2" style="margin:0"><button class="primary" type="submit" id="save">Save codes</button><span class="status">Score <b id="score">0</b>/32</span><span class="status" id="saveStatus"></span></div>
+  </div>
+</form>
+
+<div class="card" style="margin-top:20px">
+  <h3>Coded so far <span class="muted small" id="total"></span></h3>
+  <div id="recent"></div>
+</div>
+</section>
+
+<div id="footer"></div>
+</div>
+
+<script src="assets/common.js"></script>
+<script src="assets/geo.js"></script>
+<script>
+document.getElementById("nav").innerHTML = TA.nav("");
+document.getElementById("footer").innerHTML = TA.footer();
+const API = TA.API, $ = id => document.getElementById(id);
+const ITEMS = [
+  ["time", "Time sped up or slowed down", ["Faster or slower than usual", "Everything at once, or time stopped"]],
+  ["thoughts", "Thoughts sped up", ["Faster than usual", "Incredibly fast"]],
+  ["review", "Scenes from the past came back", ["Remembered many past events", "Past flashed before them, out of their control"]],
+  ["understanding", "Seemed to understand everything", ["About self or others", "About the universe"]],
+  ["peace", "Peace or pleasantness", ["Relief or calmness", "Incredible peace"]],
+  ["joy", "Joy", ["Happiness", "Incredible joy"]],
+  ["unity", "Harmony or unity with the universe", ["No longer in conflict with nature", "United or one with the world"]],
+  ["light", "A brilliant light", ["Unusually bright light", "Light of mystical or other-worldly origin"]],
+  ["senses", "Senses more vivid", ["More vivid than usual", "Incredibly more vivid"]],
+  ["aware", "Aware of things elsewhere, as if by ESP", ["Yes, not checked", "Yes, and checked"]],
+  ["future", "Scenes from the future", ["Personal future", "The world's future"]],
+  ["obe", "Separated from the body", ["Lost awareness of body", "Clearly left the body"]],
+  ["world", "Entered an unearthly world", ["Unfamiliar, strange place", "Clearly mystical or unearthly realm"]],
+  ["presence", "Mystical being, presence, or unidentified voice", ["Heard an unidentified voice", "Definite being, or mystical voice"]],
+  ["beings", "Saw deceased or religious spirits", ["Sensed their presence", "Actually saw them"]],
+  ["border", "A border or point of no return", ["Conscious decision to return", "Barrier not permitted to cross, or sent back"]],
+];
+const CAUSES = ["Cardiac arrest", "Accident or trauma", "Drowning", "Surgery or anaesthesia", "Illness", "Childbirth", "Overdose or poisoning", "Suicide attempt", "Other"];
+const AFTER = [["less_fear", "Less afraid of death"], ["more_fear", "More afraid of death"], ["more_spiritual", "More spiritual"], ["less_religious", "Less religious"], ["values_changed", "Values changed"], ["relationships_changed", "Relationships changed"], ["sensitivity", "More sensitive"], ["none", "No lasting change"]];
+let suggested = false;
+
+$("items").innerHTML = ITEMS.map(([k, q, o], i) => `<div class="item"><div class="t"><span>${i + 1}</span>${q}</div><div class="opts">${["Not in account", ...o].map((t, v) => `<label><input type="radio" name="i_${k}" value="${v}" ${v === 0 ? "checked" : ""}>${v ? v + " · " : ""}${t}</label>`).join("")}</div><div class="ev" id="ev_${k}" hidden></div></div>`).join("");
+$("cause").innerHTML += CAUSES.map(c => `<option>${c}</option>`).join("");
+$("country").innerHTML += GEO.countries.map(c => `<option>${c.name}</option>`).join("");
+$("after").innerHTML = AFTER.map(([k, l]) => `<label><input type="checkbox" name="after" value="${k}">${l}</label>`).join("");
+$("country").addEventListener("change", () => { const us = $("country").value === "United States"; $("regionWrap").hidden = !us; if (us && $("region").options.length < 2) $("region").innerHTML += GEO.us_states.map(s => `<option>${s.name}</option>`).join(""); if (!us) $("region").value = ""; });
+
+try { $("key").value = localStorage.getItem("ta_code_key") || ""; $("source").value = localStorage.getItem("ta_code_source") || "NDERF"; } catch (e) {}
+const key = () => $("key").value.trim();
+async function call(path, opts = {}) {
+  const r = await fetch(API + path, { ...opts, headers: { "content-type": "application/json", "x-admin-key": key() } });
+  const j = await r.json().catch(() => ({}));
+  if (r.status === 404) throw new Error("That key was not accepted.");
+  if (!r.ok) throw new Error(j.error || "Something went wrong.");
+  return j;
+}
+
+const items = () => Object.fromEntries(ITEMS.map(([k]) => [k, +document.querySelector(`input[name="i_${k}"]:checked`).value]));
+const rescore = () => { $("score").textContent = Object.values(items()).reduce((a, b) => a + b, 0); };
+$("items").addEventListener("change", rescore);
+
+async function refresh() {
+  if (!key()) return;
+  try {
+    const j = await call("/admin/archive");
+    $("total").textContent = `(${j.total})`;
+    const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    $("recent").innerHTML = j.recent.map(r => `<div>${new Date(r.coded).toISOString().slice(0, 10)} · ${esc(r.source)} ${esc(r.source_ref)} · ${esc(r.country)} · ${esc(r.cause)} · ${r.score}/32${r.method === "ai-assisted" ? " · AI-assisted" : ""}</div>`).join("") || `<div>Nothing yet.</div>`;
+  } catch (e) { $("total").textContent = ""; $("recent").innerHTML = `<div>${e.message}</div>`; }
+}
+$("key").addEventListener("change", () => { try { localStorage.setItem("ta_code_key", key()); } catch (e) {} refresh(); });
+$("source").addEventListener("change", () => { try { localStorage.setItem("ta_code_source", $("source").value); } catch (e) {} checkRef(); });
+
+async function checkRef() {
+  const s = $("refStatus"); s.className = "status small"; s.textContent = "";
+  if (!$("ref").value.trim() || !key()) return;
+  try {
+    const j = await call("/admin/archive/check", { method: "POST", body: JSON.stringify({ source: $("source").value, source_ref: $("ref").value }) });
+    if (j.coded) { s.className = "status small bad"; s.textContent = `Already coded on ${new Date(j.coded).toISOString().slice(0, 10)}. Pick another account.`; }
+    else s.textContent = `New account (${j.ref}).`;
+  } catch (e) { s.className = "status small bad"; s.textContent = e.message; }
+}
+$("ref").addEventListener("change", checkRef);
+
+$("suggest").addEventListener("click", async () => {
+  const st = $("sugStatus"); st.textContent = "Reading…";
+  try {
+    const j = await call("/admin/archive/suggest", { method: "POST", body: JSON.stringify({ story: $("text").value }) });
+    ITEMS.forEach(([k]) => {
+      document.querySelector(`input[name="i_${k}"][value="${j.items[k]}"]`).checked = true;
+      const ev = $("ev_" + k); ev.hidden = !j.items[k]; ev.textContent = j.items[k] ? (j.evidence[k] ? `Suggested from: "${j.evidence[k]}"` : "Suggested, but no matching words found. Check this one.") : "";
+    });
+    if (j.tone) $("tone").value = j.tone;
+    suggested = true; rescore();
+    st.textContent = `Suggested score ${j.score}. Check each item against the account.`;
+  } catch (e) { st.textContent = e.message; }
+});
+
+$("f").addEventListener("submit", async e => {
+  e.preventDefault();
+  const st = $("saveStatus"); st.className = "status"; st.textContent = "Saving…"; $("save").disabled = true;
+  const body = { source: $("source").value, source_ref: $("ref").value, method: suggested ? "ai-assisted" : "manual", language: $("language").value, near_death: $("near_death").value, age_band: $("age_band").value, sex: $("sex").value, country: $("country").value, region: $("region").value, decade: $("decade").value, cause: $("cause").value, religion: $("religion").value, tone: $("tone").value, items: items(), after: [...document.querySelectorAll('input[name="after"]:checked')].map(i => i.value) };
+  try {
+    const j = await call("/admin/archive", { method: "POST", body: JSON.stringify(body) });
+    st.textContent = `Saved, score ${j.score}. ${j.total} coded in all.`;
+    const keep = { key: key(), source: $("source").value, language: $("language").value };
+    $("f").reset(); $("key").value = keep.key; $("source").value = keep.source; $("language").value = keep.language;
+    $("regionWrap").hidden = true; document.querySelectorAll(".ev").forEach(x => { x.hidden = true; x.textContent = ""; });
+    $("text").value = ""; $("sugStatus").textContent = ""; $("refStatus").textContent = ""; suggested = false; rescore();
+    window.scrollTo({ top: 0, behavior: "smooth" }); $("ref").focus(); refresh();
+  } catch (err) { st.className = "status bad"; st.textContent = err.message; }
+  $("save").disabled = false;
+});
+refresh();
+</script>
+</body>
+</html>

@@ -11,6 +11,11 @@ const TONE = ["Wonderful", "Mixed", "Frightening"];
 const RELIGION = ["Christian", "Jewish", "Muslim", "Hindu", "Buddhist", "Spiritual, not religious", "No religion", "Other", "Prefer not to say"];
 const AFTER = ["less_fear", "more_fear", "more_spiritual", "less_religious", "values_changed", "relationships_changed", "sensitivity", "none"];
 const K = 5;
+// Archive coding: accounts often leave a question unanswered, so every field also takes "Not stated".
+const NS = "Not stated";
+const SOURCES = ["NDERF", "IANDS", "Other"];
+const NEAR = ["Clinical", "Perceived", "No", NS];
+const CODEBOOK = "v1";
 
 const json = (data, status = 200, origin = "*") => new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json", "access-control-allow-origin": origin, "cache-control": "no-store" } });
 
@@ -26,13 +31,15 @@ function redact(t) {
 export default {
   async fetch(req, env) {
     const url = new URL(req.url), origin = env.ALLOWED_ORIGIN;
-    if (req.method === "OPTIONS") return new Response(null, { headers: { "access-control-allow-origin": origin, "access-control-allow-methods": "GET,POST,OPTIONS", "access-control-allow-headers": "content-type" } });
+    if (req.method === "OPTIONS") return new Response(null, { headers: { "access-control-allow-origin": origin, "access-control-allow-methods": "GET,POST,OPTIONS", "access-control-allow-headers": "content-type, x-admin-key" } });
     try {
       if (url.pathname === "/api/submit" && req.method === "POST") return await submit(req, env, origin);
       if (url.pathname === "/api/suggest" && req.method === "POST") return await suggest(req, env, origin);
       if (url.pathname === "/api/stats") return json(await stats(env), 200, origin);
       if (url.pathname === "/api/stories") return json(await stories(env, url), 200, origin);
       if (url.pathname === "/api/delete" && req.method === "POST") return await del(req, env, origin);
+      if (url.pathname === "/api/archive-stats") return json(await archiveStats(env), 200, origin);
+      if (url.pathname.startsWith("/admin/archive")) return await archive(req, env, url, origin);
       if (url.pathname.startsWith("/admin")) return await admin(req, env, url);
       return json({ ok: true, site: env.SITE_URL }, 200, origin);
     } catch (e) {
@@ -86,9 +93,9 @@ const ITEM_Q = {
   beings: "deceased people or religious figures",
   border: "a border, barrier or point of no return"
 };
-async function suggest(req, env, origin) {
-  const b = await req.json().catch(() => ({}));
-  const story = String(b.story || "").slice(0, 3000).trim();
+async function suggest(req, env, origin, max = 3000, body) {
+  const b = body || await req.json().catch(() => ({}));
+  const story = String(b.story || "").slice(0, max).trim();
   if (story.length < 40) return json({ error: "Write a little more first, then we can suggest answers." }, 400, origin);
   if (!env.AI) return json({ error: "Suggestions are not available right now. Please answer the questions yourself." }, 503, origin);
   const list = Object.entries(ITEM_Q).map(([k, q]) => `${k}: ${q}`).join("\n");
@@ -139,6 +146,13 @@ Include an evidence entry only for items you scored 1 or 2, quoting the account 
 async function stats(env) {
   const { results } = await env.DB.prepare("SELECT age_band, sex, country, region, cause, tone, religion, items, score, after FROM submissions WHERE status != 'rejected'").all();
   const rows = results.map(r => ({ ...r, items: JSON.parse(r.items), after: JSON.parse(r.after || "[]") }));
+  const pend = await env.DB.prepare("SELECT COUNT(*) AS c FROM submissions WHERE status='pending' AND consent_publish=1").first();
+  const pub = await env.DB.prepare("SELECT COUNT(*) AS c FROM submissions WHERE status='approved' AND consent_publish=1 AND story_public IS NOT NULL").first();
+  return { ...aggregate(rows), stories: { published: pub?.c || 0, awaiting_review: pend?.c || 0 } };
+}
+
+// The same suppressed aggregates over any list of coded rows.
+function aggregate(rows, extra = []) {
   const n = rows.length;
   const rate = (rs, k) => rs.length ? Math.round(1000 * rs.filter(r => r.items[k] > 0).length / rs.length) / 10 : null;
   const pct = (rs) => Object.fromEntries(ITEMS.map(k => [k, rate(rs, k)]));
@@ -147,19 +161,70 @@ async function stats(env) {
   const geo = {}; rows.forEach(r => { const ck = r.country; geo[ck] = geo[ck] || { country: ck, n: 0, regions: {} }; geo[ck].n++; if (r.region) geo[ck].regions[r.region] = (geo[ck].regions[r.region] || 0) + 1; });
   const map = Object.values(geo).filter(g => g.n >= K).map(g => ({ country: g.country, n: g.n, regions: Object.fromEntries(Object.entries(g.regions).filter(([, c]) => c >= K)) }));
   const scores = rows.map(r => r.score);
-  const pend = await env.DB.prepare("SELECT COUNT(*) AS c FROM submissions WHERE status='pending' AND consent_publish=1").first();
-  const pub = await env.DB.prepare("SELECT COUNT(*) AS c FROM submissions WHERE status='approved' AND consent_publish=1 AND story_public IS NOT NULL").first();
   const places = {}; rows.forEach(r => { places[r.country] = (places[r.country] || 0) + 1; });
   const hidden = Object.values(places).filter(c => c < K).reduce((a, c) => a + c, 0);
   return {
     n, k: K, generated: Date.now(),
-    stories: { published: pub?.c || 0, awaiting_review: pend?.c || 0 },
     map_hidden: hidden, min_for_charts: 10,
     overall: n >= 10 ? { pct: pct(rows), mean_score: n ? Math.round(10 * scores.reduce((a, b) => a + b, 0) / n) / 10 : null, nde_share: n ? Math.round(1000 * scores.filter(s => s >= 7).length / n) / 10 : null, tone: Object.fromEntries(TONE.map(t => [t, Math.round(1000 * rows.filter(r => r.tone === t).length / n) / 10])) } : null,
-    by: n >= 10 ? { age_band: group("age_band"), sex: group("sex"), cause: group("cause"), country: group("country"), religion: group("religion") } : {},
+    by: n >= 10 ? Object.fromEntries(["age_band", "sex", "cause", "country", "religion", ...extra].map(f => [f, group(f)])) : {},
     after: n >= 10 ? Object.fromEntries(AFTER.map(a => [a, Math.round(1000 * rows.filter(r => r.after.includes(a)).length / n) / 10])) : null,
     map, items: ITEMS
   };
+}
+
+// Archive accounts, coded here. Only coded rows exist; there is no text to serve.
+async function archiveStats(env) {
+  const { results } = await env.DB.prepare("SELECT source, language, near_death, age_band, sex, country, region, cause, decade, tone, religion, items, score, after FROM archive_codes").all();
+  const rows = results.map(r => ({ ...r, items: JSON.parse(r.items), after: JSON.parse(r.after || "[]") }));
+  const sources = {}; rows.forEach(r => { sources[r.source] = (sources[r.source] || 0) + 1; });
+  return { ...aggregate(rows, ["source", "near_death", "decade", "language"]), sources, codebook: CODEBOOK };
+}
+
+// Coding archive accounts: same key as moderation. Saves codes only; any text sent for
+// suggestions is read by the model and dropped, never written anywhere.
+async function archive(req, env, url, origin) {
+  const key = url.searchParams.get("key") || req.headers.get("x-admin-key");
+  if (!env.ADMIN_KEY || key !== env.ADMIN_KEY) return json({ error: "Not found" }, 404, origin);
+  const b = req.method === "POST" ? await req.json().catch(() => ({})) : {};
+  if (url.pathname === "/admin/archive/suggest") return await suggest(req, env, origin, 12000, b);
+  if (url.pathname === "/admin/archive/check") {
+    const ref = normRef(b.source, b.source_ref);
+    const r = ref && await env.DB.prepare("SELECT coded FROM archive_codes WHERE source=? AND source_ref=?").bind(b.source, ref).first();
+    return json({ ok: true, ref, coded: r ? r.coded : null }, 200, origin);
+  }
+  if (url.pathname === "/admin/archive" && req.method === "POST") {
+    const source = SOURCES.includes(b.source) ? b.source : null, ref = normRef(source, b.source_ref);
+    if (!source || !ref) return json({ error: "Choose the archive and give the account's ID or link." }, 400, origin);
+    const pick = (v, list) => v === NS ? NS : list.includes(v) ? v : NS;
+    const items = {}; let score = 0;
+    for (const k of ITEMS) { const v = [0, 1, 2].includes(b.items?.[k]) ? b.items[k] : 0; items[k] = v; score += v; }
+    const after = Array.isArray(b.after) ? b.after.filter(a => AFTER.includes(a)).slice(0, 8) : [];
+    const short = v => typeof v === "string" && v.trim() && v.length <= 60 ? v.trim() : null;
+    const row = [crypto.randomUUID(), source, ref, Date.now(), CODEBOOK, b.method === "ai-assisted" ? "ai-assisted" : "manual", short(b.language),
+      pick(b.near_death, NEAR), pick(b.age_band, AGE), pick(b.sex, SEX), short(b.country) || NS, short(b.region), pick(b.cause, CAUSE),
+      /^(\d{4}s|Before 1960)$/.test(b.decade || "") ? b.decade : null, TONE.includes(b.tone) ? b.tone : null, pick(b.religion, RELIGION),
+      JSON.stringify(items), score, JSON.stringify(after)];
+    const r = await env.DB.prepare(`INSERT OR IGNORE INTO archive_codes (id, source, source_ref, coded, codebook, method, language, near_death, age_band, sex, country, region, cause, decade, tone, religion, items, score, after)
+      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).bind(...row).run();
+    if (!r.meta.changes) return json({ error: "That account is already coded." }, 409, origin);
+    const c = await env.DB.prepare("SELECT COUNT(*) AS c FROM archive_codes").first();
+    return json({ ok: true, score, total: c.c }, 200, origin);
+  }
+  if (url.pathname === "/admin/archive" && req.method === "DELETE") {
+    const r = await env.DB.prepare("DELETE FROM archive_codes WHERE source=? AND source_ref=?").bind(url.searchParams.get("source"), normRef(url.searchParams.get("source"), url.searchParams.get("ref"))).run();
+    return json({ ok: true, deleted: r.meta.changes > 0 }, 200, origin);
+  }
+  const { results } = await env.DB.prepare("SELECT source, source_ref, coded, method, near_death, country, cause, score FROM archive_codes ORDER BY coded DESC LIMIT 50").all();
+  const c = await env.DB.prepare("SELECT COUNT(*) AS c FROM archive_codes").first();
+  return json({ ok: true, total: c.c, recent: results }, 200, origin);
+}
+
+// An NDERF link becomes its path (e.g. /Experiences/1jane_d_nde.html), so the same account
+// pasted twice, with or without www or https, is caught as a duplicate.
+function normRef(source, ref) {
+  ref = String(ref || "").trim().slice(0, 300); if (!ref) return null;
+  return ref.replace(/#.*$/, "").replace(/^[a-z]+:\/\//i, "").replace(/^(www\.)?[a-z0-9-]+(\.[a-z0-9-]+)+(?=\/)/i, "").replace(/\/+$/, "").toLowerCase();
 }
 
 async function stories(env, url) {
