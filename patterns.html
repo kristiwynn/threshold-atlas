@@ -6,7 +6,7 @@
 <title>Patterns · The Threshold Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=20261018">
 </head>
 <body>
 <div class="wrap">
@@ -94,7 +94,7 @@
 <div id="footer"></div>
 </div>
 
-<script src="assets/common.js"></script>
+<script src="assets/common.js?v=20261018"></script>
 <script>
 document.getElementById("nav").innerHTML = TA.nav("patterns.html");
 document.getElementById("footer").innerHTML = TA.footer();
@@ -158,7 +158,7 @@ document.getElementById("footer").innerHTML = TA.footer();
 
 // Archive accounts coded by this atlas: its own pool, never merged with the others.
 async function archive(CL) {
-  const st = await TA.archiveStats();
+  const st = TA.archiveStats ? await TA.archiveStats() : null;
   const sub = document.getElementById("arcSub"), charts = document.getElementById("arcCharts");
   if (!st) { sub.textContent = "Archive figures couldn't be loaded right now."; return; }
   const src = Object.entries(st.sources || {}).map(([k, v]) => `${v} from ${k}`).join(", ");

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=20261018">
 <style>
 .mapwrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#07060f}
 #map{height:min(68vh,620px)}
@@ -225,9 +225,9 @@
 
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script src="assets/scene.js"></script>
-<script src="assets/common.js"></script>
-<script src="assets/geo.js"></script>
+<script src="assets/scene.js?v=20261018"></script>
+<script src="assets/common.js?v=20261018"></script>
+<script src="assets/geo.js?v=20261018"></script>
 <script>
 document.getElementById("nav").innerHTML = TA.nav("index.html");
 document.getElementById("footer").innerHTML = TA.footer();
@@ -256,7 +256,7 @@ let PREV = [], FEAT = {}, FLABEL = {};
 (async () => {
   const F = await TA.data("features"), S = await TA.data("studies");
   PREV = F.prevalence; FEAT = F.studies; FLABEL = Object.fromEntries(F.features);
-  studies = S.studies.concat(codedStudies((await TA.archivePins())?.pins || []));
+  studies = S.studies.concat(codedStudies((TA.archivePins ? await TA.archivePins() : null)?.pins || []));
   const byId = Object.fromEntries(studies.map(s => [s.id, s]));
   // Causes come from the data, so a new one never silently drops out of the filter.
   $("trigger").insertAdjacentHTML("beforeend", [...new Set(studies.map(x => x.trigger))].filter(Boolean).sort()

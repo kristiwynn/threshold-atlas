@@ -19,6 +19,8 @@ Plain HTML, CSS and JavaScript. No build step: edit a file, push, and GitHub Pag
 - `data/` – the research tier: every number with its source
 - `assets/` – shared styles and helpers (Wilson intervals, charts, nav)
 
+Pages load `assets/*` with `?v=YYYYMMDD`. When you change a file in `assets/`, bump that number in every page, or browsers may pair a new page with an old cached script (GitHub Pages caches for 10 minutes).
+
 ## Rules
 
 1. Four kinds of data are kept apart and never averaged together: published research, external archives (linked only, never copied), archive accounts this atlas has read and coded (codes and the account link only, never text), and experiences people share here.
