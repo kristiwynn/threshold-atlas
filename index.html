@@ -25,7 +25,6 @@
 .slider .ticks{position:absolute;top:22px;left:0;right:0;height:8px}
 .slider .ticks i{position:absolute;width:1px;height:5px;background:rgba(255,255,255,.22)}
 .maplegend{position:absolute;left:16px;bottom:14px;z-index:2;max-width:min(520px,calc(100% - 32px));display:flex;flex-wrap:wrap;gap:6px 12px;border-radius:12px;font-size:12px;color:#c9c2b4;background:rgba(7,6,15,.72);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
-.maplegend span.ring::before{background:transparent;border:2px solid var(--sw);box-shadow:none;width:8px;height:8px}
 .maplegend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle;background:var(--sw);box-shadow:0 0 8px var(--sw)}
 .mapcount{position:absolute;right:16px;bottom:14px;z-index:2;font:12px var(--mono);color:#c9c2b4;background:rgba(7,6,15,.72);padding:8px 12px;border-radius:999px;backdrop-filter:blur(6px)}
 .lens{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
@@ -116,17 +115,10 @@
         <select id="trigger" aria-label="What brought the person close to death">
           <option value="all">Any cause</option>
         </select>
-        <select id="counts" aria-label="Counts of experiences by place">
-          <option value="both">Counts: archive and shared here</option>
-          <option value="nderf">Counts: all NDERF accounts</option>
-          <option value="archive">Counts: archive accounts coded here</option>
-          <option value="community">Counts: shared on this site</option>
-          <option value="none">No counts</option>
-        </select>
         <button class="playbtn" id="playBtn">▶ Play the atlas</button>
       </div>
     </div>
-    <div class="maplegend"><span style="--sw:#d8a84a">Tunnel and light</span><span style="--sw:#8a7fd6">Guided tour</span><span style="--sw:#e07a9a">Summoned</span><span style="--sw:#4fb3a9">A journey</span><span style="--sw:#8fb8e0">Calm, no journey</span><span style="--sw:#c0504a">Distressing</span><span class="ring" style="--sw:#9fb4ff">NDERF listings (count)</span><span class="ring" style="--sw:#efe9dc">Coded here (count)</span><span class="ring" style="--sw:#f2a6c0">Shared here (count)</span></div>
+    <div class="maplegend"><span style="--sw:#d8a84a">Tunnel and light</span><span style="--sw:#8a7fd6">Guided tour</span><span style="--sw:#e07a9a">Summoned</span><span style="--sw:#4fb3a9">A journey</span><span style="--sw:#8fb8e0">Calm, no journey</span><span style="--sw:#c0504a">Distressing</span></div>
     <div class="mapcount" id="mapcount"></div>
   </div>
   <details class="more"><summary>Where each bubble is pinned</summary>
@@ -138,9 +130,9 @@
 <section>
   <div class="eyebrow">Totals</div>
   <h2>Everything on the map, counted</h2>
-  <p><b>26 pins. 472 accounts.</b> Some pins are collections, so the two counts tell different stories, and the first two charts show both.</p>
+  <p><b id="totalsLine">26 pins. 472 accounts.</b> Some pins are collections, so the two counts tell different stories, and the first two charts show both.</p>
   <details class="more"><summary>Why the tunnel looks universal, and isn't</summary>
-    <p>By pins, the tunnel and the light is the <i>rarest</i> category here: 2 of 26, against 8 each for guided tours and journeys. By accounts it is the commonest by a long way: 252 of 472.</p>
+    <p>Among the published and historical pins, the tunnel and the light is the <i>rarest</i> category by pins: 2 of 26, against 8 each for guided tours and journeys. By accounts it is the commonest by a long way: 252 of 472.</p>
     <p>Both numbers are right. Moody's 150 cases and Ring's 102 are both filed under the tunnel, and between them they outweigh every historical account on this map combined. That is a fact about who got collected, not about what happens.</p>
   </details>
   <div class="grid2">
@@ -176,7 +168,7 @@
     </div>
   </div>
   <div class="keyline" style="margin-top:18px">
-    <b>Nothing on this map comes from Russia, the Islamic world, Jewish tradition, Africa or the Americas.</b>
+    <b>No published study or historical account on this map comes from Russia, the Islamic world, Jewish tradition, Africa or the Americas.</b>
     <span>Five holes in what this atlas can cite, not findings about those places. Each has a different reason.</span>
   </div>
   <details class="more"><summary>Why each one is empty</summary>
@@ -198,7 +190,7 @@
   <details class="more"><summary>How the categories were assigned, and what is missing</summary>
     <p>Each account got the category that fits <i>its own source</i>, not the one tradition assigns it. Plato's Er is not summoned by anyone: he is killed in battle and travels with a crowd, so he sits under a journey.</p>
     <p>Prevalence studies are not on this map. They measure many people at once and have no single shape to place or colour. They are in the chart below, on <a href="patterns.html">Patterns</a> and in <a href="sources.html">Sources</a>.</p>
-    <p><b>The hollow rings are counts, not single experiences.</b> Cream rings are archive accounts (NDERF, IANDS) this atlas has read and coded; pink rings are experiences people shared here. Each sits at the centre of a country, or of a US state. Archive accounts and NDERF's listings are already public, so cream and blue rings appear from a single account. Experiences shared here are private, so a pink ring needs 5 or more from a place, and a place with fewer is left off entirely, so no pink ring can point at one person. The rings ignore the year, kind, religion and cause filters, because a count has no single year or kind.</p>
+    <p><b>Archive accounts coded here are on the map too.</b> NDERF and IANDS accounts this atlas has read are placed in the same categories as everything else, at the centre of the country (or US state) the account gives, never closer. Accounts from one place with the same kind, cause, religion and decade share a bubble, with the count on it. Their walk plays each stage as strongly as the share of those accounts that mention it. Only the codes are kept here: <a href="patterns.html#archive">what they report</a>.</p>
     <p>The timeline runs from 2100 BC to the 2020s, stretched so the crowded last century stays readable. <b>Play the atlas</b> taps through everything like a reel.</p>
   </details>
   <div class="stats">
@@ -250,7 +242,7 @@ const LABEL = { historical: "Historical account", prospective: "Prospective hosp
 const ERAS = [[-2200, 0], [-500, 0.14], [1000, 0.28], [1700, 0.42], [1900, 0.56], [1975, 0.74], [2026, 1]];
 function pos2year(p) { for (let i = 1; i < ERAS.length; i++) { const [y0, p0] = ERAS[i - 1], [y1, p1] = ERAS[i]; if (p <= p1 || i === ERAS.length - 1) return Math.round(y0 + (y1 - y0) * (p - p0) / (p1 - p0)); } }
 function year2pos(y) { for (let i = 1; i < ERAS.length; i++) { const [y0, p0] = ERAS[i - 1], [y1, p1] = ERAS[i]; if (y <= y1 || i === ERAS.length - 1) return p0 + (p1 - p0) * (y - y0) / (y1 - y0); } }
-const yearText = y => y < 0 ? `${-y} BC` : String(y);
+const yearText = y => y == null ? "date not stated" : y < 0 ? `${-y} BC` : String(y);
 const DECADE_MID = { "Before 1960": 1955, "1960s": 1965, "1970s": 1975, "1980s": 1985, "1990s": 1995, "2000s": 2005, "2010s": 2015, "2020s": 2025 };
 const MIN_Y = -2100, MAX_Y = 2026;
 let studies = [], layer = "all", map, popup;
@@ -264,7 +256,8 @@ let PREV = [], FEAT = {}, FLABEL = {};
 (async () => {
   const F = await TA.data("features"), S = await TA.data("studies");
   PREV = F.prevalence; FEAT = F.studies; FLABEL = Object.fromEntries(F.features);
-  studies = S.studies; const byId = Object.fromEntries(studies.map(s => [s.id, s]));
+  studies = S.studies.concat(codedStudies((await TA.archivePins())?.pins || []));
+  const byId = Object.fromEntries(studies.map(s => [s.id, s]));
   // Causes come from the data, so a new one never silently drops out of the filter.
   $("trigger").insertAdjacentHTML("beforeend", [...new Set(studies.map(x => x.trigger))].filter(Boolean).sort()
     .map(x => `<option>${x}</option>`).join(""));
@@ -297,73 +290,40 @@ let PREV = [], FEAT = {}, FLABEL = {};
       map.on("mouseenter", src + "-dot", () => map.getCanvas().style.cursor = "pointer");
       map.on("mouseleave", src + "-dot", () => map.getCanvas().style.cursor = "");
     }
-    // Counts of experiences by place: hollow rings, so they never read as one experience.
-    map.addSource("counts", { type: "geojson", data: fcCounts() });
-    // with both kinds in one place, the two rings are pulled apart so both stay readable
-    for (const [kind, dx] of [["nderf", 0], ["archive", -9], ["community", 9]]) {
-      map.addLayer({ id: `counts-${kind}-ring`, type: "circle", source: "counts", filter: ["==", ["get", "kind"], kind], paint: { "circle-radius": ["get", "r"], "circle-color": CCOLOR[kind], "circle-opacity": 0.08, "circle-stroke-color": CCOLOR[kind], "circle-stroke-width": 2, "circle-stroke-opacity": 0.9, "circle-translate": [dx, 0] } });
-      map.addLayer({ id: `counts-${kind}-num`, type: "symbol", source: "counts", filter: ["==", ["get", "kind"], kind], layout: { "text-field": ["get", "label"], "text-size": 11, "text-font": ["Noto Sans Bold"], "text-allow-overlap": true }, paint: { "text-color": CCOLOR[kind], "text-halo-color": "#07060f", "text-halo-width": 1.4, "text-translate": [dx, 0] } });
-      map.on("click", `counts-${kind}-ring`, e => showCountPopup(e));
-      map.on("mouseenter", `counts-${kind}-ring`, () => map.getCanvas().style.cursor = "pointer");
-      map.on("mouseleave", `counts-${kind}-ring`, () => map.getCanvas().style.cursor = "");
-    }
-    showCounts();
-    // studies stay on top, so a bubble inside a ring can still be clicked
-    ["studies-glow", "studies-dot", "studies-num", "studies-rel"].forEach(id => map.moveLayer(id));
     refresh();
   });
 
-  const [st, ar, nd] = await Promise.all([TA.stats(), TA.archiveStats(), TA.data("nderf-counts").catch(() => null)]);
-  COUNTS.community = st ? st.map || [] : []; COUNTS.archive = ar ? ar.map || [] : [];
-  // NDERF's own listing counts: public totals per country, so every country with any is shown
-  if (nd) { NDERF = nd; COUNTS.nderf = Object.entries(nd.countries || {}).filter(([, n]) => n >= FLOOR.nderf).map(([country, n]) => ({ country, n, regions: {} })); }
-  if (map.getSource("counts")) map.getSource("counts").setData(fcCounts());
+  const st = await TA.stats();
   if (st) $("communityN").textContent = st.n;
 })();
 
-// ------------------------------------------- counts by place, from the suppressed API
-// The API only returns places at or above its floor: 5 for shared experiences, 1 for archive accounts.
-const COUNTS = { nderf: [], archive: [], community: [] };
-let NDERF = null;
-const CCOLOR = { nderf: "#9fb4ff", archive: "#efe9dc", community: "#f2a6c0" };
-const CNAME = { nderf: "accounts listed on NDERF", archive: "archive accounts coded here", community: "experiences shared on this site" };
-// smallest count a ring may show: archive accounts are public; shared ones are not
-const FLOOR = { nderf: 1, archive: 1, community: 5 };
+// ------------------------------------- archive accounts coded here, as ordinary bubbles
+// The API groups coded accounts by place, kind, cause, religion and decade. Each group
+// becomes an entry like any other, so the filters, totals, reel and walk all treat it the same.
 const CENTRE = Object.fromEntries(GEO.countries.map(c => [c.name, [c.lng, c.lat]]));
 const STATE = Object.fromEntries(GEO.us_states.map(c => [c.name, [c.lng, c.lat]]));
-function fcCounts() {
-  const features = [];
-  for (const kind of ["nderf", "archive", "community"]) {
-    const add = (where, n, place, parent) => features.push({ type: "Feature", geometry: { type: "Point", coordinates: where },
-      properties: { kind, n, place, parent: parent || "", color: CCOLOR[kind], r: ringR(kind, n), label: String(n) } });
-    for (const g of COUNTS[kind]) {
-      if (!CENTRE[g.country]) continue;
-      let rest = g.n;
-      for (const [reg, n] of Object.entries(g.regions || {})) { if (g.country === "United States" && STATE[reg]) { add(STATE[reg], n, reg, g.country); rest -= n; } }
-      if (rest >= FLOOR[kind]) add(CENTRE[g.country], rest, g.country);
-      else if (rest > 0 && rest < g.n) { /* too few left over: fold them into the largest region shown */ const f = features.filter(x => x.properties.kind === kind && x.properties.parent === g.country).sort((a, b) => b.properties.n - a.properties.n)[0]; if (f) { f.properties.n += rest; f.properties.label = String(f.properties.n); f.properties.r = ringR(kind, f.properties.n); f.properties.place = `${f.properties.place} and elsewhere in ${g.country}`; } }
-      else if (rest > 0) add(CENTRE[g.country], rest, g.country);
-    }
-  }
-  return { type: "FeatureCollection", features };
-}
-// NDERF runs to thousands per country, so its rings grow with the log; the small counts grow with the square root.
-function ringR(kind, n) { return kind === "nderf" ? 8 + 7 * Math.log10(n) : 9 + 2.4 * Math.sqrt(n); }
-function showCounts() {
-  const v = $("counts").value;
-  for (const kind of ["nderf", "archive", "community"]) for (const part of ["ring", "num"]) {
-    const id = `counts-${kind}-${part}`;
-    if (map && map.getLayer(id)) map.setLayoutProperty(id, "visibility", v === kind || (v === "both" && kind !== "nderf") ? "visible" : "none");
-  }
-}
-function showCountPopup(e) {
-  const p = e.features[0].properties, place = p.parent ? `${p.place}, ${p.parent}` : p.place;
-  if (p.kind === "nderf") {
-    popup.setLngLat(e.lngLat).setHTML(`<b style="color:${p.color}">${Number(p.n).toLocaleString()} ${CNAME.nderf}</b><div style="color:#a79f91;margin:2px 0 6px">${place} · as NDERF's search lists them${NDERF.checked ? `, checked ${NDERF.checked}` : ""}</div><div style="font-size:12px">A count of what NDERF holds, by the country NDERF gives. Nothing from the accounts themselves is on this site.</div><div style="margin-top:8px"><a href="${NDERF.url}" target="_blank" rel="noopener">Read them on NDERF</a></div>`).addTo(map);
-    return;
-  }
-  const link = p.kind === "archive" ? `<a href="patterns.html#archive">What these accounts report</a>` : `<a href="patterns.html#community">What people here report</a>`;
-  popup.setLngLat(e.lngLat).setHTML(`<b style="color:${p.color}">${Number(p.n).toLocaleString()} ${CNAME[p.kind]}</b><div style="color:#a79f91;margin:2px 0 6px">${place} · pinned to the centre of the ${p.parent ? "state" : "country"}, never closer</div><div style="font-size:12px">${p.kind === "archive" ? "Read on NDERF or IANDS and scored on the Greyson items by this atlas. Only the codes are kept." : "Anonymous, self-reported. Places with fewer than 5 are not shown."}</div><div style="margin-top:8px">${link}</div>`).addTo(map);
+const KIND_LABEL = { tunnel: "Tunnel and light", guided: "A guided tour of the realms", summoned: "Summoned, and sent back", journey: "A journey across a landscape", calm: "Calm and a life review, without a journey", distressing: "Distressing" };
+const ARCHIVE_URL = { NDERF: "https://www.nderf.org", IANDS: "https://iands.org" };
+function codedStudies(pins) {
+  const used = {};
+  return pins.map((p, i) => {
+    const us = p.country === "United States" && STATE[p.region], at = us ? STATE[p.region] : CENTRE[p.country];
+    if (!at) return null;
+    // several bubbles on one centre spiral out a little, so each can be clicked
+    const k = String(at), m = used[k] = (used[k] || 0) + 1, a = m * 2.4, d = m > 1 ? 0.9 * Math.sqrt(m - 1) : 0;
+    const place = us ? `${p.region}, United States` : p.country;
+    const id = `coded-${i}`, rel = p.religion && p.religion !== "Not stated";
+    const pc = p.pct || {}, pick = (...ks) => Math.max(...ks.map(x => pc[x] || 0));
+    const data = { obe: pc.obe, peace: pick("peace", "joy"), light: pc.light, beings: pick("beings", "presence"), realm: pc.world, review: pc.review, border: pc.border };
+    // only what the accounts mention becomes a stage of the walk
+    FEAT[id] = { name: "Coded archive accounts", n: p.n, data: Object.fromEntries(Object.entries(data).filter(([, v]) => v > 0)) };
+    return { id, coded: true, name: `${p.n} ${p.source} account${p.n === 1 ? "" : "s"}, coded here`, place, lng: at[0] + d * Math.cos(a), lat: at[1] + d * Math.sin(a),
+      year: DECADE_MID[p.decade] ?? null, n: p.n, kind: "cases", trigger: p.cause, experience_type: p.experience_type, type_label: KIND_LABEL[p.experience_type],
+      religion_group: rel ? p.religion : "Not recorded", religion: rel ? p.religion : "Not stated in the account", religion_basis: rel ? "stated" : "unknown",
+      finding: `Read on ${p.source} and coded by this atlas as ${KIND_LABEL[p.experience_type].toLowerCase()}. Only the codes are kept here; the accounts stay on ${p.source}.`,
+      scene_note: "Each stage plays as strongly as the share of these accounts that mention it.",
+      cite: `${p.source}. Accounts coded by The Threshold Atlas`, url: ARCHIVE_URL[p.source] || "patterns.html#archive" };
+  }).filter(Boolean);
 }
 
 function fcStudies() {
@@ -373,7 +333,7 @@ function fcStudies() {
       rlabel: s.religion_basis === "unknown" ? "religion not recorded" : s.religion_group + (s.religion_basis === "context" ? " (inferred)" : "") }
   })) };
 }
-function inYears(s) { const [a, b] = years(); return s.year >= a && s.year <= b; }
+function inYears(s) { if (s.year == null) return true; const [a, b] = years(); return s.year >= a && s.year <= b; }
 function inTrigger(s) {
   return (trigger === "all" || s.trigger === trigger)
     && (etype === "all" || s.experience_type === etype)
@@ -397,7 +357,7 @@ function refresh() {
 }
 function showPopup(e) {
   const p = e.features[0].properties, co = e.features[0].geometry.coordinates.slice();
-  const html = `<b>${p.name} <span style="color:#a79f91;font-weight:400">${yearText(p.year)}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]}${Number(p.n) ? ` · n=${Number(p.n).toLocaleString()}` : ""} · ${p.trigger}${p.type_label ? ` · ${p.type_label}` : ""}</div>${p.religion ? `<div style="font-size:12px;margin:0 0 6px"><b style="color:#d8a84a">Religion:</b> ${p.religion}${p.religion_basis === "context" ? ` <i style="color:#a79f91">(inferred from time and place, not stated)</i>` : p.religion_basis === "unknown" ? "" : ""}${p.religion_note ? `<div style="color:#a79f91;margin-top:2px">${p.religion_note}</div>` : ""}</div>` : ""}${p.nature ? `<div style="color:#c98f5a;font-size:12px;margin-bottom:6px">${p.nature}</div>` : ""}${p.finding}<div style="margin-top:8px"><a href="#" onclick="openScene('${p.id}');return false"><b>Walk this experience</b></a> · <a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · <a href="sources.html#${p.id}">Citation</a></div>`;
+  const html = `<b>${p.name} <span style="color:#a79f91;font-weight:400">${yearText(p.year)}</span></b><div style="color:#a79f91;margin:2px 0 6px">${p.place} · ${LABEL[p.group]}${Number(p.n) ? ` · n=${Number(p.n).toLocaleString()}` : ""} · ${p.trigger}${p.type_label ? ` · ${p.type_label}` : ""}</div>${p.religion ? `<div style="font-size:12px;margin:0 0 6px"><b style="color:#d8a84a">Religion:</b> ${p.religion}${p.religion_basis === "context" ? ` <i style="color:#a79f91">(inferred from time and place, not stated)</i>` : p.religion_basis === "unknown" ? "" : ""}${p.religion_note ? `<div style="color:#a79f91;margin-top:2px">${p.religion_note}</div>` : ""}</div>` : ""}${p.nature ? `<div style="color:#c98f5a;font-size:12px;margin-bottom:6px">${p.nature}</div>` : ""}${p.finding}<div style="margin-top:8px"><a href="#" onclick="openScene('${p.id}');return false"><b>Walk this experience</b></a> · <a href="#" onclick="openReel('${p.id}');return false">Play from here</a> · <a href="${p.url}" target="_blank" rel="noopener">Source</a> · ${p.coded ? `<a href="patterns.html#archive">What coded accounts report</a>` : `<a href="sources.html#${p.id}">Citation</a>`}</div>`;
   popup.setLngLat(co).setHTML(html).addTo(map);
 }
 
@@ -406,6 +366,7 @@ const ERA_BANDS = [[-2200, -500, "2200-500 BC"], [-500, 1, "500 BC - 1 AD"], [1,
   [1000, 1500, "1000-1500"], [1500, 1800, "1500-1800"], [1800, 1950, "1800-1950"], [1950, 2030, "1950-2026"]];
 function drawTotals() {
   const rows = studies.filter(ONE);
+  $("totalsLine").textContent = `${rows.length} pins. ${rows.reduce((t, s) => t + Math.max(1, s.n), 0).toLocaleString()} accounts.`;
   const tally = (key, weigh) => {
     const m = {};
     rows.forEach(s => { const k = key(s); if (k == null) return; m[k] = (m[k] || 0) + (weigh ? Math.max(1, s.n) : 1); });
@@ -429,7 +390,7 @@ function drawTotals() {
 // ---------------------------------------------------- the reel: tap through the atlas
 let reelI = 0, reelTimer = null, reelMap = null, reelHeld = false, reelStart = 0, reelLeft = 0;
 const REEL_MS = 7000;
-function reelItems() { return studies.filter(inYears).filter(inTrigger).filter(inLayer).sort((a, b) => a.year - b.year); }
+function reelItems() { return studies.filter(inYears).filter(inTrigger).filter(inLayer).sort((a, b) => (a.year ?? 9999) - (b.year ?? 9999)); }
 function openReel(startId) {
   const items = reelItems(); if (!items.length) return;
   reelI = Math.max(0, items.findIndex(s => s.id === startId));
@@ -477,7 +438,7 @@ function showReel() {
   $("reelCard").innerHTML = `<div class="kicker">${yearText(s.year)} · ${s.place}</div><div class="big">${headline}</div>
     <div class="h">${s.name}</div><div class="p">${s.finding}</div>
     ${extras ? `<div class="meta" style="color:#d6cfc2">${extras}</div>` : ""}
-    <div class="meta">${s.cite.split(".")[0]} ${s.year} · <a href="${s.url}" target="_blank" rel="noopener">read the study</a></div>`;
+    <div class="meta">${s.cite.split(".")[0]}${s.year != null ? " " + s.year : ""} · <a href="${s.url}" target="_blank" rel="noopener">${s.coded ? "the archive" : "read the study"}</a></div>`;
   reelMap?.easeTo({ center: [s.lng, s.lat], zoom: 3.2 + Math.random() * 0.6, duration: 1600, essential: true });
 }
 $("playBtn").addEventListener("click", () => openReel());
@@ -555,7 +516,6 @@ $("relig").addEventListener("change", e => { relig = e.target.value; refresh(); 
 ["y0", "y1"].forEach(id => $(id).addEventListener("input", refresh));
 $("resetYears").addEventListener("click", () => { $("y0").value = 0; $("y1").value = 1000; $("trigger").value = "all"; trigger = "all"; $("etype").value = "all"; etype = "all"; $("layer").value = "all"; layer = "all"; $("relig").value = "all"; relig = "all"; refresh(); });
 $("layer").addEventListener("change", e => { layer = e.target.value; refresh(); });
-$("counts").addEventListener("change", showCounts);
 </script>
 </body>
 </html>

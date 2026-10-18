@@ -36,6 +36,7 @@ window.TA = (() => {
     return `<footer>Every number on this site is taken from a published study and cited on the <a href="sources.html">Sources</a> page. Community accounts, when they arrive, are shown separately and never mixed into the research figures. <a href="https://github.com/kristiwynn/threshold-atlas">Source code</a>.</footer>`;
   }
   async function stats() { try { const r = await fetch(API + "/api/stats"); return r.ok ? await r.json() : null; } catch (e) { return null; } }
+  async function archivePins() { try { const r = await fetch(API + "/api/archive-pins"); return r.ok ? await r.json() : null; } catch (e) { return null; } }
   async function archiveStats() { try { const r = await fetch(API + "/api/archive-stats"); return r.ok ? await r.json() : null; } catch (e) { return null; } }
 
   // ------------------------------------------------------------------ the fork
@@ -94,5 +95,5 @@ window.TA = (() => {
     });
   }
 
-  return { data, wilson, bars, nav, footer, stats, archiveStats, fork, beyond, API };
+  return { data, wilson, bars, nav, footer, stats, archiveStats, archivePins, fork, beyond, API };
 })();

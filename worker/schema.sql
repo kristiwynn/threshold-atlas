@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS archive_codes (
   method TEXT NOT NULL,                     -- manual | ai-assisted (a person checked every item either way)
   language TEXT,
   near_death TEXT NOT NULL,                 -- Clinical | Perceived | No | Not stated
+  experience_type TEXT,                     -- the map's kinds: tunnel | guided | summoned | journey | calm | distressing (added by migrations/0001)
   age_band TEXT NOT NULL,                   -- includes 'Not stated'
   sex TEXT NOT NULL,
   country TEXT NOT NULL,

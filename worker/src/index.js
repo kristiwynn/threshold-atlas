@@ -16,6 +16,8 @@ const NS = "Not stated";
 const SOURCES = ["NDERF", "IANDS", "Other"];
 const NEAR = ["Clinical", "Perceived", "No", NS];
 const CODEBOOK = "v1";
+// The map's own kinds of experience, so coded accounts sit on it as ordinary bubbles.
+const KINDS = ["tunnel", "guided", "summoned", "journey", "calm", "distressing"];
 
 const json = (data, status = 200, origin = "*") => new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json", "access-control-allow-origin": origin, "cache-control": "no-store" } });
 
@@ -38,6 +40,7 @@ export default {
       if (url.pathname === "/api/stats") return json(await stats(env), 200, origin);
       if (url.pathname === "/api/stories") return json(await stories(env, url), 200, origin);
       if (url.pathname === "/api/delete" && req.method === "POST") return await del(req, env, origin);
+      if (url.pathname === "/api/archive-pins") return json(await archivePins(env), 200, origin);
       if (url.pathname === "/api/archive-stats") return json(await archiveStats(env), 200, origin);
       if (url.pathname.startsWith("/admin/archive")) return await archive(req, env, url, origin);
       if (url.pathname.startsWith("/admin")) return await admin(req, env, url);
@@ -183,6 +186,20 @@ async function archiveStats(env) {
   return { ...aggregate(rows, ["source", "near_death", "decade", "language"], 1, 1), sources, codebook: CODEBOOK };
 }
 
+// Archive accounts as map bubbles: one per place, kind, cause, religion and decade, with
+// how often each Greyson item came up, so the bubble can be walked like a study.
+async function archivePins(env) {
+  const { results } = await env.DB.prepare("SELECT source, country, region, experience_type, cause, religion, decade, items FROM archive_codes WHERE experience_type IS NOT NULL AND country != ?").bind(NS).all();
+  const g = {};
+  for (const r of results) {
+    const key = [r.source, r.country, r.region || "", r.experience_type, r.cause, r.religion || NS, r.decade || ""].join("|");
+    const p = g[key] = g[key] || { source: r.source, country: r.country, region: r.region, experience_type: r.experience_type, cause: r.cause, religion: r.religion || NS, decade: r.decade, n: 0, hits: {} };
+    p.n++; const it = JSON.parse(r.items); for (const k of ITEMS) if (it[k] > 0) p.hits[k] = (p.hits[k] || 0) + 1;
+  }
+  const pins = Object.values(g).map(({ hits, ...p }) => ({ ...p, pct: Object.fromEntries(ITEMS.map(k => [k, Math.round(1000 * (hits[k] || 0) / p.n) / 10])) }));
+  return { pins, codebook: CODEBOOK };
+}
+
 // Coding archive accounts: same key as moderation. Saves codes only; any text sent for
 // suggestions is read by the model and dropped, never written anywhere.
 async function archive(req, env, url, origin) {
@@ -198,17 +215,18 @@ async function archive(req, env, url, origin) {
   if (url.pathname === "/admin/archive" && req.method === "POST") {
     const source = SOURCES.includes(b.source) ? b.source : null, ref = normRef(source, b.source_ref);
     if (!source || !ref) return json({ error: "Choose the archive and give the account's ID or link." }, 400, origin);
+    if (!KINDS.includes(b.experience_type)) return json({ error: "Choose the kind of experience, so it can go on the map." }, 400, origin);
     const pick = (v, list) => v === NS ? NS : list.includes(v) ? v : NS;
     const items = {}; let score = 0;
     for (const k of ITEMS) { const v = [0, 1, 2].includes(b.items?.[k]) ? b.items[k] : 0; items[k] = v; score += v; }
     const after = Array.isArray(b.after) ? b.after.filter(a => AFTER.includes(a)).slice(0, 8) : [];
     const short = v => typeof v === "string" && v.trim() && v.length <= 60 ? v.trim() : null;
     const row = [crypto.randomUUID(), source, ref, Date.now(), CODEBOOK, b.method === "ai-assisted" ? "ai-assisted" : "manual", short(b.language),
-      pick(b.near_death, NEAR), pick(b.age_band, AGE), pick(b.sex, SEX), short(b.country) || NS, short(b.region), pick(b.cause, CAUSE),
+      pick(b.near_death, NEAR), b.experience_type, pick(b.age_band, AGE), pick(b.sex, SEX), short(b.country) || NS, short(b.region), pick(b.cause, CAUSE),
       /^(\d{4}s|Before 1960)$/.test(b.decade || "") ? b.decade : null, TONE.includes(b.tone) ? b.tone : null, pick(b.religion, RELIGION),
       JSON.stringify(items), score, JSON.stringify(after)];
-    const r = await env.DB.prepare(`INSERT OR IGNORE INTO archive_codes (id, source, source_ref, coded, codebook, method, language, near_death, age_band, sex, country, region, cause, decade, tone, religion, items, score, after)
-      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).bind(...row).run();
+    const r = await env.DB.prepare(`INSERT OR IGNORE INTO archive_codes (id, source, source_ref, coded, codebook, method, language, near_death, experience_type, age_band, sex, country, region, cause, decade, tone, religion, items, score, after)
+      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).bind(...row).run();
     if (!r.meta.changes) return json({ error: "That account is already coded." }, 409, origin);
     const c = await env.DB.prepare("SELECT COUNT(*) AS c FROM archive_codes").first();
     return json({ ok: true, score, total: c.c }, 200, origin);
