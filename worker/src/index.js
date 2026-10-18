@@ -1,6 +1,6 @@
 // The Threshold Atlas API: anonymous submissions, suppressed aggregates, moderation.
 // Rules: no accounts, no email, no IP stored. Country + region only. k=5 suppression on
-// every public cell. Raw story text is never served; only a redacted copy, and only when
+// every public cell of shared experiences (archive accounts are already public, so theirs is 1). Raw story text is never served; only a redacted copy, and only when
 // the author ticked "publish" and a moderator approved it.
 
 const ITEMS = ["time", "thoughts", "review", "understanding", "peace", "joy", "unity", "light", "senses", "aware", "future", "obe", "world", "presence", "beings", "border"];
@@ -152,24 +152,25 @@ async function stats(env) {
 }
 
 // The same suppressed aggregates over any list of coded rows.
-// mapK: the smallest place shown on the map. Archive accounts are already public, so they map from 1.
-function aggregate(rows, extra = [], mapK = K) {
+// k: the smallest group or place shown; minCharts: how many rows before any chart. Shared
+// experiences are private, so they keep K and 10. Archive accounts are already public: 1 and 1.
+function aggregate(rows, extra = [], k = K, minCharts = 10) {
   const n = rows.length;
   const rate = (rs, k) => rs.length ? Math.round(1000 * rs.filter(r => r.items[k] > 0).length / rs.length) / 10 : null;
   const pct = (rs) => Object.fromEntries(ITEMS.map(k => [k, rate(rs, k)]));
-  const group = (field) => { const g = {}; rows.forEach(r => { (g[r[field] || "Unknown"] = g[r[field] || "Unknown"] || []).push(r); }); return Object.fromEntries(Object.entries(g).filter(([, rs]) => rs.length >= K).map(([key, rs]) => [key, { n: rs.length, pct: pct(rs), mean_score: Math.round(10 * rs.reduce((a, r) => a + r.score, 0) / rs.length) / 10 }])); };
+  const group = (field) => { const g = {}; rows.forEach(r => { (g[r[field] || "Unknown"] = g[r[field] || "Unknown"] || []).push(r); }); return Object.fromEntries(Object.entries(g).filter(([, rs]) => rs.length >= k).map(([key, rs]) => [key, { n: rs.length, pct: pct(rs), mean_score: Math.round(10 * rs.reduce((a, r) => a + r.score, 0) / rs.length) / 10 }])); };
   // Map: one point per country (and per region once it has K or more); smaller regions roll up to the country.
   const geo = {}; rows.forEach(r => { const ck = r.country; geo[ck] = geo[ck] || { country: ck, n: 0, regions: {} }; geo[ck].n++; if (r.region) geo[ck].regions[r.region] = (geo[ck].regions[r.region] || 0) + 1; });
-  const map = Object.values(geo).filter(g => g.n >= mapK).map(g => ({ country: g.country, n: g.n, regions: Object.fromEntries(Object.entries(g.regions).filter(([, c]) => c >= mapK)) }));
+  const map = Object.values(geo).filter(g => g.n >= k).map(g => ({ country: g.country, n: g.n, regions: Object.fromEntries(Object.entries(g.regions).filter(([, c]) => c >= k)) }));
   const scores = rows.map(r => r.score);
   const places = {}; rows.forEach(r => { places[r.country] = (places[r.country] || 0) + 1; });
-  const hidden = Object.values(places).filter(c => c < K).reduce((a, c) => a + c, 0);
+  const hidden = Object.values(places).filter(c => c < k).reduce((a, c) => a + c, 0);
   return {
-    n, k: K, generated: Date.now(),
-    map_hidden: hidden, min_for_charts: 10,
-    overall: n >= 10 ? { pct: pct(rows), mean_score: n ? Math.round(10 * scores.reduce((a, b) => a + b, 0) / n) / 10 : null, nde_share: n ? Math.round(1000 * scores.filter(s => s >= 7).length / n) / 10 : null, tone: Object.fromEntries(TONE.map(t => [t, Math.round(1000 * rows.filter(r => r.tone === t).length / n) / 10])) } : null,
-    by: n >= 10 ? Object.fromEntries(["age_band", "sex", "cause", "country", "religion", ...extra].map(f => [f, group(f)])) : {},
-    after: n >= 10 ? Object.fromEntries(AFTER.map(a => [a, Math.round(1000 * rows.filter(r => r.after.includes(a)).length / n) / 10])) : null,
+    n, k, generated: Date.now(),
+    map_hidden: hidden, min_for_charts: minCharts,
+    overall: n >= minCharts ? { pct: pct(rows), mean_score: n ? Math.round(10 * scores.reduce((a, b) => a + b, 0) / n) / 10 : null, nde_share: n ? Math.round(1000 * scores.filter(s => s >= 7).length / n) / 10 : null, tone: Object.fromEntries(TONE.map(t => [t, Math.round(1000 * rows.filter(r => r.tone === t).length / n) / 10])) } : null,
+    by: n >= minCharts ? Object.fromEntries(["age_band", "sex", "cause", "country", "religion", ...extra].map(f => [f, group(f)])) : {},
+    after: n >= minCharts ? Object.fromEntries(AFTER.map(a => [a, Math.round(1000 * rows.filter(r => r.after.includes(a)).length / n) / 10])) : null,
     map, items: ITEMS
   };
 }
@@ -179,7 +180,7 @@ async function archiveStats(env) {
   const { results } = await env.DB.prepare("SELECT source, language, near_death, age_band, sex, country, region, cause, decade, tone, religion, items, score, after FROM archive_codes").all();
   const rows = results.map(r => ({ ...r, items: JSON.parse(r.items), after: JSON.parse(r.after || "[]") }));
   const sources = {}; rows.forEach(r => { sources[r.source] = (sources[r.source] || 0) + 1; });
-  return { ...aggregate(rows, ["source", "near_death", "decade", "language"], 1), sources, codebook: CODEBOOK };
+  return { ...aggregate(rows, ["source", "near_death", "decade", "language"], 1, 1), sources, codebook: CODEBOOK };
 }
 
 // Coding archive accounts: same key as moderation. Saves codes only; any text sent for

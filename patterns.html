@@ -88,7 +88,7 @@
     <button class="chip" data-split="all" aria-pressed="true">All</button><button class="chip" data-split="source">Archive</button><button class="chip" data-split="near_death">Close to death</button><button class="chip" data-split="cause">Cause</button><button class="chip" data-split="sex">Sex</button><button class="chip" data-split="age_band">Age</button><button class="chip" data-split="country">Country</button><button class="chip" data-split="decade">Decade</button><button class="chip" data-split="language">Language</button>
   </div>
   <div class="grid2" id="arcCharts"></div>
-  <p class="note" style="margin-top:18px">Accounts read on <a href="https://www.nderf.org" target="_blank" rel="noopener">NDERF</a> and <a href="https://iands.org" target="_blank" rel="noopener">IANDS</a> and scored on the Greyson items by this atlas. Only the codes are kept; no account text is copied here. A feature counts only when the writer mentions it, so these rates are a floor. The writers chose to tell their story, so this is not a rate among people who nearly died. Kept apart from both the research figures and what visitors share here. Groups under 5 are never shown; bars are greyed below 30.</p>
+  <p class="note" style="margin-top:18px">Accounts read on <a href="https://www.nderf.org" target="_blank" rel="noopener">NDERF</a> and <a href="https://iands.org" target="_blank" rel="noopener">IANDS</a> and scored on the Greyson items by this atlas. Only the codes are kept; no account text is copied here. A feature counts only when the writer mentions it, so these rates are a floor. The writers chose to tell their story, so this is not a rate among people who nearly died. Kept apart from both the research figures and what visitors share here. Every group is shown, down to a single account, because these accounts are already public; bars are greyed below 30 as a warning that the sample is small.</p>
 </section>
 
 <div id="footer"></div>
@@ -173,7 +173,7 @@ async function archive(CL) {
       TA.bars(document.getElementById("ab2"), Object.entries(st.overall.tone).map(([k, v]) => [k, v, { n: st.n, color: "c3" }]));
     } else {
       const groups = Object.entries(st.by[split] || {});
-      if (!groups.length) { charts.innerHTML = `<p class="muted">No group has 5 accounts yet.</p>`; return; }
+      if (!groups.length) { charts.innerHTML = `<p class="muted">Nothing coded for this split yet.</p>`; return; }
       const cols = ["c1", "c2", "c3", "c4"];
       charts.innerHTML = groups.map(([g, d], i) => `<div class="card"><h3>${g} <span class="muted small">n=${d.n}${grey(d.n) ? ", small sample" : ""}</span></h3><div class="bars" id="ag${i}"></div></div>`).join("");
       groups.forEach(([g, d], i) => TA.bars(document.getElementById("ag" + i), st.items.map(k => [CL[k], d.pct[k], { n: d.n, color: grey(d.n) ? "faint" : cols[i % 4] }]).sort((a, b) => b[1] - a[1]).slice(0, 8)));
