@@ -152,14 +152,15 @@ async function stats(env) {
 }
 
 // The same suppressed aggregates over any list of coded rows.
-function aggregate(rows, extra = []) {
+// mapK: the smallest place shown on the map. Archive accounts are already public, so they map from 1.
+function aggregate(rows, extra = [], mapK = K) {
   const n = rows.length;
   const rate = (rs, k) => rs.length ? Math.round(1000 * rs.filter(r => r.items[k] > 0).length / rs.length) / 10 : null;
   const pct = (rs) => Object.fromEntries(ITEMS.map(k => [k, rate(rs, k)]));
   const group = (field) => { const g = {}; rows.forEach(r => { (g[r[field] || "Unknown"] = g[r[field] || "Unknown"] || []).push(r); }); return Object.fromEntries(Object.entries(g).filter(([, rs]) => rs.length >= K).map(([key, rs]) => [key, { n: rs.length, pct: pct(rs), mean_score: Math.round(10 * rs.reduce((a, r) => a + r.score, 0) / rs.length) / 10 }])); };
   // Map: one point per country (and per region once it has K or more); smaller regions roll up to the country.
   const geo = {}; rows.forEach(r => { const ck = r.country; geo[ck] = geo[ck] || { country: ck, n: 0, regions: {} }; geo[ck].n++; if (r.region) geo[ck].regions[r.region] = (geo[ck].regions[r.region] || 0) + 1; });
-  const map = Object.values(geo).filter(g => g.n >= K).map(g => ({ country: g.country, n: g.n, regions: Object.fromEntries(Object.entries(g.regions).filter(([, c]) => c >= K)) }));
+  const map = Object.values(geo).filter(g => g.n >= mapK).map(g => ({ country: g.country, n: g.n, regions: Object.fromEntries(Object.entries(g.regions).filter(([, c]) => c >= mapK)) }));
   const scores = rows.map(r => r.score);
   const places = {}; rows.forEach(r => { places[r.country] = (places[r.country] || 0) + 1; });
   const hidden = Object.values(places).filter(c => c < K).reduce((a, c) => a + c, 0);
@@ -178,7 +179,7 @@ async function archiveStats(env) {
   const { results } = await env.DB.prepare("SELECT source, language, near_death, age_band, sex, country, region, cause, decade, tone, religion, items, score, after FROM archive_codes").all();
   const rows = results.map(r => ({ ...r, items: JSON.parse(r.items), after: JSON.parse(r.after || "[]") }));
   const sources = {}; rows.forEach(r => { sources[r.source] = (sources[r.source] || 0) + 1; });
-  return { ...aggregate(rows, ["source", "near_death", "decade", "language"]), sources, codebook: CODEBOOK };
+  return { ...aggregate(rows, ["source", "near_death", "decade", "language"], 1), sources, codebook: CODEBOOK };
 }
 
 // Coding archive accounts: same key as moderation. Saves codes only; any text sent for

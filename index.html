@@ -198,7 +198,7 @@
   <details class="more"><summary>How the categories were assigned, and what is missing</summary>
     <p>Each account got the category that fits <i>its own source</i>, not the one tradition assigns it. Plato's Er is not summoned by anyone: he is killed in battle and travels with a crowd, so he sits under a journey.</p>
     <p>Prevalence studies are not on this map. They measure many people at once and have no single shape to place or colour. They are in the chart below, on <a href="patterns.html">Patterns</a> and in <a href="sources.html">Sources</a>.</p>
-    <p><b>The hollow rings are counts, not single experiences.</b> Cream rings are archive accounts (NDERF, IANDS) this atlas has read and coded; pink rings are experiences people shared here. Each sits at the centre of a country, or of a US state once that state has 5 or more. A place with fewer than 5 is left off entirely, so no ring can point at one person. The rings ignore the year, kind, religion and cause filters, because a count has no single year or kind.</p>
+    <p><b>The hollow rings are counts, not single experiences.</b> Cream rings are archive accounts (NDERF, IANDS) this atlas has read and coded; pink rings are experiences people shared here. Each sits at the centre of a country, or of a US state. Archive accounts are already public, so a cream ring appears from a single coded account. Experiences shared here are private, so a pink ring needs 5 or more from a place, and a place with fewer is left off entirely, so no pink ring can point at one person. The rings ignore the year, kind, religion and cause filters, because a count has no single year or kind.</p>
     <p>The timeline runs from 2100 BC to the 2020s, stretched so the crowded last century stays readable. <b>Play the atlas</b> taps through everything like a reel.</p>
   </details>
   <div class="stats">
@@ -327,6 +327,8 @@ const COUNTS = { nderf: [], archive: [], community: [] };
 let NDERF = null;
 const CCOLOR = { nderf: "#9fb4ff", archive: "#efe9dc", community: "#f2a6c0" };
 const CNAME = { nderf: "accounts listed on NDERF", archive: "archive accounts coded here", community: "experiences shared on this site" };
+// smallest count a ring may show: archive accounts are public; shared ones are not
+const FLOOR = { nderf: 5, archive: 1, community: 5 };
 const CENTRE = Object.fromEntries(GEO.countries.map(c => [c.name, [c.lng, c.lat]]));
 const STATE = Object.fromEntries(GEO.us_states.map(c => [c.name, [c.lng, c.lat]]));
 function fcCounts() {
@@ -338,8 +340,8 @@ function fcCounts() {
       if (!CENTRE[g.country]) continue;
       let rest = g.n;
       for (const [reg, n] of Object.entries(g.regions || {})) { if (g.country === "United States" && STATE[reg]) { add(STATE[reg], n, reg, g.country); rest -= n; } }
-      if (rest >= 5) add(CENTRE[g.country], rest, g.country);
-      else if (rest > 0 && rest < g.n) { /* fewer than 5 left over: fold them into the largest region shown */ const f = features.filter(x => x.properties.kind === kind && x.properties.parent === g.country).sort((a, b) => b.properties.n - a.properties.n)[0]; if (f) { f.properties.n += rest; f.properties.label = String(f.properties.n); f.properties.r = ringR(kind, f.properties.n); f.properties.place = `${f.properties.place} and elsewhere in ${g.country}`; } }
+      if (rest >= FLOOR[kind]) add(CENTRE[g.country], rest, g.country);
+      else if (rest > 0 && rest < g.n) { /* too few left over: fold them into the largest region shown */ const f = features.filter(x => x.properties.kind === kind && x.properties.parent === g.country).sort((a, b) => b.properties.n - a.properties.n)[0]; if (f) { f.properties.n += rest; f.properties.label = String(f.properties.n); f.properties.r = ringR(kind, f.properties.n); f.properties.place = `${f.properties.place} and elsewhere in ${g.country}`; } }
       else if (rest > 0) add(CENTRE[g.country], rest, g.country);
     }
   }
